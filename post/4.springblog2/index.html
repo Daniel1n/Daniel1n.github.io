@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Spring Framework 基于注解的IOC配置 // Daniel1n</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.69.2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Daniel1n" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://daniel1n.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring Framework 基于注解的IOC配置"/>
+<meta name="twitter:description" content="第一章 常用注解  1.1 用于创建对象的  1.1.1 @Component 1.1.2 @Controller @Service @Repository   1.2 用于注入数据的  1.2.1 @Autowired 1.2.2 @Qualifier 1.2.3 @Resource 1.2.4 @Value   1.3 用于改变作用范围的：  1.3.1 @Scope   1.4 和生命周期相关的：  1.4.1 @PostConstruct 1.4.2 @PreDestroy   1.5 关于 Spring 注解和 XML 的选择问题  Spring 管理 Bean 方式的比较：     第二章 spring 的纯注解配置  2.1 @Configuration 2.2 @ComponentScan 2.3 @Bean 2.4 @PropertySource 2."/>
+
+    <meta property="og:title" content="Spring Framework 基于注解的IOC配置" />
+<meta property="og:description" content="第一章 常用注解  1.1 用于创建对象的  1.1.1 @Component 1.1.2 @Controller @Service @Repository   1.2 用于注入数据的  1.2.1 @Autowired 1.2.2 @Qualifier 1.2.3 @Resource 1.2.4 @Value   1.3 用于改变作用范围的：  1.3.1 @Scope   1.4 和生命周期相关的：  1.4.1 @PostConstruct 1.4.2 @PreDestroy   1.5 关于 Spring 注解和 XML 的选择问题  Spring 管理 Bean 方式的比较：     第二章 spring 的纯注解配置  2.1 @Configuration 2.2 @ComponentScan 2.3 @Bean 2.4 @PropertySource 2." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://daniel1n.github.io/post/4.springblog2/" />
+<meta property="article:published_time" content="2020-05-06T16:48:48+08:00" />
+<meta property="article:modified_time" content="2020-05-06T16:48:48+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://daniel1n.github.io/"><img class="app-header-avatar" src="/qq1.jpg" alt="Daniel1n" /></a>
+      <h1>Daniel1n</h1>
+      <p>热爱生活，向往自由，脚踏实地，仰望星空。</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/daniel1n" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="https://twitter.com/daniel1n" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg></a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Spring Framework 基于注解的IOC配置</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          May 6, 2020
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          3 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      <!-- raw HTML omitted -->
+<ul>
+<li><a href="#%e7%ac%ac%e4%b8%80%e7%ab%a0-%e5%b8%b8%e7%94%a8%e6%b3%a8%e8%a7%a3">第一章 常用注解</a>
+<ul>
+<li><a href="#11-%e7%94%a8%e4%ba%8e%e5%88%9b%e5%bb%ba%e5%af%b9%e8%b1%a1%e7%9a%84">1.1 用于创建对象的</a>
+<ul>
+<li><a href="#111-component">1.1.1 @Component</a></li>
+<li><a href="#112-controller-service-repository">1.1.2 @Controller  @Service  @Repository</a></li>
+</ul>
+</li>
+<li><a href="#12-%e7%94%a8%e4%ba%8e%e6%b3%a8%e5%85%a5%e6%95%b0%e6%8d%ae%e7%9a%84">1.2 用于注入数据的</a>
+<ul>
+<li><a href="#121-autowired">1.2.1 @Autowired</a></li>
+<li><a href="#122-qualifier">1.2.2 @Qualifier</a></li>
+<li><a href="#123-resource">1.2.3 @Resource</a></li>
+<li><a href="#124-value">1.2.4 @Value</a></li>
+</ul>
+</li>
+<li><a href="#13-%e7%94%a8%e4%ba%8e%e6%94%b9%e5%8f%98%e4%bd%9c%e7%94%a8%e8%8c%83%e5%9b%b4%e7%9a%84">1.3 用于改变作用范围的：</a>
+<ul>
+<li><a href="#131-scope">1.3.1 @Scope</a></li>
+</ul>
+</li>
+<li><a href="#14-%e5%92%8c%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e7%9b%b8%e5%85%b3%e7%9a%84">1.4 和生命周期相关的：</a>
+<ul>
+<li><a href="#141-postconstruct">1.4.1 @PostConstruct</a></li>
+<li><a href="#142-predestroy">1.4.2 @PreDestroy</a></li>
+</ul>
+</li>
+<li><a href="#15-%e5%85%b3%e4%ba%8e-spring-%e6%b3%a8%e8%a7%a3%e5%92%8c-xml-%e7%9a%84%e9%80%89%e6%8b%a9%e9%97%ae%e9%a2%98">1.5 关于 Spring 注解和 XML 的选择问题</a>
+<ul>
+<li><a href="#spring-%e7%ae%a1%e7%90%86-bean-%e6%96%b9%e5%bc%8f%e7%9a%84%e6%af%94%e8%be%83">Spring 管理 Bean 方式的比较：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%e7%ac%ac%e4%ba%8c%e7%ab%a0-spring-%e7%9a%84%e7%ba%af%e6%b3%a8%e8%a7%a3%e9%85%8d%e7%bd%ae">第二章 spring 的纯注解配置</a>
+<ul>
+<li><a href="#21-configuration">2.1 @Configuration</a></li>
+<li><a href="#22-componentscan">2.2 @ComponentScan</a></li>
+<li><a href="#23-bean">2.3 @Bean</a></li>
+<li><a href="#24-propertysource">2.4 @PropertySource</a></li>
+<li><a href="#25-import">2.5 @Import</a></li>
+<li><a href="#26-%e9%80%9a%e8%bf%87%e6%b3%a8%e8%a7%a3%e8%8e%b7%e5%8f%96%e5%ae%b9%e5%99%a8">2.6 通过注解获取容器：</a></li>
+</ul>
+</li>
+<li><a href="#%e7%ac%ac%e4%b8%89%e7%ab%a0-spring-%e6%95%b4%e5%90%88-junit">第三章 Spring 整合 Junit</a>
+<ul>
+<li><a href="#31-%e9%97%ae%e9%a2%98%e4%b8%8e%e5%88%86%e6%9e%90">3.1 问题与分析</a></li>
+<li><a href="#32-%e9%85%8d%e7%bd%ae%e6%ad%a5%e9%aa%a4">3.2 配置步骤</a>
+<ul>
+<li><a href="#321-%e7%ac%ac%e4%b8%80%e6%ad%a5%e6%8b%b7%e8%b4%9d%e6%95%b4%e5%90%88-junit-%e7%9a%84%e5%bf%85%e5%a4%87-jar-%e5%8c%85%e5%88%b0-lib-%e7%9b%ae%e5%bd%95">3.2.1 第一步：拷贝整合 junit 的必备 jar 包到 lib 目录</a></li>
+<li><a href="#322-%e7%ac%ac%e4%ba%8c%e6%ad%a5%e4%bd%bf%e7%94%a8runwith-%e6%b3%a8%e8%a7%a3%e6%9b%bf%e6%8d%a2%e5%8e%9f%e6%9c%89%e8%bf%90%e8%a1%8c%e5%99%a8">3.2.2 第二步：使用@RunWith 注解替换原有运行器</a></li>
+<li><a href="#323-%e7%ac%ac%e4%b8%89%e6%ad%a5%e4%bd%bf%e7%94%a8contextconfiguration-%e6%8c%87%e5%ae%9a-spring-%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e7%9a%84%e4%bd%8d%e7%bd%ae">3.2.3 第三步：使用@ContextConfiguration 指定 spring 配置文件的位置</a></li>
+<li><a href="#324-%e7%ac%ac%e5%9b%9b%e6%ad%a5%e4%bd%bf%e7%94%a8autowired-%e7%bb%99%e6%b5%8b%e8%af%95%e7%b1%bb%e4%b8%ad%e7%9a%84%e5%8f%98%e9%87%8f%e6%b3%a8%e5%85%a5%e6%95%b0%e6%8d%ae">3.2.4 第四步：使用@Autowired 给测试类中的变量注入数据</a></li>
+</ul>
+</li>
+<li><a href="#33-%e4%b8%ba%e4%bb%80%e4%b9%88%e4%b8%8d%e6%8a%8a%e6%b5%8b%e8%af%95%e7%b1%bb%e9%85%8d%e5%88%b0-xml-%e4%b8%ad">3.3 为什么不把测试类配到 xml 中</a></li>
+</ul>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<h1 id="第一章-常用注解">第一章 常用注解</h1>
+<h2 id="11-用于创建对象的">1.1 用于创建对象的</h2>
+<pre><code>相当于：&lt;bean id=&quot;&quot; class=&quot;&quot;&gt;
+</code></pre>
+<h3 id="111-component">1.1.1 @Component</h3>
+<pre><code>作用：
+    把资源让 spring 来管理。相当于在 xml 中配置一个 bean。
+属性：
+    value：指定 bean 的 id。如果不指定 value 属性，默认 bean 的 id 是当前类类名。首字母小写。
+</code></pre>
+<h3 id="112-controller--service--repository">1.1.2 @Controller  @Service  @Repository</h3>
+<pre><code>他们三个注解都是针对一个的衍生注解，他们的作用及属性都是一模一样的。
+他们只不过是提供了更加明确的语义化。
+    @Controller：一般用于表现层的注解。
+    @Service：一般用于业务层的注解。
+    @Repository：一般用于持久层的注解。
+细节：如果注解中有且只有一个属性要赋值时，且名称是 value，value 在赋值是可不写。
+</code></pre>
+<h2 id="12-用于注入数据的">1.2 用于注入数据的</h2>
+<pre><code>相当于： &lt;property name=&quot;&quot; ref=&quot;&quot;&gt; 
+        &lt;property name=&quot;&quot; value=&quot;&quot;&gt;
+</code></pre>
+<h3 id="121-autowired">1.2.1 @Autowired</h3>
+<pre><code>作用：
+    自动按照类型注入。当使用注解注入属性时，set 方法可以省略。
+    它只能注入其他bean 类型。
+    当有多个类型匹配时，使用要注入的对象变量名称作为 bean 的 id，
+    在 spring 容器查找，找到了也可以注入成功。找不到就报错。
+</code></pre>
+<h3 id="122-qualifier">1.2.2 @Qualifier</h3>
+<pre><code>作用：
+    在自动按照类型注入的基础之上，再按照 Bean 的 id 注入。
+    它在给字段注入时不能独立使用，必须和@Autowire 一起使用；
+    但是给方法参数注入时，可以独立使用。
+属性：
+    value：指定 bean 的 id。
+</code></pre>
+<h3 id="123-resource">1.2.3 @Resource</h3>
+<pre><code>作用：
+    直接按照 Bean 的 id 注入。它也只能注入其他 bean 类型。
+属性：
+    name：指定 bean 的 id。
+</code></pre>
+<h3 id="124-value">1.2.4 @Value</h3>
+<pre><code>作用：
+    注入基本数据类型和 String 类型数据的
+属性：
+    value：用于指定值
+</code></pre>
+<h2 id="13-用于改变作用范围的">1.3 用于改变作用范围的：</h2>
+<pre><code>相当于：&lt;bean id=&quot;&quot; class=&quot;&quot; scope=&quot;&quot;&gt;
+</code></pre>
+<h3 id="131-scope">1.3.1 @Scope</h3>
+<pre><code>作用：
+    指定 bean 的作用范围。
+属性：
+    value：指定范围的值。
+    取值：singleton prototype request session globalsession
+</code></pre>
+<h2 id="14-和生命周期相关的">1.4 和生命周期相关的：</h2>
+<pre><code>相当于：&lt;bean id=&quot;&quot; class=&quot;&quot; init-method=&quot;&quot; destroy-method=&quot;&quot; /&gt;
+</code></pre>
+<h3 id="141-postconstruct">1.4.1 @PostConstruct</h3>
+<pre><code>作用：
+    用于指定初始化方法。
+</code></pre>
+<h3 id="142-predestroy">1.4.2 @PreDestroy</h3>
+<pre><code>作用：
+    用于指定销毁方法。
+</code></pre>
+<h2 id="15-关于-spring-注解和-xml-的选择问题">1.5 关于 Spring 注解和 XML 的选择问题</h2>
+<pre><code>注解的优势：
+    配置简单，维护方便（我们找到类，就相当于找到了对应的配置）。
+XML 的优势：
+    修改时，不用改源码。不涉及重新编译和部署。
+</code></pre>
+<h3 id="spring-管理-bean-方式的比较">Spring 管理 Bean 方式的比较：</h3>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">基于XML配置</th>
+<th align="left">基于注解配置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Bean定义</td>
+<td align="left">&lt;bean id=&rdquo;&hellip;&rdquo; class=&rdquo;&hellip;&gt;</td>
+<td align="left">@Component 衍生类@Repository <!-- raw HTML omitted --> @Service @Controller</td>
+</tr>
+<tr>
+<td align="left">Bean名称</td>
+<td align="left">通过id或name指定</td>
+<td align="left">@Component(&ldquo;person&rdquo;)</td>
+</tr>
+<tr>
+<td align="left">Bean注入</td>
+<td align="left">&lt; property &gt;或者通过p命名空间</td>
+<td align="left">@Autowired按类型注入<!-- raw HTML omitted --> @Qualifier按名称注入</td>
+</tr>
+<tr>
+<td align="left">生命过程</td>
+<td align="left">init-method<!-- raw HTML omitted --> destroy-method</td>
+<td align="left">@PostConstruct初始化<!-- raw HTML omitted -->@PerDestroy 销毁</td>
+</tr>
+<tr>
+<td align="left">Bean作用范围</td>
+<td align="left">范围scpoe属性</td>
+<td align="left">@Scope设置作用范围</td>
+</tr>
+<tr>
+<td align="left">适用场景</td>
+<td align="left">Bean来自第三方，使用其他</td>
+<td align="left">Bean的实现类由用户自己开发</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="第二章-spring-的纯注解配置">第二章 spring 的纯注解配置</h1>
+<h2 id="21-configuration">2.1 @Configuration</h2>
+<pre><code>作用：
+    用于指定当前类是一个 spring 配置类，当创建容器时会从该类上加载注解。获取容器时需要使用
+    AnnotationApplicationContext(有@Configuration 注解的类.class)。
+属性：
+    value:用于指定配置类的字节码
+</code></pre>
+<pre><code>示例代码：
+/**
+* spring 的配置类，相当于 bean.xml 文件
+*/
+@Configuration
+public class SpringConfiguration {
+}
+</code></pre><h2 id="22-componentscan">2.2 @ComponentScan</h2>
+<pre><code>作用：
+    用于指定 spring 在初始化容器时要扫描的包。作用和在 spring 的 xml 配置文件中的：
+    &lt;context:component-scan base-package=&quot;com.itheima&quot;/&gt;是一样的。
+属性：
+    basePackages：用于指定要扫描的包。和该注解中的 value 属性作用一样。
+</code></pre>
+<pre><code>示例代码：
+/**
+* spring 的配置类，相当于 bean.xml 文件
+*/
+@Configuration
+@ComponentScan(&quot;com.itheima&quot;)
+public class SpringConfiguration {
+}
+</code></pre><h2 id="23-bean">2.3 @Bean</h2>
+<pre><code>作用：
+    该注解只能写在方法上，表明使用此方法创建一个对象，并且放入 spring 容器。
+属性：
+    name：给当前@Bean 注解方法创建的对象指定一个名称(即 bean 的 id）
+</code></pre>
+<pre><code>/**
+* 连接数据库的配置类
+*/
+public class JdbcConfig {
+    /**
+    * 创建一个数据源，并存入 spring 容器中
+    * @return
+    */
+    @Bean(name=&quot;dataSource&quot;)
+    public DataSource createDataSource() {
+        try {
+            ComboPooledDataSource ds = new ComboPooledDataSource();
+            ds.setUser(&quot;root&quot;);
+            ds.setPassword(&quot;1234&quot;);
+            ds.setDriverClass(&quot;com.mysql.jdbc.Driver&quot;);
+            ds.setJdbcUrl(&quot;jdbc:mysql:///spring_day02&quot;);
+            return ds;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } 
+    }
+    /**
+    * 创建一个 DBAssit，并且也存入 spring 容器中
+    * @param dataSource
+    * @return
+    */
+    @Bean(name=&quot;dbAssit&quot;)
+    public DBAssit createDBAssit(DataSource dataSource) {
+        return new DBAssit(dataSource);
+    } 
+}
+</code></pre><h2 id="24-propertysource">2.4 @PropertySource</h2>
+<pre><code>作用：
+    用于加载.properties 文件中的配置。例如我们配置数据源时，可以把连接数据库的信息,
+    写到properties 配置文件中，就可以使用此注解指定 properties 配置文件的位置。
+属性：
+    value[]：用于指定 properties 文件位置。如果是在类路径下，
+    需要写上 classpath:
+</code></pre>
+<pre><code>配置：
+/**
+* 连接数据库的配置类
+*/
+public class JdbcConfig {
+    @Value(&quot;${jdbc.driver}&quot;)
+    private String driver;
+    @Value(&quot;${jdbc.url}&quot;)
+    private String url;
+    @Value(&quot;${jdbc.username}&quot;)
+    private String username;
+    @Value(&quot;${jdbc.password}&quot;)
+    private String password;
+
+    /**
+    * 创建一个数据源，并存入 spring 容器中
+    * @return
+    */
+    @Bean(name=&quot;dataSource&quot;)
+    public DataSource createDataSource() {
+        try {
+            ComboPooledDataSource ds = new ComboPooledDataSource();
+            ds.setDriverClass(driver);
+            ds.setJdbcUrl(url);
+            ds.setUser(username);
+            ds.setPassword(password);
+            return ds;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } 
+    } 
+}
+</code></pre><pre><code>jdbc.properties 文件：
+jdbc.driver=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql://localhost:3306/day44_ee247_spring
+jdbc.username=root
+jdbc.password=1234
+</code></pre><h2 id="25-import">2.5 @Import</h2>
+<pre><code>作用：
+    用于导入其他配置类，在引入其他配置类时，
+    可以不用再写@Configuration 注解。当然，写上也没问题。
+属性：
+    value[]：用于指定其他配置类的字节码。
+</code></pre>
+<pre><code>示例代码：
+@Configuration
+@ComponentScan(basePackages = &quot;com.itheima.spring&quot;) 
+@Import({ JdbcConfig.class})
+public class SpringConfiguration { }
+
+@Configuration
+@PropertySource(&quot;classpath:jdbc.properties&quot;)
+public class JdbcConfig{
+}
+</code></pre><h2 id="26-通过注解获取容器">2.6 通过注解获取容器：</h2>
+<pre><code>ApplicationContext ac = 
+new AnnotationConfigApplicationContext(SpringConfiguration.class);
+</code></pre>
+<h1 id="第三章-spring-整合-junit">第三章 Spring 整合 Junit</h1>
+<h2 id="31-问题与分析">3.1 问题与分析</h2>
+<pre><code>在测试类中，每个测试方法都有以下两行代码：
+    ApplicationContext ac = new ClassPathXmlApplicationContext(&quot;bean.xml&quot;);
+    IAccountService as = ac.getBean(&quot;accountService&quot;,IAccountService.class);
+这两行代码的作用是获取容器，如果不写的话，直接会提示空指针异常。所以又不能轻易删掉。
+
+针对上述问题，我们需要的是程序能自动帮我们创建容器。
+一旦程序能自动为我们创建 spring 容器，
+我们就无须手动创建了，问题也就解决了。
+junit 是无法实现的，因为它自己都无法知晓我们是否使用了 spring 框架，
+更不用说帮我们创建 spring 容器了。不过好在，junit 给我们暴露了一个注解，
+可以让我们替换掉它的运行器。
+这时，我们需要依靠 spring 框架，因为它提供了一个运行器，
+可以读取配置文件（或注解）来创建容器。
+我们只需要告诉它配置文件在哪就行了。
+</code></pre>
+<h2 id="32-配置步骤">3.2 配置步骤</h2>
+<h3 id="321-第一步拷贝整合-junit-的必备-jar-包到-lib-目录">3.2.1 第一步：拷贝整合 junit 的必备 jar 包到 lib 目录</h3>
+<pre><code>spring-test-5.0.2.RELEASE.JAR
+spring-aop-5.0.2.RELEASE.JAR
+</code></pre>
+<h3 id="322-第二步使用runwith-注解替换原有运行器">3.2.2 第二步：使用@RunWith 注解替换原有运行器</h3>
+<pre><code>/**
+* 测试类
+*/
+@RunWith(SpringJUnit4ClassRunner.class)
+public class AccountServiceTest {
+}
+</code></pre>
+<h3 id="323-第三步使用contextconfiguration-指定-spring-配置文件的位置">3.2.3 第三步：使用@ContextConfiguration 指定 spring 配置文件的位置</h3>
+<pre><code>/**
+* 测试类
+*/
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations= {&quot;classpath:bean.xml&quot;})
+public class AccountServiceTest {
+}
+</code></pre><pre><code>@ContextConfiguration 注解：
+    locations 属性：用于指定配置文件的位置。如果是类路径下，需要用 classpath:表明
+    classes 属性：用于指定注解的类。当不使用 xml 配置时，需要用此属性指定注解类的位置。
+</code></pre>
+<h3 id="324-第四步使用autowired-给测试类中的变量注入数据">3.2.4 第四步：使用@Autowired 给测试类中的变量注入数据</h3>
+<pre><code>/**
+* 测试类
+*/
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations= {&quot;classpath:bean.xml&quot;})
+public class AccountServiceTest {
+    @Autowired
+    private IAccountService as ; 
+}
+</code></pre>
+<h2 id="33-为什么不把测试类配到-xml-中">3.3 为什么不把测试类配到 xml 中</h2>
+<pre><code>第一：当我们在 xml 中配置了一个 bean，spring 加载配置文件创建容器时，就会创建对象。
+第二：测试类只是我们在测试功能时使用，而在项目中它并不参与程序逻辑，
+也不会解决需求上的问题，所以创建完了，并没有使用。那么存在容器中就会造成资源的浪费。
+所以，基于以上两点，我们不应该把测试配置到 xml 文件中</code></pre>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Spring Framework 基于XML的IOC配置 // Daniel1n</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.69.2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Daniel1n" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://daniel1n.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring Framework 基于XML的IOC配置"/>
+<meta name="twitter:description" content="第一章 Spring概述  1.1 spring是什么 1.2 Spring的发展历程 1.3 Spring 的优势 1.4 Spring的体系结构   第二章 IoC的概念和作用  2.1 什么是程序的耦合 2.2 解决程序耦合的思路 2.3 工厂模式解耦 2.4 控制反转-Inversion Of Control   第三章 使用 Spring的IOC 解决程序耦合  3.1 前期准备  3.1.1 准备Spring的开发包 3.1.2 创建业务层接口和实现类 3.1.3 创建持久层接口和实现类   3.2 基于 XML 的配置  3.2.1 让spring管理资源，在配置文件中配置service和dao 3.2.2 测试配置是否成功   3.3 spring中的工厂的类结构图  3.3.1 BeanFactory 和 ApplicationContext 的区别 3.3.2 ApplicationContext 接口的实现类   3."/>
+
+    <meta property="og:title" content="Spring Framework 基于XML的IOC配置" />
+<meta property="og:description" content="第一章 Spring概述  1.1 spring是什么 1.2 Spring的发展历程 1.3 Spring 的优势 1.4 Spring的体系结构   第二章 IoC的概念和作用  2.1 什么是程序的耦合 2.2 解决程序耦合的思路 2.3 工厂模式解耦 2.4 控制反转-Inversion Of Control   第三章 使用 Spring的IOC 解决程序耦合  3.1 前期准备  3.1.1 准备Spring的开发包 3.1.2 创建业务层接口和实现类 3.1.3 创建持久层接口和实现类   3.2 基于 XML 的配置  3.2.1 让spring管理资源，在配置文件中配置service和dao 3.2.2 测试配置是否成功   3.3 spring中的工厂的类结构图  3.3.1 BeanFactory 和 ApplicationContext 的区别 3.3.2 ApplicationContext 接口的实现类   3." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://daniel1n.github.io/post/3.springblog1/" />
+<meta property="article:published_time" content="2020-05-05T20:21:05+08:00" />
+<meta property="article:modified_time" content="2020-05-05T20:21:05+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://daniel1n.github.io/"><img class="app-header-avatar" src="/qq1.jpg" alt="Daniel1n" /></a>
+      <h1>Daniel1n</h1>
+      <p>热爱生活，向往自由，脚踏实地，仰望星空。</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/daniel1n" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="https://twitter.com/daniel1n" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg></a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Spring Framework 基于XML的IOC配置</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          May 5, 2020
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          6 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      <!-- raw HTML omitted -->
+<ul>
+<li><a href="#%e7%ac%ac%e4%b8%80%e7%ab%a0-spring%e6%a6%82%e8%bf%b0">第一章 Spring概述</a>
+<ul>
+<li><a href="#11-spring%e6%98%af%e4%bb%80%e4%b9%88">1.1  <strong>spring是什么</strong></a></li>
+<li><a href="#12-spring%e7%9a%84%e5%8f%91%e5%b1%95%e5%8e%86%e7%a8%8b">1.2  <strong>Spring的发展历程</strong></a></li>
+<li><a href="#13-spring-%e7%9a%84%e4%bc%98%e5%8a%bf">1.3  <strong>Spring 的优势</strong></a></li>
+<li><a href="#14-spring%e7%9a%84%e4%bd%93%e7%b3%bb%e7%bb%93%e6%9e%84">1.4  <strong>Spring的体系结构</strong></a></li>
+</ul>
+</li>
+<li><a href="#%e7%ac%ac%e4%ba%8c%e7%ab%a0-ioc%e7%9a%84%e6%a6%82%e5%bf%b5%e5%92%8c%e4%bd%9c%e7%94%a8">第二章  IoC的概念和作用</a>
+<ul>
+<li><a href="#21-%e4%bb%80%e4%b9%88%e6%98%af%e7%a8%8b%e5%ba%8f%e7%9a%84%e8%80%a6%e5%90%88">2.1  <strong>什么是程序的耦合</strong></a></li>
+<li><a href="#22-%e8%a7%a3%e5%86%b3%e7%a8%8b%e5%ba%8f%e8%80%a6%e5%90%88%e7%9a%84%e6%80%9d%e8%b7%af">2.2  <strong>解决程序耦合的思路</strong></a></li>
+<li><a href="#23-%e5%b7%a5%e5%8e%82%e6%a8%a1%e5%bc%8f%e8%a7%a3%e8%80%a6">2.3  <strong>工厂模式解耦</strong></a></li>
+<li><a href="#24-%e6%8e%a7%e5%88%b6%e5%8f%8d%e8%bd%ac-inversion-of-control">2.4  <strong>控制反转-Inversion Of Control</strong></a></li>
+</ul>
+</li>
+<li><a href="#%e7%ac%ac%e4%b8%89%e7%ab%a0-%e4%bd%bf%e7%94%a8-spring%e7%9a%84ioc-%e8%a7%a3%e5%86%b3%e7%a8%8b%e5%ba%8f%e8%80%a6%e5%90%88">第三章  使用 Spring的IOC 解决程序耦合</a>
+<ul>
+<li><a href="#31-%e5%89%8d%e6%9c%9f%e5%87%86%e5%a4%87">3.1 前期准备</a>
+<ul>
+<li><a href="#311-%e5%87%86%e5%a4%87spring%e7%9a%84%e5%bc%80%e5%8f%91%e5%8c%85">3.1.1  <strong>准备Spring的开发包</strong></a></li>
+<li><a href="#312-%e5%88%9b%e5%bb%ba%e4%b8%9a%e5%8a%a1%e5%b1%82%e6%8e%a5%e5%8f%a3%e5%92%8c%e5%ae%9e%e7%8e%b0%e7%b1%bb">3.1.2  <strong>创建业务层接口和实现类</strong></a></li>
+<li><a href="#313-%e5%88%9b%e5%bb%ba%e6%8c%81%e4%b9%85%e5%b1%82%e6%8e%a5%e5%8f%a3%e5%92%8c%e5%ae%9e%e7%8e%b0%e7%b1%bb">3.1.3  <strong>创建持久层接口和实现类</strong></a></li>
+</ul>
+</li>
+<li><a href="#32-%e5%9f%ba%e4%ba%8e-xml-%e7%9a%84%e9%85%8d%e7%bd%ae">3.2  <strong>基于</strong> <strong>XML</strong> <strong>的配置</strong></a>
+<ul>
+<li><a href="#321-%e8%ae%a9spring%e7%ae%a1%e7%90%86%e8%b5%84%e6%ba%90%e5%9c%a8%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e4%b8%ad%e9%85%8d%e7%bd%aeservice%e5%92%8cdao">3.2.1  <strong>让spring管理资源，在配置文件中配置service和dao</strong></a></li>
+<li><a href="#322-%e6%b5%8b%e8%af%95%e9%85%8d%e7%bd%ae%e6%98%af%e5%90%a6%e6%88%90%e5%8a%9f">3.2.2 <strong>测试配置是否成功</strong></a></li>
+</ul>
+</li>
+<li><a href="#33-spring%e4%b8%ad%e7%9a%84%e5%b7%a5%e5%8e%82%e7%9a%84%e7%b1%bb%e7%bb%93%e6%9e%84%e5%9b%be">3.3  <strong>spring中的工厂的类结构图</strong></a>
+<ul>
+<li><a href="#331-beanfactory-%e5%92%8c-applicationcontext-%e7%9a%84%e5%8c%ba%e5%88%ab">3.3.1   <strong>BeanFactory</strong> <strong>和</strong> <strong>ApplicationContext</strong> <strong>的区别</strong></a></li>
+<li><a href="#332-applicationcontext-%e6%8e%a5%e5%8f%a3%e7%9a%84%e5%ae%9e%e7%8e%b0%e7%b1%bb">3.3.2  <strong>ApplicationContext</strong> <strong>接口的实现类</strong></a></li>
+</ul>
+</li>
+<li><a href="#34-ioc-%e4%b8%ad-bean-%e6%a0%87%e7%ad%be%e5%92%8c%e7%ae%a1%e7%90%86%e5%af%b9%e8%b1%a1%e7%bb%86%e8%8a%82">3.4 <strong>IOC</strong> <strong>中</strong> <strong>bean</strong> <strong>标签和管理对象细节</strong></a>
+<ul>
+<li><a href="#341-bean-%e6%a0%87%e7%ad%be">3.4.1 <strong>bean</strong> <strong>标签</strong></a></li>
+<li><a href="#342-bean-%e7%9a%84%e4%bd%9c%e7%94%a8%e8%8c%83%e5%9b%b4%e5%92%8c%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f">3.4.2 <strong>bean</strong> <strong>的作用范围和生命周期</strong></a></li>
+<li><a href="#343-%e5%ae%9e%e4%be%8b%e5%8c%96-bean-%e7%9a%84%e4%b8%89%e7%a7%8d%e6%96%b9%e5%bc%8f">3.4.3 <strong>实例化</strong> <strong>Bean</strong> <strong>的三种方式</strong></a></li>
+</ul>
+</li>
+<li><a href="#35-spring-%e7%9a%84%e4%be%9d%e8%b5%96%e6%b3%a8%e5%85%a5">3.5 <strong>spring</strong> <strong>的依赖注入</strong></a>
+<ul>
+<li><a href="#351-%e4%be%9d%e8%b5%96%e6%b3%a8%e5%85%a5%e7%9a%84%e6%a6%82%e5%bf%b5">3.5.1 <strong>依赖注入的概念</strong></a></li>
+<li><a href="#352-%e6%9e%84%e9%80%a0%e5%87%bd%e6%95%b0%e6%b3%a8%e5%85%a5">3.5.2 <strong>构造函数注入</strong></a></li>
+<li><a href="#353-set-%e6%96%b9%e6%b3%95%e6%b3%a8%e5%85%a5">3.5.3 <strong>set</strong> <strong>方法注入</strong></a></li>
+<li><a href="#354-%e6%b3%a8%e5%85%a5%e9%9b%86%e5%90%88%e5%b1%9e%e6%80%a7">3.5.4 <strong>注入集合属性</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<h1 id="第一章-spring概述">第一章 Spring概述</h1>
+<p>Spring框架为任何类型的部署平台上的基于Java的现代企业应用程序提供了全面的编程和配置模型。</p>
+<p>Spring的一个关键元素是在应用程序级别的基础架构支持：Spring专注于企业应用程序的“管道”，以便团队可以专注于应用程序级别的业务逻辑，而不必与特定的部署环境建立不必要的联系。</p>
+<p>特征：</p>
+<ul>
+<li>核心技术：依赖项注入，事件，资源，i18n，验证，数据绑定，类型转换，SpEL，AOP。</li>
+<li>测试：模拟对象，TestContext框架，Spring MVC测试，WebTestClient。</li>
+<li>数据访问：事务，DAO支持，JDBC，ORM，封送XML。</li>
+<li>Spring MVC和 Spring WebFlux Web框架。</li>
+<li>集成：远程处理，JMS，JCA，JMX，电子邮件，任务，调度，缓存。</li>
+<li>语言：Kotlin，Groovy，动态语言。</li>
+</ul>
+<hr>
+<h2 id="11--spring是什么">1.1  <strong>spring是什么</strong></h2>
+<p>​	Spring 是分层的 Java SE/EE 应用 full-stack 轻量级开源框架，以 IoC（Inverse Of Control：反转控制）和 AOP（Aspect Oriented Programming：面向切面编程）为内核，提供了展现层 Spring MVC 和持久层 Spring JDBC 以及业务层事务管理等众多的企业级应用技术，还能整合开源世界众多著名的第三方框架和类库，逐渐成为使用最多的 Java EE 企业应用开源框架。</p>
+<hr>
+<h2 id="12--spring的发展历程">1.2  <strong>Spring的发展历程</strong></h2>
+<p>1997 年 IBM 提出了 EJB 的思想</p>
+<p>1998 年，SUN 制定开发标准规范 EJB1.0</p>
+<p>1999 年，EJB1.1 发布</p>
+<p>2001 年，EJB2.0 发布</p>
+<p>2003 年，EJB2.1 发布</p>
+<p>2006 年，EJB3.0 发布</p>
+<p><strong>Rod Johnson（spring 之父）</strong></p>
+<p>Expert One-to-One J2EE Design and Development(2002)</p>
+<p>阐述了 J2EE 使用 EJB 开发设计的优点及解决方案</p>
+<p>Expert One-to-One J2EE Development without EJB(2004)</p>
+<p>阐述了 J2EE 开发不使用 EJB 的解决方式（Spring 雏形）</p>
+<p><strong>目前 spring 的最新版本 spring 5.2.6 通用版（GA）</strong></p>
+<p><strong>[Spring Framework 5.2.6、5.1.15、5.0.17和4.3.27现在可用]</strong></p>
+<hr>
+<h2 id="13--spring-的优势">1.3  <strong>Spring 的优势</strong></h2>
+<p><strong>方便解耦，简化开发</strong></p>
+<p>通过 Spring 提供的 IoC 容器，可以将对象间的依赖关系交由 Spring 进行控制，避免硬编码所造成的过度程序耦合。用户也不必再为单例模式类、属性文件解析等这些很底层的需求编写代码，可以更专注于上层的应用。</p>
+<p><strong>AOP</strong> <strong>编程的支持</strong></p>
+<p>通过 Spring 的 AOP 功能，方便进行面向切面的编程，许多不容易用传统 OOP 实现的功能可以通过 AOP 轻松应付。</p>
+<p><strong>声明式事务的支持</strong></p>
+<p>可以将我们从单调烦闷的事务管理代码中解脱出来，通过声明式方式灵活的进行事务的管理，提高开发效率和质量。</p>
+<p><strong>方便程序的测试</strong></p>
+<p>可以用非容器依赖的编程方式进行几乎所有的测试工作，测试不再是昂贵的操作，而是随手可做的事情。</p>
+<p><strong>方便集成各种优秀框架</strong></p>
+<p>Spring 可以降低各种框架的使用难度，提供了对各种优秀框架（Struts、Hibernate、Hessian、Quartz等）的直接支持。</p>
+<p><strong>降低</strong> <strong>JavaEE API</strong> <strong>的使用难度</strong></p>
+<p>Spring 对 JavaEE API（如 JDBC、JavaMail、远程调用等）进行了薄薄的封装层，使这些 API 的使用难度大为降低。</p>
+<p><strong>Java</strong> <strong>源码是经典学习范例</strong></p>
+<p>Spring 的源代码设计精妙、结构清晰、匠心独用，处处体现着大师对 Java 设计模式灵活运用以及对 Java 技术的高深造诣。它的源代码无意是 Java 技术的最佳实践的范例。</p>
+<h2 id="14--spring的体系结构">1.4  <strong>Spring的体系结构</strong></h2>
+<p><img src="images/spring-overview.png" alt="image"></p>
+<!-- raw HTML omitted -->
+<hr>
+<h1 id="第二章--ioc的概念和作用">第二章  IoC的概念和作用</h1>
+<h2 id="21--什么是程序的耦合">2.1  <strong>什么是程序的耦合</strong></h2>
+<ul>
+<li>​耦合性(Coupling)，也叫耦合度，是对模块间关联程度的度量。耦合的强弱取决于模块间接口的复杂性、调</li>
+</ul>
+<p>用模块的方式以及通过界面传送数据的多少。模块间的耦合度是指模块之间的依赖关系，包括控制关系、调用关</p>
+<p>系、数据传递关系。模块间联系越多，其耦合性越强，同时表明其独立性越差( 降低耦合性，可以提高其独立</p>
+<p>性)。耦合性存在于各个领域，而非软件设计中独有的，但是我们只讨论软件工程中的耦合。</p>
+<ul>
+<li>在软件工程中，耦合指的就是就是对象之间的依赖性。对象之间的耦合越高，维护成本越高。因此对象的设计</li>
+</ul>
+<p>应使类和构件之间的耦合最小。软件设计中通常用耦合度和内聚度作为衡量模块独立程度的标准。</p>
+<ul>
+<li><strong>划分模块的一个准则就是高内聚低耦合。</strong></li>
+</ul>
+<hr>
+<p>​	<strong>它有如下分类：</strong></p>
+<ol>
+<li>内容耦合。当一个模块直接修改或操作另一个模块的数据时，或一个模块不通过正常入口而转入另一个模块时，这样的耦合被称为内容耦合。内容耦合是最高程度的耦合，应该避免使用之。</li>
+<li>公共耦合。两个或两个以上的模块共同引用一个全局数据项，这种耦合被称为公共耦合。在具有大量公共耦合的结构中，确定究竟是哪个模块给全局变量赋了一个特定的值是十分困难的。</li>
+<li>外部耦合 。一组模块都访问同一全局简单变量而不是同一全局数据结构，而且不是通过参数表传递该全局变量的信息，则称之为外部耦合。</li>
+<li>控制耦合 。一个模块通过接口向另一个模块传递一个控制信号，接受信号的模块根据信号值而进行适当的动作，这种耦合被称为控制耦合。</li>
+<li>标记耦合 。若一个模块 A 通过接口向两个模块 B 和 C 传递一个公共参数，那么称模块 B 和 C 之间存在一个标记耦合。</li>
+<li>数据耦合。模块之间通过参数来传递数据，那么被称为数据耦合。数据耦合是最低的一种耦合形式，系统中一般都存在这种类型的耦合，因为为了完成一些有意义的功能，往往需要将某些模块的输出数据作为另一些模块的输入数据。</li>
+<li>非直接耦合 。两个模块之间没有直接关系，它们之间的联系完全是通过主模块的控制和调用来实现的。</li>
+</ol>
+<p><strong>总结：</strong></p>
+<ul>
+<li>耦合是影响软件复杂程度和设计质量的一个重要因素，在设计上我们应采用以下原则：如果模块间必须存在耦合，就尽量使用数据耦合，少用控制耦合，限制公共耦合的范围，尽量避免使用内容耦合。</li>
+</ul>
+<p><strong>内聚与耦合</strong></p>
+<ul>
+<li>
+<p>​内聚标志一个模块内各个元素彼此结合的紧密程度，它是信息隐蔽和局部化概念的自然扩展。内聚是从功能角度来度量模块内的联系，一个好的内聚模块应当恰好做一件事。它描述的是模块内的功能联系。耦合是软件结构中各模块之间相互连接的一种度量，耦合强弱取决于模块间接口的复杂程度、进入或访问一个模块的点以及通过接口的数据。 程序讲究的是低耦合，高内聚。就是同一个模块内的各个元素之间要高度紧密，但是各个模块之间的相互依存度却要不那么紧密。</p>
+</li>
+<li>
+<p>内聚和耦合是密切相关的，同其他模块存在高耦合的模块意味着低内聚，而高内聚的模块意味着该模块同其他模块之间是低耦合。在进行软件设计时，应力争做到高内聚，低耦合。</p>
+</li>
+</ul>
+<pre><code>我们在开发中，有些依赖关系是必须的，有些依赖关系可以通过优化代码来解除的。
+
+public class AccountServiceImpl implements IAccountService {
+	private IAccountDao accountDao = new AccountDaoImpl();
+}
+
+上面的代码表示：
+业务层调用持久层，并且此时业务层在依赖持久层的接口和实现类。
+如果此时没有持久层实现类，编译将不能通过。这种编译期依赖关系，应该在我们开发中杜绝。我们需要优化代码解决。
+
+
+再比如：
+早期我们的 JDBC 操作，注册驱动时，我们为什么不使用 DriverManager 的 register 方法，而是采用 Class.forName 的方式？
+
+public class JdbcDemo1 {
+	public static void main(String[] args) throws Exception {
+	//1.注册驱动
+	//DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+	Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
+	//2.获取连接
+	//3.获取预处理 sql 语句对象
+	//4.获取结果集
+	//5.遍历结果集
+	} 
+}
+
+原因就是：
+我们的类依赖了数据库的具体驱动类（MySQL），如果这时候更换了数据库品牌（比如 Oracle），需要修改源码来重新数据库驱动。这显然不是我们想要的。
+</code></pre><h2 id="22--解决程序耦合的思路">2.2  <strong>解决程序耦合的思路</strong></h2>
+<pre><code>当是我们讲解 jdbc 时，是通过反射来注册驱动的，代码如下：
+
+Class.forName(&quot;com.mysql.jdbc.Driver&quot;); 
+
+此时的好处是，我们的类中不再依赖具体的驱动类，此时就算删除 mysql 的驱动 jar 包，依然可以编译（运行就不要想了，没有驱动不可能运行成功的）。
+同时，也产生了一个新的问题，mysql 驱动的全限定类名字符串是在 java 类中写死的，一旦要改还是要修改源码。
+解决这个问题也很简单，使用配置文件配置。
+</code></pre><h2 id="23--工厂模式解耦">2.3  <strong>工厂模式解耦</strong></h2>
+<pre><code>在实际开发中我们可以把三层的对象都使用配置文件配置起来，当启动服务器应用加载的时候，
+让一个类中的方法通过读取配置文件，把这些对象创建出来并存起来。在接下来的使用的时候，直接拿过来用就好了。
+那么，这个读取配置文件，创建和获取三层对象的类就是工厂。
+</code></pre><h2 id="24--控制反转-inversion-of-control">2.4  <strong>控制反转-Inversion Of Control</strong></h2>
+<pre><code>上一小节解耦的思路有 2 个问题：
+1、存哪去？
+分析：由于我们是很多对象，肯定要找个集合来存。这时候有 Map 和 List 供选择。
+	到底选 Map 还是 List 就看我们有没有查找需求。有查找需求，选 Map。
+所以我们的答案就是
+	在应用加载时，创建一个 Map，用于存放三层对象。
+	我们把这个 map 称之为容器。 
+	
+2、还是没解释什么是工厂？
+工厂就是负责给我们从容器中获取指定对象的类。这时候我们获取对象的方式发生了改变。
+原来：
+	我们在获取对象时，都是采用 new 的方式。是主动的。
+</code></pre><!-- raw HTML omitted -->
+<pre><code>现在：
+	我们获取对象时，同时跟工厂要，有工厂为我们查找或者创建对象。是被动的。
+</code></pre><!-- raw HTML omitted -->
+<pre><code>这种被动接收的方式获取对象的思想就是控制反转，它是 spring 框架的核心之一。
+
+明确 ioc 的作用：
+削减计算机程序的耦合(解除我们代码中的依赖关系)。
+</code></pre><hr>
+<h1 id="第三章--使用-spring的ioc-解决程序耦合">第三章  使用 Spring的IOC 解决程序耦合</h1>
+<h2 id="31-前期准备">3.1 前期准备</h2>
+<h3 id="311--准备spring的开发包">3.1.1  <strong>准备Spring的开发包</strong></h3>
+<pre><code>官网：http://spring.io/
+下载地址：
+http://repo.springsource.org/libs-release-local/org/springframework/spring
+解压:(Spring 目录结构:)
+* docs :API 和开发规范.
+* libs :jar 包和源码.
+* schema :约束.
+</code></pre><p>直接在idea创建一个maven project，在pom.xml导入：</p>
+<pre><code>&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+        &lt;version&gt;5.2.6.BUILD-SNAPSHOT&lt;/version&gt;
+    &lt;/dependency&gt;        
+&lt;/dependencies&gt;
+</code></pre><h3 id="312--创建业务层接口和实现类">3.1.2  <strong>创建业务层接口和实现类</strong></h3>
+<pre><code>在MySQL中创建一个数据库以及数据库中的account表
+
+CREATE TABLE account (
+  id int primary key auto_increment,
+  name varchar(40) DEFAULT NULL,
+  money float DEFAULT NULL,
+);
+
+insert into account(name,money) values('aaa',1000);
+insert into account(name,money) values('bbb',1000);
+insert into account(name,money) values('ccc',1000);
+</code></pre><pre><code>/**
+* 账户的业务层接口
+* @author qqlin
+*/
+public interface IAccountService {
+    /**
+    * 保存账户（此处只是模拟，并不是真的要保存）
+    */
+	void saveAccount();
+}
+
+/**
+* 账户的业务层实现类
+* @author qqlin
+*/
+public class AccountServiceImpl implements IAccountService {
+	private IAccountDao accountDao = new AccountDaoImpl();  //此处的依赖关系有待解决
+	
+	@Override
+	public void saveAccount() {
+		accountDao.saveAccount();
+	}
+}
+</code></pre><h3 id="313--创建持久层接口和实现类">3.1.3  <strong>创建持久层接口和实现类</strong></h3>
+<pre><code>/**
+* 账户的持久层接口
+* @author qqlin
+*/
+public interface IAccountDao {
+    /**
+    * 保存账户
+    */
+    void saveAccount();
+}
+
+
+/**
+* 账户的持久层实现类
+* @author qqlin
+*/
+public class AccountDaoImpl implements IAccountDao {
+    @Override
+    public void saveAccount() {
+    	System.out.println(&quot;保存了账户&quot;);
+	}
+}
+</code></pre><hr>
+<h2 id="32--基于-xml-的配置">3.2  <strong>基于</strong> <strong>XML</strong> <strong>的配置</strong></h2>
+<p>在src/main/resources下面，新增一个XML文件</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+       			http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+
+&lt;/beans&gt;
+</code></pre><h3 id="321--让spring管理资源在配置文件中配置service和dao">3.2.1  <strong>让spring管理资源，在配置文件中配置service和dao</strong></h3>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+       			http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+
+
+&lt;!-- bean 标签：用于配置让 spring 创建对象，并且存入 ioc 容器之中
+ id 属性：对象的唯一标识。
+ class 属性：指定要创建对象的全限定类名
+--&gt;
+&lt;!-- 配置 service --&gt; 
+&lt;bean id=&quot;accountService&quot; class=&quot;com.itheima.service.impl.AccountServiceImpl&quot;&gt;
+&lt;/bean&gt;
+&lt;!-- 配置 dao --&gt; &lt;bean id=&quot;accountDao&quot; class=&quot;com.itheima.dao.impl.AccountDaoImpl&quot;&gt;&lt;/bean&gt;
+
+
+&lt;/beans&gt;
+</code></pre><h3 id="322-测试配置是否成功">3.2.2 <strong>测试配置是否成功</strong></h3>
+<pre><code>/**
+* 模拟一个表现层
+* @author qqlin
+*/
+public class Client {
+/**
+ * 使用 main 方法获取容器测试执行
+ */
+ 	public static void main(String[] args) {
+        //1.使用 ApplicationContext 接口，就是在获取 spring 容器
+        ApplicationContext ac = new ClassPathXmlApplicationContext(&quot;bean.xml&quot;);
+        //2.根据 bean 的 id 获取对象
+        IAccountService aService = (IAccountService) ac.getBean(&quot;accountService&quot;);
+        System.out.println(aService);
+        IAccountDao aDao = (IAccountDao) ac.getBean(&quot;accountDao&quot;);
+        System.out.println(aDao);
+	}
+}
+</code></pre><hr>
+<h2 id="33--spring中的工厂的类结构图">3.3  <strong>spring中的工厂的类结构图</strong></h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="331---beanfactory-和-applicationcontext-的区别">3.3.1   <strong>BeanFactory</strong> <strong>和</strong> <strong>ApplicationContext</strong> <strong>的区别</strong></h3>
+<pre><code>BeanFactory 才是 Spring 容器中的顶层接口。
+ApplicationContext 是它的子接口。
+BeanFactory 和 ApplicationContext 的区别：
+	创建对象的时间点不一样。
+		ApplicationContext：只要一读取配置文件，默认情况下就会创建对象。
+		BeanFactory：什么使用什么时候创建对象。
+</code></pre><h3 id="332--applicationcontext-接口的实现类">3.3.2  <strong>ApplicationContext</strong> <strong>接口的实现类</strong></h3>
+<pre><code>ClassPathXmlApplicationContext：
+	它是从类的根路径下加载配置文件 推荐使用这种
+FileSystemXmlApplicationContext：
+	它是从磁盘路径上加载配置文件，配置文件可以在磁盘的任意位置。
+AnnotationConfigApplicationContext:
+	当我们使用注解配置容器对象时，需要使用此类来创建 spring 容器。它用来读取注解。
+</code></pre><hr>
+<h2 id="34-ioc-中-bean-标签和管理对象细节">3.4 <strong>IOC</strong> <strong>中</strong> <strong>bean</strong> <strong>标签和管理对象细节</strong></h2>
+<h3 id="341-bean-标签">3.4.1 <strong>bean</strong> <strong>标签</strong></h3>
+<pre><code>作用：
+    用于配置对象让 spring 来创建的。
+    默认情况下它调用的是类中的无参构造函数。如果没有无参构造函数则不能创建成功。
+属性：
+    id：给对象在容器中提供一个唯一标识。用于获取对象。
+    class：指定类的全限定类名。用于反射创建对象。默认情况下调用无参构造函数。
+    scope：指定对象的作用范围。
+        * singleton :默认值，单例的.
+        * prototype :多例的.
+        * request :WEB 项目中,Spring 创建一个 Bean 的对象,将对象存入到 request 域中.
+        * session :WEB 项目中,Spring 创建一个 Bean 的对象,将对象存入到 session 域中.
+        * global session :WEB 项目中,应用在 Portlet 环境.
+        	如果没有 Portlet 环境那么globalSession 相当于 session.
+        	
+    init-method：指定类中的初始化方法名称。
+    destroy-method：指定类中销毁方法名称。
+</code></pre><h3 id="342-bean-的作用范围和生命周期">3.4.2 <strong>bean</strong> <strong>的作用范围和生命周期</strong></h3>
+<pre><code>单例对象：scope=&quot;singleton&quot;
+    一个应用只有一个对象的实例。它的作用范围就是整个引用。
+    生命周期：
+        对象出生：当应用加载，创建容器时，对象就被创建了。
+        对象活着：只要容器在，对象一直活着。
+        对象死亡：当应用卸载，销毁容器时，对象就被销毁了。
+多例对象：scope=&quot;prototype&quot;
+    每次访问对象时，都会重新创建对象实例。
+    生命周期：
+        对象出生：当使用对象时，创建新的对象实例。
+        对象活着：只要对象在使用中，就一直活着。
+        对象死亡：当对象长时间不用时，被 java 的垃圾回收器回收了。
+</code></pre><h3 id="343-实例化-bean-的三种方式">3.4.3 <strong>实例化</strong> <strong>Bean</strong> <strong>的三种方式</strong></h3>
+<pre><code>第一种方式：使用默认无参构造函数
+    &lt;!--在默认情况下：
+        它会根据默认无参构造函数来创建类对象。如果 bean 中没有默认无参构造函数，将会创建失败。
+     	--&gt; 
+    &lt;bean id=&quot;accountService&quot; class=&quot;com.itheima.service.impl.AccountServiceImpl&quot;/&gt;
+</code></pre><pre><code>第二种方式：spring 管理静态工厂-使用静态工厂的方法创建对象
+/**
+* 模拟一个静态工厂，创建业务层实现类
+*/
+public class StaticFactory {
+    public static IAccountService createAccountService(){
+    	return new AccountServiceImpl();
+    }
+}
+&lt;!-- 此种方式是:
+    使用 StaticFactory 类中的静态方法 createAccountService 创建对象，并存入 spring 容器
+    id 属性：指定 bean 的 id，用于从容器中获取
+    class 属性：指定静态工厂的全限定类名
+    factory-method 属性：指定生产对象的静态方法
+--&gt; 
+&lt;bean id=&quot;accountService&quot; 
+	class=&quot;com.itheima.factory.StaticFactory&quot;
+ 	factory-method=&quot;createAccountService&quot;&gt;
+&lt;/bean&gt;
+</code></pre><pre><code>第三种方式：spring 管理实例工厂-使用实例工厂的方法创建对象
+/**
+* 模拟一个实例工厂，创建业务层实现类
+* 此工厂创建对象，必须现有工厂实例对象，再调用方法
+*/
+public class InstanceFactory {
+    public IAccountService createAccountService(){
+    	return new AccountServiceImpl();
+    }
+}
+&lt;!-- 此种方式是：
+先把工厂的创建交给 spring 来管理。
+然后在使用工厂的 bean 来调用里面的方法
+factory-bean 属性：用于指定实例工厂 bean 的 id。
+factory-method 属性：用于指定实例工厂中创建对象的方法。
+--&gt;	
+&lt;bean id=&quot;instancFactory&quot; class=&quot;com.itheima.factory.InstanceFactory&quot;&gt;&lt;/bean&gt;
+&lt;bean id=&quot;accountService&quot;
+	factory-bean=&quot;instancFactory&quot;
+	factory-method=&quot;createAccountService&quot;&gt;
+&lt;/bean&gt;
+</code></pre><hr>
+<h2 id="35-spring-的依赖注入">3.5 <strong>spring</strong> <strong>的依赖注入</strong></h2>
+<h3 id="351-依赖注入的概念">3.5.1 <strong>依赖注入的概念</strong></h3>
+<pre><code>依赖注入：Dependency Injection。它是 spring 框架核心 ioc 的具体实现。
+我们的程序在编写时，通过控制反转，把对象的创建交给了 spring，但是代码中不可能出现没有依赖的情况。
+ioc 解耦只是降低他们的依赖关系，但不会消除。例如：我们的业务层仍会调用持久层的方法。
+那这种业务层和持久层的依赖关系，在使用 spring 之后，就让 spring 来维护了。
+简单的说，就是坐等框架把持久层对象传入业务层，而不用我们自己去获取。
+</code></pre><h3 id="352-构造函数注入">3.5.2 <strong>构造函数注入</strong></h3>
+<pre><code>顾名思义，就是使用类中的构造函数，给成员变量赋值。注意，赋值的操作不是我们自己做的，而是通过配置
+的方式，让 spring 框架来为我们注入。具体代码如下：
+
+/**
+ * 业务层实现类
+ *
+ * @author qq_lin
+ */
+public class AccountServiceImpl implements IAccountService {
+    private String name;
+    private Integer age;
+    private Date birthday;
+    
+    public AccountServiceImpl(String name, Integer age, Date birthday) {
+        this.name = name;
+        this.age = age;
+        this.birthday = birthday;
+    }
+    
+    @Override
+    public void saveAccount() {
+    	System.out.println(name+&quot;,&quot;+age+&quot;,&quot;+birthday);
+	}
+}
+
+&lt;!-- 使用构造函数的方式，给 service 中的属性传值
+    要求：
+    	类中需要提供一个对应参数列表的构造函数。
+    涉及的标签：
+    	constructor-arg
+        属性：
+            index:指定参数在构造函数参数列表的索引位置
+            type:指定参数在构造函数中的数据类型
+            name:指定参数在构造函数中的名称
+            value:它能赋的值是基本数据类型和 String 类型
+            ref:它能赋的值是其他 bean 类型，也就是说，必须得是在配置文件中配置过的 bean
+--&gt;
+&lt;bean id=&quot;accountService&quot; class=&quot;com.itheima.service.impl.AccountServiceImpl&quot;&gt; 
+    &lt;constructor-arg name=&quot;name&quot; value=&quot;张三&quot;&gt;&lt;/constructor-arg&gt; 
+    &lt;constructor-arg name=&quot;age&quot; value=&quot;18&quot;&gt;&lt;/constructor-arg&gt; 
+    &lt;constructor-arg name=&quot;birthday&quot; ref=&quot;now&quot;&gt;&lt;/constructor-arg&gt;
+&lt;/bean&gt; &lt;bean id=&quot;now&quot; class=&quot;java.util.Date&quot;&gt;&lt;/bean&gt;
+
+&lt;bean id=&quot;now&quot; class=&quot;java.util.Date&quot;&gt;&lt;/bean&gt; 
+
+</code></pre><h3 id="353-set-方法注入">3.5.3 <strong>set</strong> <strong>方法注入</strong></h3>
+<pre><code>顾名思义，就是在类中提供需要注入成员的 set 方法。具体代码如下：
+
+/**
+ * 业务层实现类
+ *
+ * @author qq_lin
+ */
+public class AccountServiceImpl implements IAccountService {
+    private String name;
+    private Integer age;
+    private Date birthday;
+    
+    public void setName(String name) { this.name = name; }
+    public void setAge(Integer age) { this.age = age; }
+    public void setBirthday(Date birthday) { this.birthday = birthday; }
+    
+    @Override
+    public void saveAccount() {
+    	System.out.println(name+&quot;,&quot;+age+&quot;,&quot;+birthday);
+    }
+} 
+
+&lt;!-- 通过配置文件给 bean 中的属性传值：使用 set 方法的方式
+    涉及的标签：
+    	property
+    属性：
+        name：找的是类中 set 方法后面的部分
+        ref：给属性赋值是其他 bean 类型的
+        value：给属性赋值是基本数据类型和 string 类型的
+        实际开发中，此种方式用的较多。
+--&gt;
+&lt;bean id=&quot;accountService&quot; class=&quot;com.itheima.service.impl.AccountServiceImpl&quot;&gt;
+    &lt;property name=&quot;name&quot; value=&quot;test&quot;&gt;&lt;/property&gt; 
+    &lt;property name=&quot;age&quot; value=&quot;21&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;birthday&quot; ref=&quot;now&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt; 
+&lt;bean id=&quot;now&quot; class=&quot;java.util.Date&quot;&gt;&lt;/bean&gt;
+</code></pre><h3 id="354-注入集合属性">3.5.4 <strong>注入集合属性</strong></h3>
+<pre><code>顾名思义，就是给类中的集合成员传值，它用的也是set方法注入的方式，只不过变量的数据类型都是集合。
+我们这里介绍注入数组，List,Set,Map,Properties。具体代码如下：
+
+/**
+ * 业务层实现类
+ *
+ * @author qq_lin
+ */
+public class AccountServiceImpl3 implements IAccountService {
+
+    private String[] myStrs;
+    private List&lt;String&gt; myList;
+    private Set&lt;String&gt; mySet;
+    private Map&lt;String, String&gt; myMap;
+    private Properties myProps;
+
+    public void setMyStrs(String[] myStrs) {
+        this.myStrs = myStrs;
+    }
+
+    public void setMyList(List&lt;String&gt; myList) {
+        this.myList = myList;
+    }
+
+    public void setMySet(Set&lt;String&gt; mySet) {
+        this.mySet = mySet;
+    }
+
+    public void setMyMap(Map&lt;String, String&gt; myMap) {
+        this.myMap = myMap;
+    }
+
+    public void setMyProps(Properties myProps) {
+        this.myProps = myProps;
+    }
+
+	@Override
+    public void saveAccount() {
+        System.out.println(Arrays.toString(myStrs));
+        System.out.println(myList);
+        System.out.println(mySet);
+        System.out.println(myMap);
+        System.out.println(myProps);
+    }
+
+}
+
+
+&lt;!-- 注入集合数据
+    List 结构的：
+    	array,list,set
+    Map 结构的
+    	map,entry,props,prop
+--&gt; 
+&lt;bean id=&quot;accountService&quot; class=&quot;com.itheima.service.impl.AccountServiceImpl&quot;&gt;
+    &lt;!-- 在注入集合数据时，只要结构相同，标签可以互换 --&gt;
+    
+    &lt;!-- 给数组注入数据 --&gt; 
+    &lt;property name=&quot;myStrs&quot;&gt;
+    	&lt;set&gt;
+    		&lt;value&gt;AAA&lt;/value&gt; 
+    		&lt;value&gt;BBB&lt;/value&gt; 
+    		&lt;value&gt;CCC&lt;/value&gt;
+		&lt;/set&gt;
+    &lt;/property&gt;
+    
+    &lt;!-- 注入 list 集合数据 --&gt; 
+    &lt;property name=&quot;myList&quot;&gt;
+        &lt;array&gt; 
+        	&lt;value&gt;AAA&lt;/value&gt; 
+        	&lt;value&gt;BBB&lt;/value&gt;
+        	&lt;value&gt;CCC&lt;/value&gt;
+        &lt;/array&gt;
+    &lt;/property&gt;
+    
+    &lt;!-- 注入 set 集合数据 --&gt; 
+    &lt;property name=&quot;mySet&quot;&gt;
+        &lt;list&gt;
+        	&lt;value&gt;AAA&lt;/value&gt;
+        	&lt;value&gt;BBB&lt;/value&gt; 
+        	&lt;value&gt;CCC&lt;/value&gt;
+        &lt;/list&gt;
+    &lt;/property&gt;
+    
+    
+    &lt;!-- 注入 Map 数据 --&gt; 
+    &lt;property name=&quot;myMap&quot;&gt;
+        &lt;props&gt; 
+            &lt;prop key=&quot;testA&quot;&gt;aaa&lt;/prop&gt; 
+            &lt;prop key=&quot;testB&quot;&gt;bbb&lt;/prop&gt;
+        &lt;/props&gt;
+    &lt;/property&gt;
+    
+    &lt;!-- 注入 properties 数据 --&gt;
+    &lt;property name=&quot;myProps&quot;&gt; 
+        &lt;map&gt;
+            &lt;entry key=&quot;testA&quot; value=&quot;aaa&quot;&gt;&lt;/entry&gt;
+            &lt;entry key=&quot;testB&quot;&gt; 
+                &lt;value&gt;bbb&lt;/value&gt;
+            &lt;/entry&gt;
+    	&lt;/map&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+</code></pre>
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
