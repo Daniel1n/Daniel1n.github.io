@@ -12,16 +12,10 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spring Framework的AOP编程"/>
-<meta name="twitter:description" content="第一章 AOP 的相关概念 1.1 AOP 概述 1.1.1 什么是 AOP 百度百科：面向切面编程，通过预编译方式和运行期间动态代理实现程序功能的统一维护的一种技术。
-AOP是OOP的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。
-利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。
-AOP：全称是 Aspect Oriented Programming 即：面向切面编程。 简单的说它就是把我们程序重复的代码抽取出来，在需要执行的时候， 使用动态代理的技术，在不修改源码的基础上，对我们的已有方法进行增强。  1.1.2 AOP 的作用及优势 作用： 在程序运行期间，不修改源码对已有方法进行增强。 优势： 减少重复代码 提高开发效率 维护方便  1.1.3 AOP 的实现方式 使用动态代理技术   第二章 动态代理 2.1 动态代理的特点 字节码随用随创建，随用随加载。 它与静态代理的区别也在于此。因为静态代理是字节码一上来就创建好，并完成加载。 装饰者模式就是静态代理的一种体现  2.2 动态代理常用的有两种方式 基于接口的动态代理 提供者：JDK 官方的 Proxy 类。 要求：被代理类最少实现一个接口。 基于子类的动态代理 提供者：第三方的 CGLib，如果报 asmxxxx 异常，需要导入 asm.jar。 要求：被代理类不能用 final 修饰的类（最终类）。  2.3 使用 JDK 官方的 Proxy 类创建代理对象 此处我们使用的是一个演员的例子： 在很久以前，演员和剧组都是直接见面联系的。没有中间人环节。 而随着时间的推移，产生了一个新兴职业：经纪人（中间人）， 这个时候剧组再想找演员就需要通过经纪人来找了。 下面我们就用代码演示出来。  /** * 一个经纪公司的要求: * 能做基本的表演和危险的表演 * @author qq_lin */ public interface IAcotr { /** * 基本演出 * @param money */ void basicAct(float money); /** * 危险演出 * @param money */ void dangerAct(float money); } /** * 一个演员 * @author qq_lin */ public class Actor implements IAcotr { @Override public void basicAct(float money) { System."/>
+<meta name="twitter:description" content="第一章 AOP 的相关概念  1.1 AOP 概述  1.1.1 什么是 AOP 1.1.2 AOP 的作用及优势 1.1.3 AOP 的实现方式     第二章 动态代理  2.1 动态代理的特点 2.2 动态代理常用的有两种方式 2.3 使用 JDK 官方的 Proxy 类创建代理对象 2.4 使用 CGLib 的 Enhancer 类创建代理对象   第三章 Spring 中的 AOP  3.1 Spring 中 AOP 的细节  3.1.1 AOP 相关术语 3.1.2 spring 中的 AOP 的执行过程   3.2 基于 XML 的 AOP 配置  3."/>
 
     <meta property="og:title" content="Spring Framework的AOP编程" />
-<meta property="og:description" content="第一章 AOP 的相关概念 1.1 AOP 概述 1.1.1 什么是 AOP 百度百科：面向切面编程，通过预编译方式和运行期间动态代理实现程序功能的统一维护的一种技术。
-AOP是OOP的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。
-利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。
-AOP：全称是 Aspect Oriented Programming 即：面向切面编程。 简单的说它就是把我们程序重复的代码抽取出来，在需要执行的时候， 使用动态代理的技术，在不修改源码的基础上，对我们的已有方法进行增强。  1.1.2 AOP 的作用及优势 作用： 在程序运行期间，不修改源码对已有方法进行增强。 优势： 减少重复代码 提高开发效率 维护方便  1.1.3 AOP 的实现方式 使用动态代理技术   第二章 动态代理 2.1 动态代理的特点 字节码随用随创建，随用随加载。 它与静态代理的区别也在于此。因为静态代理是字节码一上来就创建好，并完成加载。 装饰者模式就是静态代理的一种体现  2.2 动态代理常用的有两种方式 基于接口的动态代理 提供者：JDK 官方的 Proxy 类。 要求：被代理类最少实现一个接口。 基于子类的动态代理 提供者：第三方的 CGLib，如果报 asmxxxx 异常，需要导入 asm.jar。 要求：被代理类不能用 final 修饰的类（最终类）。  2.3 使用 JDK 官方的 Proxy 类创建代理对象 此处我们使用的是一个演员的例子： 在很久以前，演员和剧组都是直接见面联系的。没有中间人环节。 而随着时间的推移，产生了一个新兴职业：经纪人（中间人）， 这个时候剧组再想找演员就需要通过经纪人来找了。 下面我们就用代码演示出来。  /** * 一个经纪公司的要求: * 能做基本的表演和危险的表演 * @author qq_lin */ public interface IAcotr { /** * 基本演出 * @param money */ void basicAct(float money); /** * 危险演出 * @param money */ void dangerAct(float money); } /** * 一个演员 * @author qq_lin */ public class Actor implements IAcotr { @Override public void basicAct(float money) { System." />
+<meta property="og:description" content="第一章 AOP 的相关概念  1.1 AOP 概述  1.1.1 什么是 AOP 1.1.2 AOP 的作用及优势 1.1.3 AOP 的实现方式     第二章 动态代理  2.1 动态代理的特点 2.2 动态代理常用的有两种方式 2.3 使用 JDK 官方的 Proxy 类创建代理对象 2.4 使用 CGLib 的 Enhancer 类创建代理对象   第三章 Spring 中的 AOP  3.1 Spring 中 AOP 的细节  3.1.1 AOP 相关术语 3.1.2 spring 中的 AOP 的执行过程   3.2 基于 XML 的 AOP 配置  3." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://daniel1n.github.io/post/5.springblog3/" />
 <meta property="article:published_time" content="2020-05-07T17:29:57+08:00" />
@@ -66,11 +60,56 @@ AOP：全称是 Aspect Oriented Programming 即：面向切面编程。 简单�
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          6 min read
+          7 min read
         </div></div>
     </header>
     <div class="post-content">
-      <h1 id="第一章-aop-的相关概念">第一章 AOP 的相关概念</h1>
+      <!-- raw HTML omitted -->
+<ul>
+<li><a href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-aop-%E7%9A%84%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5">第一章 AOP 的相关概念</a>
+<ul>
+<li><a href="#11-aop-%E6%A6%82%E8%BF%B0">1.1 AOP 概述</a>
+<ul>
+<li><a href="#111-%E4%BB%80%E4%B9%88%E6%98%AF-aop">1.1.1 什么是 AOP</a></li>
+<li><a href="#112-aop-%E7%9A%84%E4%BD%9C%E7%94%A8%E5%8F%8A%E4%BC%98%E5%8A%BF">1.1.2 AOP 的作用及优势</a></li>
+<li><a href="#113-aop-%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F">1.1.3 AOP 的实现方式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86">第二章 动态代理</a>
+<ul>
+<li><a href="#21-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E7%89%B9%E7%82%B9">2.1 动态代理的特点</a></li>
+<li><a href="#22-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E5%B8%B8%E7%94%A8%E7%9A%84%E6%9C%89%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F">2.2 动态代理常用的有两种方式</a></li>
+<li><a href="#23-%E4%BD%BF%E7%94%A8-jdk-%E5%AE%98%E6%96%B9%E7%9A%84-proxy-%E7%B1%BB%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1">2.3 使用 JDK 官方的 Proxy 类创建代理对象</a></li>
+<li><a href="#24-%E4%BD%BF%E7%94%A8-cglib-%E7%9A%84-enhancer-%E7%B1%BB%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1">2.4 使用 CGLib 的 Enhancer 类创建代理对象</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%B8%89%E7%AB%A0--spring-%E4%B8%AD%E7%9A%84-aop">第三章  Spring 中的 AOP</a>
+<ul>
+<li><a href="#31-spring-%E4%B8%AD-aop-%E7%9A%84%E7%BB%86%E8%8A%82">3.1 Spring 中 AOP 的细节</a>
+<ul>
+<li><a href="#311-aop-%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD">3.1.1 AOP 相关术语</a></li>
+<li><a href="#312-spring-%E4%B8%AD%E7%9A%84-aop-%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B">3.1.2 spring 中的 AOP 的执行过程</a></li>
+</ul>
+</li>
+<li><a href="#32-%E5%9F%BA%E4%BA%8E-xml-%E7%9A%84-aop-%E9%85%8D%E7%BD%AE">3.2 基于 XML 的 AOP 配置</a>
+<ul>
+<li><a href="#321-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">3.2.1 环境搭建</a></li>
+<li><a href="#322-%E5%88%9B%E5%BB%BA-spring-%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%B9%B6%E5%AF%BC%E5%85%A5%E7%BA%A6%E6%9D%9F">3.2.2 创建 spring 的配置文件并导入约束</a></li>
+<li><a href="#323-%E9%85%8D%E7%BD%AEspring%E7%9A%84ioc">3.2.3 配置spring的ioc</a></li>
+</ul>
+</li>
+<li><a href="#32-%E9%9C%80%E8%A6%81%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BB%A3%E7%A0%81">3.2 需要测试的代码</a></li>
+<li><a href="#33-%E5%9B%9B%E7%A7%8D%E5%B8%B8%E7%94%A8advance%E7%B1%BB%E5%9E%8B">3.3 四种常用advance类型</a></li>
+<li><a href="#34-%E7%8E%AF%E7%BB%95%E9%80%9A%E7%9F%A5advance%E7%9A%84%E7%94%A8%E6%B3%95">3.4 环绕通知advance的用法</a></li>
+<li><a href="#35-spring%E5%9F%BA%E4%BA%8E%E6%B3%A8%E8%A7%A3%E7%9A%84aop%E9%85%8D%E7%BD%AE">3.5 spring基于注解的AOP配置</a></li>
+<li><a href="#36-%E4%B8%8D%E4%BD%BF%E7%94%A8-xml-%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F">3.6 不使用 XML 的配置方式</a></li>
+</ul>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<h1 id="第一章-aop-的相关概念">第一章 AOP 的相关概念</h1>
 <h2 id="11-aop-概述">1.1 AOP 概述</h2>
 <h3 id="111-什么是-aop">1.1.1 什么是 AOP</h3>
 <p>百度百科：面向切面编程，通过预编译方式和运行期间动态代理实现程序功能的统一维护的一种技术。</p>

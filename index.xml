@@ -17,10 +17,7 @@
       <pubDate>Thu, 07 May 2020 17:29:57 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/post/5.springblog3/</guid>
-      <description>第一章 AOP 的相关概念 1.1 AOP 概述 1.1.1 什么是 AOP 百度百科：面向切面编程，通过预编译方式和运行期间动态代理实现程序功能的统一维护的一种技术。
-AOP是OOP的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。
-利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。
-AOP：全称是 Aspect Oriented Programming 即：面向切面编程。 简单的说它就是把我们程序重复的代码抽取出来，在需要执行的时候， 使用动态代理的技术，在不修改源码的基础上，对我们的已有方法进行增强。  1.1.2 AOP 的作用及优势 作用： 在程序运行期间，不修改源码对已有方法进行增强。 优势： 减少重复代码 提高开发效率 维护方便  1.1.3 AOP 的实现方式 使用动态代理技术   第二章 动态代理 2.1 动态代理的特点 字节码随用随创建，随用随加载。 它与静态代理的区别也在于此。因为静态代理是字节码一上来就创建好，并完成加载。 装饰者模式就是静态代理的一种体现  2.2 动态代理常用的有两种方式 基于接口的动态代理 提供者：JDK 官方的 Proxy 类。 要求：被代理类最少实现一个接口。 基于子类的动态代理 提供者：第三方的 CGLib，如果报 asmxxxx 异常，需要导入 asm.jar。 要求：被代理类不能用 final 修饰的类（最终类）。  2.3 使用 JDK 官方的 Proxy 类创建代理对象 此处我们使用的是一个演员的例子： 在很久以前，演员和剧组都是直接见面联系的。没有中间人环节。 而随着时间的推移，产生了一个新兴职业：经纪人（中间人）， 这个时候剧组再想找演员就需要通过经纪人来找了。 下面我们就用代码演示出来。  /** * 一个经纪公司的要求: * 能做基本的表演和危险的表演 * @author qq_lin */ public interface IAcotr { /** * 基本演出 * @param money */ void basicAct(float money); /** * 危险演出 * @param money */ void dangerAct(float money); } /** * 一个演员 * @author qq_lin */ public class Actor implements IAcotr { @Override public void basicAct(float money) { System.</description>
+      <description>第一章 AOP 的相关概念  1.1 AOP 概述  1.1.1 什么是 AOP 1.1.2 AOP 的作用及优势 1.1.3 AOP 的实现方式     第二章 动态代理  2.1 动态代理的特点 2.2 动态代理常用的有两种方式 2.3 使用 JDK 官方的 Proxy 类创建代理对象 2.4 使用 CGLib 的 Enhancer 类创建代理对象   第三章 Spring 中的 AOP  3.1 Spring 中 AOP 的细节  3.1.1 AOP 相关术语 3.1.2 spring 中的 AOP 的执行过程   3.2 基于 XML 的 AOP 配置  3.</description>
     </item>
     
     <item>
@@ -42,7 +39,16 @@ AOP：全称是 Aspect Oriented Programming 即：面向切面编程。 简单�
     </item>
     
     <item>
-      <title>Java的基本要点</title>
+      <title>Java 的核心技术</title>
+      <link>https://daniel1n.github.io/post/0.java/</link>
+      <pubDate>Mon, 04 May 2020 22:32:33 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/0.java/</guid>
+      <description>第一章 Java程序设计概述  1.1 Java “白皮书”的关键术语 1.2 Java applet 与 Internet 1.3 Java发展简史   第二章 Java程序设计环境  2.1 安装Java开发工具包   第三章 Java的基本程序设计结构  3.1 一个简单的Java应用程序 3.2 注释 3.3 数据类型  3.3.1 整数 3.3.2 浮点数 3.3.3 char类型 3.3.4 Unicode 和char类型 3.3.5 boolean类型   3.4 变量  3.4.1 变量初始化 3.4.2 常量   3.5 运算符  3.5.1 数学函数与常量 3.5.2 数值类型之间的转换 3.5.3 强制类型转换 3.5.4 结合赋值和运算符 3.5.5 自增与自减运算符 3.5.6 关系和boolean运算符 3.</description>
+    </item>
+    
+    <item>
+      <title>Java Web 的要点总结</title>
       <link>https://daniel1n.github.io/post/2.javalearn/</link>
       <pubDate>Mon, 04 May 2020 14:33:01 +0800</pubDate>
       
