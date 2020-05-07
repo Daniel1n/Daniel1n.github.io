@@ -6,10 +6,22 @@
     <description>Recent content on Daniel1n</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 May 2020 16:48:48 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 07 May 2020 17:29:57 +0800</lastBuildDate>
     
 	<atom:link href="https://daniel1n.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Spring Framework的AOP编程</title>
+      <link>https://daniel1n.github.io/post/5.springblog3/</link>
+      <pubDate>Thu, 07 May 2020 17:29:57 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/5.springblog3/</guid>
+      <description>第一章 AOP 的相关概念 1.1 AOP 概述 1.1.1 什么是 AOP 百度百科：面向切面编程，通过预编译方式和运行期间动态代理实现程序功能的统一维护的一种技术。
+AOP是OOP的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。
+利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。
+AOP：全称是 Aspect Oriented Programming 即：面向切面编程。 简单的说它就是把我们程序重复的代码抽取出来，在需要执行的时候， 使用动态代理的技术，在不修改源码的基础上，对我们的已有方法进行增强。  1.1.2 AOP 的作用及优势 作用： 在程序运行期间，不修改源码对已有方法进行增强。 优势： 减少重复代码 提高开发效率 维护方便  1.1.3 AOP 的实现方式 使用动态代理技术   第二章 动态代理 2.1 动态代理的特点 字节码随用随创建，随用随加载。 它与静态代理的区别也在于此。因为静态代理是字节码一上来就创建好，并完成加载。 装饰者模式就是静态代理的一种体现  2.2 动态代理常用的有两种方式 基于接口的动态代理 提供者：JDK 官方的 Proxy 类。 要求：被代理类最少实现一个接口。 基于子类的动态代理 提供者：第三方的 CGLib，如果报 asmxxxx 异常，需要导入 asm.jar。 要求：被代理类不能用 final 修饰的类（最终类）。  2.3 使用 JDK 官方的 Proxy 类创建代理对象 此处我们使用的是一个演员的例子： 在很久以前，演员和剧组都是直接见面联系的。没有中间人环节。 而随着时间的推移，产生了一个新兴职业：经纪人（中间人）， 这个时候剧组再想找演员就需要通过经纪人来找了。 下面我们就用代码演示出来。  /** * 一个经纪公司的要求: * 能做基本的表演和危险的表演 * @author qq_lin */ public interface IAcotr { /** * 基本演出 * @param money */ void basicAct(float money); /** * 危险演出 * @param money */ void dangerAct(float money); } /** * 一个演员 * @author qq_lin */ public class Actor implements IAcotr { @Override public void basicAct(float money) { System.</description>
+    </item>
     
     <item>
       <title>Spring Framework 基于注解的IOC配置</title>
