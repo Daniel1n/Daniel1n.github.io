@@ -137,100 +137,100 @@
 <hr>
 <h3 id="14-验证是否安装成功">1.4 验证是否安装成功</h3>
 <p>打开cmd，输入hugo version，显示以下内容，安装成功</p>
-<pre><code>Hugo Static Site Generator v0.69.2-EC9DCF30 windows/amd64 BuildDate: 2020-04-24T07:51:17Z
-</code></pre><hr>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Hugo Static Site Generator v0.69.2-EC9DCF30 windows/amd64 BuildDate: 2020-04-24T07:51:17Z
+</code></pre></div><hr>
 <h2 id="二-用hugo生成博客">二、 用Hugo生成博客</h2>
 <p>cmd 打开C:\hugo\sites</p>
 <p>输入命令行</p>
-<pre><code>hugo new site myblog
-</code></pre><p>成功在C:\hugo\sites下生成myblog文件</p>
-<pre><code> C:\hugo\sites 的目录
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo new site myblog
+</code></pre></div><p>成功在C:\hugo\sites下生成myblog文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites 的目录
 
 2020-05-03  11:43    &lt;DIR&gt;          .
 2020-05-03  11:29    &lt;DIR&gt;          ..
 2020-05-03  11:43    &lt;DIR&gt;          myblog
-               0 个文件              0 字节
-               3 个目录 39,008,006,144 可用字节
-</code></pre><p>继续打开myblog</p>
-<pre><code> C:\hugo\sites\myblog 的目录
+               <span style="color:#ae81ff">0</span> 个文件              <span style="color:#ae81ff">0</span> 字节
+               <span style="color:#ae81ff">3</span> 个目录 39,008,006,144 可用字节
+</code></pre></div><p>继续打开myblog</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog 的目录
 
 2020-05-03  11:43    &lt;DIR&gt;          .
 2020-05-03  11:43    &lt;DIR&gt;          ..
 2020-05-03  11:43    &lt;DIR&gt;          archetypes
-2020-05-03  11:43                82 config.toml
+2020-05-03  11:43                <span style="color:#ae81ff">82</span> config.toml
 2020-05-03  11:43    &lt;DIR&gt;          content
 2020-05-03  11:43    &lt;DIR&gt;          data
 2020-05-03  11:43    &lt;DIR&gt;          layouts
 2020-05-03  11:43    &lt;DIR&gt;          static
 2020-05-03  11:43    &lt;DIR&gt;          themes
-               1 个文件             82 字节
-               8 个目录 39,008,911,360 可用字节
-</code></pre><p>成功生成主题themes、静态文件static、布局layouts、数据data、博客内容content、配置config.toml</p>
+               <span style="color:#ae81ff">1</span> 个文件             <span style="color:#ae81ff">82</span> 字节
+               <span style="color:#ae81ff">8</span> 个目录 39,008,911,360 可用字节
+</code></pre></div><p>成功生成主题themes、静态文件static、布局layouts、数据data、博客内容content、配置config.toml</p>
 <hr>
 <h2 id="三-设置主题">三、 设置主题</h2>
 <p>在浏览器打开：https://themes.gohugo.io/
 在里面选择一款适合自己的主题</p>
 <p>本人选择了 m10c 这款主题：https://themes.gohugo.io/hugo-theme-m10c/</p>
 <p>使用git克隆（前提是电脑已经安装了git）：</p>
-<pre><code> git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c
-</code></pre><p>安装成功，如下：</p>
-<pre><code>C:\hugo\sites\myblog&gt; git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c
-Cloning into 'themes/m10c'...
-remote: Enumerating objects: 276, done.
-remote: Total 276 (delta 0), reused 0 (delta 0), pack-reused 276 eceiving objects:  78% (216/276), 396.01 KiB | 370.00 KiB/s
-Receiving objects: 100% (276/276), 447.43 KiB | 399.00 KiB/s, done.
-Resolving deltas: 100% (91/91), done.
-</code></pre><p>查看是否安装成功：</p>
-<pre><code>C:\hugo\sites\myblog\themes 的目录
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c
+</code></pre></div><p>安装成功，如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog&gt; git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c
+Cloning into <span style="color:#e6db74">&#39;themes/m10c&#39;</span>...
+remote: Enumerating objects: 276, <span style="color:#66d9ef">done</span>.
+remote: Total <span style="color:#ae81ff">276</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>, reused <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>, pack-reused <span style="color:#ae81ff">276</span> eceiving objects:  78% <span style="color:#f92672">(</span>216/276<span style="color:#f92672">)</span>, 396.01 KiB | 370.00 KiB/s
+Receiving objects: 100% <span style="color:#f92672">(</span>276/276<span style="color:#f92672">)</span>, 447.43 KiB | 399.00 KiB/s, <span style="color:#66d9ef">done</span>.
+Resolving deltas: 100% <span style="color:#f92672">(</span>91/91<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+</code></pre></div><p>查看是否安装成功：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\t</span>hemes 的目录
 
 2020-05-03  11:55    &lt;DIR&gt;          .
 2020-05-03  11:43    &lt;DIR&gt;          ..
 2020-05-03  11:55    &lt;DIR&gt;          m10c
-               0 个文件              0 字节
-               3 个目录 38,989,099,008 可用字节
-</code></pre><hr>
+               <span style="color:#ae81ff">0</span> 个文件              <span style="color:#ae81ff">0</span> 字节
+               <span style="color:#ae81ff">3</span> 个目录 38,989,099,008 可用字节
+</code></pre></div><hr>
 <h2 id="四-在本地启动个人博客">四、 在本地启动个人博客</h2>
-<pre><code>hugo server -t m10c --buildDrafts
-</code></pre><p>启动成功</p>
-<pre><code>C:\hugo\sites\myblog&gt;hugo server -t m10c --buildDrafts
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo server -t m10c --buildDrafts
+</code></pre></div><p>启动成功</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog&gt;hugo server -t m10c --buildDrafts
 Building sites …
                    | EN
 -------------------+-----
-  Pages            |  7
-  Paginator pages  |  0
-  Non-page files   |  0
-  Static files     |  1
-  Processed images |  0
-  Aliases          |  3
-  Sitemaps         |  1
-  Cleaned          |  0
+  Pages            |  <span style="color:#ae81ff">7</span>
+  Paginator pages  |  <span style="color:#ae81ff">0</span>
+  Non-page files   |  <span style="color:#ae81ff">0</span>
+  Static files     |  <span style="color:#ae81ff">1</span>
+  Processed images |  <span style="color:#ae81ff">0</span>
+  Aliases          |  <span style="color:#ae81ff">3</span>
+  Sitemaps         |  <span style="color:#ae81ff">1</span>
+  Cleaned          |  <span style="color:#ae81ff">0</span>
 
-Built in 38 ms
-Watching for changes in C:\hugo\sites\myblog\{archetypes,content,data,layouts,static,themes}
-Watching for config changes in C:\hugo\sites\myblog\config.toml
-Environment: &quot;development&quot;
+Built in <span style="color:#ae81ff">38</span> ms
+Watching <span style="color:#66d9ef">for</span> changes in C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\{</span>archetypes,content,data,layouts,static,themes<span style="color:#f92672">}</span>
+Watching <span style="color:#66d9ef">for</span> config changes in C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\c</span>onfig.toml
+Environment: <span style="color:#e6db74">&#34;development&#34;</span>
 Serving pages from memory
 Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
-Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Web Server is available at http://localhost:1313/ <span style="color:#f92672">(</span>bind address 127.0.0.1<span style="color:#f92672">)</span>
 Press Ctrl+C to stop
-</code></pre><p>在浏览器打开：http://localhost:1313/</p>
+</code></pre></div><p>在浏览器打开：http://localhost:1313/</p>
 <p>显示刚才m10c主题下的博客首页</p>
 <h2 id="五-写一篇博客文章">五、 写一篇博客文章</h2>
-<pre><code>hugo new post/blog.md
-</code></pre><p>成功在\content\post目录下创建一个blog.md的Markdown文件</p>
-<pre><code>C:\hugo\sites\myblog&gt;hugo new post/blog.md
-C:\hugo\sites\myblog\content\post\blog.md created
-</code></pre><p>接下来我们就可以，使用Markdown编辑器（本人使用的是vscode），编辑blog.md的文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo new post/blog.md
+</code></pre></div><p>成功在\content\post目录下创建一个blog.md的Markdown文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog&gt;hugo new post/blog.md
+C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\c</span>ontent<span style="color:#ae81ff">\p</span>ost<span style="color:#ae81ff">\b</span>log.md created
+</code></pre></div><p>接下来我们就可以，使用Markdown编辑器（本人使用的是vscode），编辑blog.md的文件</p>
 <p>打开我们的blog.md文件，显示如下：</p>
-<pre><code>---
-title: &quot;Blog&quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">---
+title: &#34;Blog&#34;
 date: 2020-05-03T12:40:00+08:00
 draft: true
 ---
-</code></pre><p>直接编辑想要在博客中显示的内容</p>
+</code></pre></div><p>直接编辑想要在博客中显示的内容</p>
 <p>编辑保存后，再次在本地启动hugo</p>
-<pre><code>hugo server -t m10c --buildDrafts
-</code></pre><p>在浏览器打开：http://localhost:1313/</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo server -t m10c --buildDrafts
+</code></pre></div><p>在浏览器打开：http://localhost:1313/</p>
 <p>就可以在博客中看到编辑过的博客内容</p>
 <hr>
 <h2 id="六将个人博客部署到远端的服务器">六、将个人博客部署到远端的服务器</h2>
@@ -238,34 +238,34 @@ draft: true
 <hr>
 <h3 id="1-创建github的repository">1. 创建GitHub的repository</h3>
 <p>new repository，我本人的GitHub名是daniel1n，所以repository name 设置为</p>
-<pre><code>daniel1n.github.io
-</code></pre><p>注意：前缀必须是GitHub的昵称名username，而且全部都是小写字母</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">daniel1n.github.io
+</code></pre></div><p>注意：前缀必须是GitHub的昵称名username，而且全部都是小写字母</p>
 <p>点击 create repository，创建成功</p>
 <hr>
 <h3 id="2-在myblog中创建一个public文件">2. 在myblog中创建一个public文件</h3>
-<pre><code>hugo --theme=m10c --baseUrl=&quot;https://daniel1n.github.io/&quot; --buildDrafts
-</code></pre><p>创建成功，显示如下：</p>
-<pre><code>C:\hugo\sites\myblog&gt;hugo --theme=m10c --baseUrl=&quot;https://daniel1n.github.io/&quot; --buildDrafts
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo --theme<span style="color:#f92672">=</span>m10c --baseUrl<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://daniel1n.github.io/&#34;</span> --buildDrafts
+</code></pre></div><p>创建成功，显示如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog&gt;hugo --theme<span style="color:#f92672">=</span>m10c --baseUrl<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://daniel1n.github.io/&#34;</span> --buildDrafts
 Building sites …
                    | EN
 -------------------+-----
-  Pages            | 10
-  Paginator pages  |  0
-  Non-page files   |  0
-  Static files     |  1
-  Processed images |  0
-  Aliases          |  4
-  Sitemaps         |  1
-  Cleaned          |  0
+  Pages            | <span style="color:#ae81ff">10</span>
+  Paginator pages  |  <span style="color:#ae81ff">0</span>
+  Non-page files   |  <span style="color:#ae81ff">0</span>
+  Static files     |  <span style="color:#ae81ff">1</span>
+  Processed images |  <span style="color:#ae81ff">0</span>
+  Aliases          |  <span style="color:#ae81ff">4</span>
+  Sitemaps         |  <span style="color:#ae81ff">1</span>
+  Cleaned          |  <span style="color:#ae81ff">0</span>
 
-Total in 57 ms
-</code></pre><p>查看myblog中是否有public文件</p>
-<pre><code> C:\hugo\sites\myblog 的目录
+Total in <span style="color:#ae81ff">57</span> ms
+</code></pre></div><p>查看myblog中是否有public文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog 的目录
 
 2020-05-03  13:00    &lt;DIR&gt;          .
 2020-05-03  11:43    &lt;DIR&gt;          ..
 2020-05-03  11:43    &lt;DIR&gt;          archetypes
-2020-05-03  11:43                82 config.toml
+2020-05-03  11:43                <span style="color:#ae81ff">82</span> config.toml
 2020-05-03  12:40    &lt;DIR&gt;          content
 2020-05-03  11:43    &lt;DIR&gt;          data
 2020-05-03  11:43    &lt;DIR&gt;          layouts
@@ -273,10 +273,10 @@ Total in 57 ms
 2020-05-03  12:34    &lt;DIR&gt;          resources
 2020-05-03  11:43    &lt;DIR&gt;          static
 2020-05-03  11:55    &lt;DIR&gt;          themes
-               1 个文件             82 字节
-              10 个目录 39,022,243,840 可用字节
-</code></pre><p>打开pubic文件的内容：</p>
-<pre><code> C:\hugo\sites\myblog\public 的目录
+               <span style="color:#ae81ff">1</span> 个文件             <span style="color:#ae81ff">82</span> 字节
+              <span style="color:#ae81ff">10</span> 个目录 39,022,243,840 可用字节
+</code></pre></div><p>打开pubic文件的内容：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\p</span>ublic 的目录
 
 2020-05-03  13:00    &lt;DIR&gt;          .
 2020-05-03  13:00    &lt;DIR&gt;          ..
@@ -285,99 +285,99 @@ Total in 57 ms
 2020-05-03  13:00    &lt;DIR&gt;          categories
 2020-05-03  13:00    &lt;DIR&gt;          css
 2020-05-03  13:00             2,140 index.html
-2020-05-03  13:00               816 index.xml
+2020-05-03  13:00               <span style="color:#ae81ff">816</span> index.xml
 2020-05-03  13:00    &lt;DIR&gt;          page
 2020-05-03  13:00    &lt;DIR&gt;          post
-2020-05-03  13:00               667 sitemap.xml
+2020-05-03  13:00               <span style="color:#ae81ff">667</span> sitemap.xml
 2020-05-03  13:00    &lt;DIR&gt;          tags
-               5 个文件          8,869 字节
-               7 个目录 39,020,466,176 可用字节
-</code></pre><p>然后我们可以在post文件中，找到我们的blog</p>
-<pre><code> C:\hugo\sites\myblog\public\post 的目录
+               <span style="color:#ae81ff">5</span> 个文件          8,869 字节
+               <span style="color:#ae81ff">7</span> 个目录 39,020,466,176 可用字节
+</code></pre></div><p>然后我们可以在post文件中，找到我们的blog</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\p</span>ublic<span style="color:#ae81ff">\p</span>ost 的目录
 
 2020-05-03  13:00    &lt;DIR&gt;          .
 2020-05-03  13:00    &lt;DIR&gt;          ..
 2020-05-03  13:00    &lt;DIR&gt;          blog
 2020-05-03  13:00             2,121 index.html
-2020-05-03  13:00               844 index.xml
+2020-05-03  13:00               <span style="color:#ae81ff">844</span> index.xml
 2020-05-03  13:00    &lt;DIR&gt;          page
-               2 个文件          2,965 字节
-               4 个目录 39,025,672,192 可用字节
-</code></pre><p>打开C:\hugo\sites\myblog\public\post\blog文件，发现已经转换为 index.html，一个html文件</p>
-<pre><code> C:\hugo\sites\myblog\public\post\blog 的目录
+               <span style="color:#ae81ff">2</span> 个文件          2,965 字节
+               <span style="color:#ae81ff">4</span> 个目录 39,025,672,192 可用字节
+</code></pre></div><p>打开C:\hugo\sites\myblog\public\post\blog文件，发现已经转换为 index.html，一个html文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\p</span>ublic<span style="color:#ae81ff">\p</span>ost<span style="color:#ae81ff">\b</span>log 的目录
 
 2020-05-03  13:00    &lt;DIR&gt;          .
 2020-05-03  13:00    &lt;DIR&gt;          ..
 2020-05-03  13:00             2,655 index.html
-               1 个文件          2,655 字节
-               2 个目录 39,024,021,504 可用字节
-</code></pre><hr>
+               <span style="color:#ae81ff">1</span> 个文件          2,655 字节
+               <span style="color:#ae81ff">2</span> 个目录 39,024,021,504 可用字节
+</code></pre></div><hr>
 <h3 id="3-将public文件内容上传到github的repository">3. 将public文件内容，上传到GitHub的repository</h3>
 <p>刚才我们已经在个人GitHub中，新建一个名为 daniel1n.github.io 的repository</p>
 <p>回到我们的根目录myblog下面的public文件夹中</p>
 <p>C:\hugo\sites\myblog\public\</p>
 <p>开始输入git的上传命令行</p>
-<pre><code>git init
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git init
 git add .
-git commit -m &quot;我的huigo博客第一次提交&quot;
-</code></pre><p>本地提交成功，显示如下：</p>
-<pre><code>C:\hugo\Sites\myblog\public&gt;git init
+git commit -m <span style="color:#e6db74">&#34;我的huigo博客第一次提交&#34;</span>
+</code></pre></div><p>本地提交成功，显示如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\S</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\p</span>ublic&gt;git init
 
-C:\hugo\Sites\myblog\public&gt;git add .
+C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\S</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\p</span>ublic&gt;git add .
 
-C:\hugo\Sites\myblog\public&gt;git commit -m &quot;我的hugo博客第一次提交&quot;
-[master (root-commit) bdbc84f] 我的hugo博客第一次提交
- 17 files changed, 12086 insertions(+)
- create mode 100644 404.html
- create mode 100644 avatar.jpg
- create mode 100644 categories/index.html
- create mode 100644 categories/index.xml
- create mode 100644 categories/page/1/index.html
- create mode 100644 css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css
- create mode 100644 index.html
- create mode 100644 index.xml
- create mode 100644 page/1/index.html
- create mode 100644 post/blog/index.html
- create mode 100644 post/index.html
- create mode 100644 post/index.xml
- create mode 100644 post/page/1/index.html
- create mode 100644 sitemap.xml
- create mode 100644 tags/index.html
- create mode 100644 tags/index.xml
- create mode 100644 tags/page/1/index.html
-</code></pre><p>输入以下命令行，提交到远程GitHub的repository</p>
-<pre><code>git remote add origin https://github.com/daniel1n/daniel1n.github.io.git
+C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\S</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\p</span>ublic&gt;git commit -m <span style="color:#e6db74">&#34;我的hugo博客第一次提交&#34;</span>
+<span style="color:#f92672">[</span>master <span style="color:#f92672">(</span>root-commit<span style="color:#f92672">)</span> bdbc84f<span style="color:#f92672">]</span> 我的hugo博客第一次提交
+ <span style="color:#ae81ff">17</span> files changed, <span style="color:#ae81ff">12086</span> insertions<span style="color:#f92672">(</span>+<span style="color:#f92672">)</span>
+ create mode <span style="color:#ae81ff">100644</span> 404.html
+ create mode <span style="color:#ae81ff">100644</span> avatar.jpg
+ create mode <span style="color:#ae81ff">100644</span> categories/index.html
+ create mode <span style="color:#ae81ff">100644</span> categories/index.xml
+ create mode <span style="color:#ae81ff">100644</span> categories/page/1/index.html
+ create mode <span style="color:#ae81ff">100644</span> css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css
+ create mode <span style="color:#ae81ff">100644</span> index.html
+ create mode <span style="color:#ae81ff">100644</span> index.xml
+ create mode <span style="color:#ae81ff">100644</span> page/1/index.html
+ create mode <span style="color:#ae81ff">100644</span> post/blog/index.html
+ create mode <span style="color:#ae81ff">100644</span> post/index.html
+ create mode <span style="color:#ae81ff">100644</span> post/index.xml
+ create mode <span style="color:#ae81ff">100644</span> post/page/1/index.html
+ create mode <span style="color:#ae81ff">100644</span> sitemap.xml
+ create mode <span style="color:#ae81ff">100644</span> tags/index.html
+ create mode <span style="color:#ae81ff">100644</span> tags/index.xml
+ create mode <span style="color:#ae81ff">100644</span> tags/page/1/index.html
+</code></pre></div><p>输入以下命令行，提交到远程GitHub的repository</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git remote add origin https://github.com/daniel1n/daniel1n.github.io.git
 git push -u origin master
-</code></pre><p>提交成功，显示如下：</p>
-<pre><code>C:\hugo\Sites\myblog\public&gt;git push -u origin master
-Enumerating objects: 35, done.
-Counting objects: 100% (35/35), done.
-Delta compression using up to 12 threads
-Compressing objects: 100% (25/25), done.
-Writing objects: 100% (35/35), 153.76 KiB | 6.68 MiB/s, done.
-Total 35 (delta 11), reused 0 (delta 0)
-remote: Resolving deltas: 100% (11/11), done.
+</code></pre></div><p>提交成功，显示如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\S</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\p</span>ublic&gt;git push -u origin master
+Enumerating objects: 35, <span style="color:#66d9ef">done</span>.
+Counting objects: 100% <span style="color:#f92672">(</span>35/35<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+Delta compression using up to <span style="color:#ae81ff">12</span> threads
+Compressing objects: 100% <span style="color:#f92672">(</span>25/25<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+Writing objects: 100% <span style="color:#f92672">(</span>35/35<span style="color:#f92672">)</span>, 153.76 KiB | 6.68 MiB/s, <span style="color:#66d9ef">done</span>.
+Total <span style="color:#ae81ff">35</span> <span style="color:#f92672">(</span>delta 11<span style="color:#f92672">)</span>, reused <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>
+remote: Resolving deltas: 100% <span style="color:#f92672">(</span>11/11<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
 To https://github.com/daniel1n/daniel1n.github.io.git
- * [new branch]      master -&gt; master
-Branch 'master' set up to track remote branch 'master' from 'origin'.
-</code></pre><p>最后，我们在我们的GitHub中查看一下repository的详细情况
+ * <span style="color:#f92672">[</span>new branch<span style="color:#f92672">]</span>      master -&gt; master
+Branch <span style="color:#e6db74">&#39;master&#39;</span> set up to track remote branch <span style="color:#e6db74">&#39;master&#39;</span> from <span style="color:#e6db74">&#39;origin&#39;</span>.
+</code></pre></div><p>最后，我们在我们的GitHub中查看一下repository的详细情况
 <a href="https://github.com/daniel1n/daniel1n.github.io.git">https://github.com/daniel1n/daniel1n.github.io.git</a></p>
 <p>没问题，提交完成，可以在浏览器中，查看个人博客的地址：https://daniel1n.github.io/</p>
 <hr>
 <h2 id="七-如何更新博客">七、 如何更新博客</h2>
-<pre><code>hugo new post/newblog.md
-</code></pre><p>打开新建的newblog.md，编辑blog内容</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo new post/newblog.md
+</code></pre></div><p>打开新建的newblog.md，编辑blog内容</p>
 <p>或者，不需要新增，只对已存在的md文档进行修改</p>
 <p>编辑后检测内容：cd 到blog根目录，然后输入以下命令：</p>
-<pre><code>hugo server -D
-</code></pre><p>更新public静态页面，先cd到blog根目录，然后输入以下命令：</p>
-<pre><code>hugo --theme=m10c --baseUrl=&quot;https://daniel1n.github.io/&quot; --buildDrafts
-</code></pre><p>推送更新内容,cd到public目录下，然后输入以下命令：</p>
-<pre><code>git add .
-git commit -m &quot;Hugo Blog update&quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo server -D
+</code></pre></div><p>更新public静态页面，先cd到blog根目录，然后输入以下命令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo --theme<span style="color:#f92672">=</span>m10c --baseUrl<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://daniel1n.github.io/&#34;</span> --buildDrafts
+</code></pre></div><p>推送更新内容,cd到public目录下，然后输入以下命令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git add .
+git commit -m <span style="color:#e6db74">&#34;Hugo Blog update&#34;</span>
 git push -u origin master
 
-</code></pre><hr>
+</code></pre></div><hr>
 <h2 id="总结">总结</h2>
 <ol>
 <li>在window下安装，有些麻烦，下载hugo_0.69.2_Windows-64bit.zip，非常的慢</li>

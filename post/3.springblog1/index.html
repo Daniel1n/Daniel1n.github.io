@@ -169,7 +169,7 @@
 <p><strong>Java</strong> <strong>源码是经典学习范例</strong></p>
 <p>Spring 的源代码设计精妙、结构清晰、匠心独用，处处体现着大师对 Java 设计模式灵活运用以及对 Java 技术的高深造诣。它的源代码无意是 Java 技术的最佳实践的范例。</p>
 <h2 id="14--spring的体系结构">1.4  <strong>Spring的体系结构</strong></h2>
-<p><img src="images/spring-overview.png" alt="image"></p>
+<!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <hr>
 <h1 id="第二章--ioc的概念和作用">第二章  IoC的概念和作用</h1>
@@ -209,35 +209,29 @@
 </li>
 <li>
 <p>内聚和耦合是密切相关的，同其他模块存在高耦合的模块意味着低内聚，而高内聚的模块意味着该模块同其他模块之间是低耦合。在进行软件设计时，应力争做到高内聚，低耦合。</p>
+<p>我们在开发中，有些依赖关系是必须的，有些依赖关系可以通过优化代码来解除的。</p>
 </li>
 </ul>
-<pre><code>我们在开发中，有些依赖关系是必须的，有些依赖关系可以通过优化代码来解除的。
-
-public class AccountServiceImpl implements IAccountService {
-	private IAccountDao accountDao = new AccountDaoImpl();
-}
-
-上面的代码表示：
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AccountServiceImpl</span> <span style="color:#66d9ef">implements</span> IAccountService <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">private</span> IAccountDao accountDao <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AccountDaoImpl<span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>上面的代码表示：
 业务层调用持久层，并且此时业务层在依赖持久层的接口和实现类。
-如果此时没有持久层实现类，编译将不能通过。这种编译期依赖关系，应该在我们开发中杜绝。我们需要优化代码解决。
-
-
-再比如：
-早期我们的 JDBC 操作，注册驱动时，我们为什么不使用 DriverManager 的 register 方法，而是采用 Class.forName 的方式？
-
-public class JdbcDemo1 {
-	public static void main(String[] args) throws Exception {
-	//1.注册驱动
-	//DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-	Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
-	//2.获取连接
-	//3.获取预处理 sql 语句对象
-	//4.获取结果集
-	//5.遍历结果集
-	} 
-}
-
-原因就是：
+如果此时没有持久层实现类，编译将不能通过。这种编译期依赖关系，应该在我们开发中杜绝。我们需要优化代码解决。</p>
+<p>再比如：
+早期我们的 JDBC 操作，注册驱动时，我们为什么不使用 DriverManager 的 register 方法，而是采用 Class.forName 的方式？</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JdbcDemo1</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+	<span style="color:#75715e">//1.注册驱动
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+</span><span style="color:#75715e"></span>	Class<span style="color:#f92672">.</span><span style="color:#a6e22e">forName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;com.mysql.jdbc.Driver&#34;</span><span style="color:#f92672">);</span>
+	<span style="color:#75715e">//2.获取连接
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//3.获取预处理 sql 语句对象
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//4.获取结果集
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//5.遍历结果集
+</span><span style="color:#75715e"></span>	<span style="color:#f92672">}</span> 
+<span style="color:#f92672">}</span>
+</code></pre></div><pre><code>原因就是：
 我们的类依赖了数据库的具体驱动类（MySQL），如果这时候更换了数据库品牌（比如 Oracle），需要修改源码来重新数据库驱动。这显然不是我们想要的。
 </code></pre><h2 id="22--解决程序耦合的思路">2.2  <strong>解决程序耦合的思路</strong></h2>
 <pre><code>当是我们讲解 jdbc 时，是通过反射来注册驱动的，代码如下：
@@ -284,120 +278,120 @@ http://repo.springsource.org/libs-release-local/org/springframework/spring
 * libs :jar 包和源码.
 * schema :约束.
 </code></pre><p>直接在idea创建一个maven project，在pom.xml导入：</p>
-<pre><code>&lt;dependencies&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
-        &lt;version&gt;5.2.6.BUILD-SNAPSHOT&lt;/version&gt;
-    &lt;/dependency&gt;        
-&lt;/dependencies&gt;
-</code></pre><h3 id="312--创建业务层接口和实现类">3.1.2  <strong>创建业务层接口和实现类</strong></h3>
-<pre><code>在MySQL中创建一个数据库以及数据库中的account表
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependencies&gt;</span>
+    <span style="color:#f92672">&lt;dependency&gt;</span>
+        <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework<span style="color:#f92672">&lt;/groupId&gt;</span>
+        <span style="color:#f92672">&lt;artifactId&gt;</span>spring-context<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;version&gt;</span>5.2.6.BUILD-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>        
+<span style="color:#f92672">&lt;/dependencies&gt;</span>
+</code></pre></div><h3 id="312--创建业务层接口和实现类">3.1.2  <strong>创建业务层接口和实现类</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#960050;background-color:#1e0010">在</span>MySQL中创建一个数据库以及数据库中的account表
 
-CREATE TABLE account (
-  id int primary key auto_increment,
-  name varchar(40) DEFAULT NULL,
-  money float DEFAULT NULL,
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> account (
+  id int <span style="color:#66d9ef">primary</span> <span style="color:#66d9ef">key</span> auto_increment,
+  name varchar(<span style="color:#ae81ff">40</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+  money float <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
 );
 
-insert into account(name,money) values('aaa',1000);
-insert into account(name,money) values('bbb',1000);
-insert into account(name,money) values('ccc',1000);
-</code></pre><pre><code>/**
-* 账户的业务层接口
-* @author qqlin
-*/
-public interface IAccountService {
-    /**
-    * 保存账户（此处只是模拟，并不是真的要保存）
-    */
-	void saveAccount();
-}
+<span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> account(name,money) <span style="color:#66d9ef">values</span>(<span style="color:#e6db74">&#39;aaa&#39;</span>,<span style="color:#ae81ff">1000</span>);
+<span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> account(name,money) <span style="color:#66d9ef">values</span>(<span style="color:#e6db74">&#39;bbb&#39;</span>,<span style="color:#ae81ff">1000</span>);
+<span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> account(name,money) <span style="color:#66d9ef">values</span>(<span style="color:#e6db74">&#39;ccc&#39;</span>,<span style="color:#ae81ff">1000</span>);
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
+</span><span style="color:#75715e">* 账户的业务层接口
+</span><span style="color:#75715e">* @author qqlin
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IAccountService</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">    * 保存账户（此处只是模拟，并不是真的要保存）
+</span><span style="color:#75715e">    */</span>
+	<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">saveAccount</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
 
-/**
-* 账户的业务层实现类
-* @author qqlin
-*/
-public class AccountServiceImpl implements IAccountService {
-	private IAccountDao accountDao = new AccountDaoImpl();  //此处的依赖关系有待解决
-	
-	@Override
-	public void saveAccount() {
-		accountDao.saveAccount();
-	}
-}
-</code></pre><h3 id="313--创建持久层接口和实现类">3.1.3  <strong>创建持久层接口和实现类</strong></h3>
-<pre><code>/**
-* 账户的持久层接口
-* @author qqlin
-*/
-public interface IAccountDao {
-    /**
-    * 保存账户
-    */
-    void saveAccount();
-}
+<span style="color:#75715e">/**
+</span><span style="color:#75715e">* 账户的业务层实现类
+</span><span style="color:#75715e">* @author qqlin
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AccountServiceImpl</span> <span style="color:#66d9ef">implements</span> IAccountService <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">private</span> IAccountDao accountDao <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AccountDaoImpl<span style="color:#f92672">();</span>  <span style="color:#75715e">//此处的依赖关系有待解决
+</span><span style="color:#75715e"></span>	
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">saveAccount</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		accountDao<span style="color:#f92672">.</span><span style="color:#a6e22e">saveAccount</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="313--创建持久层接口和实现类">3.1.3  <strong>创建持久层接口和实现类</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
+</span><span style="color:#75715e">* 账户的持久层接口
+</span><span style="color:#75715e">* @author qqlin
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IAccountDao</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">    * 保存账户
+</span><span style="color:#75715e">    */</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">saveAccount</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
 
 
-/**
-* 账户的持久层实现类
-* @author qqlin
-*/
-public class AccountDaoImpl implements IAccountDao {
-    @Override
-    public void saveAccount() {
-    	System.out.println(&quot;保存了账户&quot;);
-	}
-}
-</code></pre><hr>
+<span style="color:#75715e">/**
+</span><span style="color:#75715e">* 账户的持久层实现类
+</span><span style="color:#75715e">* @author qqlin
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AccountDaoImpl</span> <span style="color:#66d9ef">implements</span> IAccountDao <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">saveAccount</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;保存了账户&#34;</span><span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><hr>
 <h2 id="32--基于-xml-的配置">3.2  <strong>基于</strong> <strong>XML</strong> <strong>的配置</strong></h2>
 <p>在src/main/resources下面，新增一个XML文件</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
-       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
-       			http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+       <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans
+</span><span style="color:#e6db74">       			http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span style="color:#f92672">&gt;</span>
 
-&lt;/beans&gt;
-</code></pre><h3 id="321--让spring管理资源在配置文件中配置service和dao">3.2.1  <strong>让spring管理资源，在配置文件中配置service和dao</strong></h3>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
-       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
-       			http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
-
-
-&lt;!-- bean 标签：用于配置让 spring 创建对象，并且存入 ioc 容器之中
- id 属性：对象的唯一标识。
- class 属性：指定要创建对象的全限定类名
---&gt;
-&lt;!-- 配置 service --&gt; 
-&lt;bean id=&quot;accountService&quot; class=&quot;com.itheima.service.impl.AccountServiceImpl&quot;&gt;
-&lt;/bean&gt;
-&lt;!-- 配置 dao --&gt; &lt;bean id=&quot;accountDao&quot; class=&quot;com.itheima.dao.impl.AccountDaoImpl&quot;&gt;&lt;/bean&gt;
+<span style="color:#f92672">&lt;/beans&gt;</span>
+</code></pre></div><h3 id="321--让spring管理资源在配置文件中配置service和dao">3.2.1  <strong>让spring管理资源，在配置文件中配置service和dao</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+       <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans
+</span><span style="color:#e6db74">       			http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span style="color:#f92672">&gt;</span>
 
 
-&lt;/beans&gt;
-</code></pre><h3 id="322-测试配置是否成功">3.2.2 <strong>测试配置是否成功</strong></h3>
-<pre><code>/**
-* 模拟一个表现层
-* @author qqlin
-*/
-public class Client {
-/**
- * 使用 main 方法获取容器测试执行
- */
- 	public static void main(String[] args) {
-        //1.使用 ApplicationContext 接口，就是在获取 spring 容器
-        ApplicationContext ac = new ClassPathXmlApplicationContext(&quot;bean.xml&quot;);
-        //2.根据 bean 的 id 获取对象
-        IAccountService aService = (IAccountService) ac.getBean(&quot;accountService&quot;);
-        System.out.println(aService);
-        IAccountDao aDao = (IAccountDao) ac.getBean(&quot;accountDao&quot;);
-        System.out.println(aDao);
-	}
-}
-</code></pre><hr>
+<span style="color:#75715e">&lt;!-- bean 标签：用于配置让 spring 创建对象，并且存入 ioc 容器之中
+</span><span style="color:#75715e"> id 属性：对象的唯一标识。
+</span><span style="color:#75715e"> class 属性：指定要创建对象的全限定类名
+</span><span style="color:#75715e">--&gt;</span>
+<span style="color:#75715e">&lt;!-- 配置 service --&gt;</span> 
+<span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;accountService&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.itheima.service.impl.AccountServiceImpl&#34;</span><span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;/bean&gt;</span>
+<span style="color:#75715e">&lt;!-- 配置 dao --&gt;</span> <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;accountDao&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.itheima.dao.impl.AccountDaoImpl&#34;</span><span style="color:#f92672">&gt;&lt;/bean&gt;</span>
+
+
+<span style="color:#f92672">&lt;/beans&gt;</span>
+</code></pre></div><h3 id="322-测试配置是否成功">3.2.2 <strong>测试配置是否成功</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
+</span><span style="color:#75715e">* 模拟一个表现层
+</span><span style="color:#75715e">* @author qqlin
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Client</span> <span style="color:#f92672">{</span>
+<span style="color:#75715e">/**
+</span><span style="color:#75715e"> * 使用 main 方法获取容器测试执行
+</span><span style="color:#75715e"> */</span>
+ 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//1.使用 ApplicationContext 接口，就是在获取 spring 容器
+</span><span style="color:#75715e"></span>        ApplicationContext ac <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ClassPathXmlApplicationContext<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;bean.xml&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#75715e">//2.根据 bean 的 id 获取对象
+</span><span style="color:#75715e"></span>        IAccountService aService <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>IAccountService<span style="color:#f92672">)</span> ac<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;accountService&#34;</span><span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>aService<span style="color:#f92672">);</span>
+        IAccountDao aDao <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>IAccountDao<span style="color:#f92672">)</span> ac<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;accountDao&#34;</span><span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>aDao<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><hr>
 <h2 id="33--spring中的工厂的类结构图">3.3  <strong>spring中的工厂的类结构图</strong></h2>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
@@ -449,51 +443,55 @@ AnnotationConfigApplicationContext:
         对象死亡：当对象长时间不用时，被 java 的垃圾回收器回收了。
 </code></pre><h3 id="343-实例化-bean-的三种方式">3.4.3 <strong>实例化</strong> <strong>Bean</strong> <strong>的三种方式</strong></h3>
 <pre><code>第一种方式：使用默认无参构造函数
-    &lt;!--在默认情况下：
-        它会根据默认无参构造函数来创建类对象。如果 bean 中没有默认无参构造函数，将会创建失败。
-     	--&gt; 
-    &lt;bean id=&quot;accountService&quot; class=&quot;com.itheima.service.impl.AccountServiceImpl&quot;/&gt;
-</code></pre><pre><code>第二种方式：spring 管理静态工厂-使用静态工厂的方法创建对象
-/**
-* 模拟一个静态工厂，创建业务层实现类
-*/
-public class StaticFactory {
-    public static IAccountService createAccountService(){
-    	return new AccountServiceImpl();
-    }
-}
-&lt;!-- 此种方式是:
-    使用 StaticFactory 类中的静态方法 createAccountService 创建对象，并存入 spring 容器
-    id 属性：指定 bean 的 id，用于从容器中获取
-    class 属性：指定静态工厂的全限定类名
-    factory-method 属性：指定生产对象的静态方法
---&gt; 
-&lt;bean id=&quot;accountService&quot; 
-	class=&quot;com.itheima.factory.StaticFactory&quot;
- 	factory-method=&quot;createAccountService&quot;&gt;
-&lt;/bean&gt;
-</code></pre><pre><code>第三种方式：spring 管理实例工厂-使用实例工厂的方法创建对象
-/**
-* 模拟一个实例工厂，创建业务层实现类
-* 此工厂创建对象，必须现有工厂实例对象，再调用方法
-*/
-public class InstanceFactory {
-    public IAccountService createAccountService(){
-    	return new AccountServiceImpl();
-    }
-}
-&lt;!-- 此种方式是：
-先把工厂的创建交给 spring 来管理。
-然后在使用工厂的 bean 来调用里面的方法
-factory-bean 属性：用于指定实例工厂 bean 的 id。
-factory-method 属性：用于指定实例工厂中创建对象的方法。
---&gt;	
-&lt;bean id=&quot;instancFactory&quot; class=&quot;com.itheima.factory.InstanceFactory&quot;&gt;&lt;/bean&gt;
-&lt;bean id=&quot;accountService&quot;
-	factory-bean=&quot;instancFactory&quot;
-	factory-method=&quot;createAccountService&quot;&gt;
-&lt;/bean&gt;
-</code></pre><hr>
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#75715e">&lt;!--在默认情况下：
+</span><span style="color:#75715e">        它会根据默认无参构造函数来创建类对象。如果 bean 中没有默认无参构造函数，将会创建失败。
+</span><span style="color:#75715e">     	--&gt;</span> 
+    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;accountService&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.itheima.service.impl.AccountServiceImpl&#34;</span><span style="color:#f92672">/&gt;</span>
+</code></pre></div><pre><code>第二种方式：spring 管理静态工厂-使用静态工厂的方法创建对象
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
+</span><span style="color:#75715e">* 模拟一个静态工厂，创建业务层实现类
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StaticFactory</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IAccountService <span style="color:#a6e22e">createAccountService</span><span style="color:#f92672">(){</span>
+    	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> AccountServiceImpl<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!-- 此种方式是:
+</span><span style="color:#75715e">    使用 StaticFactory 类中的静态方法 createAccountService 创建对象，并存入 spring 容器
+</span><span style="color:#75715e">    id 属性：指定 bean 的 id，用于从容器中获取
+</span><span style="color:#75715e">    class 属性：指定静态工厂的全限定类名
+</span><span style="color:#75715e">    factory-method 属性：指定生产对象的静态方法
+</span><span style="color:#75715e">--&gt;</span> 
+<span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;accountService&#34;</span> 
+	<span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.itheima.factory.StaticFactory&#34;</span>
+ 	<span style="color:#a6e22e">factory-method=</span><span style="color:#e6db74">&#34;createAccountService&#34;</span><span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;/bean&gt;</span>
+</code></pre></div><pre><code>第三种方式：spring 管理实例工厂-使用实例工厂的方法创建对象
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
+</span><span style="color:#75715e">* 模拟一个实例工厂，创建业务层实现类
+</span><span style="color:#75715e">* 此工厂创建对象，必须现有工厂实例对象，再调用方法
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">InstanceFactory</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> IAccountService <span style="color:#a6e22e">createAccountService</span><span style="color:#f92672">(){</span>
+    	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> AccountServiceImpl<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">...
+<span style="color:#75715e">&lt;!-- 此种方式是：
+</span><span style="color:#75715e">先把工厂的创建交给 spring 来管理。
+</span><span style="color:#75715e">然后在使用工厂的 bean 来调用里面的方法
+</span><span style="color:#75715e">factory-bean 属性：用于指定实例工厂 bean 的 id。
+</span><span style="color:#75715e">factory-method 属性：用于指定实例工厂中创建对象的方法。
+</span><span style="color:#75715e">--&gt;</span>	
+<span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;instancFactory&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.itheima.factory.InstanceFactory&#34;</span><span style="color:#f92672">&gt;&lt;/bean&gt;</span>
+<span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;accountService&#34;</span>
+	<span style="color:#a6e22e">factory-bean=</span><span style="color:#e6db74">&#34;instancFactory&#34;</span>
+	<span style="color:#a6e22e">factory-method=</span><span style="color:#e6db74">&#34;createAccountService&#34;</span><span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;/bean&gt;</span>
+</code></pre></div><hr>
 <h2 id="35-spring-的依赖注入">3.5 <strong>spring</strong> <strong>的依赖注入</strong></h2>
 <h3 id="351-依赖注入的概念">3.5.1 <strong>依赖注入的概念</strong></h3>
 <pre><code>依赖注入：Dependency Injection。它是 spring 框架核心 ioc 的具体实现。
@@ -504,192 +502,189 @@ ioc 解耦只是降低他们的依赖关系，但不会消除。例如：我们�
 </code></pre><h3 id="352-构造函数注入">3.5.2 <strong>构造函数注入</strong></h3>
 <pre><code>顾名思义，就是使用类中的构造函数，给成员变量赋值。注意，赋值的操作不是我们自己做的，而是通过配置
 的方式，让 spring 框架来为我们注入。具体代码如下：
-
-/**
- * 业务层实现类
- *
- * @author qq_lin
- */
-public class AccountServiceImpl implements IAccountService {
-    private String name;
-    private Integer age;
-    private Date birthday;
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * 业务层实现类
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> * @author qq_lin
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AccountServiceImpl</span> <span style="color:#66d9ef">implements</span> IAccountService <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Integer age<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Date birthday<span style="color:#f92672">;</span>
     
-    public AccountServiceImpl(String name, Integer age, Date birthday) {
-        this.name = name;
-        this.age = age;
-        this.birthday = birthday;
-    }
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">AccountServiceImpl</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">,</span> Integer age<span style="color:#f92672">,</span> Date birthday<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> age<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">birthday</span> <span style="color:#f92672">=</span> birthday<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
     
-    @Override
-    public void saveAccount() {
-    	System.out.println(name+&quot;,&quot;+age+&quot;,&quot;+birthday);
-	}
-}
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">saveAccount</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>name<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;,&#34;</span><span style="color:#f92672">+</span>age<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;,&#34;</span><span style="color:#f92672">+</span>birthday<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!-- 使用构造函数的方式，给 service 中的属性传值
+</span><span style="color:#75715e">    要求：
+</span><span style="color:#75715e">    	类中需要提供一个对应参数列表的构造函数。
+</span><span style="color:#75715e">    涉及的标签：
+</span><span style="color:#75715e">    	constructor-arg
+</span><span style="color:#75715e">        属性：
+</span><span style="color:#75715e">            index:指定参数在构造函数参数列表的索引位置
+</span><span style="color:#75715e">            type:指定参数在构造函数中的数据类型
+</span><span style="color:#75715e">            name:指定参数在构造函数中的名称
+</span><span style="color:#75715e">            value:它能赋的值是基本数据类型和 String 类型
+</span><span style="color:#75715e">            ref:它能赋的值是其他 bean 类型，也就是说，必须得是在配置文件中配置过的 bean
+</span><span style="color:#75715e">--&gt;</span>
+<span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;accountService&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.itheima.service.impl.AccountServiceImpl&#34;</span><span style="color:#f92672">&gt;</span> 
+    <span style="color:#f92672">&lt;constructor-arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;张三&#34;</span><span style="color:#f92672">&gt;&lt;/constructor-arg&gt;</span> 
+    <span style="color:#f92672">&lt;constructor-arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;age&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;18&#34;</span><span style="color:#f92672">&gt;&lt;/constructor-arg&gt;</span> 
+    <span style="color:#f92672">&lt;constructor-arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;birthday&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;now&#34;</span><span style="color:#f92672">&gt;&lt;/constructor-arg&gt;</span>
+<span style="color:#f92672">&lt;/bean&gt;</span> <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;now&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;java.util.Date&#34;</span><span style="color:#f92672">&gt;&lt;/bean&gt;</span>
 
-&lt;!-- 使用构造函数的方式，给 service 中的属性传值
-    要求：
-    	类中需要提供一个对应参数列表的构造函数。
-    涉及的标签：
-    	constructor-arg
-        属性：
-            index:指定参数在构造函数参数列表的索引位置
-            type:指定参数在构造函数中的数据类型
-            name:指定参数在构造函数中的名称
-            value:它能赋的值是基本数据类型和 String 类型
-            ref:它能赋的值是其他 bean 类型，也就是说，必须得是在配置文件中配置过的 bean
---&gt;
-&lt;bean id=&quot;accountService&quot; class=&quot;com.itheima.service.impl.AccountServiceImpl&quot;&gt; 
-    &lt;constructor-arg name=&quot;name&quot; value=&quot;张三&quot;&gt;&lt;/constructor-arg&gt; 
-    &lt;constructor-arg name=&quot;age&quot; value=&quot;18&quot;&gt;&lt;/constructor-arg&gt; 
-    &lt;constructor-arg name=&quot;birthday&quot; ref=&quot;now&quot;&gt;&lt;/constructor-arg&gt;
-&lt;/bean&gt; &lt;bean id=&quot;now&quot; class=&quot;java.util.Date&quot;&gt;&lt;/bean&gt;
+<span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;now&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;java.util.Date&#34;</span><span style="color:#f92672">&gt;&lt;/bean&gt;</span> 
 
-&lt;bean id=&quot;now&quot; class=&quot;java.util.Date&quot;&gt;&lt;/bean&gt; 
-
-</code></pre><h3 id="353-set-方法注入">3.5.3 <strong>set</strong> <strong>方法注入</strong></h3>
+</code></pre></div><h3 id="353-set-方法注入">3.5.3 <strong>set</strong> <strong>方法注入</strong></h3>
 <pre><code>顾名思义，就是在类中提供需要注入成员的 set 方法。具体代码如下：
-
-/**
- * 业务层实现类
- *
- * @author qq_lin
- */
-public class AccountServiceImpl implements IAccountService {
-    private String name;
-    private Integer age;
-    private Date birthday;
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * 业务层实现类
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> * @author qq_lin
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AccountServiceImpl</span> <span style="color:#66d9ef">implements</span> IAccountService <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Integer age<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Date birthday<span style="color:#f92672">;</span>
     
-    public void setName(String name) { this.name = name; }
-    public void setAge(Integer age) { this.age = age; }
-    public void setBirthday(Date birthday) { this.birthday = birthday; }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name<span style="color:#f92672">;</span> <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setAge</span><span style="color:#f92672">(</span>Integer age<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> age<span style="color:#f92672">;</span> <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setBirthday</span><span style="color:#f92672">(</span>Date birthday<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">birthday</span> <span style="color:#f92672">=</span> birthday<span style="color:#f92672">;</span> <span style="color:#f92672">}</span>
     
-    @Override
-    public void saveAccount() {
-    	System.out.println(name+&quot;,&quot;+age+&quot;,&quot;+birthday);
-    }
-} 
-
-&lt;!-- 通过配置文件给 bean 中的属性传值：使用 set 方法的方式
-    涉及的标签：
-    	property
-    属性：
-        name：找的是类中 set 方法后面的部分
-        ref：给属性赋值是其他 bean 类型的
-        value：给属性赋值是基本数据类型和 string 类型的
-        实际开发中，此种方式用的较多。
---&gt;
-&lt;bean id=&quot;accountService&quot; class=&quot;com.itheima.service.impl.AccountServiceImpl&quot;&gt;
-    &lt;property name=&quot;name&quot; value=&quot;test&quot;&gt;&lt;/property&gt; 
-    &lt;property name=&quot;age&quot; value=&quot;21&quot;&gt;&lt;/property&gt;
-    &lt;property name=&quot;birthday&quot; ref=&quot;now&quot;&gt;&lt;/property&gt;
-&lt;/bean&gt; 
-&lt;bean id=&quot;now&quot; class=&quot;java.util.Date&quot;&gt;&lt;/bean&gt;
-</code></pre><h3 id="354-注入集合属性">3.5.4 <strong>注入集合属性</strong></h3>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">saveAccount</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>name<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;,&#34;</span><span style="color:#f92672">+</span>age<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;,&#34;</span><span style="color:#f92672">+</span>birthday<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span> 
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!-- 通过配置文件给 bean 中的属性传值：使用 set 方法的方式
+</span><span style="color:#75715e">    涉及的标签：
+</span><span style="color:#75715e">    	property
+</span><span style="color:#75715e">    属性：
+</span><span style="color:#75715e">        name：找的是类中 set 方法后面的部分
+</span><span style="color:#75715e">        ref：给属性赋值是其他 bean 类型的
+</span><span style="color:#75715e">        value：给属性赋值是基本数据类型和 string 类型的
+</span><span style="color:#75715e">        实际开发中，此种方式用的较多。
+</span><span style="color:#75715e">--&gt;</span>
+<span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;accountService&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.itheima.service.impl.AccountServiceImpl&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;test&#34;</span><span style="color:#f92672">&gt;&lt;/property&gt;</span> 
+    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;age&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;21&#34;</span><span style="color:#f92672">&gt;&lt;/property&gt;</span>
+    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;birthday&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;now&#34;</span><span style="color:#f92672">&gt;&lt;/property&gt;</span>
+<span style="color:#f92672">&lt;/bean&gt;</span> 
+<span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;now&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;java.util.Date&#34;</span><span style="color:#f92672">&gt;&lt;/bean&gt;</span>
+</code></pre></div><h3 id="354-注入集合属性">3.5.4 <strong>注入集合属性</strong></h3>
 <pre><code>顾名思义，就是给类中的集合成员传值，它用的也是set方法注入的方式，只不过变量的数据类型都是集合。
 我们这里介绍注入数组，List,Set,Map,Properties。具体代码如下：
-
-/**
- * 业务层实现类
- *
- * @author qq_lin
- */
-public class AccountServiceImpl3 implements IAccountService {
-
-    private String[] myStrs;
-    private List&lt;String&gt; myList;
-    private Set&lt;String&gt; mySet;
-    private Map&lt;String, String&gt; myMap;
-    private Properties myProps;
-
-    public void setMyStrs(String[] myStrs) {
-        this.myStrs = myStrs;
-    }
-
-    public void setMyList(List&lt;String&gt; myList) {
-        this.myList = myList;
-    }
-
-    public void setMySet(Set&lt;String&gt; mySet) {
-        this.mySet = mySet;
-    }
-
-    public void setMyMap(Map&lt;String, String&gt; myMap) {
-        this.myMap = myMap;
-    }
-
-    public void setMyProps(Properties myProps) {
-        this.myProps = myProps;
-    }
-
-	@Override
-    public void saveAccount() {
-        System.out.println(Arrays.toString(myStrs));
-        System.out.println(myList);
-        System.out.println(mySet);
-        System.out.println(myMap);
-        System.out.println(myProps);
-    }
-
-}
-
-
-&lt;!-- 注入集合数据
-    List 结构的：
-    	array,list,set
-    Map 结构的
-    	map,entry,props,prop
---&gt; 
-&lt;bean id=&quot;accountService&quot; class=&quot;com.itheima.service.impl.AccountServiceImpl&quot;&gt;
-    &lt;!-- 在注入集合数据时，只要结构相同，标签可以互换 --&gt;
-    
-    &lt;!-- 给数组注入数据 --&gt; 
-    &lt;property name=&quot;myStrs&quot;&gt;
-    	&lt;set&gt;
-    		&lt;value&gt;AAA&lt;/value&gt; 
-    		&lt;value&gt;BBB&lt;/value&gt; 
-    		&lt;value&gt;CCC&lt;/value&gt;
-		&lt;/set&gt;
-    &lt;/property&gt;
-    
-    &lt;!-- 注入 list 集合数据 --&gt; 
-    &lt;property name=&quot;myList&quot;&gt;
-        &lt;array&gt; 
-        	&lt;value&gt;AAA&lt;/value&gt; 
-        	&lt;value&gt;BBB&lt;/value&gt;
-        	&lt;value&gt;CCC&lt;/value&gt;
-        &lt;/array&gt;
-    &lt;/property&gt;
-    
-    &lt;!-- 注入 set 集合数据 --&gt; 
-    &lt;property name=&quot;mySet&quot;&gt;
-        &lt;list&gt;
-        	&lt;value&gt;AAA&lt;/value&gt;
-        	&lt;value&gt;BBB&lt;/value&gt; 
-        	&lt;value&gt;CCC&lt;/value&gt;
-        &lt;/list&gt;
-    &lt;/property&gt;
-    
-    
-    &lt;!-- 注入 Map 数据 --&gt; 
-    &lt;property name=&quot;myMap&quot;&gt;
-        &lt;props&gt; 
-            &lt;prop key=&quot;testA&quot;&gt;aaa&lt;/prop&gt; 
-            &lt;prop key=&quot;testB&quot;&gt;bbb&lt;/prop&gt;
-        &lt;/props&gt;
-    &lt;/property&gt;
-    
-    &lt;!-- 注入 properties 数据 --&gt;
-    &lt;property name=&quot;myProps&quot;&gt; 
-        &lt;map&gt;
-            &lt;entry key=&quot;testA&quot; value=&quot;aaa&quot;&gt;&lt;/entry&gt;
-            &lt;entry key=&quot;testB&quot;&gt; 
-                &lt;value&gt;bbb&lt;/value&gt;
-            &lt;/entry&gt;
-    	&lt;/map&gt;
-    &lt;/property&gt;
-&lt;/bean&gt;
 </code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * 业务层实现类
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> * @author qq_lin
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AccountServiceImpl3</span> <span style="color:#66d9ef">implements</span> IAccountService <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">private</span> String<span style="color:#f92672">[]</span> myStrs<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> myList<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Set<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> mySet<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> myMap<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Properties myProps<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setMyStrs</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> myStrs<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">myStrs</span> <span style="color:#f92672">=</span> myStrs<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setMyList</span><span style="color:#f92672">(</span>List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> myList<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">myList</span> <span style="color:#f92672">=</span> myList<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setMySet</span><span style="color:#f92672">(</span>Set<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> mySet<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mySet</span> <span style="color:#f92672">=</span> mySet<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setMyMap</span><span style="color:#f92672">(</span>Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> myMap<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">myMap</span> <span style="color:#f92672">=</span> myMap<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setMyProps</span><span style="color:#f92672">(</span>Properties myProps<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">myProps</span> <span style="color:#f92672">=</span> myProps<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">saveAccount</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>myStrs<span style="color:#f92672">));</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>myList<span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>mySet<span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>myMap<span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>myProps<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">
+<span style="color:#75715e">&lt;!-- 注入集合数据
+</span><span style="color:#75715e">    List 结构的：
+</span><span style="color:#75715e">    	array,list,set
+</span><span style="color:#75715e">    Map 结构的
+</span><span style="color:#75715e">    	map,entry,props,prop
+</span><span style="color:#75715e">--&gt;</span> 
+<span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;accountService&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.itheima.service.impl.AccountServiceImpl&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#75715e">&lt;!-- 在注入集合数据时，只要结构相同，标签可以互换 --&gt;</span>
+    
+    <span style="color:#75715e">&lt;!-- 给数组注入数据 --&gt;</span> 
+    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;myStrs&#34;</span><span style="color:#f92672">&gt;</span>
+    	<span style="color:#f92672">&lt;set&gt;</span>
+    		<span style="color:#f92672">&lt;value&gt;</span>AAA<span style="color:#f92672">&lt;/value&gt;</span> 
+    		<span style="color:#f92672">&lt;value&gt;</span>BBB<span style="color:#f92672">&lt;/value&gt;</span> 
+    		<span style="color:#f92672">&lt;value&gt;</span>CCC<span style="color:#f92672">&lt;/value&gt;</span>
+		<span style="color:#f92672">&lt;/set&gt;</span>
+    <span style="color:#f92672">&lt;/property&gt;</span>
+    
+    <span style="color:#75715e">&lt;!-- 注入 list 集合数据 --&gt;</span> 
+    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;myList&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;array&gt;</span> 
+        	<span style="color:#f92672">&lt;value&gt;</span>AAA<span style="color:#f92672">&lt;/value&gt;</span> 
+        	<span style="color:#f92672">&lt;value&gt;</span>BBB<span style="color:#f92672">&lt;/value&gt;</span>
+        	<span style="color:#f92672">&lt;value&gt;</span>CCC<span style="color:#f92672">&lt;/value&gt;</span>
+        <span style="color:#f92672">&lt;/array&gt;</span>
+    <span style="color:#f92672">&lt;/property&gt;</span>
+    
+    <span style="color:#75715e">&lt;!-- 注入 set 集合数据 --&gt;</span> 
+    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;mySet&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;list&gt;</span>
+        	<span style="color:#f92672">&lt;value&gt;</span>AAA<span style="color:#f92672">&lt;/value&gt;</span>
+        	<span style="color:#f92672">&lt;value&gt;</span>BBB<span style="color:#f92672">&lt;/value&gt;</span> 
+        	<span style="color:#f92672">&lt;value&gt;</span>CCC<span style="color:#f92672">&lt;/value&gt;</span>
+        <span style="color:#f92672">&lt;/list&gt;</span>
+    <span style="color:#f92672">&lt;/property&gt;</span>
+    
+    
+    <span style="color:#75715e">&lt;!-- 注入 Map 数据 --&gt;</span> 
+    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;myMap&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;props&gt;</span> 
+            <span style="color:#f92672">&lt;prop</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;testA&#34;</span><span style="color:#f92672">&gt;</span>aaa<span style="color:#f92672">&lt;/prop&gt;</span> 
+            <span style="color:#f92672">&lt;prop</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;testB&#34;</span><span style="color:#f92672">&gt;</span>bbb<span style="color:#f92672">&lt;/prop&gt;</span>
+        <span style="color:#f92672">&lt;/props&gt;</span>
+    <span style="color:#f92672">&lt;/property&gt;</span>
+    
+    <span style="color:#75715e">&lt;!-- 注入 properties 数据 --&gt;</span>
+    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;myProps&#34;</span><span style="color:#f92672">&gt;</span> 
+        <span style="color:#f92672">&lt;map&gt;</span>
+            <span style="color:#f92672">&lt;entry</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;testA&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;aaa&#34;</span><span style="color:#f92672">&gt;&lt;/entry&gt;</span>
+            <span style="color:#f92672">&lt;entry</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;testB&#34;</span><span style="color:#f92672">&gt;</span> 
+                <span style="color:#f92672">&lt;value&gt;</span>bbb<span style="color:#f92672">&lt;/value&gt;</span>
+            <span style="color:#f92672">&lt;/entry&gt;</span>
+    	<span style="color:#f92672">&lt;/map&gt;</span>
+    <span style="color:#f92672">&lt;/property&gt;</span>
+<span style="color:#f92672">&lt;/bean&gt;</span>
+</code></pre></div>
     </div>
     <div class="post-footer">
       
