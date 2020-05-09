@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>日志框架 on Daniel1n - Welcome to My Blog</title>
+    <link>https://daniel1n.github.io/tags/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6/</link>
+    <description>Recent content in 日志框架 on Daniel1n - Welcome to My Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 09 May 2020 21:55:29 +0800</lastBuildDate>
+    
+	<atom:link href="https://daniel1n.github.io/tags/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Spring Boot 日志框架</title>
+      <link>https://daniel1n.github.io/post/10.springlogger/</link>
+      <pubDate>Sat, 09 May 2020 21:55:29 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/10.springlogger/</guid>
+      <description>一、日志介绍 1.1 概念 日志：在计算机领域，日志文件（logfile）是一个记录了发生在运行中的操作系统或其他软件中的事件的文件，或者记录了在网络</description>
+    </item>
+    
+  </channel>
+</rss>

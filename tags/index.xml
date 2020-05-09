@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 08 May 2020 22:14:24 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2020 00:10:11 +0800</lastBuildDate>
     
 	<atom:link href="https://daniel1n.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>spring boot</title>
+      <link>https://daniel1n.github.io/tags/spring-boot/</link>
+      <pubDate>Sun, 10 May 2020 00:10:11 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/tags/spring-boot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>thymeleaf</title>
+      <link>https://daniel1n.github.io/tags/thymeleaf/</link>
+      <pubDate>Sun, 10 May 2020 00:10:11 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/tags/thymeleaf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>日志框架</title>
+      <link>https://daniel1n.github.io/tags/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Sat, 09 May 2020 21:55:29 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/tags/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>SpEL</title>
@@ -35,15 +62,6 @@
       <pubDate>Fri, 08 May 2020 15:07:33 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/tags/mvc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Spring Boot</title>
-      <link>https://daniel1n.github.io/tags/spring-boot/</link>
-      <pubDate>Fri, 08 May 2020 12:57:51 +0800</pubDate>
-      
-      <guid>https://daniel1n.github.io/tags/spring-boot/</guid>
       <description></description>
     </item>
     

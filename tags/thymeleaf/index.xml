@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>thymeleaf on Daniel1n - Welcome to My Blog</title>
+    <link>https://daniel1n.github.io/tags/thymeleaf/</link>
+    <description>Recent content in thymeleaf on Daniel1n - Welcome to My Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 10 May 2020 00:10:11 +0800</lastBuildDate>
+    
+	<atom:link href="https://daniel1n.github.io/tags/thymeleaf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Thymeleaf模板引擎</title>
+      <link>https://daniel1n.github.io/post/11.thymeleaf/</link>
+      <pubDate>Sun, 10 May 2020 00:10:11 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/11.thymeleaf/</guid>
+      <description>模板引擎 简介：模板引擎（这里特指用于Web开发的模板引擎）是为了使用户界面与业务数据（内容）分离而产生的，它可以生成特定格式的文档，用于网站</description>
+    </item>
+    
+  </channel>
+</rss>

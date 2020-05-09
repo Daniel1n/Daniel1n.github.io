@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Spring Boot 日志框架 - Daniel1n - Welcome to My Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Daniel1n" /><meta name="description" content="一、日志介绍 1.1 概念 日志：在计算机领域，日志文件（logfile）是一个记录了发生在运行中的操作系统或其他软件中的事件的文件，或者记录了在网络" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.2 with theme even" />
+
+
+<link rel="canonical" href="https://daniel1n.github.io/post/10.springlogger/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Spring Boot 日志框架" />
+<meta property="og:description" content="一、日志介绍 1.1 概念 日志：在计算机领域，日志文件（logfile）是一个记录了发生在运行中的操作系统或其他软件中的事件的文件，或者记录了在网络" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://daniel1n.github.io/post/10.springlogger/" />
+<meta property="article:published_time" content="2020-05-09T21:55:29+08:00" />
+<meta property="article:modified_time" content="2020-05-09T21:55:29+08:00" />
+<meta itemprop="name" content="Spring Boot 日志框架">
+<meta itemprop="description" content="一、日志介绍 1.1 概念 日志：在计算机领域，日志文件（logfile）是一个记录了发生在运行中的操作系统或其他软件中的事件的文件，或者记录了在网络">
+<meta itemprop="datePublished" content="2020-05-09T21:55:29&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-09T21:55:29&#43;08:00" />
+<meta itemprop="wordCount" content="4330">
+
+
+
+<meta itemprop="keywords" content="spring boot,日志框架," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring Boot 日志框架"/>
+<meta name="twitter:description" content="一、日志介绍 1.1 概念 日志：在计算机领域，日志文件（logfile）是一个记录了发生在运行中的操作系统或其他软件中的事件的文件，或者记录了在网络"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Daniel1n</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Daniel1n</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Spring Boot 日志框架</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-05-09 </span>
+        <div class="post-category">
+            <a href="/categories/spring-boot/"> Spring Boot </a>
+            </div>
+          <span class="more-meta"> 4330 words </span>
+          <span class="more-meta"> 9 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#11-概念"><strong>1.1 概念</strong></a></li>
+    <li><a href="#12-日志级别"><strong>1.2 日志级别</strong></a></li>
+    <li><a href="#13-日志级别优先级"><strong>1.3 日志级别优先级</strong></a></li>
+    <li><a href="#14-日志作用"><strong>1.4 日志作用</strong></a></li>
+    <li><a href="#15-java中常用日志框架"><strong>1.5 Java中常用日志框架</strong></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#21-如何在系统中使用slf4j"><strong>2.1 如何在系统中使用SLF4j</strong></a></li>
+    <li><a href="#22遗留问题"><strong>2.2、遗留问题</strong></a></li>
+    <li><a href="#23-springboot日志关系"><strong>2.3 SpringBoot日志关系</strong></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#31-默认配置"><strong>3.1 默认配置</strong></a></li>
+    <li><a href="#32-springboot修改日志的默认配置"><strong>3.2 SpringBoot修改日志的默认配置</strong></a></li>
+    <li><a href="#33-指定配置"><strong>3.3 指定配置</strong></a></li>
+    <li><a href="#34-集成log4j日志框架"><strong>3.4 集成Log4J日志框架</strong></a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="一日志介绍">一、日志介绍</h1>
+<h2 id="11-概念"><strong>1.1 概念</strong></h2>
+<blockquote>
+<p>日志：在计算机领域，日志文件（logfile）是一个记录了发生在运行中的操作系统或其他软件中的事件的文件，或者记录了在网络聊天软件的用户之间发送的消息
+日志记录（Logging）：是指保存日志的行为。最简单的做法是将日志写入单个存放日志的文件。</p>
+</blockquote>
+<h2 id="12-日志级别"><strong>1.2 日志级别</strong></h2>
+<ul>
+<li>FATAL 表示需要立即被处理的系统级错误。
+<blockquote>
+<p>当该错误发生时，表示服务已经出现了某种程度的不可用，系统管理员需要立即介入。这属于最严重的日志级别，因此该日志级别必须慎用，如果这种级别的日志经常出现，则该日志也失去了意义。通常情况下，一个进程的生命周期中应该只记录一次FATAL级别的日志，即该进程遇到无法恢复的错误而退出时。当然，如果某个系统的子系统遇到了不可恢复的错误，那该子系统的调用方也可以记入FATAL级别日志，以便通过日志报警提醒系统管理员修复；</p>
+</blockquote>
+</li>
+<li>ERROR 该级别的错误也需要马上被处理，但是紧急程度要低于FATAL级别。
+<blockquote>
+<p>当ERROR错误发生时，已经影响了用户的正常访问。从该意义上来说，实际上ERROR错误和FATAL错误对用户的影响是相当的。FATAL相当于服务已经挂了，而ERROR相当于好死不如赖活着，然而活着却无法提供正常的服务，只能不断地打印ERROR日志。特别需要注意的是，ERROR和FATAL都属于服务器自己的异常，是需要马上得到人工介入并处理的。而对于用户自己操作不当，如请求参数错误等等，是绝对不应该记为ERROR日志的；</p>
+</blockquote>
+</li>
+<li>WARN 该日志表示系统可能出现问题，也可能没有，
+<blockquote>
+<p>这种情况如网络的波动等。对于那些目前还不是错误，然而不及时处理也会变为错误的情况，也可以记为WARN日志，例如一个存储系统的磁盘使用量超过阀值，或者系统中某个用户的存储配额快用完等等。对于WARN级别的日志，虽然不需要系统管理员马上处理，也是需要及时查看并处理的。因此此种级别的日志也不应太多，能不打WARN级别的日志，就尽量不要打；</p>
+</blockquote>
+</li>
+<li>INFO  该种日志记录系统的正常运行状态（SprinBoot的默认级别）
+<blockquote>
+<p>例如某个子系统的初始化，某个请求的成功执行等等。通过查看INFO级别的日志，可以很快地对系统中出现的 WARN,ERROR,FATAL错误进行定位。INFO日志不宜过多，通常情况下，INFO级别的日志应该不大于TRACE日志的10%；</p>
+</blockquote>
+</li>
+<li>DEBUG or TRACE  这两种日志具体的规范应该由项目组自己定义，
+<blockquote>
+<p>该级别日志的主要作用是对系统每一步的运行状态进行精确的记录。通过该种日志，可以查看某一个操作每一步的执 行过程，可以准确定位是何种操作，何种参数，何种顺序导致了某种错误的发生。可以保证在不重现错误的情况下，也可以通过DEBUG（或TRACE）级别的日志对问题进行诊断。需要注意的是，DEBUG日志也需要规范日志格式，应该保证除了记录日志的开发人员自己外，其他的如运维，测试人员等也可以通过 DEBUG（或TRACE）日志来定位问题；</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="13-日志级别优先级"><strong>1.3 日志级别优先级</strong></h2>
+<blockquote>
+<p>ALL &lt; TRACE &lt; DEBUG &lt; INFO &lt; WARN &lt; ERROR &lt; FATAL &lt; OFF</p>
+</blockquote>
+<h2 id="14-日志作用"><strong>1.4 日志作用</strong></h2>
+<p>日志记录了系统行为的时间、地点、状态等相关信息，能够帮助我们了解并监控系统状态，在发生错误或者接近某种危险状态时能够及时提醒我们处理，同时在系统产生问题时，能够帮助我们快速的定位、诊断并解决问题。</p>
+<h2 id="15-java中常用日志框架"><strong>1.5 Java中常用日志框架</strong></h2>
+<blockquote>
+<p>在Java程序中常用日志框架可以分为两类：</p>
+<ul>
+<li>无具体实现的抽象门面框架，如：Commons Logging、SLF4J</li>
+<li>具体实现的框架，如：Log4j，Log4j 2，Logback，Jul</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>日志门面  （日志的抽象层）</th>
+<th>日志实现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><del>JCL（Jakarta  Commons Logging）</del>    SLF4j（Simple  Logging Facade for Java）    <strong><del>jboss-logging</del></strong></td>
+<td>Log4j  JUL（java.util.logging）  Log4j2  <strong>Logback</strong></td>
+</tr>
+</tbody>
+</table>
+<p>SpringBoot：底层是Spring框架，Spring框架默认是用JCL；‘</p>
+<p>​<strong>SpringBoot选用 SLF4j和logback；</strong></p>
+<hr>
+<h1 id="二slf4j使用">二、SLF4j使用</h1>
+<h2 id="21-如何在系统中使用slf4j"><strong>2.1 如何在系统中使用SLF4j</strong></h2>
+<blockquote>
+<p><a href="https://www.slf4j.org">https://www.slf4j.org</a></p>
+</blockquote>
+<p>以后开发的时候，日志记录方法的调用，不应该来直接调用日志的实现类，而是调用日志抽象层里面的方法；</p>
+<p>给系统里面导入slf4j的jar和  logback的实现jar</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">org.slf4j.Logger</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.slf4j.LoggerFactory</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">LoggerFactory</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">HelloWorld</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;Hello World&#34;</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="/media/concrete-bindings.png" alt="image"></p>
+<p>每一个日志的实现框架都有自己的配置文件。使用slf4j以后，<strong>配置文件还是做成日志实现框架自己本身的配置文件；</strong></p>
+<h2 id="22遗留问题"><strong>2.2、遗留问题</strong></h2>
+<p>a（slf4j+logback）: Spring（commons-logging）、Hibernate（jboss-logging）、MyBatis、xxxx</p>
+<p>统一日志记录，即使是别的框架和我一起统一使用slf4j进行输出？</p>
+<p><img src="/media//legacy.png" alt="image"></p>
+<p><strong>如何让系统中所有的日志都统一到slf4j；</strong></p>
+<p>1、将系统中其他日志框架先排除出去；</p>
+<p>2、用中间包来替换原有的日志框架；</p>
+<p>3、我们导入slf4j其他的实现</p>
+<hr>
+<h2 id="23-springboot日志关系"><strong>2.3 SpringBoot日志关系</strong></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml">		<span class="nt">&lt;dependency&gt;</span>
+			<span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+			<span class="nt">&lt;artifactId&gt;</span>spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+		<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>SpringBoot使用它来做日志功能；</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml">	<span class="nt">&lt;dependency&gt;</span>
+			<span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+			<span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-logging<span class="nt">&lt;/artifactId&gt;</span>
+		<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>底层依赖关系</p>
+<p><img src="/media//%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE20180131220946.png" alt="image"></p>
+<p>总结：</p>
+<p>​	1）、SpringBoot底层也是使用slf4j+logback的方式进行日志记录</p>
+<p>​	2）、SpringBoot也把其他的日志都替换成了slf4j；</p>
+<p>​	3）、中间替换包？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&#34;rawtypes&#34;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">LogFactory</span> <span class="o">{</span>
+
+    <span class="kd">static</span> <span class="n">String</span> <span class="n">UNSUPPORTED_OPERATION_IN_JCL_OVER_SLF4J</span> <span class="o">=</span> <span class="s">&#34;http://www.slf4j.org/codes.html#unsupported_operation_in_jcl_over_slf4j&#34;</span><span class="o">;</span>
+
+    <span class="kd">static</span> <span class="n">LogFactory</span> <span class="n">logFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SLF4JLogFactory</span><span class="o">();</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="/media//%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE20180131221411.png" alt="image"></p>
+<p>​	4）、如果我们要引入其他框架？一定要把这个框架的默认日志依赖移除掉？</p>
+<p>​			Spring框架用的是commons-logging；</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml">		<span class="nt">&lt;dependency&gt;</span>
+			<span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
+			<span class="nt">&lt;artifactId&gt;</span>spring-core<span class="nt">&lt;/artifactId&gt;</span>
+			<span class="nt">&lt;exclusions&gt;</span>
+				<span class="nt">&lt;exclusion&gt;</span>
+					<span class="nt">&lt;groupId&gt;</span>commons-logging<span class="nt">&lt;/groupId&gt;</span>
+					<span class="nt">&lt;artifactId&gt;</span>commons-logging<span class="nt">&lt;/artifactId&gt;</span>
+				<span class="nt">&lt;/exclusion&gt;</span>
+			<span class="nt">&lt;/exclusions&gt;</span>
+		<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>SpringBoot能自动适配所有的日志，而且底层使用slf4j+logback的方式记录日志，引入其他框架的时候，只需要把这个框架依赖的日志框架排除掉即可；</strong></p>
+<hr>
+<h1 id="三日志使用">三、日志使用</h1>
+<h2 id="31-默认配置"><strong>3.1 默认配置</strong></h2>
+<ul>
+<li>首先application.properties文件中加配置：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">logging.level.root=INFO
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>运行测试文件；</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.qqlin.springbootdemo</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.qqlin.springbootdemo.bean.Person</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.platform.commons.logging.Logger</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.platform.commons.logging.LoggerFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.test.context.SpringBootTest</span><span class="o">;</span>
+
+<span class="nd">@SpringBootTest</span>
+<span class="kd">class</span> <span class="nc">SpringbootdemoApplicationTests</span> <span class="o">{</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="n">Person</span> <span class="n">person</span><span class="o">;</span>
+
+    <span class="c1">//记录器
+</span><span class="c1"></span>    <span class="n">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">LoggerFactory</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">getClass</span><span class="o">());</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">contextLoads</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">//System.out.println();
+</span><span class="c1"></span>
+        <span class="c1">//日志的级别；
+</span><span class="c1"></span>        <span class="c1">//由低到高   trace&lt;debug&lt;info&lt;warn&lt;error
+</span><span class="c1"></span>        <span class="c1">//可以调整输出的日志级别；日志就只会在这个级别以以后的高级别生效
+</span><span class="c1"></span>        <span class="n">logger</span><span class="o">.</span><span class="na">trace</span><span class="o">(()-&gt;</span> <span class="s">&#34;这是trace...&#34;</span><span class="o">);</span>
+        <span class="n">logger</span><span class="o">.</span><span class="na">debug</span><span class="o">(()-&gt;</span><span class="s">&#34;这是debug日志...&#34;</span><span class="o">);</span>
+        <span class="c1">// SpringBoot默认给我们使用的是info级别的，没有指定级别的就用SpringBoot默认规定的级别；root级别
+</span><span class="c1"></span>        <span class="c1">// logger.info(()-&gt; String.valueOf(new Person()));
+</span><span class="c1"></span>        <span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(()-&gt;</span><span class="s">&#34;这是info...&#34;</span><span class="o">);</span>
+        <span class="n">logger</span><span class="o">.</span><span class="na">warn</span><span class="o">(()-&gt;</span><span class="s">&#34;这是warn日志...&#34;</span><span class="o">);</span>
+        <span class="n">logger</span><span class="o">.</span><span class="na">error</span><span class="o">(()-&gt;</span><span class="s">&#34;这是error日志...&#34;</span><span class="o">);</span>
+        
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>运行后：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">  .   ____          _            __ _ _
+ /<span class="se">\\</span> / ___<span class="s1">&#39;_ __ _ _(_)_ __  __ _ \ \ \ \
+</span><span class="s1">( ( )\___ | &#39;</span>_ <span class="p">|</span> <span class="s1">&#39;_| | &#39;</span>_ <span class="se">\/</span> _<span class="sb">`</span> <span class="p">|</span> <span class="se">\ \ \ \
+</span><span class="se"></span> <span class="se">\\</span>/  ___<span class="o">)</span><span class="p">|</span> <span class="p">|</span>_<span class="o">)</span><span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="o">||</span> <span class="o">(</span>_<span class="p">|</span> <span class="p">|</span>  <span class="o">)</span> <span class="o">)</span> <span class="o">)</span> <span class="o">)</span>
+  <span class="s1">&#39;  |____| .__|_| |_|_| |_\__, | / / / /
+</span><span class="s1"> =========|_|==============|___/=/_/_/_/
+</span><span class="s1"> :: Spring Boot ::        (v2.2.7.RELEASE)
+</span><span class="s1">
+</span><span class="s1">2020-05-09 23:28:48.844  INFO 26576 --- [           main] c.q.s.SpringbootdemoApplicationTests     : Starting SpringbootdemoApplicationTests on qq-lin with PID 26576 (started by qq_lin in D:\IdeaProjects\springbootdemo)
+</span><span class="s1">2020-05-09 23:28:48.846  INFO 26576 --- [           main] c.q.s.SpringbootdemoApplicationTests     : No active profile set, falling back to default profiles: default
+</span><span class="s1">2020-05-09 23:28:49.642  INFO 26576 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService &#39;</span>applicationTaskExecutor<span class="s1">&#39;
+</span><span class="s1">2020-05-09 23:28:49.822  INFO 26576 --- [           main] c.q.s.SpringbootdemoApplicationTests     : Started SpringbootdemoApplicationTests in 1.231 seconds (JVM running for 2.029)
+</span><span class="s1">
+</span><span class="s1">2020-05-09 23:28:49.971  INFO 26576 --- [           main] c.q.s.SpringbootdemoApplicationTests     : 这是info
+</span><span class="s1">2020-05-09 23:28:49.972  WARN 26576 --- [           main] c.q.s.SpringbootdemoApplicationTests     : 这是warn日志...
+</span><span class="s1">2020-05-09 23:28:49.972 ERROR 26576 --- [           main] c.q.s.SpringbootdemoApplicationTests     : 这是error日志...
+</span><span class="s1">
+</span><span class="s1">2020-05-09 23:28:49.984  INFO 26576 --- [extShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService &#39;</span>applicationTaskExecutor<span class="err">&#39;</span>
+
+Process finished with <span class="nb">exit</span> code <span class="m">0</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>由于将日志等级设置为INFO，因此包含INFO及以上级别的日志信息都会打印出来</p>
+<p>这里可以看出，很多大部分的INFO日志均来自于SpringBt框架本身，如果我们想屏蔽它们，可以将日志级别统一先全部设置为ERROR，这样框架自身的INFO信息不会被打印。然后再将应用中特定的包设置为DEBUG级别的日志，这样就可以只看到所关心的包中的DEBUG及以上级别的日志了。</p>
+<ul>
+<li>控制特定包的日志级别
+application.yml中改配置</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">logging</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">level</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">root</span><span class="p">:</span><span class="w"> </span>error<span class="w">
+</span><span class="w">    </span><span class="k">com.qqlin.springbootdemo</span><span class="p">:</span><span class="w"> </span>debug<span class="w">
+</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>再次运行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">  .   ____          _            __ _ _
+ /<span class="se">\\</span> / ___<span class="s1">&#39;_ __ _ _(_)_ __  __ _ \ \ \ \
+</span><span class="s1">( ( )\___ | &#39;</span>_ <span class="p">|</span> <span class="s1">&#39;_| | &#39;</span>_ <span class="se">\/</span> _<span class="sb">`</span> <span class="p">|</span> <span class="se">\ \ \ \
+</span><span class="se"></span> <span class="se">\\</span>/  ___<span class="o">)</span><span class="p">|</span> <span class="p">|</span>_<span class="o">)</span><span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="o">||</span> <span class="o">(</span>_<span class="p">|</span> <span class="p">|</span>  <span class="o">)</span> <span class="o">)</span> <span class="o">)</span> <span class="o">)</span>
+  <span class="err">&#39;</span>  <span class="p">|</span>____<span class="p">|</span> .__<span class="p">|</span>_<span class="p">|</span> <span class="p">|</span>_<span class="p">|</span>_<span class="p">|</span> <span class="p">|</span>_<span class="se">\_</span>_, <span class="p">|</span> / / / /
+ <span class="o">=========</span><span class="p">|</span>_<span class="p">|</span><span class="o">==============</span><span class="p">|</span>___/<span class="o">=</span>/_/_/_/
+ :: Spring Boot ::        <span class="o">(</span>v2.2.7.RELEASE<span class="o">)</span>
+
+2020-05-09 23:38:19.910  INFO <span class="m">17796</span> --- <span class="o">[</span>           main<span class="o">]</span> c.q.s.SpringbootdemoApplicationTests     : Starting SpringbootdemoApplicationTests on qq-lin with PID <span class="m">17796</span> <span class="o">(</span>started by qq_lin in D:<span class="se">\I</span>deaProjects<span class="se">\s</span>pringbootdemo<span class="o">)</span>
+2020-05-09 23:38:19.911 DEBUG <span class="m">17796</span> --- <span class="o">[</span>           main<span class="o">]</span> c.q.s.SpringbootdemoApplicationTests     : Running with Spring Boot v2.2.7.RELEASE, Spring v5.2.6.RELEASE
+2020-05-09 23:38:19.911  INFO <span class="m">17796</span> --- <span class="o">[</span>           main<span class="o">]</span> c.q.s.SpringbootdemoApplicationTests     : No active profile set, falling back to default profiles: default
+2020-05-09 23:38:20.881  INFO <span class="m">17796</span> --- <span class="o">[</span>           main<span class="o">]</span> c.q.s.SpringbootdemoApplicationTests     : Started SpringbootdemoApplicationTests in 1.223 seconds <span class="o">(</span>JVM running <span class="k">for</span> 2.038<span class="o">)</span>
+
+2020-05-09 23:38:21.020 DEBUG <span class="m">17796</span> --- <span class="o">[</span>           main<span class="o">]</span> c.q.s.SpringbootdemoApplicationTests     : 这是debug日志...
+2020-05-09 23:38:21.021  INFO <span class="m">17796</span> --- <span class="o">[</span>           main<span class="o">]</span> c.q.s.SpringbootdemoApplicationTests     : 这是info
+2020-05-09 23:38:21.021  WARN <span class="m">17796</span> --- <span class="o">[</span>           main<span class="o">]</span> c.q.s.SpringbootdemoApplicationTests     : 这是warn日志...
+2020-05-09 23:38:21.021 ERROR <span class="m">17796</span> --- <span class="o">[</span>           main<span class="o">]</span> c.q.s.SpringbootdemoApplicationTests     : 这是error日志...
+
+
+Process finished with <span class="nb">exit</span> code <span class="m">0</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="32-springboot修改日志的默认配置"><strong>3.2 SpringBoot修改日志的默认配置</strong></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">    日志输出格式：
+		%d表示日期时间，
+		%thread表示线程名，
+		%-5level：级别从左显示5个字符宽度
+		%logger{50} 表示logger名字最长50个字符，否则按照句点分割。 
+		%msg：日志消息，
+		%n是换行符
+    --&gt;
+    %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">logging.level.com.qqlin=trace
+
+
+#logging.path=
+# 不指定路径在当前项目下生成springboot.log日志
+# 可以指定完整的路径；
+#logging.file=D:/springboot.log
+
+# 在当前磁盘的根路径下创建spring文件夹和里面的log文件夹；使用 spring.log 作为默认文件
+logging.path=/spring/log
+
+#  在控制台输出的日志的格式
+logging.pattern.console=%d{yyyy-MM-dd} [%thread] %-5level %logger{50} - %msg%n
+# 指定文件中日志输出的格式
+logging.pattern.file=%d{yyyy-MM-dd} = [%thread] = %-5level = %logger{50}  %msg%n
+</code></pre></td></tr></table>
+</div>
+</div><table>
+<thead>
+<tr>
+<th>logging.file</th>
+<th>logging.path</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(none)</td>
+<td>(none)</td>
+<td></td>
+<td>只在控制台输出</td>
+</tr>
+<tr>
+<td>指定文件名</td>
+<td>(none)</td>
+<td>my.log</td>
+<td>输出日志到my.log文件</td>
+</tr>
+<tr>
+<td>(none)</td>
+<td>指定目录</td>
+<td>/var/log</td>
+<td>输出到指定目录的 spring.log 文件中</td>
+</tr>
+</tbody>
+</table>
+<h2 id="33-指定配置"><strong>3.3 指定配置</strong></h2>
+<p>给类路径下放上每个日志框架自己的配置文件即可；SpringBoot就不使用他默认配置的了</p>
+<table>
+<thead>
+<tr>
+<th>Logging System</th>
+<th>Customization</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Logback</td>
+<td><code>logback-spring.xml</code>, <code>logback-spring.groovy</code>, <code>logback.xml</code> or <code>logback.groovy</code></td>
+</tr>
+<tr>
+<td>Log4j2</td>
+<td><code>log4j2-spring.xml</code> or <code>log4j2.xml</code></td>
+</tr>
+<tr>
+<td>JDK (Java Util Logging)</td>
+<td><code>logging.properties</code></td>
+</tr>
+</tbody>
+</table>
+<p>logback.xml：直接就被日志框架识别了；</p>
+<p><strong>logback-spring.xml</strong>：日志框架就不直接加载日志的配置项，由SpringBoot解析日志配置，可以使用SpringBoot的高级Profile功能</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;springProfile</span> <span class="na">name=</span><span class="s">&#34;staging&#34;</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- configuration to be enabled when the &#34;staging&#34; profile is active --&gt;</span>
+  	可以指定某段配置只在某个环境下生效
+<span class="nt">&lt;/springProfile&gt;</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;appender</span> <span class="na">name=</span><span class="s">&#34;stdout&#34;</span> <span class="na">class=</span><span class="s">&#34;ch.qos.logback.core.ConsoleAppender&#34;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!--
+</span><span class="c">        日志输出格式：
+</span><span class="c">			%d表示日期时间，
+</span><span class="c">			%thread表示线程名，
+</span><span class="c">			%-5level：级别从左显示5个字符宽度
+</span><span class="c">			%logger{50} 表示logger名字最长50个字符，否则按照句点分割。 
+</span><span class="c">			%msg：日志消息，
+</span><span class="c">			%n是换行符
+</span><span class="c">        --&gt;</span>
+        <span class="nt">&lt;layout</span> <span class="na">class=</span><span class="s">&#34;ch.qos.logback.classic.PatternLayout&#34;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;springProfile</span> <span class="na">name=</span><span class="s">&#34;dev&#34;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;pattern&gt;</span>%d{yyyy-MM-dd HH:mm:ss.SSS} ----&gt; [%thread] ---&gt; %-5level %logger{50} - %msg%n<span class="nt">&lt;/pattern&gt;</span>
+            <span class="nt">&lt;/springProfile&gt;</span>
+            <span class="nt">&lt;springProfile</span> <span class="na">name=</span><span class="s">&#34;!dev&#34;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;pattern&gt;</span>%d{yyyy-MM-dd HH:mm:ss.SSS}  [%thread]  %-5level %logger{50} - %msg%n<span class="nt">&lt;/pattern&gt;</span>
+            <span class="nt">&lt;/springProfile&gt;</span>
+        <span class="nt">&lt;/layout&gt;</span>
+    <span class="nt">&lt;/appender&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果使用logback.xml作为日志配置文件，还要使用profile功能，会有以下错误</p>
+<p><code>no applicable action for [springProfile]</code></p>
+<h2 id="34-集成log4j日志框架"><strong>3.4 集成Log4J日志框架</strong></h2>
+<ul>
+<li>pom.xml中添加依赖</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml">    <span class="nt">&lt;dependency&gt;</span>
+	<span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+	<span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+	<span class="nt">&lt;exclusions&gt;</span>
+		<span class="nt">&lt;exclusion&gt;</span>
+			<span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+			<span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-logging<span class="nt">&lt;/artifactId&gt;</span>
+		<span class="nt">&lt;/exclusion&gt;</span>
+	<span class="nt">&lt;/exclusions&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+	<span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+	<span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-log4j2<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>在resources目录下添加log4j2.xml文件，内容如下：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="nt">&lt;configuration&gt;</span>
+
+    <span class="nt">&lt;appenders&gt;</span>
+        <span class="nt">&lt;File</span> <span class="na">name=</span><span class="s">&#34;file&#34;</span> <span class="na">fileName=</span><span class="s">&#34;${sys:user.home}/logs/hello2.log&#34;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;PatternLayout</span> <span class="na">pattern=</span><span class="s">&#34;%d{HH:mm:ss,SSS} %p %c (%L) - %m%n&#34;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/File&gt;</span>
+    <span class="nt">&lt;/appenders&gt;</span>
+
+    <span class="nt">&lt;loggers&gt;</span>
+
+        <span class="nt">&lt;root</span> <span class="na">level=</span><span class="s">&#34;ERROR&#34;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;appender-ref</span> <span class="na">ref=</span><span class="s">&#34;file&#34;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/root&gt;</span>
+        <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&#34;com.qqlin.springbootdemo&#34;</span> <span class="na">level=</span><span class="s">&#34;DEBUG&#34;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/loggers&gt;</span>
+
+<span class="nt">&lt;/configuration&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="总结">总结</h1>
+<ol>
+<li>SpringBoot底层默认使用slf4j+logback的方式记录日志</li>
+<li>不配置properties/yml 文件，默认级别为INFO</li>
+<li>需要懂得配置日志文件和切换其他日志框架</li>
+</ol>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/spring-boot/">spring boot</a>
+          <a href="/tags/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6/">日志框架</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/11.thymeleaf/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Thymeleaf模板引擎</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/9.spel/">
+            <span class="next-text nav-default">Spring Expression Language (SpEL)</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  <span id="/post/10.springlogger/" class="leancloud_visitors" data-flag-title="Spring Boot 日志框架">
+		<span class="post-meta-item-text">文章阅读量 </span>
+		<span class="leancloud-visitors-count">0</span>
+		<p></p>
+	  </span>
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: '你的appId',
+        appKey: '你的appKey',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  true 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:492332435@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/daniel1n" class="iconfont icon-github" title="github"></a>
+  <a href="https://daniel1n.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Daniel1n</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

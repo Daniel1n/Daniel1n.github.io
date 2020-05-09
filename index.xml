@@ -6,10 +6,28 @@
     <description>Recent content on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 08 May 2020 22:14:24 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2020 00:10:11 +0800</lastBuildDate>
     
 	<atom:link href="https://daniel1n.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Thymeleaf模板引擎</title>
+      <link>https://daniel1n.github.io/post/11.thymeleaf/</link>
+      <pubDate>Sun, 10 May 2020 00:10:11 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/11.thymeleaf/</guid>
+      <description>模板引擎 简介：模板引擎（这里特指用于Web开发的模板引擎）是为了使用户界面与业务数据（内容）分离而产生的，它可以生成特定格式的文档，用于网站</description>
+    </item>
+    
+    <item>
+      <title>Spring Boot 日志框架</title>
+      <link>https://daniel1n.github.io/post/10.springlogger/</link>
+      <pubDate>Sat, 09 May 2020 21:55:29 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/10.springlogger/</guid>
+      <description>一、日志介绍 1.1 概念 日志：在计算机领域，日志文件（logfile）是一个记录了发生在运行中的操作系统或其他软件中的事件的文件，或者记录了在网络</description>
+    </item>
     
     <item>
       <title>Spring Expression Language (SpEL)</title>
@@ -27,15 +45,6 @@
       
       <guid>https://daniel1n.github.io/post/8.springmvc/</guid>
       <description>第1章 SpringMVC 的基本概念 1.1 关于三层架构和MVC 1.1.1 三层架构 我们的开发架构一般都是基于两种形式，一种是 C/S 架构，也就是客户端/服务器，另一种是 B/S 架构，也</description>
-    </item>
-    
-    <item>
-      <title>Spring Boot 核心技术</title>
-      <link>https://daniel1n.github.io/post/7.springboot/</link>
-      <pubDate>Fri, 08 May 2020 12:57:51 +0800</pubDate>
-      
-      <guid>https://daniel1n.github.io/post/7.springboot/</guid>
-      <description>一、Spring Boot 入门 1、Spring Boot 简介 简化Spring应用开发的一个框架； 整个Spring技术栈的一个大整合； J2EE开发的一站式解决</description>
     </item>
     
     <item>
