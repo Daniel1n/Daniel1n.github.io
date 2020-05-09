@@ -49,7 +49,7 @@
 <meta itemprop="description" content="如何在Windows 10 使用Hugo搭建自己的博客 一、 安装Hugo 参考：https://bwaycer.github.io/hugo_tuto">
 <meta itemprop="datePublished" content="2020-05-03T18:08:28&#43;08:00" />
 <meta itemprop="dateModified" content="2020-05-03T18:08:28&#43;08:00" />
-<meta itemprop="wordCount" content="2951">
+<meta itemprop="wordCount" content="2972">
 
 
 
@@ -70,7 +70,7 @@
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/" class="logo">Even</a>
+    <a href="/" class="logo">Daniel1n</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -94,7 +94,7 @@
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="/" class="logo">Even</a>
+  <a href="/" class="logo">Daniel1n</a>
 </div>
 
 <nav class="site-navbar">
@@ -125,6 +125,8 @@
         <div class="post-category">
             <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"> 博客搭建 </a>
             </div>
+          <span class="more-meta"> 2972 words </span>
+          <span class="more-meta"> 6 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
     </header>
@@ -263,14 +265,14 @@
 <h2 id="三-设置主题">三、 设置主题</h2>
 <p>在浏览器打开：https://themes.gohugo.io/
 在里面选择一款适合自己的主题</p>
-<p>本人选择了 m10c 这款主题：https://themes.gohugo.io/hugo-theme-m10c/</p>
+<p>本人选择了 m10c 这款主题：https://themes.gohugo.io/hugo-theme-even/</p>
 <p>使用git克隆（前提是电脑已经安装了git）：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"> git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c
+<pre class="chroma"><code class="language-shell" data-lang="shell">git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c
 </code></pre></td></tr></table>
 </div>
 </div><p>安装成功，如下：</p>
@@ -403,12 +405,16 @@ C:<span class="se">\h</span>ugo<span class="se">\s</span>ites<span class="se">\m
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-md" data-lang="md">---
 title: &#34;Blog&#34;
 date: 2020-05-03T12:40:00+08:00
 draft: true
+tags: [hugo]
+categories: [&#34;博客搭建&#34;]
 ---
 </code></pre></td></tr></table>
 </div>
@@ -419,7 +425,7 @@ draft: true
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">hugo server -t m10c --buildDrafts
+<pre class="chroma"><code class="language-shell" data-lang="shell">hugo server -t even --buildDrafts
 </code></pre></td></tr></table>
 </div>
 </div><p>在浏览器打开：http://localhost:1313/</p>
@@ -752,7 +758,7 @@ Branch <span class="s1">&#39;master&#39;</span> <span class="nb">set</span> up t
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">hugo --theme<span class="o">=</span>m10c --baseUrl<span class="o">=</span><span class="s2">&#34;https://daniel1n.github.io/&#34;</span> --buildDrafts
+<pre class="chroma"><code class="language-shell" data-lang="shell">hugo --theme<span class="o">=</span>even --baseUrl<span class="o">=</span><span class="s2">&#34;https://daniel1n.github.io/&#34;</span> --buildDrafts
 </code></pre></td></tr></table>
 </div>
 </div><p>推送更新内容,cd到public目录下，然后输入以下命令：</p>
@@ -826,19 +832,7 @@ git push -u origin master
       <div class="social-links">
       <a href="mailto:492332435@qq.com" class="iconfont icon-email" title="email"></a>
       <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
-      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
-      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
-      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
-      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
-      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
-      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
-      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
-      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
-      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
-      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
-      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
-      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+      <a href="https://github.com/daniel1n" class="iconfont icon-github" title="github"></a>
   <a href="https://daniel1n.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 

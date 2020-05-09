@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AOP on Even - A super concise theme for Hugo</title>
+    <link>https://daniel1n.github.io/tags/aop/</link>
+    <description>Recent content in AOP on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 07 May 2020 17:29:57 +0800</lastBuildDate>
+    
+	<atom:link href="https://daniel1n.github.io/tags/aop/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Spring Framework的AOP编程</title>
+      <link>https://daniel1n.github.io/post/5.springblog3/</link>
+      <pubDate>Thu, 07 May 2020 17:29:57 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/5.springblog3/</guid>
+      <description>第一章 AOP 的相关概念 1.1 AOP 概述 1.1.1 什么是 AOP 百度百科：面向切面编程，通过预编译方式和运行期间动态代理实现程序功能的统一维护的一种技术。 AOP是OOP</description>
+    </item>
+    
+  </channel>
+</rss>
