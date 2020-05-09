@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java基础 on Even - A super concise theme for Hugo</title>
+    <link>https://daniel1n.github.io/categories/java%E5%9F%BA%E7%A1%80/</link>
+    <description>Recent content in Java基础 on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 04 May 2020 22:32:33 +0800</lastBuildDate>
+    
+	<atom:link href="https://daniel1n.github.io/categories/java%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Java 的核心技术</title>
+      <link>https://daniel1n.github.io/post/0.java/</link>
+      <pubDate>Mon, 04 May 2020 22:32:33 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/0.java/</guid>
+      <description>第一章 Java程序设计概述 1.1 Java “白皮书”的关键术语 简答性 面向对象 分布式 健壮性 安全性 体系结构中立 可移植性 解释性 高性能 多线程 动态性 1.2 Java applet 与 Internet 用户</description>
+    </item>
+    
+    <item>
+      <title>Java Web 的要点总结</title>
+      <link>https://daniel1n.github.io/post/2.javalearn/</link>
+      <pubDate>Mon, 04 May 2020 14:33:01 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/2.javalearn/</guid>
+      <description>基础知识 该部分是整个路线里面最最重要的部分，也是后续进行框架学习、能看懂开源项目的前置基础，这部分是最不能忽视的！ 一、语言本身 如下一些重点必</description>
+    </item>
+    
+  </channel>
+</rss>

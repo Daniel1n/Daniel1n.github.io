@@ -1,115 +1,180 @@
-<!doctype html>
-<html lang="en-us">
-  <head>
-    <title>Spring Framework的AOP编程 // Daniel1n</title>
-    <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.69.2" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="Daniel1n" />
-    <meta name="description" content="" />
-    <link rel="stylesheet" href="https://daniel1n.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Spring Framework的AOP编程 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-    
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Spring Framework的AOP编程"/>
-<meta name="twitter:description" content="第一章 AOP 的相关概念  1.1 AOP 概述  1.1.1 什么是 AOP 1.1.2 AOP 的作用及优势 1.1.3 AOP 的实现方式     第二章 动态代理  2.1 动态代理的特点 2.2 动态代理常用的有两种方式 2.3 使用 JDK 官方的 Proxy 类创建代理对象 2.4 使用 CGLib 的 Enhancer 类创建代理对象   第三章 Spring 中的 AOP  3.1 Spring 中 AOP 的细节  3.1.1 AOP 相关术语 3.1.2 spring 中的 AOP 的执行过程   3.2 基于 XML 的 AOP 配置  3."/>
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-    <meta property="og:title" content="Spring Framework的AOP编程" />
-<meta property="og:description" content="第一章 AOP 的相关概念  1.1 AOP 概述  1.1.1 什么是 AOP 1.1.2 AOP 的作用及优势 1.1.3 AOP 的实现方式     第二章 动态代理  2.1 动态代理的特点 2.2 动态代理常用的有两种方式 2.3 使用 JDK 官方的 Proxy 类创建代理对象 2.4 使用 CGLib 的 Enhancer 类创建代理对象   第三章 Spring 中的 AOP  3.1 Spring 中 AOP 的细节  3.1.1 AOP 相关术语 3.1.2 spring 中的 AOP 的执行过程   3.2 基于 XML 的 AOP 配置  3." />
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Daniel1n" /><meta name="description" content="第一章 AOP 的相关概念 1.1 AOP 概述 1.1.1 什么是 AOP 百度百科：面向切面编程，通过预编译方式和运行期间动态代理实现程序功能的统一维护的一种技术。 AOP是OOP" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.2 with theme even" />
+
+
+<link rel="canonical" href="https://daniel1n.github.io/post/5.springblog3/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Spring Framework的AOP编程" />
+<meta property="og:description" content="第一章 AOP 的相关概念 1.1 AOP 概述 1.1.1 什么是 AOP 百度百科：面向切面编程，通过预编译方式和运行期间动态代理实现程序功能的统一维护的一种技术。 AOP是OOP" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://daniel1n.github.io/post/5.springblog3/" />
 <meta property="article:published_time" content="2020-05-07T17:29:57+08:00" />
 <meta property="article:modified_time" content="2020-05-07T17:29:57+08:00" />
+<meta itemprop="name" content="Spring Framework的AOP编程">
+<meta itemprop="description" content="第一章 AOP 的相关概念 1.1 AOP 概述 1.1.1 什么是 AOP 百度百科：面向切面编程，通过预编译方式和运行期间动态代理实现程序功能的统一维护的一种技术。 AOP是OOP">
+<meta itemprop="datePublished" content="2020-05-07T17:29:57&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-07T17:29:57&#43;08:00" />
+<meta itemprop="wordCount" content="6427">
 
 
-  </head>
-  <body>
-    <header class="app-header">
-      <a href="https://daniel1n.github.io/"><img class="app-header-avatar" src="/qq1.jpg" alt="Daniel1n" /></a>
-      <h1>Daniel1n</h1>
-      <p>热爱生活，向往自由，脚踏实地，仰望星空。</p>
-      <div class="app-header-social">
-        
-          <a target="_blank" href="https://github.com/daniel1n" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
-  <title>github</title>
-  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-</svg></a>
-        
-          <a target="_blank" href="https://twitter.com/daniel1n" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
-  <title>twitter</title>
-  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-</svg></a>
-        
+
+<meta itemprop="keywords" content="Spring Framework," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring Framework的AOP编程"/>
+<meta name="twitter:description" content="第一章 AOP 的相关概念 1.1 AOP 概述 1.1.1 什么是 AOP 百度百科：面向切面编程，通过预编译方式和运行期间动态代理实现程序功能的统一维护的一种技术。 AOP是OOP"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Spring Framework的AOP编程</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-05-07 </span>
+        <div class="post-category">
+            <a href="/categories/aop/"> AOP </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
     </header>
-    <main class="app-container">
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class ="post-title">Spring Framework的AOP编程</h1>
-      <div class="post-meta">
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
-  <title>calendar</title>
-  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
-</svg>
-          May 7, 2020
-        </div>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
-  <title>clock</title>
-  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
-</svg>
-          7 min read
-        </div></div>
-    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#11-aop-概述">1.1 AOP 概述</a>
+      <ul>
+        <li><a href="#111-什么是-aop">1.1.1 什么是 AOP</a></li>
+        <li><a href="#112-aop-的作用及优势">1.1.2 AOP 的作用及优势</a></li>
+        <li><a href="#113-aop-的实现方式">1.1.3 AOP 的实现方式</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#21-动态代理的特点">2.1 动态代理的特点</a></li>
+    <li><a href="#22-动态代理常用的有两种方式">2.2 动态代理常用的有两种方式</a></li>
+    <li><a href="#23-使用-jdk-官方的-proxy-类创建代理对象">2.3 使用 JDK 官方的 Proxy 类创建代理对象</a></li>
+    <li><a href="#24-使用-cglib-的-enhancer-类创建代理对象">2.4 使用 CGLib 的 Enhancer 类创建代理对象</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#31-spring-中-aop-的细节">3.1 Spring 中 AOP 的细节</a>
+      <ul>
+        <li><a href="#311-aop-相关术语">3.1.1 AOP 相关术语</a></li>
+        <li><a href="#312-spring-中的-aop-的执行过程">3.1.2 spring 中的 AOP 的执行过程</a></li>
+      </ul>
+    </li>
+    <li><a href="#32-基于-xml-的-aop-配置">3.2 基于 XML 的 AOP 配置</a>
+      <ul>
+        <li><a href="#321-环境搭建">3.2.1 环境搭建</a></li>
+        <li><a href="#322-创建-spring-的配置文件并导入约束">3.2.2 创建 spring 的配置文件并导入约束</a></li>
+        <li><a href="#323-配置spring的ioc">3.2.3 配置spring的ioc</a></li>
+      </ul>
+    </li>
+    <li><a href="#32-需要测试的代码">3.2 需要测试的代码</a></li>
+    <li><a href="#33-四种常用advance类型">3.3 四种常用advance类型</a></li>
+    <li><a href="#34-环绕通知advance的用法">3.4 环绕通知advance的用法</a></li>
+    <li><a href="#35-spring基于注解的aop配置">3.5 spring基于注解的AOP配置</a></li>
+    <li><a href="#36-不使用-xml-的配置方式">3.6 不使用 XML 的配置方式</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
     <div class="post-content">
-      <!-- raw HTML omitted -->
-<ul>
-<li><a href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-aop-%E7%9A%84%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5">第一章 AOP 的相关概念</a>
-<ul>
-<li><a href="#11-aop-%E6%A6%82%E8%BF%B0">1.1 AOP 概述</a>
-<ul>
-<li><a href="#111-%E4%BB%80%E4%B9%88%E6%98%AF-aop">1.1.1 什么是 AOP</a></li>
-<li><a href="#112-aop-%E7%9A%84%E4%BD%9C%E7%94%A8%E5%8F%8A%E4%BC%98%E5%8A%BF">1.1.2 AOP 的作用及优势</a></li>
-<li><a href="#113-aop-%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F">1.1.3 AOP 的实现方式</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86">第二章 动态代理</a>
-<ul>
-<li><a href="#21-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E7%89%B9%E7%82%B9">2.1 动态代理的特点</a></li>
-<li><a href="#22-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E5%B8%B8%E7%94%A8%E7%9A%84%E6%9C%89%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F">2.2 动态代理常用的有两种方式</a></li>
-<li><a href="#23-%E4%BD%BF%E7%94%A8-jdk-%E5%AE%98%E6%96%B9%E7%9A%84-proxy-%E7%B1%BB%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1">2.3 使用 JDK 官方的 Proxy 类创建代理对象</a></li>
-<li><a href="#24-%E4%BD%BF%E7%94%A8-cglib-%E7%9A%84-enhancer-%E7%B1%BB%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1">2.4 使用 CGLib 的 Enhancer 类创建代理对象</a></li>
-</ul>
-</li>
-<li><a href="#%E7%AC%AC%E4%B8%89%E7%AB%A0--spring-%E4%B8%AD%E7%9A%84-aop">第三章  Spring 中的 AOP</a>
-<ul>
-<li><a href="#31-spring-%E4%B8%AD-aop-%E7%9A%84%E7%BB%86%E8%8A%82">3.1 Spring 中 AOP 的细节</a>
-<ul>
-<li><a href="#311-aop-%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD">3.1.1 AOP 相关术语</a></li>
-<li><a href="#312-spring-%E4%B8%AD%E7%9A%84-aop-%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B">3.1.2 spring 中的 AOP 的执行过程</a></li>
-</ul>
-</li>
-<li><a href="#32-%E5%9F%BA%E4%BA%8E-xml-%E7%9A%84-aop-%E9%85%8D%E7%BD%AE">3.2 基于 XML 的 AOP 配置</a>
-<ul>
-<li><a href="#321-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">3.2.1 环境搭建</a></li>
-<li><a href="#322-%E5%88%9B%E5%BB%BA-spring-%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%B9%B6%E5%AF%BC%E5%85%A5%E7%BA%A6%E6%9D%9F">3.2.2 创建 spring 的配置文件并导入约束</a></li>
-<li><a href="#323-%E9%85%8D%E7%BD%AEspring%E7%9A%84ioc">3.2.3 配置spring的ioc</a></li>
-</ul>
-</li>
-<li><a href="#32-%E9%9C%80%E8%A6%81%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BB%A3%E7%A0%81">3.2 需要测试的代码</a></li>
-<li><a href="#33-%E5%9B%9B%E7%A7%8D%E5%B8%B8%E7%94%A8advance%E7%B1%BB%E5%9E%8B">3.3 四种常用advance类型</a></li>
-<li><a href="#34-%E7%8E%AF%E7%BB%95%E9%80%9A%E7%9F%A5advance%E7%9A%84%E7%94%A8%E6%B3%95">3.4 环绕通知advance的用法</a></li>
-<li><a href="#35-spring%E5%9F%BA%E4%BA%8E%E6%B3%A8%E8%A7%A3%E7%9A%84aop%E9%85%8D%E7%BD%AE">3.5 spring基于注解的AOP配置</a></li>
-<li><a href="#36-%E4%B8%8D%E4%BD%BF%E7%94%A8-xml-%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F">3.6 不使用 XML 的配置方式</a></li>
-</ul>
-</li>
-</ul>
-<!-- raw HTML omitted -->
-<h1 id="第一章-aop-的相关概念">第一章 AOP 的相关概念</h1>
+      <h1 id="第一章-aop-的相关概念">第一章 AOP 的相关概念</h1>
 <h2 id="11-aop-概述">1.1 AOP 概述</h2>
 <h3 id="111-什么是-aop">1.1.1 什么是 AOP</h3>
 <p>百度百科：面向切面编程，通过预编译方式和运行期间动态代理实现程序功能的统一维护的一种技术。</p>
@@ -154,224 +219,470 @@
 这个时候剧组再想找演员就需要通过经纪人来找了。
 下面我们就用代码演示出来。
 </code></pre>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
-</span><span style="color:#75715e"> * 一个经纪公司的要求:
-</span><span style="color:#75715e"> *    能做基本的表演和危险的表演
-</span><span style="color:#75715e"> * @author qq_lin
-</span><span style="color:#75715e"> */</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IAcotr</span> <span style="color:#f92672">{</span>
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">     * 基本演出
-</span><span style="color:#75715e">     * @param money
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">basicAct</span><span style="color:#f92672">(</span><span style="color:#66d9ef">float</span> money<span style="color:#f92672">);</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/**
+</span><span class="cm"> * 一个经纪公司的要求:
+</span><span class="cm"> *    能做基本的表演和危险的表演
+</span><span class="cm"> * @author qq_lin
+</span><span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">IAcotr</span> <span class="o">{</span>
+    <span class="cm">/**
+</span><span class="cm">     * 基本演出
+</span><span class="cm">     * @param money
+</span><span class="cm">     */</span>
+    <span class="kt">void</span> <span class="nf">basicAct</span><span class="o">(</span><span class="kt">float</span> <span class="n">money</span><span class="o">);</span>
 
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">     * 危险演出
-</span><span style="color:#75715e">     * @param money
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dangerAct</span><span style="color:#f92672">(</span><span style="color:#66d9ef">float</span> money<span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
-</span><span style="color:#75715e"> * 一个演员
-</span><span style="color:#75715e"> * @author qq_lin
-</span><span style="color:#75715e"> */</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Actor</span> <span style="color:#66d9ef">implements</span> IAcotr <span style="color:#f92672">{</span>
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">basicAct</span><span style="color:#f92672">(</span><span style="color:#66d9ef">float</span> money<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;拿到钱，开始基本的表演：&#34;</span><span style="color:#f92672">+</span>money<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
+    <span class="cm">/**
+</span><span class="cm">     * 危险演出
+</span><span class="cm">     * @param money
+</span><span class="cm">     */</span>
+    <span class="kt">void</span> <span class="nf">dangerAct</span><span class="o">(</span><span class="kt">float</span> <span class="n">money</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/**
+</span><span class="cm"> * 一个演员
+</span><span class="cm"> * @author qq_lin
+</span><span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Actor</span> <span class="kd">implements</span> <span class="n">IAcotr</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicAct</span><span class="o">(</span><span class="kt">float</span> <span class="n">money</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;拿到钱，开始基本的表演：&#34;</span><span class="o">+</span><span class="n">money</span><span class="o">);</span>
+    <span class="o">}</span>
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dangerAct</span><span style="color:#f92672">(</span><span style="color:#66d9ef">float</span> money<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;拿到钱，开始危险的表演：&#34;</span><span style="color:#f92672">+</span>money<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.lang.reflect.InvocationHandler<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.lang.reflect.Method<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.lang.reflect.Proxy<span style="color:#f92672">;</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">dangerAct</span><span class="o">(</span><span class="kt">float</span> <span class="n">money</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;拿到钱，开始危险的表演：&#34;</span><span class="o">+</span><span class="n">money</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">java.lang.reflect.InvocationHandler</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.reflect.Method</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.reflect.Proxy</span><span class="o">;</span>
 
-<span style="color:#75715e">/**
-</span><span style="color:#75715e"> * 一个剧组
-</span><span style="color:#75715e"> *
-</span><span style="color:#75715e"> * @author qq_lin
-</span><span style="color:#75715e"> */</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Client</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#75715e">// 一个剧组找演员：
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">final</span> Actor actor <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Actor<span style="color:#f92672">();</span> <span style="color:#75715e">// 直接找
-</span><span style="color:#75715e"></span>
-        <span style="color:#75715e">/**
-</span><span style="color:#75715e">         * 代理：
-</span><span style="color:#75715e">         * 间接。
-</span><span style="color:#75715e">         * 获取代理对象：
-</span><span style="color:#75715e">         * 要求：
-</span><span style="color:#75715e">         * 被代理类最少实现一个接口
-</span><span style="color:#75715e">         * 创建的方式
-</span><span style="color:#75715e">         * Proxy.newProxyInstance(三个参数)
-</span><span style="color:#75715e">         * 参数含义：
-</span><span style="color:#75715e">         * ClassLoader：和被代理对象使用相同的类加载器。
-</span><span style="color:#75715e">         * Interfaces：和被代理对象具有相同的行为。实现相同的接口。
-</span><span style="color:#75715e">         * InvocationHandler：如何代理。
-</span><span style="color:#75715e">         * 策略模式：使用场景是：
-</span><span style="color:#75715e">         * 数据有了，目的明确。
-</span><span style="color:#75715e">         * 如何达成目标，就是策略。
-</span><span style="color:#75715e">         *
-</span><span style="color:#75715e">         */</span>
-        IAcotr proxyActor <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>IAcotr<span style="color:#f92672">)</span>Proxy<span style="color:#f92672">.</span><span style="color:#a6e22e">newProxyInstance</span><span style="color:#f92672">(</span>
-                actor<span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getClassLoader</span><span style="color:#f92672">(),</span>
-                actor<span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getInterfaces</span><span style="color:#f92672">(),</span>
-                <span style="color:#66d9ef">new</span> InvocationHandler<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+<span class="cm">/**
+</span><span class="cm"> * 一个剧组
+</span><span class="cm"> *
+</span><span class="cm"> * @author qq_lin
+</span><span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Client</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 一个剧组找演员：
+</span><span class="c1"></span>        <span class="kd">final</span> <span class="n">Actor</span> <span class="n">actor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Actor</span><span class="o">();</span> <span class="c1">// 直接找
+</span><span class="c1"></span>
+        <span class="cm">/**
+</span><span class="cm">         * 代理：
+</span><span class="cm">         * 间接。
+</span><span class="cm">         * 获取代理对象：
+</span><span class="cm">         * 要求：
+</span><span class="cm">         * 被代理类最少实现一个接口
+</span><span class="cm">         * 创建的方式
+</span><span class="cm">         * Proxy.newProxyInstance(三个参数)
+</span><span class="cm">         * 参数含义：
+</span><span class="cm">         * ClassLoader：和被代理对象使用相同的类加载器。
+</span><span class="cm">         * Interfaces：和被代理对象具有相同的行为。实现相同的接口。
+</span><span class="cm">         * InvocationHandler：如何代理。
+</span><span class="cm">         * 策略模式：使用场景是：
+</span><span class="cm">         * 数据有了，目的明确。
+</span><span class="cm">         * 如何达成目标，就是策略。
+</span><span class="cm">         *
+</span><span class="cm">         */</span>
+        <span class="n">IAcotr</span> <span class="n">proxyActor</span> <span class="o">=</span> <span class="o">(</span><span class="n">IAcotr</span><span class="o">)</span><span class="n">Proxy</span><span class="o">.</span><span class="na">newProxyInstance</span><span class="o">(</span>
+                <span class="n">actor</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getClassLoader</span><span class="o">(),</span>
+                <span class="n">actor</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getInterfaces</span><span class="o">(),</span>
+                <span class="k">new</span> <span class="n">InvocationHandler</span><span class="o">()</span> <span class="o">{</span>
 
-                    <span style="color:#75715e">/**
-</span><span style="color:#75715e">                     * 执行被代理对象的任何方法，都会经过该方法。
-</span><span style="color:#75715e">                     * 此方法有拦截的功能。
-</span><span style="color:#75715e">                     *
-</span><span style="color:#75715e">                     * 参数：
-</span><span style="color:#75715e">                     * proxy：代理对象的引用。不一定每次都用得到
-</span><span style="color:#75715e">                     * method：当前执行的方法对象
-</span><span style="color:#75715e">                     * args：执行方法所需的参数
-</span><span style="color:#75715e">                     * 返回值：
-</span><span style="color:#75715e">                     * 当前执行方法的返回值
-</span><span style="color:#75715e">                     */</span>
-                    <span style="color:#a6e22e">@Override</span>
-                    <span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">invoke</span><span style="color:#f92672">(</span>Object proxy<span style="color:#f92672">,</span> Method method<span style="color:#f92672">,</span> Object<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Throwable <span style="color:#f92672">{</span>
-                        Object returnValue <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
-                        Float money <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Float<span style="color:#f92672">)</span> args<span style="color:#f92672">[</span>0<span style="color:#f92672">];</span>
+                    <span class="cm">/**
+</span><span class="cm">                     * 执行被代理对象的任何方法，都会经过该方法。
+</span><span class="cm">                     * 此方法有拦截的功能。
+</span><span class="cm">                     *
+</span><span class="cm">                     * 参数：
+</span><span class="cm">                     * proxy：代理对象的引用。不一定每次都用得到
+</span><span class="cm">                     * method：当前执行的方法对象
+</span><span class="cm">                     * args：执行方法所需的参数
+</span><span class="cm">                     * 返回值：
+</span><span class="cm">                     * 当前执行方法的返回值
+</span><span class="cm">                     */</span>
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">invoke</span><span class="o">(</span><span class="n">Object</span> <span class="n">proxy</span><span class="o">,</span> <span class="n">Method</span> <span class="n">method</span><span class="o">,</span> <span class="n">Object</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Throwable</span> <span class="o">{</span>
+                        <span class="n">Object</span> <span class="n">returnValue</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+                        <span class="n">Float</span> <span class="n">money</span> <span class="o">=</span> <span class="o">(</span><span class="n">Float</span><span class="o">)</span> <span class="n">args</span><span class="o">[</span><span class="n">0</span><span class="o">];</span>
 
-                        <span style="color:#75715e">// 每个经纪公司对不同演出收费不一样，此处开始判断
-</span><span style="color:#75715e"></span>                        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;basicAct&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>method<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()))</span> <span style="color:#f92672">{</span>
-                            <span style="color:#75715e">// 基本远程，没有2000不演
-</span><span style="color:#75715e"></span>                            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>money <span style="color:#f92672">&gt;</span> 2000<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-                                <span style="color:#75715e">// 看上去剧组是给了8000，实际演员到手只有4000
-</span><span style="color:#75715e"></span>                                <span style="color:#75715e">// 这就是我们没有修改原来basicAct方法的源码，对方法进行增强
-</span><span style="color:#75715e"></span>                                returnValue <span style="color:#f92672">=</span> method<span style="color:#f92672">.</span><span style="color:#a6e22e">invoke</span><span style="color:#f92672">(</span>actor<span style="color:#f92672">,</span> money <span style="color:#f92672">/</span> 2<span style="color:#f92672">);</span>
-                            <span style="color:#f92672">}</span>
-                        <span style="color:#f92672">}</span>
+                        <span class="c1">// 每个经纪公司对不同演出收费不一样，此处开始判断
+</span><span class="c1"></span>                        <span class="k">if</span> <span class="o">(</span><span class="s">&#34;basicAct&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">getName</span><span class="o">()))</span> <span class="o">{</span>
+                            <span class="c1">// 基本远程，没有2000不演
+</span><span class="c1"></span>                            <span class="k">if</span> <span class="o">(</span><span class="n">money</span> <span class="o">&gt;</span> <span class="n">2000</span><span class="o">)</span> <span class="o">{</span>
+                                <span class="c1">// 看上去剧组是给了8000，实际演员到手只有4000
+</span><span class="c1"></span>                                <span class="c1">// 这就是我们没有修改原来basicAct方法的源码，对方法进行增强
+</span><span class="c1"></span>                                <span class="n">returnValue</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">actor</span><span class="o">,</span> <span class="n">money</span> <span class="o">/</span> <span class="n">2</span><span class="o">);</span>
+                            <span class="o">}</span>
+                        <span class="o">}</span>
 
-                        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;dangerAct&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>method<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()))</span> <span style="color:#f92672">{</span>
-                            <span style="color:#75715e">// 危险演出，没有5000不演
-</span><span style="color:#75715e"></span>                            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>money <span style="color:#f92672">&gt;</span> 5000<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-                                <span style="color:#75715e">//看上去剧组是给了 50000，实际到演员手里只有 25000
-</span><span style="color:#75715e"></span>                                <span style="color:#75715e">// 这就是我们没有修改原来 dangerAct 方法源码，对方法进行了增强
-</span><span style="color:#75715e"></span>                                returnValue <span style="color:#f92672">=</span> method<span style="color:#f92672">.</span><span style="color:#a6e22e">invoke</span><span style="color:#f92672">(</span>actor<span style="color:#f92672">,</span> money <span style="color:#f92672">/</span> 2<span style="color:#f92672">);</span>
-                            <span style="color:#f92672">}</span>
-                        <span style="color:#f92672">}</span>
+                        <span class="k">if</span> <span class="o">(</span><span class="s">&#34;dangerAct&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">getName</span><span class="o">()))</span> <span class="o">{</span>
+                            <span class="c1">// 危险演出，没有5000不演
+</span><span class="c1"></span>                            <span class="k">if</span> <span class="o">(</span><span class="n">money</span> <span class="o">&gt;</span> <span class="n">5000</span><span class="o">)</span> <span class="o">{</span>
+                                <span class="c1">//看上去剧组是给了 50000，实际到演员手里只有 25000
+</span><span class="c1"></span>                                <span class="c1">// 这就是我们没有修改原来 dangerAct 方法源码，对方法进行了增强
+</span><span class="c1"></span>                                <span class="n">returnValue</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">actor</span><span class="o">,</span> <span class="n">money</span> <span class="o">/</span> <span class="n">2</span><span class="o">);</span>
+                            <span class="o">}</span>
+                        <span class="o">}</span>
 
-                        <span style="color:#66d9ef">return</span> returnValue<span style="color:#f92672">;</span>
-                    <span style="color:#f92672">}</span>
-                <span style="color:#f92672">}</span>
-        <span style="color:#f92672">);</span>
+                        <span class="k">return</span> <span class="n">returnValue</span><span class="o">;</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+        <span class="o">);</span>
 
-        <span style="color:#75715e">//没有经纪公司的时候，直接找演员。
-</span><span style="color:#75715e"></span>        actor<span style="color:#f92672">.</span><span style="color:#a6e22e">basicAct</span><span style="color:#f92672">(</span>1000f<span style="color:#f92672">);</span>
-        actor<span style="color:#f92672">.</span><span style="color:#a6e22e">dangerAct</span><span style="color:#f92672">(</span>5000f<span style="color:#f92672">);</span>
+        <span class="c1">//没有经纪公司的时候，直接找演员。
+</span><span class="c1"></span>        <span class="n">actor</span><span class="o">.</span><span class="na">basicAct</span><span class="o">(</span><span class="n">1000f</span><span class="o">);</span>
+        <span class="n">actor</span><span class="o">.</span><span class="na">dangerAct</span><span class="o">(</span><span class="n">5000f</span><span class="o">);</span>
         
-        <span style="color:#75715e">//剧组无法直接联系演员，而是由经纪公司找的演员
-</span><span style="color:#75715e"></span>        proxyActor<span style="color:#f92672">.</span><span style="color:#a6e22e">basicAct</span><span style="color:#f92672">(</span>8000f<span style="color:#f92672">);</span>
-        proxyActor<span style="color:#f92672">.</span><span style="color:#a6e22e">dangerAct</span><span style="color:#f92672">(</span>50000f<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h2 id="24-使用-cglib-的-enhancer-类创建代理对象">2.4 使用 CGLib 的 Enhancer 类创建代理对象</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
-</span><span style="color:#75715e"> * 一个演员
-</span><span style="color:#75715e"> * @author qq_lin
-</span><span style="color:#75715e"> */</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Actor</span>  <span style="color:#f92672">{</span> <span style="color:#75715e">//没有实现任何接口
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">basicAct</span><span style="color:#f92672">(</span><span style="color:#66d9ef">float</span> money<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;拿到钱，开始基本的表演：&#34;</span><span style="color:#f92672">+</span>money<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
+        <span class="c1">//剧组无法直接联系演员，而是由经纪公司找的演员
+</span><span class="c1"></span>        <span class="n">proxyActor</span><span class="o">.</span><span class="na">basicAct</span><span class="o">(</span><span class="n">8000f</span><span class="o">);</span>
+        <span class="n">proxyActor</span><span class="o">.</span><span class="na">dangerAct</span><span class="o">(</span><span class="n">50000f</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="24-使用-cglib-的-enhancer-类创建代理对象">2.4 使用 CGLib 的 Enhancer 类创建代理对象</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/**
+</span><span class="cm"> * 一个演员
+</span><span class="cm"> * @author qq_lin
+</span><span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Actor</span>  <span class="o">{</span> <span class="c1">//没有实现任何接口
+</span><span class="c1"></span>    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicAct</span><span class="o">(</span><span class="kt">float</span> <span class="n">money</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;拿到钱，开始基本的表演：&#34;</span><span class="o">+</span><span class="n">money</span><span class="o">);</span>
+    <span class="o">}</span>
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dangerAct</span><span style="color:#f92672">(</span><span style="color:#66d9ef">float</span> money<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;拿到钱，开始危险的表演：&#34;</span><span style="color:#f92672">+</span>money<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> net.sf.cglib.proxy.Enhancer<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> net.sf.cglib.proxy.MethodInterceptor<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> net.sf.cglib.proxy.MethodProxy<span style="color:#f92672">;</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">dangerAct</span><span class="o">(</span><span class="kt">float</span> <span class="n">money</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;拿到钱，开始危险的表演：&#34;</span><span class="o">+</span><span class="n">money</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">net.sf.cglib.proxy.Enhancer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sf.cglib.proxy.MethodInterceptor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">net.sf.cglib.proxy.MethodProxy</span><span class="o">;</span>
 
-<span style="color:#f92672">import</span> java.lang.reflect.Method<span style="color:#f92672">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.reflect.Method</span><span class="o">;</span>
 
-<span style="color:#75715e">/**
-</span><span style="color:#75715e"> * 一个剧组
-</span><span style="color:#75715e"> *
-</span><span style="color:#75715e"> * @author qq_lin
-</span><span style="color:#75715e"> */</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Client</span> <span style="color:#f92672">{</span>
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">     * 基于子类的动态代理
-</span><span style="color:#75715e">     * 要求：
-</span><span style="color:#75715e">     * 被代理对象不能是最终类
-</span><span style="color:#75715e">     * 用到的类：
-</span><span style="color:#75715e">     * Enhancer
-</span><span style="color:#75715e">     * 用到的方法：
-</span><span style="color:#75715e">     * create(Class, Callback)
-</span><span style="color:#75715e">     * 方法的参数：
-</span><span style="color:#75715e">     * Class：被代理对象的字节码
-</span><span style="color:#75715e">     * Callback：如何代理
-</span><span style="color:#75715e">     *
-</span><span style="color:#75715e">     * @param args
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<span class="cm">/**
+</span><span class="cm"> * 一个剧组
+</span><span class="cm"> *
+</span><span class="cm"> * @author qq_lin
+</span><span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Client</span> <span class="o">{</span>
+    <span class="cm">/**
+</span><span class="cm">     * 基于子类的动态代理
+</span><span class="cm">     * 要求：
+</span><span class="cm">     * 被代理对象不能是最终类
+</span><span class="cm">     * 用到的类：
+</span><span class="cm">     * Enhancer
+</span><span class="cm">     * 用到的方法：
+</span><span class="cm">     * create(Class, Callback)
+</span><span class="cm">     * 方法的参数：
+</span><span class="cm">     * Class：被代理对象的字节码
+</span><span class="cm">     * Callback：如何代理
+</span><span class="cm">     *
+</span><span class="cm">     * @param args
+</span><span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 
-        <span style="color:#66d9ef">final</span> Actor actor <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Actor<span style="color:#f92672">();</span> <span style="color:#75715e">// 直接找
-</span><span style="color:#75715e"></span>
+        <span class="kd">final</span> <span class="n">Actor</span> <span class="n">actor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Actor</span><span class="o">();</span> <span class="c1">// 直接找
+</span><span class="c1"></span>
 
-        Actor cglibActor <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Actor<span style="color:#f92672">)</span> Enhancer<span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">(</span>actor<span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">(),</span>
-                <span style="color:#66d9ef">new</span> MethodInterceptor<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span class="n">Actor</span> <span class="n">cglibActor</span> <span class="o">=</span> <span class="o">(</span><span class="n">Actor</span><span class="o">)</span> <span class="n">Enhancer</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">actor</span><span class="o">.</span><span class="na">getClass</span><span class="o">(),</span>
+                <span class="k">new</span> <span class="n">MethodInterceptor</span><span class="o">()</span> <span class="o">{</span>
 
-                    <span style="color:#75715e">/**
-</span><span style="color:#75715e">                     * 执行被代理对象的任何方法，都会经过该方法。
-</span><span style="color:#75715e">                     * 在此方法内部就可以对被代理对象的任何方法进行增强。
-</span><span style="color:#75715e">                     * &lt;p&gt;
-</span><span style="color:#75715e">                     * 参数：
-</span><span style="color:#75715e">                     * 前三个和基于接口的动态代理是一样的。
-</span><span style="color:#75715e">                     *
-</span><span style="color:#75715e">                     * @param proxy
-</span><span style="color:#75715e">                     * @param method
-</span><span style="color:#75715e">                     * @param args
-</span><span style="color:#75715e">                     * @param methodProxy MethodProxy：当前执行方法的代理对象。
-</span><span style="color:#75715e">                     * @return
-</span><span style="color:#75715e">                     * @throws Throwable
-</span><span style="color:#75715e">                     */</span>
-                    <span style="color:#a6e22e">@Override</span>
-                    <span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">intercept</span><span style="color:#f92672">(</span>Object proxy<span style="color:#f92672">,</span> Method method<span style="color:#f92672">,</span> 
-                        Object<span style="color:#f92672">[]</span> args<span style="color:#f92672">,</span> MethodProxy methodProxy<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Throwable <span style="color:#f92672">{</span>
+                    <span class="cm">/**
+</span><span class="cm">                     * 执行被代理对象的任何方法，都会经过该方法。
+</span><span class="cm">                     * 在此方法内部就可以对被代理对象的任何方法进行增强。
+</span><span class="cm">                     * &lt;p&gt;
+</span><span class="cm">                     * 参数：
+</span><span class="cm">                     * 前三个和基于接口的动态代理是一样的。
+</span><span class="cm">                     *
+</span><span class="cm">                     * @param proxy
+</span><span class="cm">                     * @param method
+</span><span class="cm">                     * @param args
+</span><span class="cm">                     * @param methodProxy MethodProxy：当前执行方法的代理对象。
+</span><span class="cm">                     * @return
+</span><span class="cm">                     * @throws Throwable
+</span><span class="cm">                     */</span>
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">intercept</span><span class="o">(</span><span class="n">Object</span> <span class="n">proxy</span><span class="o">,</span> <span class="n">Method</span> <span class="n">method</span><span class="o">,</span> 
+                        <span class="n">Object</span><span class="o">[]</span> <span class="n">args</span><span class="o">,</span> <span class="n">MethodProxy</span> <span class="n">methodProxy</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Throwable</span> <span class="o">{</span>
 
-                        String name <span style="color:#f92672">=</span> method<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">();</span>
-                        Float money <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Float<span style="color:#f92672">)</span> args<span style="color:#f92672">[</span>0<span style="color:#f92672">];</span>
-                        Object returnValue <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
-                        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;basicAct&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>name<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
-                            <span style="color:#75715e">//基本演出
-</span><span style="color:#75715e"></span>                            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>money <span style="color:#f92672">&gt;</span> 2000<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-                                returnValue <span style="color:#f92672">=</span> method<span style="color:#f92672">.</span><span style="color:#a6e22e">invoke</span><span style="color:#f92672">(</span>actor<span style="color:#f92672">,</span> money <span style="color:#f92672">/</span> 2<span style="color:#f92672">);</span>
-                            <span style="color:#f92672">}</span>
-                        <span style="color:#f92672">}</span>
+                        <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="na">getName</span><span class="o">();</span>
+                        <span class="n">Float</span> <span class="n">money</span> <span class="o">=</span> <span class="o">(</span><span class="n">Float</span><span class="o">)</span> <span class="n">args</span><span class="o">[</span><span class="n">0</span><span class="o">];</span>
+                        <span class="n">Object</span> <span class="n">returnValue</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+                        <span class="k">if</span> <span class="o">(</span><span class="s">&#34;basicAct&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">name</span><span class="o">))</span> <span class="o">{</span>
+                            <span class="c1">//基本演出
+</span><span class="c1"></span>                            <span class="k">if</span> <span class="o">(</span><span class="n">money</span> <span class="o">&gt;</span> <span class="n">2000</span><span class="o">)</span> <span class="o">{</span>
+                                <span class="n">returnValue</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">actor</span><span class="o">,</span> <span class="n">money</span> <span class="o">/</span> <span class="n">2</span><span class="o">);</span>
+                            <span class="o">}</span>
+                        <span class="o">}</span>
 
-                        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;dangerAct&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>name<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
-                            <span style="color:#75715e">//危险演出
-</span><span style="color:#75715e"></span>                            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>money <span style="color:#f92672">&gt;</span> 5000<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-                                returnValue <span style="color:#f92672">=</span> method<span style="color:#f92672">.</span><span style="color:#a6e22e">invoke</span><span style="color:#f92672">(</span>actor<span style="color:#f92672">,</span> money <span style="color:#f92672">/</span> 2<span style="color:#f92672">);</span>
-                            <span style="color:#f92672">}</span>
-                        <span style="color:#f92672">}</span>
+                        <span class="k">if</span> <span class="o">(</span><span class="s">&#34;dangerAct&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">name</span><span class="o">))</span> <span class="o">{</span>
+                            <span class="c1">//危险演出
+</span><span class="c1"></span>                            <span class="k">if</span> <span class="o">(</span><span class="n">money</span> <span class="o">&gt;</span> <span class="n">5000</span><span class="o">)</span> <span class="o">{</span>
+                                <span class="n">returnValue</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">actor</span><span class="o">,</span> <span class="n">money</span> <span class="o">/</span> <span class="n">2</span><span class="o">);</span>
+                            <span class="o">}</span>
+                        <span class="o">}</span>
 
-                        <span style="color:#66d9ef">return</span> returnValue<span style="color:#f92672">;</span>
-                    <span style="color:#f92672">}</span>
-                <span style="color:#f92672">});</span>
+                        <span class="k">return</span> <span class="n">returnValue</span><span class="o">;</span>
+                    <span class="o">}</span>
+                <span class="o">});</span>
 
 
-        <span style="color:#75715e">//没有经纪公司的时候，直接找演员。
-</span><span style="color:#75715e"></span>        actor<span style="color:#f92672">.</span><span style="color:#a6e22e">basicAct</span><span style="color:#f92672">(</span>1000f<span style="color:#f92672">);</span>
-        actor<span style="color:#f92672">.</span><span style="color:#a6e22e">dangerAct</span><span style="color:#f92672">(</span>5000f<span style="color:#f92672">);</span>
+        <span class="c1">//没有经纪公司的时候，直接找演员。
+</span><span class="c1"></span>        <span class="n">actor</span><span class="o">.</span><span class="na">basicAct</span><span class="o">(</span><span class="n">1000f</span><span class="o">);</span>
+        <span class="n">actor</span><span class="o">.</span><span class="na">dangerAct</span><span class="o">(</span><span class="n">5000f</span><span class="o">);</span>
 
-        <span style="color:#75715e">//剧组无法直接联系演员，而是由经纪公司找的演员
-</span><span style="color:#75715e"></span>        cglibActor<span style="color:#f92672">.</span><span style="color:#a6e22e">basicAct</span><span style="color:#f92672">(</span>8000f<span style="color:#f92672">);</span>
-        cglibActor<span style="color:#f92672">.</span><span style="color:#a6e22e">dangerAct</span><span style="color:#f92672">(</span>50000f<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><hr>
+        <span class="c1">//剧组无法直接联系演员，而是由经纪公司找的演员
+</span><span class="c1"></span>        <span class="n">cglibActor</span><span class="o">.</span><span class="na">basicAct</span><span class="o">(</span><span class="n">8000f</span><span class="o">);</span>
+        <span class="n">cglibActor</span><span class="o">.</span><span class="na">dangerAct</span><span class="o">(</span><span class="n">50000f</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
 <h1 id="第三章--spring-中的-aop">第三章  Spring 中的 AOP</h1>
 <h2 id="31-spring-中-aop-的细节">3.1 Spring 中 AOP 的细节</h2>
 <h3 id="311-aop-相关术语">3.1.1 AOP 相关术语</h3>
@@ -422,450 +733,1066 @@ b、运行阶段（Spring 框架完成的）
 <ul>
 <li>
 <p>导入必要的maven</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#f92672">&lt;dependency&gt;</span>
-        <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework<span style="color:#f92672">&lt;/groupId&gt;</span>
-        <span style="color:#f92672">&lt;artifactId&gt;</span>spring-context<span style="color:#f92672">&lt;/artifactId&gt;</span>
-        <span style="color:#f92672">&lt;version&gt;</span>5.2.6.RELEASE<span style="color:#f92672">&lt;/version&gt;</span>
-    <span style="color:#f92672">&lt;/dependency&gt;</span>
-    <span style="color:#f92672">&lt;dependency&gt;</span>
-        <span style="color:#f92672">&lt;groupId&gt;</span>org.aspectj<span style="color:#f92672">&lt;/groupId&gt;</span>
-        <span style="color:#f92672">&lt;artifactId&gt;</span>aspectjweaver<span style="color:#f92672">&lt;/artifactId&gt;</span>
-        <span style="color:#f92672">&lt;version&gt;</span>1.9.5<span style="color:#f92672">&lt;/version&gt;</span>
-    <span style="color:#f92672">&lt;/dependency&gt;</span>
-</code></pre></div></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml">    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>spring-context<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>5.2.6.RELEASE<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>org.aspectj<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>aspectjweaver<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>1.9.5<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 <li>
 <p>需要的代码</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
-</span><span style="color:#75715e">* 账户的业务层接口
-</span><span style="color:#75715e">* @author qq_lin
-</span><span style="color:#75715e">*/</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IAccountService</span> <span style="color:#f92672">{</span>
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">    * 模拟保存账户
-</span><span style="color:#75715e">    */</span>
-    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">saveAccount</span><span style="color:#f92672">();</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/**
+</span><span class="cm">* 账户的业务层接口
+</span><span class="cm">* @author qq_lin
+</span><span class="cm">*/</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">IAccountService</span> <span class="o">{</span>
+    <span class="cm">/**
+</span><span class="cm">    * 模拟保存账户
+</span><span class="cm">    */</span>
+    <span class="kt">void</span> <span class="nf">saveAccount</span><span class="o">();</span>
 
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">    * 模拟更新账户
-</span><span style="color:#75715e">    * @param i
-</span><span style="color:#75715e">    */</span>
-    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">updateAccount</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">);</span>
+    <span class="cm">/**
+</span><span class="cm">    * 模拟更新账户
+</span><span class="cm">    * @param i
+</span><span class="cm">    */</span>
+    <span class="kt">void</span> <span class="nf">updateAccount</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">);</span>
 
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">    * 删除账户
-</span><span style="color:#75715e">    * @return
-</span><span style="color:#75715e">    */</span>
-    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">deleteAccount</span><span style="color:#f92672">();</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
-</span><span style="color:#75715e"> * 账户的业务实现层
-</span><span style="color:#75715e"> * @author qq_lin
-</span><span style="color:#75715e"> */</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AccountServiceImpl</span> <span style="color:#66d9ef">implements</span> IAccountService <span style="color:#f92672">{</span>
+    <span class="cm">/**
+</span><span class="cm">    * 删除账户
+</span><span class="cm">    * @return
+</span><span class="cm">    */</span>
+    <span class="kt">int</span> <span class="nf">deleteAccount</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/**
+</span><span class="cm"> * 账户的业务实现层
+</span><span class="cm"> * @author qq_lin
+</span><span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AccountServiceImpl</span> <span class="kd">implements</span> <span class="n">IAccountService</span> <span class="o">{</span>
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">saveAccount</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;执行了保存&#34;</span><span style="color:#f92672">);</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">saveAccount</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;执行了保存&#34;</span><span class="o">);</span>
 
-    <span style="color:#f92672">}</span>
+    <span class="o">}</span>
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">updateAccount</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;执行了更新&#34;</span> <span style="color:#f92672">+</span> i<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">updateAccount</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;执行了更新&#34;</span> <span class="o">+</span> <span class="n">i</span><span class="o">);</span>
+    <span class="o">}</span>
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">deleteAccount</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;执行了删除&#34;</span><span style="color:#f92672">);</span>
-        <span style="color:#66d9ef">return</span> 0<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
-</span><span style="color:#75715e"> * 用于记录日志的工具类
-</span><span style="color:#75715e"> */</span> 
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span>  <span style="color:#a6e22e">Logger</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">deleteAccount</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;执行了删除&#34;</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">0</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/**
+</span><span class="cm"> * 用于记录日志的工具类
+</span><span class="cm"> */</span> 
+<span class="kd">public</span> <span class="kd">class</span>  <span class="nf">Logger</span><span class="o">()</span> <span class="o">{</span>
 
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">     * 用于打印日志，计划让其在切入点方法执行之前执行
-</span><span style="color:#75715e">     * （切入点方法就是业务层方法
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">printLog</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Logger类中的printLog方法开始记录日志&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>  
-<span style="color:#f92672">}</span>
-</code></pre></div></li>
+    <span class="cm">/**
+</span><span class="cm">     * 用于打印日志，计划让其在切入点方法执行之前执行
+</span><span class="cm">     * （切入点方法就是业务层方法
+</span><span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printLog</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Logger类中的printLog方法开始记录日志&#34;</span><span class="o">);</span>
+    <span class="o">}</span>  
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 </ul>
 <hr>
 <h3 id="322-创建-spring-的配置文件并导入约束">3.2.2 创建 spring 的配置文件并导入约束</h3>
 <p>在resources中新增一个bean.xml文件</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-<span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span>
-    <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
-    <span style="color:#a6e22e">xmlns:aop=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/aop&#34;</span>
-    <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans 
-</span><span style="color:#e6db74">        http://www.springframework.org/schema/beans/spring-beans.xsd
-</span><span style="color:#e6db74">        http://www.springframework.org/schema/aop 
-</span><span style="color:#e6db74">        http://www.springframework.org/schema/aop/spring-aop.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+    <span class="na">xmlns:aop=</span><span class="s">&#34;http://www.springframework.org/schema/aop&#34;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans 
+</span><span class="s">        http://www.springframework.org/schema/beans/spring-beans.xsd
+</span><span class="s">        http://www.springframework.org/schema/aop 
+</span><span class="s">        http://www.springframework.org/schema/aop/spring-aop.xsd&#34;</span><span class="nt">&gt;</span>
 
-<span style="color:#f92672">&lt;/beans&gt;</span>
-</code></pre></div><h3 id="323-配置spring的ioc">3.2.3 配置spring的ioc</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-<span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span>
-    <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
-    <span style="color:#a6e22e">xmlns:aop=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/aop&#34;</span>
-    <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans 
-</span><span style="color:#e6db74">        http://www.springframework.org/schema/beans/spring-beans.xsd
-</span><span style="color:#e6db74">        http://www.springframework.org/schema/aop 
-</span><span style="color:#e6db74">        http://www.springframework.org/schema/aop/spring-aop.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+<span class="nt">&lt;/beans&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="323-配置spring的ioc">3.2.3 配置spring的ioc</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+    <span class="na">xmlns:aop=</span><span class="s">&#34;http://www.springframework.org/schema/aop&#34;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans 
+</span><span class="s">        http://www.springframework.org/schema/beans/spring-beans.xsd
+</span><span class="s">        http://www.springframework.org/schema/aop 
+</span><span class="s">        http://www.springframework.org/schema/aop/spring-aop.xsd&#34;</span><span class="nt">&gt;</span>
         
 
-    <span style="color:#75715e">&lt;!--配置spring的IOC，把service对象配置进来--&gt;</span>
-    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;accountService&#34;</span> 
-        <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.qqlin.service.impl.AccountServiceImpl&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span class="c">&lt;!--配置spring的IOC，把service对象配置进来--&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;accountService&#34;</span> 
+        <span class="na">class=</span><span class="s">&#34;com.qqlin.service.impl.AccountServiceImpl&#34;</span><span class="nt">/&gt;</span>
 
-    <span style="color:#75715e">&lt;!--spring中基于XML的AOP配置步骤
-</span><span style="color:#75715e">        1.把通知Bean也交给spring来管理
-</span><span style="color:#75715e">        2.使用aop:config标签表明开始AOP的配置
-</span><span style="color:#75715e">        3.使用aop:aspect标签表明配置切面
-</span><span style="color:#75715e">            id属性：是给切面提供一个唯一标识
-</span><span style="color:#75715e">            ref属性：是指定通知类bean的ID
-</span><span style="color:#75715e">        4.在aop:aspect标签的内部使用对应标签来配置通知的类型
-</span><span style="color:#75715e">            aop:before:表示配置前置通知
-</span><span style="color:#75715e">                method属性：用于指定Logger类中哪个方法是前置通知
-</span><span style="color:#75715e">                pointcut属性：指定切入点表达式，该表达式的含义指的是对业务层中哪些方法增强
-</span><span style="color:#75715e">
-</span><span style="color:#75715e">            切入点表达式的写法：
-</span><span style="color:#75715e">                关键字：execution(表达式)
-</span><span style="color:#75715e">                表达式：
-</span><span style="color:#75715e">                    访问修饰符 返回值 包名.包名..类名.方法名（参数列表）
-</span><span style="color:#75715e">                标准的表达式写法：
-</span><span style="color:#75715e">                    public void com.qqlin.service.impl.AccountServiceImpl.saveAccount()  
-</span><span style="color:#75715e">                访问修饰符、返回值，以及包名、类名、方法名和参数列表皆可省略
-</span><span style="color:#75715e">                    * com.qqlin.service.impl.*.*(..)  
-</span><span style="color:#75715e">                以上表达式，是由aspectjweaver解析的
-</span><span style="color:#75715e">    --&gt;</span>      
+    <span class="c">&lt;!--spring中基于XML的AOP配置步骤
+</span><span class="c">        1.把通知Bean也交给spring来管理
+</span><span class="c">        2.使用aop:config标签表明开始AOP的配置
+</span><span class="c">        3.使用aop:aspect标签表明配置切面
+</span><span class="c">            id属性：是给切面提供一个唯一标识
+</span><span class="c">            ref属性：是指定通知类bean的ID
+</span><span class="c">        4.在aop:aspect标签的内部使用对应标签来配置通知的类型
+</span><span class="c">            aop:before:表示配置前置通知
+</span><span class="c">                method属性：用于指定Logger类中哪个方法是前置通知
+</span><span class="c">                pointcut属性：指定切入点表达式，该表达式的含义指的是对业务层中哪些方法增强
+</span><span class="c">
+</span><span class="c">            切入点表达式的写法：
+</span><span class="c">                关键字：execution(表达式)
+</span><span class="c">                表达式：
+</span><span class="c">                    访问修饰符 返回值 包名.包名..类名.方法名（参数列表）
+</span><span class="c">                标准的表达式写法：
+</span><span class="c">                    public void com.qqlin.service.impl.AccountServiceImpl.saveAccount()  
+</span><span class="c">                访问修饰符、返回值，以及包名、类名、方法名和参数列表皆可省略
+</span><span class="c">                    * com.qqlin.service.impl.*.*(..)  
+</span><span class="c">                以上表达式，是由aspectjweaver解析的
+</span><span class="c">    --&gt;</span>      
 
-    <span style="color:#75715e">&lt;!--配置Logger类--&gt;</span>
-    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;logger&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.qqlin.utils.Logger/&gt;
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74">    &lt;!--配置AOP--&gt;
-</span><span style="color:#e6db74">    &lt;aop:config&gt;
-</span><span style="color:#e6db74">        &lt;!--配置切面--&gt;
-</span><span style="color:#e6db74">        &lt;aop:aspect id=&#34;</span><span style="color:#960050;background-color:#1e0010">logAdvice&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;logger&#34;</span><span style="color:#f92672">&gt;</span>
-            <span style="color:#75715e">&lt;!--配置通知的类型，并建立通知方法的切入点方法的关联--&gt;</span>
-            <span style="color:#f92672">&lt;aop:before</span> <span style="color:#a6e22e">method=</span><span style="color:#e6db74">&#34;printLog&#34;</span>
-                <span style="color:#a6e22e">pointcut=</span><span style="color:#e6db74">&#34;excution(* com.qqlin.service.impl.*.*(..))&#34;</span><span style="color:#f92672">/&gt;</span>
-        <span style="color:#f92672">&lt;/aop:aspect&gt;</span>
-    <span style="color:#f92672">&lt;/aop:config&gt;</span>    
+    <span class="c">&lt;!--配置Logger类--&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;logger&#34;</span> <span class="na">class=</span><span class="s">&#34;com.qqlin.utils.Logger/&gt;
+</span><span class="s">
+</span><span class="s">    &lt;!--配置AOP--&gt;
+</span><span class="s">    &lt;aop:config&gt;
+</span><span class="s">        &lt;!--配置切面--&gt;
+</span><span class="s">        &lt;aop:aspect id=&#34;</span><span class="err">logAdvice&#34;</span> <span class="na">ref=</span><span class="s">&#34;logger&#34;</span><span class="nt">&gt;</span>
+            <span class="c">&lt;!--配置通知的类型，并建立通知方法的切入点方法的关联--&gt;</span>
+            <span class="nt">&lt;aop:before</span> <span class="na">method=</span><span class="s">&#34;printLog&#34;</span>
+                <span class="na">pointcut=</span><span class="s">&#34;excution(* com.qqlin.service.impl.*.*(..))&#34;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/aop:aspect&gt;</span>
+    <span class="nt">&lt;/aop:config&gt;</span>    
                 
-<span style="color:#f92672">&lt;/beans&gt;</span>
-</code></pre></div><hr>
+<span class="nt">&lt;/beans&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
 <h2 id="32-需要测试的代码">3.2 需要测试的代码</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AOPtest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#75715e">// 1.获取容器
-</span><span style="color:#75715e"></span>    ApplicationContext ac <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ClassPathXmlApplicationContext<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;bean.xml&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#75715e">// 2.获取对象
-</span><span style="color:#75715e"></span>    IAccountService as <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>IAcountService<span style="color:#f92672">)</span>ac<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;accountService&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#75715e">// 3.执行方法
-</span><span style="color:#75715e"></span>    as<span style="color:#f92672">.</span><span style="color:#a6e22e">saveAccount</span><span style="color:#f92672">();</span>
-    as<span style="color:#f92672">.</span><span style="color:#a6e22e">updateAccount</span><span style="color:#f92672">();</span>
-    as<span style="color:#f92672">.</span><span style="color:#a6e22e">deleteAccount</span><span style="color:#f92672">();</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nf">AOPtest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// 1.获取容器
+</span><span class="c1"></span>    <span class="n">ApplicationContext</span> <span class="n">ac</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClassPathXmlApplicationContext</span><span class="o">(</span><span class="s">&#34;bean.xml&#34;</span><span class="o">);</span>
+    <span class="c1">// 2.获取对象
+</span><span class="c1"></span>    <span class="n">IAccountService</span> <span class="n">as</span> <span class="o">=</span> <span class="o">(</span><span class="n">IAcountService</span><span class="o">)</span><span class="n">ac</span><span class="o">.</span><span class="na">getBean</span><span class="o">(</span><span class="s">&#34;accountService&#34;</span><span class="o">);</span>
+    <span class="c1">// 3.执行方法
+</span><span class="c1"></span>    <span class="n">as</span><span class="o">.</span><span class="na">saveAccount</span><span class="o">();</span>
+    <span class="n">as</span><span class="o">.</span><span class="na">updateAccount</span><span class="o">();</span>
+    <span class="n">as</span><span class="o">.</span><span class="na">deleteAccount</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
 <h2 id="33-四种常用advance类型">3.3 四种常用advance类型</h2>
 <p>bean.xml文件的准备</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-    <span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span>
-        <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
-        <span style="color:#a6e22e">xmlns:aop=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/aop&#34;</span>
-        <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans 
-</span><span style="color:#e6db74">            http://www.springframework.org/schema/beans/spring-beans.xsd
-</span><span style="color:#e6db74">            http://www.springframework.org/schema/aop 
-</span><span style="color:#e6db74">            http://www.springframework.org/schema/aop/spring-aop.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml">    <span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+    <span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span>
+        <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+        <span class="na">xmlns:aop=</span><span class="s">&#34;http://www.springframework.org/schema/aop&#34;</span>
+        <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans 
+</span><span class="s">            http://www.springframework.org/schema/beans/spring-beans.xsd
+</span><span class="s">            http://www.springframework.org/schema/aop 
+</span><span class="s">            http://www.springframework.org/schema/aop/spring-aop.xsd&#34;</span><span class="nt">&gt;</span>
             
 
-        <span style="color:#75715e">&lt;!--配置spring的IOC，把service对象配置进来--&gt;</span>
-        <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;accountService&#34;</span> 
-            <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.qqlin.service.impl.AccountServiceImpl&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span class="c">&lt;!--配置spring的IOC，把service对象配置进来--&gt;</span>
+        <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;accountService&#34;</span> 
+            <span class="na">class=</span><span class="s">&#34;com.qqlin.service.impl.AccountServiceImpl&#34;</span><span class="nt">/&gt;</span>
 
-        <span style="color:#75715e">&lt;!--配置Logger类--&gt;</span>
-        <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;logger&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.qqlin.utils.Logger/&gt;
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74">        &lt;!--配置AOP--&gt;
-</span><span style="color:#e6db74">        &lt;aop:config&gt;
-</span><span style="color:#e6db74">            &lt;!--配置切面--&gt;
-</span><span style="color:#e6db74">            &lt;!--配置切入点表达式 id属性用于指定表达式的唯一标识。
-</span><span style="color:#e6db74">                expression属性用于指定表达式内容
-</span><span style="color:#e6db74">                此标签写在aop:aspect标签内部只能当前切面使用。
-</span><span style="color:#e6db74">                写在aop:aspect标签外面，变成所有切面可用
-</span><span style="color:#e6db74">            --&gt;
-</span><span style="color:#e6db74">            &lt;aop:pointcut id=&#34;</span><span style="color:#960050;background-color:#1e0010">pointcut&#34;</span> <span style="color:#a6e22e">expression=</span><span style="color:#e6db74">&#34;excution(* com.qqlin.service.impl.*.*(..))&#34;</span><span style="color:#f92672">/&gt;</span>
-            <span style="color:#f92672">&lt;aop:aspect</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;logAdvice&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;logger&#34;</span><span style="color:#f92672">&gt;</span>
-                <span style="color:#75715e">&lt;!--配置前置通知--&gt;</span>
-                <span style="color:#f92672">&lt;aop:before</span> <span style="color:#a6e22e">method=</span><span style="color:#e6db74">&#34;beforePrintLog&#34;</span> <span style="color:#a6e22e">pointcut-ref=</span><span style="color:#e6db74">&#34;pointcut&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span class="c">&lt;!--配置Logger类--&gt;</span>
+        <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;logger&#34;</span> <span class="na">class=</span><span class="s">&#34;com.qqlin.utils.Logger/&gt;
+</span><span class="s">
+</span><span class="s">        &lt;!--配置AOP--&gt;
+</span><span class="s">        &lt;aop:config&gt;
+</span><span class="s">            &lt;!--配置切面--&gt;
+</span><span class="s">            &lt;!--配置切入点表达式 id属性用于指定表达式的唯一标识。
+</span><span class="s">                expression属性用于指定表达式内容
+</span><span class="s">                此标签写在aop:aspect标签内部只能当前切面使用。
+</span><span class="s">                写在aop:aspect标签外面，变成所有切面可用
+</span><span class="s">            --&gt;
+</span><span class="s">            &lt;aop:pointcut id=&#34;</span><span class="err">pointcut&#34;</span> <span class="na">expression=</span><span class="s">&#34;excution(* com.qqlin.service.impl.*.*(..))&#34;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;aop:aspect</span> <span class="na">id=</span><span class="s">&#34;logAdvice&#34;</span> <span class="na">ref=</span><span class="s">&#34;logger&#34;</span><span class="nt">&gt;</span>
+                <span class="c">&lt;!--配置前置通知--&gt;</span>
+                <span class="nt">&lt;aop:before</span> <span class="na">method=</span><span class="s">&#34;beforePrintLog&#34;</span> <span class="na">pointcut-ref=</span><span class="s">&#34;pointcut&#34;</span><span class="nt">/&gt;</span>
 
-                <span style="color:#75715e">&lt;!--配置后置通知--&gt;</span>
-                <span style="color:#f92672">&lt;aop:after-returning</span> <span style="color:#a6e22e">method=</span><span style="color:#e6db74">&#34;afterReturningPrintLog&#34;</span> <span style="color:#a6e22e">pointcut-ref=</span><span style="color:#e6db74">&#34;pointcut&#34;</span><span style="color:#f92672">/&gt;</span>
+                <span class="c">&lt;!--配置后置通知--&gt;</span>
+                <span class="nt">&lt;aop:after-returning</span> <span class="na">method=</span><span class="s">&#34;afterReturningPrintLog&#34;</span> <span class="na">pointcut-ref=</span><span class="s">&#34;pointcut&#34;</span><span class="nt">/&gt;</span>
 
-                <span style="color:#75715e">&lt;!--配置异常通知--&gt;</span>
-                <span style="color:#f92672">&lt;aop:after-throwing</span> <span style="color:#a6e22e">method=</span><span style="color:#e6db74">&#34;afterThrowingPrintLog&#34;</span> <span style="color:#a6e22e">pointcut-ref=</span><span style="color:#e6db74">&#34;pointcut&#34;</span><span style="color:#f92672">/&gt;</span>
+                <span class="c">&lt;!--配置异常通知--&gt;</span>
+                <span class="nt">&lt;aop:after-throwing</span> <span class="na">method=</span><span class="s">&#34;afterThrowingPrintLog&#34;</span> <span class="na">pointcut-ref=</span><span class="s">&#34;pointcut&#34;</span><span class="nt">/&gt;</span>
 
-                <span style="color:#75715e">&lt;!--配置最终通知--&gt;</span>
-                <span style="color:#f92672">&lt;aop:after</span> <span style="color:#a6e22e">method=</span><span style="color:#e6db74">&#34;afterPrintLog&#34;</span> <span style="color:#a6e22e">pointcut-ref=</span><span style="color:#e6db74">&#34;pointcut&#34;</span><span style="color:#f92672">/&gt;</span>
-            <span style="color:#f92672">&lt;/aop:aspect&gt;</span>
-        <span style="color:#f92672">&lt;/aop:config&gt;</span>    
+                <span class="c">&lt;!--配置最终通知--&gt;</span>
+                <span class="nt">&lt;aop:after</span> <span class="na">method=</span><span class="s">&#34;afterPrintLog&#34;</span> <span class="na">pointcut-ref=</span><span class="s">&#34;pointcut&#34;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/aop:aspect&gt;</span>
+        <span class="nt">&lt;/aop:config&gt;</span>    
                   
-    <span style="color:#f92672">&lt;/beans&gt;</span>
-</code></pre></div><p>改造记录日志的工具代码：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
-</span><span style="color:#75715e"> * 用于记录日志的工具类
-</span><span style="color:#75715e"> */</span> 
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span>  <span style="color:#a6e22e">Logger</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span class="nt">&lt;/beans&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>改造记录日志的工具代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/**
+</span><span class="cm"> * 用于记录日志的工具类
+</span><span class="cm"> */</span> 
+<span class="kd">public</span> <span class="kd">class</span>  <span class="nf">Logger</span><span class="o">()</span> <span class="o">{</span>
 
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">    * 前置通知
-</span><span style="color:#75715e">    */</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">beforePrintLog</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;前置通知&#34;</span><span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span>  
-    <span style="color:#f92672">}</span>
+    <span class="cm">/**
+</span><span class="cm">    * 前置通知
+</span><span class="cm">    */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">beforePrintLog</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;前置通知&#34;</span><span class="o">);</span>
+        <span class="o">}</span>  
+    <span class="o">}</span>
 
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">    * 后置通知
-</span><span style="color:#75715e">    */</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterReturningPrintLog</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;后置通知&#34;</span><span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span>  
-    <span style="color:#f92672">}</span>
+    <span class="cm">/**
+</span><span class="cm">    * 后置通知
+</span><span class="cm">    */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">afterReturningPrintLog</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;后置通知&#34;</span><span class="o">);</span>
+        <span class="o">}</span>  
+    <span class="o">}</span>
 
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">    * 异常置通知
-</span><span style="color:#75715e">    */</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterThrowingPrintLog</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;异常通知&#34;</span><span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span>  
-    <span style="color:#f92672">}</span>
+    <span class="cm">/**
+</span><span class="cm">    * 异常置通知
+</span><span class="cm">    */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">afterThrowingPrintLog</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;异常通知&#34;</span><span class="o">);</span>
+        <span class="o">}</span>  
+    <span class="o">}</span>
 
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">    * 最终通知
-</span><span style="color:#75715e">    */</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterPrintLog</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;最终通知&#34;</span><span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span>  
-    <span style="color:#f92672">}</span>
+    <span class="cm">/**
+</span><span class="cm">    * 最终通知
+</span><span class="cm">    */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">afterPrintLog</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;最终通知&#34;</span><span class="o">);</span>
+        <span class="o">}</span>  
+    <span class="o">}</span>
 
-<span style="color:#f92672">}</span>
-</code></pre></div><p>测试代码</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AOPtest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#75715e">// 1.获取容器
-</span><span style="color:#75715e"></span>    ApplicationContext ac <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ClassPathXmlApplicationContext<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;bean.xml&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#75715e">// 2.获取对象
-</span><span style="color:#75715e"></span>    IAccountService as <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>IAcountService<span style="color:#f92672">)</span>ac<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;accountService&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#75715e">// 3.执行方法
-</span><span style="color:#75715e"></span>    as<span style="color:#f92672">.</span><span style="color:#a6e22e">saveAccount</span><span style="color:#f92672">();</span>
-    as<span style="color:#f92672">.</span><span style="color:#a6e22e">updateAccount</span><span style="color:#f92672">();</span>
-    as<span style="color:#f92672">.</span><span style="color:#a6e22e">deleteAccount</span><span style="color:#f92672">();</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><hr>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>测试代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nf">AOPtest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// 1.获取容器
+</span><span class="c1"></span>    <span class="n">ApplicationContext</span> <span class="n">ac</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClassPathXmlApplicationContext</span><span class="o">(</span><span class="s">&#34;bean.xml&#34;</span><span class="o">);</span>
+    <span class="c1">// 2.获取对象
+</span><span class="c1"></span>    <span class="n">IAccountService</span> <span class="n">as</span> <span class="o">=</span> <span class="o">(</span><span class="n">IAcountService</span><span class="o">)</span><span class="n">ac</span><span class="o">.</span><span class="na">getBean</span><span class="o">(</span><span class="s">&#34;accountService&#34;</span><span class="o">);</span>
+    <span class="c1">// 3.执行方法
+</span><span class="c1"></span>    <span class="n">as</span><span class="o">.</span><span class="na">saveAccount</span><span class="o">();</span>
+    <span class="n">as</span><span class="o">.</span><span class="na">updateAccount</span><span class="o">();</span>
+    <span class="n">as</span><span class="o">.</span><span class="na">deleteAccount</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
 <h2 id="34-环绕通知advance的用法">3.4 环绕通知advance的用法</h2>
 <p>bean.xml文件的准备</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-    <span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span>
-        <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
-        <span style="color:#a6e22e">xmlns:aop=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/aop&#34;</span>
-        <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans 
-</span><span style="color:#e6db74">            http://www.springframework.org/schema/beans/spring-beans.xsd
-</span><span style="color:#e6db74">            http://www.springframework.org/schema/aop 
-</span><span style="color:#e6db74">            http://www.springframework.org/schema/aop/spring-aop.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml">    <span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+    <span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span>
+        <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+        <span class="na">xmlns:aop=</span><span class="s">&#34;http://www.springframework.org/schema/aop&#34;</span>
+        <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans 
+</span><span class="s">            http://www.springframework.org/schema/beans/spring-beans.xsd
+</span><span class="s">            http://www.springframework.org/schema/aop 
+</span><span class="s">            http://www.springframework.org/schema/aop/spring-aop.xsd&#34;</span><span class="nt">&gt;</span>
             
 
-        <span style="color:#75715e">&lt;!--配置spring的IOC，把service对象配置进来--&gt;</span>
-        <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;accountService&#34;</span> 
-            <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.qqlin.service.impl.AccountServiceImpl&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span class="c">&lt;!--配置spring的IOC，把service对象配置进来--&gt;</span>
+        <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;accountService&#34;</span> 
+            <span class="na">class=</span><span class="s">&#34;com.qqlin.service.impl.AccountServiceImpl&#34;</span><span class="nt">/&gt;</span>
 
-        <span style="color:#75715e">&lt;!--配置Logger类--&gt;</span>
-        <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;logger&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.qqlin.utils.Logger/&gt;
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74">        &lt;!--配置AOP--&gt;
-</span><span style="color:#e6db74">        &lt;aop:config&gt;
-</span><span style="color:#e6db74">            &lt;!--配置切面--&gt;
-</span><span style="color:#e6db74">            &lt;!--配置切入点表达式 id属性用于指定表达式的唯一标识。
-</span><span style="color:#e6db74">                expression属性用于指定表达式内容
-</span><span style="color:#e6db74">                此标签写在aop:aspect标签内部只能当前切面使用。
-</span><span style="color:#e6db74">                写在aop:aspect标签外面，变成所有切面可用
-</span><span style="color:#e6db74">            --&gt;
-</span><span style="color:#e6db74">            &lt;aop:pointcut id=&#34;</span><span style="color:#960050;background-color:#1e0010">pointcut&#34;</span> <span style="color:#a6e22e">expression=</span><span style="color:#e6db74">&#34;excution(* com.qqlin.service.impl.*.*(..))&#34;</span><span style="color:#f92672">/&gt;</span>
-            <span style="color:#f92672">&lt;aop:aspect</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;logAdvice&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;logger&#34;</span><span style="color:#f92672">&gt;</span>
-                <span style="color:#75715e">&lt;!--配置环绕通知--&gt;</span>
-                <span style="color:#f92672">&lt;aop:around</span> <span style="color:#a6e22e">method=</span><span style="color:#e6db74">&#34;aroundPringLog&#34;</span> <span style="color:#a6e22e">pointcut-ref=</span><span style="color:#e6db74">&#34;pointcut&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span class="c">&lt;!--配置Logger类--&gt;</span>
+        <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;logger&#34;</span> <span class="na">class=</span><span class="s">&#34;com.qqlin.utils.Logger/&gt;
+</span><span class="s">
+</span><span class="s">        &lt;!--配置AOP--&gt;
+</span><span class="s">        &lt;aop:config&gt;
+</span><span class="s">            &lt;!--配置切面--&gt;
+</span><span class="s">            &lt;!--配置切入点表达式 id属性用于指定表达式的唯一标识。
+</span><span class="s">                expression属性用于指定表达式内容
+</span><span class="s">                此标签写在aop:aspect标签内部只能当前切面使用。
+</span><span class="s">                写在aop:aspect标签外面，变成所有切面可用
+</span><span class="s">            --&gt;
+</span><span class="s">            &lt;aop:pointcut id=&#34;</span><span class="err">pointcut&#34;</span> <span class="na">expression=</span><span class="s">&#34;excution(* com.qqlin.service.impl.*.*(..))&#34;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;aop:aspect</span> <span class="na">id=</span><span class="s">&#34;logAdvice&#34;</span> <span class="na">ref=</span><span class="s">&#34;logger&#34;</span><span class="nt">&gt;</span>
+                <span class="c">&lt;!--配置环绕通知--&gt;</span>
+                <span class="nt">&lt;aop:around</span> <span class="na">method=</span><span class="s">&#34;aroundPringLog&#34;</span> <span class="na">pointcut-ref=</span><span class="s">&#34;pointcut&#34;</span><span class="nt">/&gt;</span>
 
-            <span style="color:#f92672">&lt;/aop:aspect&gt;</span>
-        <span style="color:#f92672">&lt;/aop:config&gt;</span>    
+            <span class="nt">&lt;/aop:aspect&gt;</span>
+        <span class="nt">&lt;/aop:config&gt;</span>    
                   
-    <span style="color:#f92672">&lt;/beans&gt;</span>
-</code></pre></div><p>改造记录日志的工具代码：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
-</span><span style="color:#75715e"> * 用于记录日志的工具类
-</span><span style="color:#75715e"> */</span> 
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span>  <span style="color:#a6e22e">Logger</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span class="nt">&lt;/beans&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>改造记录日志的工具代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/**
+</span><span class="cm"> * 用于记录日志的工具类
+</span><span class="cm"> */</span> 
+<span class="kd">public</span> <span class="kd">class</span>  <span class="nf">Logger</span><span class="o">()</span> <span class="o">{</span>
 
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">     * 环绕通知
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">aroundPrintLog</span><span style="color:#f92672">(</span>ProceedingJoinPoint point<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        Object returnValue <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
-        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
-            Object<span style="color:#f92672">[]</span> args <span style="color:#f92672">=</span> point<span style="color:#f92672">.</span><span style="color:#a6e22e">getArgs</span><span style="color:#f92672">();</span>
-            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;环绕通知..前置&#34;</span><span style="color:#f92672">);</span>
-            returnValue <span style="color:#f92672">=</span> point<span style="color:#f92672">.</span><span style="color:#a6e22e">proceed</span><span style="color:#f92672">(</span>args<span style="color:#f92672">);</span>
-            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;环绕通知..后置&#34;</span><span style="color:#f92672">);</span>
-            <span style="color:#66d9ef">return</span> returnValue<span style="color:#f92672">;</span>
-        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Throwable throwable<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            throwable<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
-            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;环绕通知..异常&#34;</span><span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span> <span style="color:#66d9ef">finally</span> <span style="color:#f92672">{</span>
-            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;环绕通知..最终&#34;</span><span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span>
+    <span class="cm">/**
+</span><span class="cm">     * 环绕通知
+</span><span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">aroundPrintLog</span><span class="o">(</span><span class="n">ProceedingJoinPoint</span> <span class="n">point</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Object</span> <span class="n">returnValue</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">Object</span><span class="o">[]</span> <span class="n">args</span> <span class="o">=</span> <span class="n">point</span><span class="o">.</span><span class="na">getArgs</span><span class="o">();</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;环绕通知..前置&#34;</span><span class="o">);</span>
+            <span class="n">returnValue</span> <span class="o">=</span> <span class="n">point</span><span class="o">.</span><span class="na">proceed</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;环绕通知..后置&#34;</span><span class="o">);</span>
+            <span class="k">return</span> <span class="n">returnValue</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Throwable</span> <span class="n">throwable</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">throwable</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;环绕通知..异常&#34;</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;环绕通知..最终&#34;</span><span class="o">);</span>
+        <span class="o">}</span>
 
-        <span style="color:#66d9ef">return</span> returnValue<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
+        <span class="k">return</span> <span class="n">returnValue</span><span class="o">;</span>
+    <span class="o">}</span>
 
-<span style="color:#f92672">}</span>
-</code></pre></div><p>测试代码</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AOPtest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#75715e">// 1.获取容器
-</span><span style="color:#75715e"></span>    ApplicationContext ac <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ClassPathXmlApplicationContext<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;bean.xml&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#75715e">// 2.获取对象
-</span><span style="color:#75715e"></span>    IAccountService as <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>IAcountService<span style="color:#f92672">)</span>ac<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;accountService&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#75715e">// 3.执行方法
-</span><span style="color:#75715e"></span>    as<span style="color:#f92672">.</span><span style="color:#a6e22e">saveAccount</span><span style="color:#f92672">();</span>
-    as<span style="color:#f92672">.</span><span style="color:#a6e22e">updateAccount</span><span style="color:#f92672">();</span>
-    as<span style="color:#f92672">.</span><span style="color:#a6e22e">deleteAccount</span><span style="color:#f92672">();</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><hr>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>测试代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nf">AOPtest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// 1.获取容器
+</span><span class="c1"></span>    <span class="n">ApplicationContext</span> <span class="n">ac</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClassPathXmlApplicationContext</span><span class="o">(</span><span class="s">&#34;bean.xml&#34;</span><span class="o">);</span>
+    <span class="c1">// 2.获取对象
+</span><span class="c1"></span>    <span class="n">IAccountService</span> <span class="n">as</span> <span class="o">=</span> <span class="o">(</span><span class="n">IAcountService</span><span class="o">)</span><span class="n">ac</span><span class="o">.</span><span class="na">getBean</span><span class="o">(</span><span class="s">&#34;accountService&#34;</span><span class="o">);</span>
+    <span class="c1">// 3.执行方法
+</span><span class="c1"></span>    <span class="n">as</span><span class="o">.</span><span class="na">saveAccount</span><span class="o">();</span>
+    <span class="n">as</span><span class="o">.</span><span class="na">updateAccount</span><span class="o">();</span>
+    <span class="n">as</span><span class="o">.</span><span class="na">deleteAccount</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
 <h2 id="35-spring基于注解的aop配置">3.5 spring基于注解的AOP配置</h2>
 <p>配置bean.xml</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-<span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span>
-    <span style="color:#a6e22e">xmlns:aop=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/aop&#34;</span>
-    <span style="color:#a6e22e">xmlns:context=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/context&#34;</span>
-    <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
-    <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans
-</span><span style="color:#e6db74">        http://www.springframework.org/schema/beans/spring-beans.xsd
-</span><span style="color:#e6db74">        http://www.springframework.org/schema/aop
-</span><span style="color:#e6db74">        http://www.springframework.org/schema/aop/spring-aop.xsd
-</span><span style="color:#e6db74">        http://www.springframework.org/schema/context
-</span><span style="color:#e6db74">        http://www.springframework.org/schema/context/spring-context.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span>
+    <span class="na">xmlns:aop=</span><span class="s">&#34;http://www.springframework.org/schema/aop&#34;</span>
+    <span class="na">xmlns:context=</span><span class="s">&#34;http://www.springframework.org/schema/context&#34;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans
+</span><span class="s">        http://www.springframework.org/schema/beans/spring-beans.xsd
+</span><span class="s">        http://www.springframework.org/schema/aop
+</span><span class="s">        http://www.springframework.org/schema/aop/spring-aop.xsd
+</span><span class="s">        http://www.springframework.org/schema/context
+</span><span class="s">        http://www.springframework.org/schema/context/spring-context.xsd&#34;</span><span class="nt">&gt;</span>
 
-    <span style="color:#75715e">&lt;!--配置spring创建容器时需要扫描的包--&gt;</span>
-    <span style="color:#f92672">&lt;context:component-scan</span> <span style="color:#a6e22e">base-package=</span><span style="color:#e6db74">&#34;com.itheima&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span class="c">&lt;!--配置spring创建容器时需要扫描的包--&gt;</span>
+    <span class="nt">&lt;context:component-scan</span> <span class="na">base-package=</span><span class="s">&#34;com.itheima&#34;</span><span class="nt">/&gt;</span>
 
-    <span style="color:#75715e">&lt;!--配置spring开启注解AOP的支持--&gt;</span>
-    <span style="color:#f92672">&lt;aop:aspectj-autoproxy/&gt;</span>
+    <span class="c">&lt;!--配置spring开启注解AOP的支持--&gt;</span>
+    <span class="nt">&lt;aop:aspectj-autoproxy/&gt;</span>
 
-<span style="color:#f92672">&lt;/beans&gt;</span>    
-</code></pre></div><p>代码改造</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
-</span><span style="color:#75715e"> * 账户的业务实现层
-</span><span style="color:#75715e"> * @author qq_lin
-</span><span style="color:#75715e"> */</span>
-<span style="color:#a6e22e">@Service</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;accountService&#34;</span><span style="color:#f92672">)</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AccountServiceImpl</span> <span style="color:#66d9ef">implements</span> IAccountService <span style="color:#f92672">{</span>
+<span class="nt">&lt;/beans&gt;</span>    
+</code></pre></td></tr></table>
+</div>
+</div><p>代码改造</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/**
+</span><span class="cm"> * 账户的业务实现层
+</span><span class="cm"> * @author qq_lin
+</span><span class="cm"> */</span>
+<span class="nd">@Service</span><span class="o">(</span><span class="s">&#34;accountService&#34;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AccountServiceImpl</span> <span class="kd">implements</span> <span class="n">IAccountService</span> <span class="o">{</span>
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">saveAccount</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;执行了保存&#34;</span><span style="color:#f92672">);</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">saveAccount</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;执行了保存&#34;</span><span class="o">);</span>
 
-    <span style="color:#f92672">}</span>
+    <span class="o">}</span>
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">updateAccount</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;执行了更新&#34;</span> <span style="color:#f92672">+</span> i<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">updateAccount</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;执行了更新&#34;</span> <span class="o">+</span> <span class="n">i</span><span class="o">);</span>
+    <span class="o">}</span>
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">deleteAccount</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;执行了删除&#34;</span><span style="color:#f92672">);</span>
-        <span style="color:#66d9ef">return</span> 0<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
-</span><span style="color:#75715e"> * 用于记录日志的工具类，提供了公共代码
-</span><span style="color:#75715e"> * @author qq_lin
-</span><span style="color:#75715e"> */</span>
-<span style="color:#a6e22e">@Component</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;logger&#34;</span><span style="color:#f92672">)</span>
-<span style="color:#a6e22e">@Aspect</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Logger</span> <span style="color:#f92672">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">deleteAccount</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;执行了删除&#34;</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">0</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/**
+</span><span class="cm"> * 用于记录日志的工具类，提供了公共代码
+</span><span class="cm"> * @author qq_lin
+</span><span class="cm"> */</span>
+<span class="nd">@Component</span><span class="o">(</span><span class="s">&#34;logger&#34;</span><span class="o">)</span>
+<span class="nd">@Aspect</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Logger</span> <span class="o">{</span>
 
-    <span style="color:#a6e22e">@Pointcut</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;execution(* com.itheima.service.*.*(..))&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">pointcut</span><span style="color:#f92672">(){};</span>
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">     * 前置通知
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#75715e">// @Before(&#34;pointcut()&#34;)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">beforePrintLog</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;前置通知Logger类中的beforePrintLog方法开始记录日志。。。&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
+    <span class="nd">@Pointcut</span><span class="o">(</span><span class="s">&#34;execution(* com.itheima.service.*.*(..))&#34;</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">pointcut</span><span class="o">(){};</span>
+    <span class="cm">/**
+</span><span class="cm">     * 前置通知
+</span><span class="cm">     */</span>
+    <span class="c1">// @Before(&#34;pointcut()&#34;)
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">beforePrintLog</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;前置通知Logger类中的beforePrintLog方法开始记录日志。。。&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
 
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">     * 后置通知
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#75715e">// @AfterReturning(&#34;pointcut()&#34;)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterReturningPrintLog</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;后置通知Logger类中的afterPrintLog方法开始记录日志。。。&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
+    <span class="cm">/**
+</span><span class="cm">     * 后置通知
+</span><span class="cm">     */</span>
+    <span class="c1">// @AfterReturning(&#34;pointcut()&#34;)
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">afterReturningPrintLog</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;后置通知Logger类中的afterPrintLog方法开始记录日志。。。&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
 
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">     * 异常通知
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#75715e">// @AfterThrowing(&#34;pointcut()&#34;)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterThrowingPrintLog</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;异常通知Logger类中的afterThrowingPrintLog方法开始记录日志。。。&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
+    <span class="cm">/**
+</span><span class="cm">     * 异常通知
+</span><span class="cm">     */</span>
+    <span class="c1">// @AfterThrowing(&#34;pointcut()&#34;)
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">afterThrowingPrintLog</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;异常通知Logger类中的afterThrowingPrintLog方法开始记录日志。。。&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
 
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">     * 最终通知
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#75715e">// @After(&#34;pointcut()&#34;)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterPrintLog</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;最终通知Logger类中的afterPrintLog方法开始记录日志&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
+    <span class="cm">/**
+</span><span class="cm">     * 最终通知
+</span><span class="cm">     */</span>
+    <span class="c1">// @After(&#34;pointcut()&#34;)
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">afterPrintLog</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;最终通知Logger类中的afterPrintLog方法开始记录日志&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
 
-    <span style="color:#a6e22e">@Around</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;pointcut()&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">aroundPrintLog</span><span style="color:#f92672">(</span>ProceedingJoinPoint point<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        Object returnValue <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
-        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
-            Object<span style="color:#f92672">[]</span> args <span style="color:#f92672">=</span> point<span style="color:#f92672">.</span><span style="color:#a6e22e">getArgs</span><span style="color:#f92672">();</span>
-            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;环绕通知Logger类中aroundPrintLog方法开始记录日志..前置&#34;</span><span style="color:#f92672">);</span>
-            returnValue <span style="color:#f92672">=</span> point<span style="color:#f92672">.</span><span style="color:#a6e22e">proceed</span><span style="color:#f92672">(</span>args<span style="color:#f92672">);</span>
-            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;环绕通知Logger类中aroundPrintLog方法开始记录日志..后置&#34;</span><span style="color:#f92672">);</span>
-            <span style="color:#66d9ef">return</span> returnValue<span style="color:#f92672">;</span>
-        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Throwable throwable<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            throwable<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
-            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;环绕通知Logger类中aroundPrintLog方法开始记录日志..异常&#34;</span><span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span> <span style="color:#66d9ef">finally</span> <span style="color:#f92672">{</span>
-            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;环绕通知Logger类中aroundPrintLog方法开始记录日志..最终&#34;</span><span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span>
+    <span class="nd">@Around</span><span class="o">(</span><span class="s">&#34;pointcut()&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">aroundPrintLog</span><span class="o">(</span><span class="n">ProceedingJoinPoint</span> <span class="n">point</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Object</span> <span class="n">returnValue</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">Object</span><span class="o">[]</span> <span class="n">args</span> <span class="o">=</span> <span class="n">point</span><span class="o">.</span><span class="na">getArgs</span><span class="o">();</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;环绕通知Logger类中aroundPrintLog方法开始记录日志..前置&#34;</span><span class="o">);</span>
+            <span class="n">returnValue</span> <span class="o">=</span> <span class="n">point</span><span class="o">.</span><span class="na">proceed</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;环绕通知Logger类中aroundPrintLog方法开始记录日志..后置&#34;</span><span class="o">);</span>
+            <span class="k">return</span> <span class="n">returnValue</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Throwable</span> <span class="n">throwable</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">throwable</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;环绕通知Logger类中aroundPrintLog方法开始记录日志..异常&#34;</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;环绕通知Logger类中aroundPrintLog方法开始记录日志..最终&#34;</span><span class="o">);</span>
+        <span class="o">}</span>
 
 
-        <span style="color:#66d9ef">return</span> returnValue<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h2 id="36-不使用-xml-的配置方式">3.6 不使用 XML 的配置方式</h2>
+        <span class="k">return</span> <span class="n">returnValue</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="36-不使用-xml-的配置方式">3.6 不使用 XML 的配置方式</h2>
 <p>构造一个config的包，类是SpringConfiguration</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#a6e22e">@Configuration</span>
-    <span style="color:#a6e22e">@ComponentScan</span><span style="color:#f92672">(</span>basePackages<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;com.qqlin&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#a6e22e">@EnableAspectJAutoProxy</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpringConfiguration</span> <span style="color:#f92672">{</span>
-    <span style="color:#f92672">}</span>
-</code></pre></div><p>最后，就可以不用使用bean.xml文件，直接用注解了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">    <span class="nd">@Configuration</span>
+    <span class="nd">@ComponentScan</span><span class="o">(</span><span class="n">basePackages</span><span class="o">=</span><span class="s">&#34;com.qqlin&#34;</span><span class="o">)</span>
+    <span class="nd">@EnableAspectJAutoProxy</span>
+    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpringConfiguration</span> <span class="o">{</span>
+    <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>最后，就可以不用使用bean.xml文件，直接用注解了</p>
 
     </div>
-    <div class="post-footer">
-      
-    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Daniel1n</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-05-07
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/spring-framework/">Spring Framework</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/6.springblog4/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">JdbcTemplate的基本使用</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/4.springblog2/">
+            <span class="next-text nav-default">Spring Framework 基于注解的IOC配置</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
   </article>
+        </div>
+        
 
+  
+
+  
+
+      </div>
     </main>
-  </body>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:492332435@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://daniel1n.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Daniel1n</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
 </html>

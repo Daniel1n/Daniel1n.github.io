@@ -1,80 +1,155 @@
-<!doctype html>
-<html lang="en-us">
-  <head>
-    <title>Java Web 的要点总结 // Daniel1n</title>
-    <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.69.2" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="Daniel1n" />
-    <meta name="description" content="" />
-    <link rel="stylesheet" href="https://daniel1n.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Java Web 的要点总结 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-    
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Java Web 的要点总结"/>
-<meta name="twitter:description" content="基础知识 该部分是整个路线里面最最重要的部分，也是后续进行框架学习、能看懂开源项目的前置基础，这部分是最不能忽视的！
-一、语言本身 如下一些重点必须掌握：
- 语法基础 OO编程思想：类、对象、封装、继承、多态、接口 容器 异常 泛型 I/O 注解 反射 图形化界面，如 swing的东西跳过不看  二、数据结构和算法  几大基础数据结构类型得烂熟于心，比如：字符串、链表、二叉树、栈、队列等等； 基本的几大算法要了如指掌，比如查找、排序、动态规划等等。  三、TCP/IP协议栈  TCP/IP协议栈可以说是当下互联网通信的基石，无论如何一定要对TCP/IP的协议栈了如指掌，包括：ARP协议、IP协议、ICMP协议、TCP和UDP协议、DNS协议、HTTP协议、HTTPS协议等等 TCP/IP:  数据链路层：ARP,RARP 网络层： IP,ICMP,IGMP 传输层：TCP ,UDP,UGP 应用层：Telnet,FTP,SMTP,SNMP,DNS,HTTP,HTTPS    四、设计模式  倒不需要23种设计模式全部很熟悉，常见的几个，比如：单例模式、工厂模式、代理模式、策略模式、模板方法模式等几个熟练于心即可  五、数据库和SQL  数据库基本原理了解，SQL语句熟练书写  项目工具   Linux系统基本命令会使用， Linux系统上常用的服务会部署
-  代码管理：SVN或 Git 二选一，持续练习，熟练使用
-  基于 Maven或 Gradle的 Java项目管理二选一，熟练使用
-  应用框架 一、Spring全家桶   了解Spring、Mybatis等框架的基本原理
-  Spring Boot框架会熟练使用、开发业务、掌握基本原理"/>
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-    <meta property="og:title" content="Java Web 的要点总结" />
-<meta property="og:description" content="基础知识 该部分是整个路线里面最最重要的部分，也是后续进行框架学习、能看懂开源项目的前置基础，这部分是最不能忽视的！
-一、语言本身 如下一些重点必须掌握：
- 语法基础 OO编程思想：类、对象、封装、继承、多态、接口 容器 异常 泛型 I/O 注解 反射 图形化界面，如 swing的东西跳过不看  二、数据结构和算法  几大基础数据结构类型得烂熟于心，比如：字符串、链表、二叉树、栈、队列等等； 基本的几大算法要了如指掌，比如查找、排序、动态规划等等。  三、TCP/IP协议栈  TCP/IP协议栈可以说是当下互联网通信的基石，无论如何一定要对TCP/IP的协议栈了如指掌，包括：ARP协议、IP协议、ICMP协议、TCP和UDP协议、DNS协议、HTTP协议、HTTPS协议等等 TCP/IP:  数据链路层：ARP,RARP 网络层： IP,ICMP,IGMP 传输层：TCP ,UDP,UGP 应用层：Telnet,FTP,SMTP,SNMP,DNS,HTTP,HTTPS    四、设计模式  倒不需要23种设计模式全部很熟悉，常见的几个，比如：单例模式、工厂模式、代理模式、策略模式、模板方法模式等几个熟练于心即可  五、数据库和SQL  数据库基本原理了解，SQL语句熟练书写  项目工具   Linux系统基本命令会使用， Linux系统上常用的服务会部署
-  代码管理：SVN或 Git 二选一，持续练习，熟练使用
-  基于 Maven或 Gradle的 Java项目管理二选一，熟练使用
-  应用框架 一、Spring全家桶   了解Spring、Mybatis等框架的基本原理
-  Spring Boot框架会熟练使用、开发业务、掌握基本原理" />
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Daniel1n" /><meta name="description" content="基础知识 该部分是整个路线里面最最重要的部分，也是后续进行框架学习、能看懂开源项目的前置基础，这部分是最不能忽视的！ 一、语言本身 如下一些重点必" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.2 with theme even" />
+
+
+<link rel="canonical" href="https://daniel1n.github.io/post/2.javalearn/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Java Web 的要点总结" />
+<meta property="og:description" content="基础知识 该部分是整个路线里面最最重要的部分，也是后续进行框架学习、能看懂开源项目的前置基础，这部分是最不能忽视的！ 一、语言本身 如下一些重点必" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://daniel1n.github.io/post/2.javalearn/" />
 <meta property="article:published_time" content="2020-05-04T14:33:01+08:00" />
 <meta property="article:modified_time" content="2020-05-04T14:33:01+08:00" />
+<meta itemprop="name" content="Java Web 的要点总结">
+<meta itemprop="description" content="基础知识 该部分是整个路线里面最最重要的部分，也是后续进行框架学习、能看懂开源项目的前置基础，这部分是最不能忽视的！ 一、语言本身 如下一些重点必">
+<meta itemprop="datePublished" content="2020-05-04T14:33:01&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-04T14:33:01&#43;08:00" />
+<meta itemprop="wordCount" content="1149">
 
 
-  </head>
-  <body>
-    <header class="app-header">
-      <a href="https://daniel1n.github.io/"><img class="app-header-avatar" src="/qq1.jpg" alt="Daniel1n" /></a>
-      <h1>Daniel1n</h1>
-      <p>热爱生活，向往自由，脚踏实地，仰望星空。</p>
-      <div class="app-header-social">
-        
-          <a target="_blank" href="https://github.com/daniel1n" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
-  <title>github</title>
-  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-</svg></a>
-        
-          <a target="_blank" href="https://twitter.com/daniel1n" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
-  <title>twitter</title>
-  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-</svg></a>
-        
+
+<meta itemprop="keywords" content="Java," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java Web 的要点总结"/>
+<meta name="twitter:description" content="基础知识 该部分是整个路线里面最最重要的部分，也是后续进行框架学习、能看懂开源项目的前置基础，这部分是最不能忽视的！ 一、语言本身 如下一些重点必"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Java Web 的要点总结</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-05-04 </span>
+        <div class="post-category">
+            <a href="/categories/java%E5%9F%BA%E7%A1%80/"> Java基础 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
     </header>
-    <main class="app-container">
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class ="post-title">Java Web 的要点总结</h1>
-      <div class="post-meta">
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
-  <title>calendar</title>
-  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
-</svg>
-          May 4, 2020
-        </div>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
-  <title>clock</title>
-  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
-</svg>
-          1 min read
-        </div></div>
-    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一语言本身">一、语言本身</a></li>
+    <li><a href="#二数据结构和算法">二、数据结构和算法</a></li>
+    <li><a href="#三tcpip协议栈">三、TCP/IP协议栈</a></li>
+    <li><a href="#四设计模式">四、设计模式</a></li>
+    <li><a href="#五数据库和sql">五、数据库和SQL</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#一spring全家桶">一、Spring全家桶</a></li>
+    <li><a href="#二中间件技术">二、中间件技术</a></li>
+    <li><a href="#三分布式微服务">三、分布式微服务</a></li>
+    <li><a href="#四虚拟化容器化">四、虚拟化/容器化</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
     <div class="post-content">
       <h1 id="基础知识">基础知识</h1>
 <p>该部分是整个路线里面最最重要的部分，也是后续进行框架学习、能看懂开源项目的前置基础，这部分是最不能忽视的！</p>
@@ -181,11 +256,116 @@
 </ul>
 
     </div>
-    <div class="post-footer">
-      
-    </div>
-  </article>
 
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Daniel1n</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-05-04
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/java/">Java</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/0.java/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Java 的核心技术</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/1.blog/">
+            <span class="next-text nav-default">在Windows 10 使用Hugo搭建博客</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
     </main>
-  </body>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:492332435@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://daniel1n.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Daniel1n</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
 </html>

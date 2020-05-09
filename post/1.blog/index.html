@@ -1,119 +1,166 @@
-<!doctype html>
-<html lang="en-us">
-  <head>
-    <title>在Windows 10 使用Hugo搭建博客 // Daniel1n</title>
-    <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.69.2" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="Daniel1n" />
-    <meta name="description" content="" />
-    <link rel="stylesheet" href="https://daniel1n.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>在Windows 10 使用Hugo搭建博客 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-    
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="在Windows 10 使用Hugo搭建博客"/>
-<meta name="twitter:description" content="如何在Windows 10 使用Hugo搭建自己的博客  一、 安装Hugo  1.1 设置目录 1.2 下载地址 1.3 设置环境变量 1.4 验证是否安装成功   二、 用Hugo生成博客 三、 设置主题 四、 在本地启动个人博客 五、 写一篇博客文章 六、将个人博客部署到远端的服务器  1. 创建GitHub的repository 2. 在myblog中创建一个public文件 3. 将public文件内容，上传到GitHub的repository   七、 如何更新博客 总结    如何在Windows 10 使用Hugo搭建自己的博客 一、 安装Hugo 参考：https://bwaycer.github.io/hugo_tutorial.hugo/tutorials/installing-on-windows/
- 1.1 设置目录 需要一个位置来存储Hugo可执行文件，hugo程序包的内容bin（您构建的文件）和存放个人博客的内容Sites。
-打开Windows资源管理器。 创建一个新文件夹：（C:\Hugo假设您希望Hugo在C驱动器上–它可以在任何地方使用。推荐还是存在放在D盘）
-在Hugo文件夹中创建一个子文件夹：C:\hugo\bin。
-在Hugo中创建另一个子文件夹：C:\hugo\sites。
- 1.2 下载地址 Hugo的GitHub地址：https://github.com/gohugoio/hugo/releases
-找到目标文件：hugo_0.69.2_Windows-64bit.zip
-下载得到一个zip的压缩文件，然后解压到C:\Hugo\bin中
- 1.3 设置环境变量 新建环境变量：
-变量名 HUGO_HOME
-变量值 C:\hugo"/>
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-    <meta property="og:title" content="在Windows 10 使用Hugo搭建博客" />
-<meta property="og:description" content="如何在Windows 10 使用Hugo搭建自己的博客  一、 安装Hugo  1.1 设置目录 1.2 下载地址 1.3 设置环境变量 1.4 验证是否安装成功   二、 用Hugo生成博客 三、 设置主题 四、 在本地启动个人博客 五、 写一篇博客文章 六、将个人博客部署到远端的服务器  1. 创建GitHub的repository 2. 在myblog中创建一个public文件 3. 将public文件内容，上传到GitHub的repository   七、 如何更新博客 总结    如何在Windows 10 使用Hugo搭建自己的博客 一、 安装Hugo 参考：https://bwaycer.github.io/hugo_tutorial.hugo/tutorials/installing-on-windows/
- 1.1 设置目录 需要一个位置来存储Hugo可执行文件，hugo程序包的内容bin（您构建的文件）和存放个人博客的内容Sites。
-打开Windows资源管理器。 创建一个新文件夹：（C:\Hugo假设您希望Hugo在C驱动器上–它可以在任何地方使用。推荐还是存在放在D盘）
-在Hugo文件夹中创建一个子文件夹：C:\hugo\bin。
-在Hugo中创建另一个子文件夹：C:\hugo\sites。
- 1.2 下载地址 Hugo的GitHub地址：https://github.com/gohugoio/hugo/releases
-找到目标文件：hugo_0.69.2_Windows-64bit.zip
-下载得到一个zip的压缩文件，然后解压到C:\Hugo\bin中
- 1.3 设置环境变量 新建环境变量：
-变量名 HUGO_HOME
-变量值 C:\hugo" />
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Daniel1n" /><meta name="description" content="如何在Windows 10 使用Hugo搭建自己的博客 一、 安装Hugo 参考：https://bwaycer.github.io/hugo_tuto" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.2 with theme even" />
+
+
+<link rel="canonical" href="https://daniel1n.github.io/post/1.blog/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="在Windows 10 使用Hugo搭建博客" />
+<meta property="og:description" content="如何在Windows 10 使用Hugo搭建自己的博客 一、 安装Hugo 参考：https://bwaycer.github.io/hugo_tuto" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://daniel1n.github.io/post/1.blog/" />
 <meta property="article:published_time" content="2020-05-03T18:08:28+08:00" />
 <meta property="article:modified_time" content="2020-05-03T18:08:28+08:00" />
+<meta itemprop="name" content="在Windows 10 使用Hugo搭建博客">
+<meta itemprop="description" content="如何在Windows 10 使用Hugo搭建自己的博客 一、 安装Hugo 参考：https://bwaycer.github.io/hugo_tuto">
+<meta itemprop="datePublished" content="2020-05-03T18:08:28&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-03T18:08:28&#43;08:00" />
+<meta itemprop="wordCount" content="2951">
 
 
-  </head>
-  <body>
-    <header class="app-header">
-      <a href="https://daniel1n.github.io/"><img class="app-header-avatar" src="/qq1.jpg" alt="Daniel1n" /></a>
-      <h1>Daniel1n</h1>
-      <p>热爱生活，向往自由，脚踏实地，仰望星空。</p>
-      <div class="app-header-social">
-        
-          <a target="_blank" href="https://github.com/daniel1n" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
-  <title>github</title>
-  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-</svg></a>
-        
-          <a target="_blank" href="https://twitter.com/daniel1n" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
-  <title>twitter</title>
-  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-</svg></a>
-        
+
+<meta itemprop="keywords" content="hugo," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="在Windows 10 使用Hugo搭建博客"/>
+<meta name="twitter:description" content="如何在Windows 10 使用Hugo搭建自己的博客 一、 安装Hugo 参考：https://bwaycer.github.io/hugo_tuto"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">在Windows 10 使用Hugo搭建博客</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-05-03 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"> 博客搭建 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
     </header>
-    <main class="app-container">
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class ="post-title">在Windows 10 使用Hugo搭建博客</h1>
-      <div class="post-meta">
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
-  <title>calendar</title>
-  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
-</svg>
-          May 3, 2020
-        </div>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
-  <title>clock</title>
-  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
-</svg>
-          4 min read
-        </div></div>
-    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一-安装hugo">一、 安装Hugo</a>
+      <ul>
+        <li><a href="#11-设置目录">1.1 设置目录</a></li>
+        <li><a href="#12-下载地址">1.2 下载地址</a></li>
+        <li><a href="#13-设置环境变量">1.3 设置环境变量</a></li>
+        <li><a href="#14-验证是否安装成功">1.4 验证是否安装成功</a></li>
+      </ul>
+    </li>
+    <li><a href="#二-用hugo生成博客">二、 用Hugo生成博客</a></li>
+    <li><a href="#三-设置主题">三、 设置主题</a></li>
+    <li><a href="#四-在本地启动个人博客">四、 在本地启动个人博客</a></li>
+    <li><a href="#五-写一篇博客文章">五、 写一篇博客文章</a></li>
+    <li><a href="#六将个人博客部署到远端的服务器">六、将个人博客部署到远端的服务器</a>
+      <ul>
+        <li><a href="#1-创建github的repository">1. 创建GitHub的repository</a></li>
+        <li><a href="#2-在myblog中创建一个public文件">2. 在myblog中创建一个public文件</a></li>
+        <li><a href="#3-将public文件内容上传到github的repository">3. 将public文件内容，上传到GitHub的repository</a></li>
+      </ul>
+    </li>
+    <li><a href="#七-如何更新博客">七、 如何更新博客</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
     <div class="post-content">
-      <!-- raw HTML omitted -->
-<ul>
-<li><a href="#%E5%A6%82%E4%BD%95%E5%9C%A8windows-10-%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2">如何在Windows 10 使用Hugo搭建自己的博客</a>
-<ul>
-<li><a href="#%E4%B8%80-%E5%AE%89%E8%A3%85hugo">一、 安装Hugo</a>
-<ul>
-<li><a href="#11-%E8%AE%BE%E7%BD%AE%E7%9B%AE%E5%BD%95">1.1 设置目录</a></li>
-<li><a href="#12-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80">1.2 下载地址</a></li>
-<li><a href="#13-%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">1.3 设置环境变量</a></li>
-<li><a href="#14-%E9%AA%8C%E8%AF%81%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F">1.4 验证是否安装成功</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BA%8C-%E7%94%A8hugo%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2">二、 用Hugo生成博客</a></li>
-<li><a href="#%E4%B8%89-%E8%AE%BE%E7%BD%AE%E4%B8%BB%E9%A2%98">三、 设置主题</a></li>
-<li><a href="#%E5%9B%9B-%E5%9C%A8%E6%9C%AC%E5%9C%B0%E5%90%AF%E5%8A%A8%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2">四、 在本地启动个人博客</a></li>
-<li><a href="#%E4%BA%94-%E5%86%99%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0">五、 写一篇博客文章</a></li>
-<li><a href="#%E5%85%AD%E5%B0%86%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0%E8%BF%9C%E7%AB%AF%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8">六、将个人博客部署到远端的服务器</a>
-<ul>
-<li><a href="#1-%E5%88%9B%E5%BB%BAgithub%E7%9A%84repository">1. 创建GitHub的repository</a></li>
-<li><a href="#2-%E5%9C%A8myblog%E4%B8%AD%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AApublic%E6%96%87%E4%BB%B6">2. 在myblog中创建一个public文件</a></li>
-<li><a href="#3-%E5%B0%86public%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E4%B8%8A%E4%BC%A0%E5%88%B0github%E7%9A%84repository">3. 将public文件内容，上传到GitHub的repository</a></li>
-</ul>
-</li>
-<li><a href="#%E4%B8%83-%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2">七、 如何更新博客</a></li>
-<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
-</ul>
-</li>
-</ul>
-<!-- raw HTML omitted -->
-<h1 id="如何在windows-10-使用hugo搭建自己的博客">如何在Windows 10 使用Hugo搭建自己的博客</h1>
+      <h1 id="如何在windows-10-使用hugo搭建自己的博客">如何在Windows 10 使用Hugo搭建自己的博客</h1>
 <h2 id="一-安装hugo">一、 安装Hugo</h2>
 <p>参考：https://bwaycer.github.io/hugo_tutorial.hugo/tutorials/installing-on-windows/</p>
 <hr>
@@ -137,100 +184,245 @@
 <hr>
 <h3 id="14-验证是否安装成功">1.4 验证是否安装成功</h3>
 <p>打开cmd，输入hugo version，显示以下内容，安装成功</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Hugo Static Site Generator v0.69.2-EC9DCF30 windows/amd64 BuildDate: 2020-04-24T07:51:17Z
-</code></pre></div><hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">Hugo Static Site Generator v0.69.2-EC9DCF30 windows/amd64 BuildDate: 2020-04-24T07:51:17Z
+</code></pre></td></tr></table>
+</div>
+</div><hr>
 <h2 id="二-用hugo生成博客">二、 用Hugo生成博客</h2>
 <p>cmd 打开C:\hugo\sites</p>
 <p>输入命令行</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo new site myblog
-</code></pre></div><p>成功在C:\hugo\sites下生成myblog文件</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites 的目录
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">hugo new site myblog
+</code></pre></td></tr></table>
+</div>
+</div><p>成功在C:\hugo\sites下生成myblog文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"> C:<span class="se">\h</span>ugo<span class="se">\s</span>ites 的目录
 
 2020-05-03  11:43    &lt;DIR&gt;          .
 2020-05-03  11:29    &lt;DIR&gt;          ..
 2020-05-03  11:43    &lt;DIR&gt;          myblog
-               <span style="color:#ae81ff">0</span> 个文件              <span style="color:#ae81ff">0</span> 字节
-               <span style="color:#ae81ff">3</span> 个目录 39,008,006,144 可用字节
-</code></pre></div><p>继续打开myblog</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog 的目录
+               <span class="m">0</span> 个文件              <span class="m">0</span> 字节
+               <span class="m">3</span> 个目录 39,008,006,144 可用字节
+</code></pre></td></tr></table>
+</div>
+</div><p>继续打开myblog</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"> C:<span class="se">\h</span>ugo<span class="se">\s</span>ites<span class="se">\m</span>yblog 的目录
 
 2020-05-03  11:43    &lt;DIR&gt;          .
 2020-05-03  11:43    &lt;DIR&gt;          ..
 2020-05-03  11:43    &lt;DIR&gt;          archetypes
-2020-05-03  11:43                <span style="color:#ae81ff">82</span> config.toml
+2020-05-03  11:43                <span class="m">82</span> config.toml
 2020-05-03  11:43    &lt;DIR&gt;          content
 2020-05-03  11:43    &lt;DIR&gt;          data
 2020-05-03  11:43    &lt;DIR&gt;          layouts
 2020-05-03  11:43    &lt;DIR&gt;          static
 2020-05-03  11:43    &lt;DIR&gt;          themes
-               <span style="color:#ae81ff">1</span> 个文件             <span style="color:#ae81ff">82</span> 字节
-               <span style="color:#ae81ff">8</span> 个目录 39,008,911,360 可用字节
-</code></pre></div><p>成功生成主题themes、静态文件static、布局layouts、数据data、博客内容content、配置config.toml</p>
+               <span class="m">1</span> 个文件             <span class="m">82</span> 字节
+               <span class="m">8</span> 个目录 39,008,911,360 可用字节
+</code></pre></td></tr></table>
+</div>
+</div><p>成功生成主题themes、静态文件static、布局layouts、数据data、博客内容content、配置config.toml</p>
 <hr>
 <h2 id="三-设置主题">三、 设置主题</h2>
 <p>在浏览器打开：https://themes.gohugo.io/
 在里面选择一款适合自己的主题</p>
 <p>本人选择了 m10c 这款主题：https://themes.gohugo.io/hugo-theme-m10c/</p>
 <p>使用git克隆（前提是电脑已经安装了git）：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c
-</code></pre></div><p>安装成功，如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog&gt; git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c
-Cloning into <span style="color:#e6db74">&#39;themes/m10c&#39;</span>...
-remote: Enumerating objects: 276, <span style="color:#66d9ef">done</span>.
-remote: Total <span style="color:#ae81ff">276</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>, reused <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>, pack-reused <span style="color:#ae81ff">276</span> eceiving objects:  78% <span style="color:#f92672">(</span>216/276<span style="color:#f92672">)</span>, 396.01 KiB | 370.00 KiB/s
-Receiving objects: 100% <span style="color:#f92672">(</span>276/276<span style="color:#f92672">)</span>, 447.43 KiB | 399.00 KiB/s, <span style="color:#66d9ef">done</span>.
-Resolving deltas: 100% <span style="color:#f92672">(</span>91/91<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
-</code></pre></div><p>查看是否安装成功：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\t</span>hemes 的目录
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"> git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c
+</code></pre></td></tr></table>
+</div>
+</div><p>安装成功，如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">C:<span class="se">\h</span>ugo<span class="se">\s</span>ites<span class="se">\m</span>yblog&gt; git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c
+Cloning into <span class="s1">&#39;themes/m10c&#39;</span>...
+remote: Enumerating objects: 276, <span class="k">done</span>.
+remote: Total <span class="m">276</span> <span class="o">(</span>delta 0<span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta 0<span class="o">)</span>, pack-reused <span class="m">276</span> eceiving objects:  78% <span class="o">(</span>216/276<span class="o">)</span>, 396.01 KiB <span class="p">|</span> 370.00 KiB/s
+Receiving objects: 100% <span class="o">(</span>276/276<span class="o">)</span>, 447.43 KiB <span class="p">|</span> 399.00 KiB/s, <span class="k">done</span>.
+Resolving deltas: 100% <span class="o">(</span>91/91<span class="o">)</span>, <span class="k">done</span>.
+</code></pre></td></tr></table>
+</div>
+</div><p>查看是否安装成功：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">C:<span class="se">\h</span>ugo<span class="se">\s</span>ites<span class="se">\m</span>yblog<span class="se">\t</span>hemes 的目录
 
 2020-05-03  11:55    &lt;DIR&gt;          .
 2020-05-03  11:43    &lt;DIR&gt;          ..
 2020-05-03  11:55    &lt;DIR&gt;          m10c
-               <span style="color:#ae81ff">0</span> 个文件              <span style="color:#ae81ff">0</span> 字节
-               <span style="color:#ae81ff">3</span> 个目录 38,989,099,008 可用字节
-</code></pre></div><hr>
+               <span class="m">0</span> 个文件              <span class="m">0</span> 字节
+               <span class="m">3</span> 个目录 38,989,099,008 可用字节
+</code></pre></td></tr></table>
+</div>
+</div><hr>
 <h2 id="四-在本地启动个人博客">四、 在本地启动个人博客</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo server -t m10c --buildDrafts
-</code></pre></div><p>启动成功</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog&gt;hugo server -t m10c --buildDrafts
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">hugo server -t m10c --buildDrafts
+</code></pre></td></tr></table>
+</div>
+</div><p>启动成功</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">C:<span class="se">\h</span>ugo<span class="se">\s</span>ites<span class="se">\m</span>yblog&gt;hugo server -t m10c --buildDrafts
 Building sites …
-                   | EN
+                   <span class="p">|</span> EN
 -------------------+-----
-  Pages            |  <span style="color:#ae81ff">7</span>
-  Paginator pages  |  <span style="color:#ae81ff">0</span>
-  Non-page files   |  <span style="color:#ae81ff">0</span>
-  Static files     |  <span style="color:#ae81ff">1</span>
-  Processed images |  <span style="color:#ae81ff">0</span>
-  Aliases          |  <span style="color:#ae81ff">3</span>
-  Sitemaps         |  <span style="color:#ae81ff">1</span>
-  Cleaned          |  <span style="color:#ae81ff">0</span>
+  Pages            <span class="p">|</span>  <span class="m">7</span>
+  Paginator pages  <span class="p">|</span>  <span class="m">0</span>
+  Non-page files   <span class="p">|</span>  <span class="m">0</span>
+  Static files     <span class="p">|</span>  <span class="m">1</span>
+  Processed images <span class="p">|</span>  <span class="m">0</span>
+  Aliases          <span class="p">|</span>  <span class="m">3</span>
+  Sitemaps         <span class="p">|</span>  <span class="m">1</span>
+  Cleaned          <span class="p">|</span>  <span class="m">0</span>
 
-Built in <span style="color:#ae81ff">38</span> ms
-Watching <span style="color:#66d9ef">for</span> changes in C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\{</span>archetypes,content,data,layouts,static,themes<span style="color:#f92672">}</span>
-Watching <span style="color:#66d9ef">for</span> config changes in C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\c</span>onfig.toml
-Environment: <span style="color:#e6db74">&#34;development&#34;</span>
+Built in <span class="m">38</span> ms
+Watching <span class="k">for</span> changes in C:<span class="se">\h</span>ugo<span class="se">\s</span>ites<span class="se">\m</span>yblog<span class="se">\{</span>archetypes,content,data,layouts,static,themes<span class="o">}</span>
+Watching <span class="k">for</span> config changes in C:<span class="se">\h</span>ugo<span class="se">\s</span>ites<span class="se">\m</span>yblog<span class="se">\c</span>onfig.toml
+Environment: <span class="s2">&#34;development&#34;</span>
 Serving pages from memory
 Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
-Web Server is available at http://localhost:1313/ <span style="color:#f92672">(</span>bind address 127.0.0.1<span style="color:#f92672">)</span>
+Web Server is available at http://localhost:1313/ <span class="o">(</span><span class="nb">bind</span> address 127.0.0.1<span class="o">)</span>
 Press Ctrl+C to stop
-</code></pre></div><p>在浏览器打开：http://localhost:1313/</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>在浏览器打开：http://localhost:1313/</p>
 <p>显示刚才m10c主题下的博客首页</p>
 <h2 id="五-写一篇博客文章">五、 写一篇博客文章</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo new post/blog.md
-</code></pre></div><p>成功在\content\post目录下创建一个blog.md的Markdown文件</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog&gt;hugo new post/blog.md
-C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\c</span>ontent<span style="color:#ae81ff">\p</span>ost<span style="color:#ae81ff">\b</span>log.md created
-</code></pre></div><p>接下来我们就可以，使用Markdown编辑器（本人使用的是vscode），编辑blog.md的文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">hugo new post/blog.md
+</code></pre></td></tr></table>
+</div>
+</div><p>成功在\content\post目录下创建一个blog.md的Markdown文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">C:<span class="se">\h</span>ugo<span class="se">\s</span>ites<span class="se">\m</span>yblog&gt;hugo new post/blog.md
+C:<span class="se">\h</span>ugo<span class="se">\s</span>ites<span class="se">\m</span>yblog<span class="se">\c</span>ontent<span class="se">\p</span>ost<span class="se">\b</span>log.md created
+</code></pre></td></tr></table>
+</div>
+</div><p>接下来我们就可以，使用Markdown编辑器（本人使用的是vscode），编辑blog.md的文件</p>
 <p>打开我们的blog.md文件，显示如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">---
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-md" data-lang="md">---
 title: &#34;Blog&#34;
 date: 2020-05-03T12:40:00+08:00
 draft: true
 ---
-</code></pre></div><p>直接编辑想要在博客中显示的内容</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>直接编辑想要在博客中显示的内容</p>
 <p>编辑保存后，再次在本地启动hugo</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo server -t m10c --buildDrafts
-</code></pre></div><p>在浏览器打开：http://localhost:1313/</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">hugo server -t m10c --buildDrafts
+</code></pre></td></tr></table>
+</div>
+</div><p>在浏览器打开：http://localhost:1313/</p>
 <p>就可以在博客中看到编辑过的博客内容</p>
 <hr>
 <h2 id="六将个人博客部署到远端的服务器">六、将个人博客部署到远端的服务器</h2>
@@ -238,34 +430,87 @@ draft: true
 <hr>
 <h3 id="1-创建github的repository">1. 创建GitHub的repository</h3>
 <p>new repository，我本人的GitHub名是daniel1n，所以repository name 设置为</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">daniel1n.github.io
-</code></pre></div><p>注意：前缀必须是GitHub的昵称名username，而且全部都是小写字母</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-md" data-lang="md">daniel1n.github.io
+</code></pre></td></tr></table>
+</div>
+</div><p>注意：前缀必须是GitHub的昵称名username，而且全部都是小写字母</p>
 <p>点击 create repository，创建成功</p>
 <hr>
 <h3 id="2-在myblog中创建一个public文件">2. 在myblog中创建一个public文件</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo --theme<span style="color:#f92672">=</span>m10c --baseUrl<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://daniel1n.github.io/&#34;</span> --buildDrafts
-</code></pre></div><p>创建成功，显示如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog&gt;hugo --theme<span style="color:#f92672">=</span>m10c --baseUrl<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://daniel1n.github.io/&#34;</span> --buildDrafts
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">hugo --theme<span class="o">=</span>m10c --baseUrl<span class="o">=</span><span class="s2">&#34;https://daniel1n.github.io/&#34;</span> --buildDrafts
+</code></pre></td></tr></table>
+</div>
+</div><p>创建成功，显示如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">C:<span class="se">\h</span>ugo<span class="se">\s</span>ites<span class="se">\m</span>yblog&gt;hugo --theme<span class="o">=</span>m10c --baseUrl<span class="o">=</span><span class="s2">&#34;https://daniel1n.github.io/&#34;</span> --buildDrafts
 Building sites …
-                   | EN
+                   <span class="p">|</span> EN
 -------------------+-----
-  Pages            | <span style="color:#ae81ff">10</span>
-  Paginator pages  |  <span style="color:#ae81ff">0</span>
-  Non-page files   |  <span style="color:#ae81ff">0</span>
-  Static files     |  <span style="color:#ae81ff">1</span>
-  Processed images |  <span style="color:#ae81ff">0</span>
-  Aliases          |  <span style="color:#ae81ff">4</span>
-  Sitemaps         |  <span style="color:#ae81ff">1</span>
-  Cleaned          |  <span style="color:#ae81ff">0</span>
+  Pages            <span class="p">|</span> <span class="m">10</span>
+  Paginator pages  <span class="p">|</span>  <span class="m">0</span>
+  Non-page files   <span class="p">|</span>  <span class="m">0</span>
+  Static files     <span class="p">|</span>  <span class="m">1</span>
+  Processed images <span class="p">|</span>  <span class="m">0</span>
+  Aliases          <span class="p">|</span>  <span class="m">4</span>
+  Sitemaps         <span class="p">|</span>  <span class="m">1</span>
+  Cleaned          <span class="p">|</span>  <span class="m">0</span>
 
-Total in <span style="color:#ae81ff">57</span> ms
-</code></pre></div><p>查看myblog中是否有public文件</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog 的目录
+Total in <span class="m">57</span> ms
+</code></pre></td></tr></table>
+</div>
+</div><p>查看myblog中是否有public文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"> C:<span class="se">\h</span>ugo<span class="se">\s</span>ites<span class="se">\m</span>yblog 的目录
 
 2020-05-03  13:00    &lt;DIR&gt;          .
 2020-05-03  11:43    &lt;DIR&gt;          ..
 2020-05-03  11:43    &lt;DIR&gt;          archetypes
-2020-05-03  11:43                <span style="color:#ae81ff">82</span> config.toml
+2020-05-03  11:43                <span class="m">82</span> config.toml
 2020-05-03  12:40    &lt;DIR&gt;          content
 2020-05-03  11:43    &lt;DIR&gt;          data
 2020-05-03  11:43    &lt;DIR&gt;          layouts
@@ -273,10 +518,32 @@ Total in <span style="color:#ae81ff">57</span> ms
 2020-05-03  12:34    &lt;DIR&gt;          resources
 2020-05-03  11:43    &lt;DIR&gt;          static
 2020-05-03  11:55    &lt;DIR&gt;          themes
-               <span style="color:#ae81ff">1</span> 个文件             <span style="color:#ae81ff">82</span> 字节
-              <span style="color:#ae81ff">10</span> 个目录 39,022,243,840 可用字节
-</code></pre></div><p>打开pubic文件的内容：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\p</span>ublic 的目录
+               <span class="m">1</span> 个文件             <span class="m">82</span> 字节
+              <span class="m">10</span> 个目录 39,022,243,840 可用字节
+</code></pre></td></tr></table>
+</div>
+</div><p>打开pubic文件的内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"> C:<span class="se">\h</span>ugo<span class="se">\s</span>ites<span class="se">\m</span>yblog<span class="se">\p</span>ublic 的目录
 
 2020-05-03  13:00    &lt;DIR&gt;          .
 2020-05-03  13:00    &lt;DIR&gt;          ..
@@ -285,99 +552,225 @@ Total in <span style="color:#ae81ff">57</span> ms
 2020-05-03  13:00    &lt;DIR&gt;          categories
 2020-05-03  13:00    &lt;DIR&gt;          css
 2020-05-03  13:00             2,140 index.html
-2020-05-03  13:00               <span style="color:#ae81ff">816</span> index.xml
+2020-05-03  13:00               <span class="m">816</span> index.xml
 2020-05-03  13:00    &lt;DIR&gt;          page
 2020-05-03  13:00    &lt;DIR&gt;          post
-2020-05-03  13:00               <span style="color:#ae81ff">667</span> sitemap.xml
+2020-05-03  13:00               <span class="m">667</span> sitemap.xml
 2020-05-03  13:00    &lt;DIR&gt;          tags
-               <span style="color:#ae81ff">5</span> 个文件          8,869 字节
-               <span style="color:#ae81ff">7</span> 个目录 39,020,466,176 可用字节
-</code></pre></div><p>然后我们可以在post文件中，找到我们的blog</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\p</span>ublic<span style="color:#ae81ff">\p</span>ost 的目录
+               <span class="m">5</span> 个文件          8,869 字节
+               <span class="m">7</span> 个目录 39,020,466,176 可用字节
+</code></pre></td></tr></table>
+</div>
+</div><p>然后我们可以在post文件中，找到我们的blog</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"> C:<span class="se">\h</span>ugo<span class="se">\s</span>ites<span class="se">\m</span>yblog<span class="se">\p</span>ublic<span class="se">\p</span>ost 的目录
 
 2020-05-03  13:00    &lt;DIR&gt;          .
 2020-05-03  13:00    &lt;DIR&gt;          ..
 2020-05-03  13:00    &lt;DIR&gt;          blog
 2020-05-03  13:00             2,121 index.html
-2020-05-03  13:00               <span style="color:#ae81ff">844</span> index.xml
+2020-05-03  13:00               <span class="m">844</span> index.xml
 2020-05-03  13:00    &lt;DIR&gt;          page
-               <span style="color:#ae81ff">2</span> 个文件          2,965 字节
-               <span style="color:#ae81ff">4</span> 个目录 39,025,672,192 可用字节
-</code></pre></div><p>打开C:\hugo\sites\myblog\public\post\blog文件，发现已经转换为 index.html，一个html文件</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\s</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\p</span>ublic<span style="color:#ae81ff">\p</span>ost<span style="color:#ae81ff">\b</span>log 的目录
+               <span class="m">2</span> 个文件          2,965 字节
+               <span class="m">4</span> 个目录 39,025,672,192 可用字节
+</code></pre></td></tr></table>
+</div>
+</div><p>打开C:\hugo\sites\myblog\public\post\blog文件，发现已经转换为 index.html，一个html文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"> C:<span class="se">\h</span>ugo<span class="se">\s</span>ites<span class="se">\m</span>yblog<span class="se">\p</span>ublic<span class="se">\p</span>ost<span class="se">\b</span>log 的目录
 
 2020-05-03  13:00    &lt;DIR&gt;          .
 2020-05-03  13:00    &lt;DIR&gt;          ..
 2020-05-03  13:00             2,655 index.html
-               <span style="color:#ae81ff">1</span> 个文件          2,655 字节
-               <span style="color:#ae81ff">2</span> 个目录 39,024,021,504 可用字节
-</code></pre></div><hr>
+               <span class="m">1</span> 个文件          2,655 字节
+               <span class="m">2</span> 个目录 39,024,021,504 可用字节
+</code></pre></td></tr></table>
+</div>
+</div><hr>
 <h3 id="3-将public文件内容上传到github的repository">3. 将public文件内容，上传到GitHub的repository</h3>
 <p>刚才我们已经在个人GitHub中，新建一个名为 daniel1n.github.io 的repository</p>
 <p>回到我们的根目录myblog下面的public文件夹中</p>
 <p>C:\hugo\sites\myblog\public\</p>
 <p>开始输入git的上传命令行</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git init
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">git init
 git add .
-git commit -m <span style="color:#e6db74">&#34;我的huigo博客第一次提交&#34;</span>
-</code></pre></div><p>本地提交成功，显示如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\S</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\p</span>ublic&gt;git init
+git commit -m <span class="s2">&#34;我的huigo博客第一次提交&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>本地提交成功，显示如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">C:<span class="se">\h</span>ugo<span class="se">\S</span>ites<span class="se">\m</span>yblog<span class="se">\p</span>ublic&gt;git init
 
-C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\S</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\p</span>ublic&gt;git add .
+C:<span class="se">\h</span>ugo<span class="se">\S</span>ites<span class="se">\m</span>yblog<span class="se">\p</span>ublic&gt;git add .
 
-C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\S</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\p</span>ublic&gt;git commit -m <span style="color:#e6db74">&#34;我的hugo博客第一次提交&#34;</span>
-<span style="color:#f92672">[</span>master <span style="color:#f92672">(</span>root-commit<span style="color:#f92672">)</span> bdbc84f<span style="color:#f92672">]</span> 我的hugo博客第一次提交
- <span style="color:#ae81ff">17</span> files changed, <span style="color:#ae81ff">12086</span> insertions<span style="color:#f92672">(</span>+<span style="color:#f92672">)</span>
- create mode <span style="color:#ae81ff">100644</span> 404.html
- create mode <span style="color:#ae81ff">100644</span> avatar.jpg
- create mode <span style="color:#ae81ff">100644</span> categories/index.html
- create mode <span style="color:#ae81ff">100644</span> categories/index.xml
- create mode <span style="color:#ae81ff">100644</span> categories/page/1/index.html
- create mode <span style="color:#ae81ff">100644</span> css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css
- create mode <span style="color:#ae81ff">100644</span> index.html
- create mode <span style="color:#ae81ff">100644</span> index.xml
- create mode <span style="color:#ae81ff">100644</span> page/1/index.html
- create mode <span style="color:#ae81ff">100644</span> post/blog/index.html
- create mode <span style="color:#ae81ff">100644</span> post/index.html
- create mode <span style="color:#ae81ff">100644</span> post/index.xml
- create mode <span style="color:#ae81ff">100644</span> post/page/1/index.html
- create mode <span style="color:#ae81ff">100644</span> sitemap.xml
- create mode <span style="color:#ae81ff">100644</span> tags/index.html
- create mode <span style="color:#ae81ff">100644</span> tags/index.xml
- create mode <span style="color:#ae81ff">100644</span> tags/page/1/index.html
-</code></pre></div><p>输入以下命令行，提交到远程GitHub的repository</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git remote add origin https://github.com/daniel1n/daniel1n.github.io.git
+C:<span class="se">\h</span>ugo<span class="se">\S</span>ites<span class="se">\m</span>yblog<span class="se">\p</span>ublic&gt;git commit -m <span class="s2">&#34;我的hugo博客第一次提交&#34;</span>
+<span class="o">[</span>master <span class="o">(</span>root-commit<span class="o">)</span> bdbc84f<span class="o">]</span> 我的hugo博客第一次提交
+ <span class="m">17</span> files changed, <span class="m">12086</span> insertions<span class="o">(</span>+<span class="o">)</span>
+ create mode <span class="m">100644</span> 404.html
+ create mode <span class="m">100644</span> avatar.jpg
+ create mode <span class="m">100644</span> categories/index.html
+ create mode <span class="m">100644</span> categories/index.xml
+ create mode <span class="m">100644</span> categories/page/1/index.html
+ create mode <span class="m">100644</span> css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css
+ create mode <span class="m">100644</span> index.html
+ create mode <span class="m">100644</span> index.xml
+ create mode <span class="m">100644</span> page/1/index.html
+ create mode <span class="m">100644</span> post/blog/index.html
+ create mode <span class="m">100644</span> post/index.html
+ create mode <span class="m">100644</span> post/index.xml
+ create mode <span class="m">100644</span> post/page/1/index.html
+ create mode <span class="m">100644</span> sitemap.xml
+ create mode <span class="m">100644</span> tags/index.html
+ create mode <span class="m">100644</span> tags/index.xml
+ create mode <span class="m">100644</span> tags/page/1/index.html
+</code></pre></td></tr></table>
+</div>
+</div><p>输入以下命令行，提交到远程GitHub的repository</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">git remote add origin https://github.com/daniel1n/daniel1n.github.io.git
 git push -u origin master
-</code></pre></div><p>提交成功，显示如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">C:<span style="color:#ae81ff">\h</span>ugo<span style="color:#ae81ff">\S</span>ites<span style="color:#ae81ff">\m</span>yblog<span style="color:#ae81ff">\p</span>ublic&gt;git push -u origin master
-Enumerating objects: 35, <span style="color:#66d9ef">done</span>.
-Counting objects: 100% <span style="color:#f92672">(</span>35/35<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
-Delta compression using up to <span style="color:#ae81ff">12</span> threads
-Compressing objects: 100% <span style="color:#f92672">(</span>25/25<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
-Writing objects: 100% <span style="color:#f92672">(</span>35/35<span style="color:#f92672">)</span>, 153.76 KiB | 6.68 MiB/s, <span style="color:#66d9ef">done</span>.
-Total <span style="color:#ae81ff">35</span> <span style="color:#f92672">(</span>delta 11<span style="color:#f92672">)</span>, reused <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>
-remote: Resolving deltas: 100% <span style="color:#f92672">(</span>11/11<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+</code></pre></td></tr></table>
+</div>
+</div><p>提交成功，显示如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">C:<span class="se">\h</span>ugo<span class="se">\S</span>ites<span class="se">\m</span>yblog<span class="se">\p</span>ublic&gt;git push -u origin master
+Enumerating objects: 35, <span class="k">done</span>.
+Counting objects: 100% <span class="o">(</span>35/35<span class="o">)</span>, <span class="k">done</span>.
+Delta compression using up to <span class="m">12</span> threads
+Compressing objects: 100% <span class="o">(</span>25/25<span class="o">)</span>, <span class="k">done</span>.
+Writing objects: 100% <span class="o">(</span>35/35<span class="o">)</span>, 153.76 KiB <span class="p">|</span> 6.68 MiB/s, <span class="k">done</span>.
+Total <span class="m">35</span> <span class="o">(</span>delta 11<span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta 0<span class="o">)</span>
+remote: Resolving deltas: 100% <span class="o">(</span>11/11<span class="o">)</span>, <span class="k">done</span>.
 To https://github.com/daniel1n/daniel1n.github.io.git
- * <span style="color:#f92672">[</span>new branch<span style="color:#f92672">]</span>      master -&gt; master
-Branch <span style="color:#e6db74">&#39;master&#39;</span> set up to track remote branch <span style="color:#e6db74">&#39;master&#39;</span> from <span style="color:#e6db74">&#39;origin&#39;</span>.
-</code></pre></div><p>最后，我们在我们的GitHub中查看一下repository的详细情况
+ * <span class="o">[</span>new branch<span class="o">]</span>      master -&gt; master
+Branch <span class="s1">&#39;master&#39;</span> <span class="nb">set</span> up to track remote branch <span class="s1">&#39;master&#39;</span> from <span class="s1">&#39;origin&#39;</span>.
+</code></pre></td></tr></table>
+</div>
+</div><p>最后，我们在我们的GitHub中查看一下repository的详细情况
 <a href="https://github.com/daniel1n/daniel1n.github.io.git">https://github.com/daniel1n/daniel1n.github.io.git</a></p>
 <p>没问题，提交完成，可以在浏览器中，查看个人博客的地址：https://daniel1n.github.io/</p>
 <hr>
 <h2 id="七-如何更新博客">七、 如何更新博客</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo new post/newblog.md
-</code></pre></div><p>打开新建的newblog.md，编辑blog内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">hugo new post/newblog.md
+</code></pre></td></tr></table>
+</div>
+</div><p>打开新建的newblog.md，编辑blog内容</p>
 <p>或者，不需要新增，只对已存在的md文档进行修改</p>
 <p>编辑后检测内容：cd 到blog根目录，然后输入以下命令：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo server -D
-</code></pre></div><p>更新public静态页面，先cd到blog根目录，然后输入以下命令：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo --theme<span style="color:#f92672">=</span>m10c --baseUrl<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://daniel1n.github.io/&#34;</span> --buildDrafts
-</code></pre></div><p>推送更新内容,cd到public目录下，然后输入以下命令：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git add .
-git commit -m <span style="color:#e6db74">&#34;Hugo Blog update&#34;</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">hugo server -D
+</code></pre></td></tr></table>
+</div>
+</div><p>更新public静态页面，先cd到blog根目录，然后输入以下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">hugo --theme<span class="o">=</span>m10c --baseUrl<span class="o">=</span><span class="s2">&#34;https://daniel1n.github.io/&#34;</span> --buildDrafts
+</code></pre></td></tr></table>
+</div>
+</div><p>推送更新内容,cd到public目录下，然后输入以下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">git add .
+git commit -m <span class="s2">&#34;Hugo Blog update&#34;</span>
 git push -u origin master
 
-</code></pre></div><hr>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
 <h2 id="总结">总结</h2>
 <ol>
 <li>在window下安装，有些麻烦，下载hugo_0.69.2_Windows-64bit.zip，非常的慢</li>
@@ -389,11 +782,112 @@ git push -u origin master
 </ol>
 
     </div>
-    <div class="post-footer">
-      
-    </div>
-  </article>
 
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Daniel1n</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-05-03
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/hugo/">hugo</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2.javalearn/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Java Web 的要点总结</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
     </main>
-  </body>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:492332435@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://daniel1n.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Daniel1n</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
 </html>

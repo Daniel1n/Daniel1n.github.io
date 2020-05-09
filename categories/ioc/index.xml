@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IOC on Even - A super concise theme for Hugo</title>
+    <link>https://daniel1n.github.io/categories/ioc/</link>
+    <description>Recent content in IOC on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 06 May 2020 16:48:48 +0800</lastBuildDate>
+    
+	<atom:link href="https://daniel1n.github.io/categories/ioc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Spring Framework 基于注解的IOC配置</title>
+      <link>https://daniel1n.github.io/post/4.springblog2/</link>
+      <pubDate>Wed, 06 May 2020 16:48:48 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/4.springblog2/</guid>
+      <description>第一章 常用注解 1.1 用于创建对象的 相当于：&amp;lt;bean id=&amp;quot;&amp;quot; class=&amp;quot;&amp;quot;&amp;gt; 1.1.1 @Component 作用： 把资源让 spring 来管理。相当于在 xml 中配置一个 bean。 属性： value：指定 bean</description>
+    </item>
+    
+    <item>
+      <title>Spring Framework 基于XML的IOC配置</title>
+      <link>https://daniel1n.github.io/post/3.springblog1/</link>
+      <pubDate>Tue, 05 May 2020 20:21:05 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/3.springblog1/</guid>
+      <description>第一章 Spring概述 Spring框架为任何类型的部署平台上的基于Java的现代企业应用程序提供了全面的编程和配置模型。 Spring的一个关</description>
+    </item>
+    
+  </channel>
+</rss>

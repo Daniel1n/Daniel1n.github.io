@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring Boot on Even - A super concise theme for Hugo</title>
+    <link>https://daniel1n.github.io/categories/spring-boot/</link>
+    <description>Recent content in Spring Boot on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 08 May 2020 12:57:51 +0800</lastBuildDate>
+    
+	<atom:link href="https://daniel1n.github.io/categories/spring-boot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Spring Boot 核心技术</title>
+      <link>https://daniel1n.github.io/post/7.springboot/</link>
+      <pubDate>Fri, 08 May 2020 12:57:51 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/7.springboot/</guid>
+      <description>一、Spring Boot 入门** 1、Spring Boot 简介 简化Spring应用开发的一个框架； 整个Spring技术栈的一个大整合； J2EE开发的一站式</description>
+    </item>
+    
+  </channel>
+</rss>

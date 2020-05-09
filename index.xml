@@ -1,35 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Daniel1n</title>
+    <title>Even - A super concise theme for Hugo</title>
     <link>https://daniel1n.github.io/</link>
-    <description>Recent content on Daniel1n</description>
+    <description>Recent content on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Fri, 08 May 2020 22:14:24 +0800</lastBuildDate>
     
 	<atom:link href="https://daniel1n.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>SpEL表达式语言</title>
+      <title>Spring Expression Language (SpEL)</title>
       <link>https://daniel1n.github.io/post/9.spel/</link>
       <pubDate>Fri, 08 May 2020 22:14:24 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/post/9.spel/</guid>
-      <description>4. Spring Expression Language (SpEL) 介绍 Spring Expression Language（简称SpEL）是一种功能强大的表达式语言、用于在运行时查询和操作对象图；语法上类似于Unified EL，但提供了更多的特性，特别是方法调用和基本字符串模板函数。
-虽然目前已经有许多其他的Java表达式语言，例如OGNL，MVEL和Jboss EL，SpEL的诞生是为了给Spring社区提供一种能够与Spring生态系统所有产品无缝对接，能提供一站式支持的表达式语言。它的语言特性由Spring生态系统的实际项目需求驱动而来，比如基于eclipse的Spring Tool Suite（Spring开发工具集）中的代码补全工具需求。尽管如此、SpEL本身基于一套与具体实现技术无关的API，在需要的时候允许其他的表达式语言实现集成进来。
-尽管SpEL在Spring产品中是作为表达式求值的核心基础模块，本身可以脱离Spring独立使用。为了体现它的独立性，本章节中的许多例子都将SpEL作为独立的表达式语言来使用。不过这样就需要每次都先创建一些基础框架类如解析器，而对于大多数Spring用户来说并不需要去关注这些基础框架类，仅仅只需要写相应的字符串求值表达式即可。一个典型的例子就是把SpEL集成进XML bean配置或者基于注解的Bean定义声明中（详见章节：Expression对定义Bean定义的支持)
-本章节包含SpEL的语言特性，它的API及语法。很多地方用到了Inventor类及相关的Society类作为表达式求值的操作例子对象，这几个类的定义及操作它们的数据都列在本章的末尾.
-功能特性 SpEL支持以下的一些特性：
- 字符表达式 布尔和关系操作符 正则表达式 类表达式 访问properties，arrays，lists，maps等集合 方法调用 关系操作符 赋值 调用构造器 Bean对象引用 创建数组 内联lists 内联maps 三元操作符 变量 用户自定义函数 集合投影 集合选择 模板表达式  4.1 使用SpEL的接口进行表达式求值 本节介绍SpEL接口及其表达式语言的简单使用方法。完整的语言文档见： Language Reference
-下面代码介绍了使用SpEL API来解析字符串表达式’Hello World’的示例
-ExpressionParser parser = new SpelExpressionParser(); Expression exp = parser.parseExpression(&amp;#34;&amp;#39;Hello World&amp;#39;&amp;#34;); String message = (String) exp.getValue(); 最常用的SpEL类和接口都放在包org.springframework.expression及其子包和spel.support下
-接口ExpressionParser用来解析一个字符串表达式。在这个例子中字符串表达式即用单引号
-括起来的字符串.接口Expression用于对上面定义的字符串表达式求值。 调用parser.parseExpression和exp.getValue分别可能抛出ParseException和EvaluationException。
-SpEL支持一系列广泛的特性，例如方法调用，访问属性，调用构造函数等。
-下面举一个方法调用的例子，在String文本后面调用concat方法。
-ExpressionParser parser = new SpelExpressionParser(); Expression exp = parser.</description>
+      <description>《Spring 5.2.6.RELEASE 官方文档》 4. Spring Expression Language (SpEL) 介绍 Spring Expression Language（简称SpEL）是一种功能强大的表达式语言、用于在运行时查询和操作对象图；语法上</description>
     </item>
     
     <item>
@@ -38,24 +26,7 @@ ExpressionParser parser = new SpelExpressionParser(); Expression exp = parser.</
       <pubDate>Fri, 08 May 2020 15:07:33 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/post/8.springmvc/</guid>
-      <description>第1章 SpringMVC 的基本概念 1.1 关于三层架构和MVC 1.1.1 三层架构  我们的开发架构一般都是基于两种形式，一种是 C/S 架构，也就是客户端/服务器，另一种是 B/S 架构，也就是浏览器服务器。在 JavaEE 开发中，几乎全都是基于 B/S 架构的开发。那么在 B/S 架构中，系统标准的三层架构包括：表现层、业务层、持久层。三层架构在我们的实际开发中使用的非常多，所以我们课程中的案例也都是基于三层架构设计的。  ​	三层架构中，每一层各司其职，接下来我们就说说每层都负责哪些方面：
-1.表现层：
-也就是我们常说的web层。它负责接收客户端请求，向客户端响应结果，通常客户端使用http协议请求web 层，web 需要接收 http 请求，完成 http 响应。
-表现层包括展示层和控制层：控制层负责接收请求，展示层负责结果的展示。
-表现层依赖业务层，接收到客户端请求一般会调用业务层进行业务处理，并将处理结果响应给客户端。
-表现层的设计一般都使用 MVC 模型。（MVC 是表现层的设计模型，和其他层没有关系）
-2.业务层：
-也就是我们常说的 service 层。它负责业务逻辑处理，和我们开发项目的需求息息相关。web 层依赖业务层，但是业务层不依赖 web 层。
-业务层在业务处理时可能会依赖持久层，如果要对数据持久化需要保证事务一致性。（也就是我们说的，事务应该放到业务层来控制）
-3.持久层：
-也就是我们是常说的 dao 层。负责数据持久化，包括数据层即数据库和数据访问层，数据库是对数据进
-行持久化的载体，数据访问层是业务层和持久层交互的接口，业务层需要通过数据访问层将数据持久化到数据库
-中。通俗的讲，持久层就是和数据库交互，对数据库表进行曾删改查的。
- 1.1.2 MVC模型 MVC 全名是 Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写，是一种用于设计创建 Web 应用程序表现层的模式。MVC 中每个部分各司其职：
-1. Model（模型）：
-通常指的就是我们的数据模型。作用一般情况下用于封装数据。
-2. View（视图）：
-通常指的就是我们的 jsp 或者 html。作用一般就是展示数据的。</description>
+      <description>第1章 SpringMVC 的基本概念 1.1 关于三层架构和MVC 1.1.1 三层架构 我们的开发架构一般都是基于两种形式，一种是 C/S 架构，也就是客户端/服务器，另一种是 B/S 架构，也</description>
     </item>
     
     <item>
@@ -64,24 +35,7 @@ ExpressionParser parser = new SpelExpressionParser(); Expression exp = parser.</
       <pubDate>Fri, 08 May 2020 12:57:51 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/post/7.springboot/</guid>
-      <description>一、Spring Boot 入门 1、Spring Boot 简介  简化Spring应用开发的一个框架；
-整个Spring技术栈的一个大整合；
-J2EE开发的一站式解决方案；
-优点：
- 快速创建独立运行的Spring项目以及与主流框架集成 使用嵌入式的Servlet容器，应用无需打成WAR包 starters自动依赖与版本控制 大量的自动配置，简化开发，也可修改默认值 无需配置XML，无代码生成，开箱即用 准生产环境的运行时应用监控 与云计算的天然集成  缺点：
- 都是集成框架，上手容易，很难接触底层应用 最后，还是需要根据模块，进行底层的学习   2、微服务 2014，martin fowler
-微服务：架构风格（服务微化）
-一个应用应该是一组小型服务；可以通过HTTP的方式进行互通；
-单体应用：ALL IN ONE  优点：
- 容易部署：整个项目就一个war包，部署特别方便。 容易运行/测试：测试阶段只需要启动一个war包即可  缺点：
- 复杂性高：随着业务的不断迭代，项目的代码量会急剧的增多，项目模块也会随着而增加，模块与模块之间的关系就会变成的很复杂，整个项目就会变成的非常复杂，在新增和修改代码的时候都会做很多的测试，很容易会由于一处的变动影响之前业务的功能。 部署评率低:随便代码的增多，首先部署会越来越消耗时间，还有我们在修复一个很小很小的bug的时候整个项目都要重新部署，所以我们会集中一个时间点部署多个需求。 可靠性差：这个很容易理解，假如某个影响出现了死循环，导致内存溢出，会影响整个项目挂掉。 扩展性差:我们在新增业务的时候，代码层面会考虑在不影响现有的业务基础上编写代码，提高了代码的复杂性。   微服务：每一个功能元素最终都是一个可独立替换和独立升级的软件单元；
-  详细参照微服务文档
-3、环境准备 http://www.gulixueyuan.com/ 谷粒学院
-环境约束
-–jdk1.8：Spring Boot 推荐jdk1.7及以上；java version &amp;ldquo;1.8.0_112&amp;rdquo;
-–maven3.x：maven 3.3以上版本；Apache Maven 3.6.3
-–IntelliJIDEA2019：IntelliJ IDEA 2019.3 x64、STS
-–SpringBoot 2.</description>
+      <description>一、Spring Boot 入门** 1、Spring Boot 简介 简化Spring应用开发的一个框架； 整个Spring技术栈的一个大整合； J2EE开发的一站式</description>
     </item>
     
     <item>
@@ -90,7 +44,7 @@ J2EE开发的一站式解决方案；
       <pubDate>Fri, 08 May 2020 12:53:25 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/post/6.springblog4/</guid>
-      <description>第一章 Spring中的JdbcTemplate  持久层 1.1 JdbcTemplate 概述 它是 spring 框架中提供的一个对象，是对原始 Jdbc API 对象的简单封装。 spring 框架为我们提供了很多的操作模板类。 操作关系型数据的： JdbcTemplate HibernateTemplate 操作 nosql 数据库的： RedisTemplate 操作消息队列的： JmsTemplate 1.2 导入maven依赖 &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-context&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.2.6.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-jdbc&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.2.6.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-tx&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.2.6.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.1.6&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; </description>
+      <description>第一章 Spring中的JdbcTemplate 持久层 1.1 JdbcTemplate 概述 1 2 3 4 5 6 7 8 9 10 它是 spring 框架中提供的一个对象，是对原始 Jdbc API 对象的简单封装。 spring 框</description>
     </item>
     
     <item>
@@ -99,7 +53,7 @@ J2EE开发的一站式解决方案；
       <pubDate>Thu, 07 May 2020 17:29:57 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/post/5.springblog3/</guid>
-      <description>第一章 AOP 的相关概念  1.1 AOP 概述  1.1.1 什么是 AOP 1.1.2 AOP 的作用及优势 1.1.3 AOP 的实现方式     第二章 动态代理  2.1 动态代理的特点 2.2 动态代理常用的有两种方式 2.3 使用 JDK 官方的 Proxy 类创建代理对象 2.4 使用 CGLib 的 Enhancer 类创建代理对象   第三章 Spring 中的 AOP  3.1 Spring 中 AOP 的细节  3.1.1 AOP 相关术语 3.1.2 spring 中的 AOP 的执行过程   3.2 基于 XML 的 AOP 配置  3.</description>
+      <description>第一章 AOP 的相关概念 1.1 AOP 概述 1.1.1 什么是 AOP 百度百科：面向切面编程，通过预编译方式和运行期间动态代理实现程序功能的统一维护的一种技术。 AOP是OOP</description>
     </item>
     
     <item>
@@ -108,7 +62,7 @@ J2EE开发的一站式解决方案；
       <pubDate>Wed, 06 May 2020 16:48:48 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/post/4.springblog2/</guid>
-      <description>第一章 常用注解  1.1 用于创建对象的  1.1.1 @Component 1.1.2 @Controller @Service @Repository   1.2 用于注入数据的  1.2.1 @Autowired 1.2.2 @Qualifier 1.2.3 @Resource 1.2.4 @Value   1.3 用于改变作用范围的：  1.3.1 @Scope   1.4 和生命周期相关的：  1.4.1 @PostConstruct 1.4.2 @PreDestroy   1.5 关于 Spring 注解和 XML 的选择问题  Spring 管理 Bean 方式的比较：     第二章 spring 的纯注解配置  2.1 @Configuration 2.2 @ComponentScan 2.3 @Bean 2.4 @PropertySource 2.</description>
+      <description>第一章 常用注解 1.1 用于创建对象的 相当于：&amp;lt;bean id=&amp;quot;&amp;quot; class=&amp;quot;&amp;quot;&amp;gt; 1.1.1 @Component 作用： 把资源让 spring 来管理。相当于在 xml 中配置一个 bean。 属性： value：指定 bean</description>
     </item>
     
     <item>
@@ -117,7 +71,7 @@ J2EE开发的一站式解决方案；
       <pubDate>Tue, 05 May 2020 20:21:05 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/post/3.springblog1/</guid>
-      <description>第一章 Spring概述  1.1 spring是什么 1.2 Spring的发展历程 1.3 Spring 的优势 1.4 Spring的体系结构   第二章 IoC的概念和作用  2.1 什么是程序的耦合 2.2 解决程序耦合的思路 2.3 工厂模式解耦 2.4 控制反转-Inversion Of Control   第三章 使用 Spring的IOC 解决程序耦合  3.1 前期准备  3.1.1 准备Spring的开发包 3.1.2 创建业务层接口和实现类 3.1.3 创建持久层接口和实现类   3.2 基于 XML 的配置  3.2.1 让spring管理资源，在配置文件中配置service和dao 3.2.2 测试配置是否成功   3.3 spring中的工厂的类结构图  3.3.1 BeanFactory 和 ApplicationContext 的区别 3.3.2 ApplicationContext 接口的实现类   3.</description>
+      <description>第一章 Spring概述 Spring框架为任何类型的部署平台上的基于Java的现代企业应用程序提供了全面的编程和配置模型。 Spring的一个关</description>
     </item>
     
     <item>
@@ -126,7 +80,7 @@ J2EE开发的一站式解决方案；
       <pubDate>Mon, 04 May 2020 22:32:33 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/post/0.java/</guid>
-      <description>第一章 Java程序设计概述  1.1 Java “白皮书”的关键术语 1.2 Java applet 与 Internet 1.3 Java发展简史   第二章 Java程序设计环境  2.1 安装Java开发工具包   第三章 Java的基本程序设计结构  3.1 一个简单的Java应用程序 3.2 注释 3.3 数据类型  3.3.1 整数 3.3.2 浮点数 3.3.3 char类型 3.3.4 Unicode 和char类型 3.3.5 boolean类型   3.4 变量  3.4.1 变量初始化 3.4.2 常量   3.5 运算符  3.5.1 数学函数与常量 3.5.2 数值类型之间的转换 3.5.3 强制类型转换 3.5.4 结合赋值和运算符 3.5.5 自增与自减运算符 3.5.6 关系和boolean运算符 3.</description>
+      <description>第一章 Java程序设计概述 1.1 Java “白皮书”的关键术语 简答性 面向对象 分布式 健壮性 安全性 体系结构中立 可移植性 解释性 高性能 多线程 动态性 1.2 Java applet 与 Internet 用户</description>
     </item>
     
     <item>
@@ -135,13 +89,7 @@ J2EE开发的一站式解决方案；
       <pubDate>Mon, 04 May 2020 14:33:01 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/post/2.javalearn/</guid>
-      <description>基础知识 该部分是整个路线里面最最重要的部分，也是后续进行框架学习、能看懂开源项目的前置基础，这部分是最不能忽视的！
-一、语言本身 如下一些重点必须掌握：
- 语法基础 OO编程思想：类、对象、封装、继承、多态、接口 容器 异常 泛型 I/O 注解 反射 图形化界面，如 swing的东西跳过不看  二、数据结构和算法  几大基础数据结构类型得烂熟于心，比如：字符串、链表、二叉树、栈、队列等等； 基本的几大算法要了如指掌，比如查找、排序、动态规划等等。  三、TCP/IP协议栈  TCP/IP协议栈可以说是当下互联网通信的基石，无论如何一定要对TCP/IP的协议栈了如指掌，包括：ARP协议、IP协议、ICMP协议、TCP和UDP协议、DNS协议、HTTP协议、HTTPS协议等等 TCP/IP:  数据链路层：ARP,RARP 网络层： IP,ICMP,IGMP 传输层：TCP ,UDP,UGP 应用层：Telnet,FTP,SMTP,SNMP,DNS,HTTP,HTTPS    四、设计模式  倒不需要23种设计模式全部很熟悉，常见的几个，比如：单例模式、工厂模式、代理模式、策略模式、模板方法模式等几个熟练于心即可  五、数据库和SQL  数据库基本原理了解，SQL语句熟练书写  项目工具   Linux系统基本命令会使用， Linux系统上常用的服务会部署
-  代码管理：SVN或 Git 二选一，持续练习，熟练使用
-  基于 Maven或 Gradle的 Java项目管理二选一，熟练使用
-  应用框架 一、Spring全家桶   了解Spring、Mybatis等框架的基本原理
-  Spring Boot框架会熟练使用、开发业务、掌握基本原理</description>
+      <description>基础知识 该部分是整个路线里面最最重要的部分，也是后续进行框架学习、能看懂开源项目的前置基础，这部分是最不能忽视的！ 一、语言本身 如下一些重点必</description>
     </item>
     
     <item>
@@ -150,17 +98,7 @@ J2EE开发的一站式解决方案；
       <pubDate>Sun, 03 May 2020 18:08:28 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/post/1.blog/</guid>
-      <description>如何在Windows 10 使用Hugo搭建自己的博客  一、 安装Hugo  1.1 设置目录 1.2 下载地址 1.3 设置环境变量 1.4 验证是否安装成功   二、 用Hugo生成博客 三、 设置主题 四、 在本地启动个人博客 五、 写一篇博客文章 六、将个人博客部署到远端的服务器  1. 创建GitHub的repository 2. 在myblog中创建一个public文件 3. 将public文件内容，上传到GitHub的repository   七、 如何更新博客 总结    如何在Windows 10 使用Hugo搭建自己的博客 一、 安装Hugo 参考：https://bwaycer.github.io/hugo_tutorial.hugo/tutorials/installing-on-windows/
- 1.1 设置目录 需要一个位置来存储Hugo可执行文件，hugo程序包的内容bin（您构建的文件）和存放个人博客的内容Sites。
-打开Windows资源管理器。 创建一个新文件夹：（C:\Hugo假设您希望Hugo在C驱动器上–它可以在任何地方使用。推荐还是存在放在D盘）
-在Hugo文件夹中创建一个子文件夹：C:\hugo\bin。
-在Hugo中创建另一个子文件夹：C:\hugo\sites。
- 1.2 下载地址 Hugo的GitHub地址：https://github.com/gohugoio/hugo/releases
-找到目标文件：hugo_0.69.2_Windows-64bit.zip
-下载得到一个zip的压缩文件，然后解压到C:\Hugo\bin中
- 1.3 设置环境变量 新建环境变量：
-变量名 HUGO_HOME
-变量值 C:\hugo</description>
+      <description>如何在Windows 10 使用Hugo搭建自己的博客 一、 安装Hugo 参考：https://bwaycer.github.io/hugo_tuto</description>
     </item>
     
   </channel>
