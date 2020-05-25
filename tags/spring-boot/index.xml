@@ -6,10 +6,19 @@
     <description>Recent content in spring boot on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 10 May 2020 00:10:11 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 15 May 2020 12:57:51 +0800</lastBuildDate>
     
 	<atom:link href="https://daniel1n.github.io/tags/spring-boot/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Spring Boot 核心技术</title>
+      <link>https://daniel1n.github.io/post/7.springboot/</link>
+      <pubDate>Fri, 15 May 2020 12:57:51 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/7.springboot/</guid>
+      <description>一、Spring Boot 入门 1.1、Spring Boot 简介 简化Spring应用开发的一个框架； 整个Spring技术栈的一个大整合； J2EE开发的一站式</description>
+    </item>
     
     <item>
       <title>Thymeleaf模板引擎</title>

@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>spring on Daniel1n - Welcome to My Blog</title>
+    <title>Spring on Daniel1n - Welcome to My Blog</title>
     <link>https://daniel1n.github.io/categories/spring/</link>
-    <description>Recent content in spring on Daniel1n - Welcome to My Blog</description>
+    <description>Recent content in Spring on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 09 May 2020 21:55:29 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 16 May 2020 22:54:59 +0800</lastBuildDate>
     
 	<atom:link href="https://daniel1n.github.io/categories/spring/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>IntelliJ IDEA：Field injection is not recommended</title>
+      <link>https://daniel1n.github.io/post/12.spring%E4%B8%ADautowired%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sat, 16 May 2020 22:54:59 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/12.spring%E4%B8%ADautowired%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>IntelliJ IDEA：Field injection is not recommended 参考： 博客园author：tootwo2 使用IntelliJ IDEA进行开发的时候，code analyze的时</description>
+    </item>
     
     <item>
       <title>Spring Expression Language (SpEL)</title>

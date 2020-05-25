@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>IntelliJ IDEA：Field injection is not recommended - Daniel1n - Welcome to My Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Daniel1n" /><meta name="description" content="IntelliJ IDEA：Field injection is not recommended 参考： 博客园author：tootwo2 使用IntelliJ IDEA进行开发的时候，code analyze的时" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.2 with theme even" />
+
+
+<link rel="canonical" href="https://daniel1n.github.io/post/12.spring%E4%B8%ADautowired%E7%9A%84%E9%97%AE%E9%A2%98/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="IntelliJ IDEA：Field injection is not recommended" />
+<meta property="og:description" content="IntelliJ IDEA：Field injection is not recommended 参考： 博客园author：tootwo2 使用IntelliJ IDEA进行开发的时候，code analyze的时" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://daniel1n.github.io/post/12.spring%E4%B8%ADautowired%E7%9A%84%E9%97%AE%E9%A2%98/" />
+<meta property="article:published_time" content="2020-05-16T22:54:59+08:00" />
+<meta property="article:modified_time" content="2020-05-16T22:54:59+08:00" />
+<meta itemprop="name" content="IntelliJ IDEA：Field injection is not recommended">
+<meta itemprop="description" content="IntelliJ IDEA：Field injection is not recommended 参考： 博客园author：tootwo2 使用IntelliJ IDEA进行开发的时候，code analyze的时">
+<meta itemprop="datePublished" content="2020-05-16T22:54:59&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-16T22:54:59&#43;08:00" />
+<meta itemprop="wordCount" content="809">
+
+
+
+<meta itemprop="keywords" content="Spring Framework,atuowired," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="IntelliJ IDEA：Field injection is not recommended"/>
+<meta name="twitter:description" content="IntelliJ IDEA：Field injection is not recommended 参考： 博客园author：tootwo2 使用IntelliJ IDEA进行开发的时候，code analyze的时"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Daniel1n</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Daniel1n</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">IntelliJ IDEA：Field injection is not recommended</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-05-16 </span>
+        <div class="post-category">
+            <a href="/categories/spring/"> Spring </a>
+            </div>
+          <span class="more-meta"> 809 words </span>
+          <span class="more-meta"> 2 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="intellij-ideafield-injection-is-not-recommended">IntelliJ IDEA：Field injection is not recommended</h1>
+<p>参考：</p>
+<p>博客园author：<a href="https://home.cnblogs.com/u/tootwo2/">tootwo2</a></p>
+<p>使用IntelliJ IDEA进行开发的时候，code analyze的时候会出现提示“Field injection is not recommended”。</p>
+<p>stackoverflow上有篇回答：http://stackoverflow.com/questions/39890849/what-exactly-is-field-injection-and-how-to-avoid-it</p>
+<p>国外有篇文章：http://vojtechruzicka.com/field-dependency-injection-considered-harmful/</p>
+<p>spring官方文档：http://docs.spring.io/spring/docs/4.2.x/spring-framework-reference/html/beans.html</p>
+<p><strong>依赖注入方式：</strong></p>
+<p>1、通过构造方法</p>
+<p>2、通过setters或者其它方法</p>
+<p>3、通过反射直接注入到fields</p>
+<p>一般的@Autowired就是通过第三种方式</p>
+<p><strong>注入的指导方针：</strong></p>
+<p>1、为了强制依赖，或者为了易变性，使用构造方法注入</p>
+<p>2、为了可选的或者可变的依赖，使用setter注入</p>
+<p>3、尽量避免使用直接在属性上注入</p>
+<p><strong>属性注入的坏处：</strong></p>
+<p>1、你不能使用属性注入的方式构建不可变对象。</p>
+<p>2、你的类和依赖容器强耦合，不能再容器外使用。</p>
+<p>3、你的类不能绕过反射（例如单元测试的时候）进行实例化，必须通过依赖容器才能实例化，这更像是集成测试。</p>
+<p>4、实际的依赖被隐藏在外面，不是在构造方法或者其它方法里面反射的。</p>
+<p>5、一个类经常会有超过10个的依赖。如果使用构造方法的方式注入的话，构造方法会有10个参数，明显有点蠢。但是如果使用属性注入的话就没有这样的限制。但是一个类有很多的依赖，是一个危险的标志，因为很有可能这个类完成了超过一件事，违背了单一职责原则。</p>
+<p><strong>总结：</strong></p>
+<p>尽量避免使用属性注入，虽然非常方便。</p>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/spring-framework/">Spring Framework</a>
+          <a href="/tags/atuowired/">atuowired</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/13.ssm%E6%A1%86%E6%9E%B6/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">基于SSM框架的电商系统</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/7.springboot/">
+            <span class="next-text nav-default">Spring Boot 核心技术</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:492332435@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/daniel1n" class="iconfont icon-github" title="github"></a>
+  <a href="https://daniel1n.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Daniel1n</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

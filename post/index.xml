@@ -6,10 +6,37 @@
     <description>Recent content in Posts on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 10 May 2020 00:10:11 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 23 May 2020 09:41:40 +0800</lastBuildDate>
     
 	<atom:link href="https://daniel1n.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>基于SSM框架的电商系统</title>
+      <link>https://daniel1n.github.io/post/13.ssm%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Sat, 23 May 2020 09:41:40 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/13.ssm%E6%A1%86%E6%9E%B6/</guid>
+      <description>SSM框架整合的基础：Spring，SpringMVC，Mybatis 一、开发流程 1.1 技术选型 前端：HTML、CSS、JavaScript、J</description>
+    </item>
+    
+    <item>
+      <title>IntelliJ IDEA：Field injection is not recommended</title>
+      <link>https://daniel1n.github.io/post/12.spring%E4%B8%ADautowired%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sat, 16 May 2020 22:54:59 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/12.spring%E4%B8%ADautowired%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>IntelliJ IDEA：Field injection is not recommended 参考： 博客园author：tootwo2 使用IntelliJ IDEA进行开发的时候，code analyze的时</description>
+    </item>
+    
+    <item>
+      <title>Spring Boot 核心技术</title>
+      <link>https://daniel1n.github.io/post/7.springboot/</link>
+      <pubDate>Fri, 15 May 2020 12:57:51 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/7.springboot/</guid>
+      <description>一、Spring Boot 入门 1.1、Spring Boot 简介 简化Spring应用开发的一个框架； 整个Spring技术栈的一个大整合； J2EE开发的一站式</description>
+    </item>
     
     <item>
       <title>Thymeleaf模板引擎</title>
