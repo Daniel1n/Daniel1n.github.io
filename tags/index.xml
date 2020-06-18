@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 29 May 2020 00:25:13 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2020 22:33:59 +0800</lastBuildDate>
     
 	<atom:link href="https://daniel1n.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,27 +14,45 @@
     <item>
       <title>Spring Framework</title>
       <link>https://daniel1n.github.io/tags/spring-framework/</link>
-      <pubDate>Fri, 29 May 2020 00:25:13 +0800</pubDate>
+      <pubDate>Tue, 16 Jun 2020 22:33:59 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/tags/spring-framework/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>springboot，jpa</title>
-      <link>https://daniel1n.github.io/tags/springbootjpa/</link>
-      <pubDate>Fri, 29 May 2020 00:25:13 +0800</pubDate>
+      <title>springboot</title>
+      <link>https://daniel1n.github.io/tags/springboot/</link>
+      <pubDate>Tue, 16 Jun 2020 22:33:59 +0800</pubDate>
       
-      <guid>https://daniel1n.github.io/tags/springbootjpa/</guid>
+      <guid>https://daniel1n.github.io/tags/springboot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>springcloud</title>
+      <link>https://daniel1n.github.io/tags/springcloud/</link>
+      <pubDate>Tue, 16 Jun 2020 22:33:59 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/tags/springcloud/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SpringMVC</title>
       <link>https://daniel1n.github.io/tags/springmvc/</link>
-      <pubDate>Fri, 29 May 2020 00:25:13 +0800</pubDate>
+      <pubDate>Tue, 16 Jun 2020 22:33:59 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/tags/springmvc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jpa</title>
+      <link>https://daniel1n.github.io/tags/jpa/</link>
+      <pubDate>Fri, 29 May 2020 00:25:13 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/tags/jpa/</guid>
       <description></description>
     </item>
     

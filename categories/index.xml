@@ -6,7 +6,7 @@
     <description>Recent content in Categories on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 29 May 2020 00:25:13 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2020 22:33:59 +0800</lastBuildDate>
     
 	<atom:link href="https://daniel1n.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,18 @@
     <item>
       <title>Spring</title>
       <link>https://daniel1n.github.io/categories/spring/</link>
-      <pubDate>Fri, 29 May 2020 00:25:13 +0800</pubDate>
+      <pubDate>Tue, 16 Jun 2020 22:33:59 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/categories/spring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>springcloud</title>
+      <link>https://daniel1n.github.io/categories/springcloud/</link>
+      <pubDate>Tue, 16 Jun 2020 22:33:59 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/categories/springcloud/</guid>
       <description></description>
     </item>
     

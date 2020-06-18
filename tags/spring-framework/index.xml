@@ -6,10 +6,19 @@
     <description>Recent content in Spring Framework on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 29 May 2020 00:25:13 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2020 22:33:59 +0800</lastBuildDate>
     
 	<atom:link href="https://daniel1n.github.io/tags/spring-framework/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>基于springcloud框架的项目</title>
+      <link>https://daniel1n.github.io/post/17.springcloud/</link>
+      <pubDate>Tue, 16 Jun 2020 22:33:59 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/17.springcloud/</guid>
+      <description>一、关于分布式和集群 1.1 项目结构 单体结构 一个系统业务量很小的时候所有的代码都放在一个项目中，然后部署在一台服务器上。整个项目所有的服务都由这台</description>
+    </item>
     
     <item>
       <title>基于springboot框架的电商系统</title>

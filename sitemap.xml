@@ -2,15 +2,78 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://daniel1n.github.io/categories/</loc>
+    <lastmod>2020-06-16T22:33:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://daniel1n.github.io/</loc>
-    <lastmod>2020-05-29T16:58:55+08:00</lastmod>
+    <lastmod>2020-06-16T22:33:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://daniel1n.github.io/post/</loc>
-    <lastmod>2020-05-29T16:58:55+08:00</lastmod>
+    <lastmod>2020-06-16T22:33:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://daniel1n.github.io/categories/spring/</loc>
+    <lastmod>2020-06-16T22:33:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://daniel1n.github.io/tags/spring-framework/</loc>
+    <lastmod>2020-06-16T22:33:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://daniel1n.github.io/tags/springboot/</loc>
+    <lastmod>2020-06-16T22:33:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://daniel1n.github.io/tags/springcloud/</loc>
+    <lastmod>2020-06-16T22:33:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://daniel1n.github.io/categories/springcloud/</loc>
+    <lastmod>2020-06-16T22:33:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://daniel1n.github.io/tags/springmvc/</loc>
+    <lastmod>2020-06-16T22:33:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://daniel1n.github.io/tags/</loc>
+    <lastmod>2020-06-16T22:33:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://daniel1n.github.io/post/17.springcloud/</loc>
+    <lastmod>2020-06-16T22:33:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -30,21 +93,7 @@
   </url>
   
   <url>
-    <loc>https://daniel1n.github.io/categories/</loc>
-    <lastmod>2020-05-29T00:25:13+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://daniel1n.github.io/categories/spring/</loc>
-    <lastmod>2020-05-29T00:25:13+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://daniel1n.github.io/tags/spring-framework/</loc>
+    <loc>https://daniel1n.github.io/tags/jpa/</loc>
     <lastmod>2020-05-29T00:25:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -52,27 +101,6 @@
   
   <url>
     <loc>https://daniel1n.github.io/categories/springboot/</loc>
-    <lastmod>2020-05-29T00:25:13+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://daniel1n.github.io/tags/springbootjpa/</loc>
-    <lastmod>2020-05-29T00:25:13+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://daniel1n.github.io/tags/springmvc/</loc>
-    <lastmod>2020-05-29T00:25:13+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://daniel1n.github.io/tags/</loc>
     <lastmod>2020-05-29T00:25:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

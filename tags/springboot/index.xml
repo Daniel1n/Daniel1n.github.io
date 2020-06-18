@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>SpringMVC on Daniel1n - Welcome to My Blog</title>
-    <link>https://daniel1n.github.io/tags/springmvc/</link>
-    <description>Recent content in SpringMVC on Daniel1n - Welcome to My Blog</description>
+    <title>springboot on Daniel1n - Welcome to My Blog</title>
+    <link>https://daniel1n.github.io/tags/springboot/</link>
+    <description>Recent content in springboot on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 16 Jun 2020 22:33:59 +0800</lastBuildDate>
     
-	<atom:link href="https://daniel1n.github.io/tags/springmvc/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://daniel1n.github.io/tags/springboot/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -27,15 +27,6 @@
       
       <guid>https://daniel1n.github.io/post/14.springboot%E9%A1%B9%E7%9B%AE/</guid>
       <description>一、开发流程 1.1 技术选型 前端：HTML、CSS、JavaScript、JSON、Jquery、Ajax、Bootstrap、Vue.js 后端：</description>
-    </item>
-    
-    <item>
-      <title>基于SSM框架的电商系统</title>
-      <link>https://daniel1n.github.io/post/13.ssm%E6%A1%86%E6%9E%B6/</link>
-      <pubDate>Sat, 23 May 2020 09:41:40 +0800</pubDate>
-      
-      <guid>https://daniel1n.github.io/post/13.ssm%E6%A1%86%E6%9E%B6/</guid>
-      <description>SSM框架整合的基础：Spring，SpringMVC，Mybatis 一、开发流程 1.1 技术选型 前端：HTML、CSS、JavaScript、J</description>
     </item>
     
   </channel>
