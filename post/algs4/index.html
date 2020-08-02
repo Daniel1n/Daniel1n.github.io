@@ -1,0 +1,1976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>算法（第四版） - Daniel1n - Welcome to My Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Daniel1n" /><meta name="description" content="编写一段计算机程序一般都是事先一种已有的方法来解决某个问题。这种方法大多和使用的编程语言无关——它适用于各种计算机以及编程语言。是这种方法而" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.2 with theme even" />
+
+
+<link rel="canonical" href="https://daniel1n.github.io/post/algs4/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="算法（第四版）" />
+<meta property="og:description" content="编写一段计算机程序一般都是事先一种已有的方法来解决某个问题。这种方法大多和使用的编程语言无关——它适用于各种计算机以及编程语言。是这种方法而" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://daniel1n.github.io/post/algs4/" />
+<meta property="article:published_time" content="2020-06-22T14:18:52+08:00" />
+<meta property="article:modified_time" content="2020-06-22T14:18:52+08:00" />
+<meta itemprop="name" content="算法（第四版）">
+<meta itemprop="description" content="编写一段计算机程序一般都是事先一种已有的方法来解决某个问题。这种方法大多和使用的编程语言无关——它适用于各种计算机以及编程语言。是这种方法而">
+<meta itemprop="datePublished" content="2020-06-22T14:18:52&#43;08:00" />
+<meta itemprop="dateModified" content="2020-06-22T14:18:52&#43;08:00" />
+<meta itemprop="wordCount" content="10269">
+
+
+
+<meta itemprop="keywords" content="算法," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="算法（第四版）"/>
+<meta name="twitter:description" content="编写一段计算机程序一般都是事先一种已有的方法来解决某个问题。这种方法大多和使用的编程语言无关——它适用于各种计算机以及编程语言。是这种方法而"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Daniel1n</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Daniel1n</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">算法（第四版）</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-06-22 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
+            </div>
+          <span class="more-meta"> 10269 words </span>
+          <span class="more-meta"> 21 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#11-基础编程模型">1.1 基础编程模型</a>
+      <ul>
+        <li><a href="#111-java程序的基本结构">1.1.1 Java程序的基本结构</a></li>
+        <li><a href="#112-原始数据类型与表达式">1.1.2 原始数据类型与表达式</a></li>
+        <li><a href="#113-语句">1.1.3 语句</a></li>
+        <li><a href="#114-简便记法">1.1.4 简便记法</a></li>
+        <li><a href="#115-数组">1.1.5 数组</a></li>
+        <li><a href="#116-静态方法">1.1.6 静态方法</a></li>
+        <li><a href="#117-api">1.1.7 API</a></li>
+        <li><a href="#118-字符串">1.1.8 字符串</a></li>
+        <li><a href="#119-输入输出">1.1.9 输入输出</a></li>
+        <li><a href="#1110-二分查找">1.1.10 二分查找</a></li>
+        <li><a href="#1111-展望">1.1.11 展望</a></li>
+        <li><a href="#1112-答疑">1.1.12 答疑</a></li>
+      </ul>
+    </li>
+    <li><a href="#12-数据抽象">1.2 数据抽象</a>
+      <ul>
+        <li><a href="#121-使用抽象数据类型">1.2.1 使用抽象数据类型</a></li>
+        <li><a href="#答疑">答疑</a></li>
+      </ul>
+    </li>
+    <li><a href="#13-背包队列和栈">1.3 背包、队列和栈</a>
+      <ul>
+        <li><a href="#131-背包bag">1.3.1 背包（Bag）</a></li>
+        <li><a href="#132-先进先出队列queue">1.3.2 先进先出队列（Queue）</a></li>
+        <li><a href="#133-下压栈stack">1.3.3 下压栈(Stack)</a></li>
+        <li><a href="#134-链表linked-list">1.3.4 链表（Linked list）</a></li>
+      </ul>
+    </li>
+    <li><a href="#14-算法分析">1.4 算法分析</a>
+      <ul>
+        <li><a href="#142-时间复杂度">1.4.2 时间复杂度</a></li>
+        <li><a href="#143--空间复杂度">1.4.3  空间复杂度</a></li>
+        <li><a href="#144--大-o-表示法">1.4.4  大 O 表示法</a></li>
+      </ul>
+    </li>
+    <li><a href="#15-案例研究union-find算法">1.5 案例研究：union-find算法</a>
+      <ul>
+        <li><a href="#151-动态连通性">1.5.1 动态连通性</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>编写一段计算机程序一般都是事先一种已有的方法来解决某个问题。这种方法大多和使用的编程语言无关——它适用于各种计算机以及编程语言。是这种方法而非计算机程序本身描述了解决问题的步骤。在计算机科学领域，我们用算法这个词来描述一种有限、确定、有效的并适合用计算机程序来实现的解决问题的方法。算法是计算机科学的基础，是这个领域研究的核心。</p>
+</blockquote>
+<h1 id="第1章-基础">第1章 基础</h1>
+<h2 id="11-基础编程模型">1.1 基础编程模型</h2>
+<h3 id="111-java程序的基本结构">1.1.1 Java程序的基本结构</h3>
+<blockquote>
+<p>一段Java程序（类）或者一个静态方法（函数）库，或者定义了一个数据类型。要创建静态方法库和定义数据类型，会用到下面其中语法，他们是Java语言的基础，也是大多数现代语言所共有的。</p>
+</blockquote>
+<ul>
+<li>原始数据类型：他们在计算机程序中精确地定义整数、浮点数和布尔值等。他们的定义包括取值范围和能够对相应的值进行的操作，他们能够被组合为类似于数学公式定义的表达式。</li>
+<li>语句：语句通过创建变量并对赋值、控制运行流程或者引发副作用来进行计算。我们会使用六种语句：声明、赋值、条件、循环、调用和返回。</li>
+<li>数组：数组是多个同种数据类型的值的集合。</li>
+<li>静态方法：静态方法可以封装并重用代码，使我们可以用独立的模块开发程序。</li>
+<li>字符串：字符串是一连串的字符，Java内置了对它们的一些操作。</li>
+<li>标准输入/输出：标准输入输出是程序与外界联系的桥梁。</li>
+<li>数据抽象：数据抽象封装和重用代码，使我们可以定义非原始数据类型，进而支持面向对象编程。</li>
+</ul>
+<h3 id="112-原始数据类型与表达式">1.1.2 原始数据类型与表达式</h3>
+<blockquote>
+<p>数据类型就是一组数据和对其所能进行的操作的集合。</p>
+</blockquote>
+<ul>
+<li>
+<p>布尔型，它的值{true，false}及其逻辑操作（boolean）；</p>
+</li>
+<li>
+<p>64位整数，及其算术运算符（long）；</p>
+</li>
+<li>
+<p>32位整数，及其算术运算符（int）；</p>
+</li>
+<li>
+<p>16位整数，及其算术运算符（short）；</p>
+</li>
+<li>
+<p>16位字符，及其算术运算符（char）；</p>
+</li>
+<li>
+<p>8位整数，及其运算符（byte）；</p>
+</li>
+<li>
+<p>64位双精度实数，及其算术运算符（double）；</p>
+</li>
+<li>
+<p>32位单精度实数，及其算术运算符（float）；</p>
+</li>
+</ul>
+<h3 id="113-语句">1.1.3 语句</h3>
+<blockquote>
+<p>Java程序是由语句组成的。语句能够通过创建和操作变量、对变量赋值并控制这些操作的执行流程来描述运算。语句通常会被组织成代码段。</p>
+</blockquote>
+<ul>
+<li>声明语句：创建某种类型的变量并用标识符为其命名；</li>
+<li>赋值语句：将（有表达式产生的）某种类型的数值赋予一个变量。Java还有一些隐式赋值的语法可以使得某个变量的值对于当前值发生变化。</li>
+<li>条件语句：能够简单地改变执行流程——根据指定的条件执行两个代码段之一。</li>
+<li>循环语句：更彻底地改变执行流程——只要条件为真就不断反复执行代码段中的语句。</li>
+<li>调用和返回语句：和静态方法有关，是改变执行流程和代码组织的另一种方式。</li>
+</ul>
+<h3 id="114-简便记法">1.1.4 简便记法</h3>
+<blockquote>
+<p>程序有很多种写法，我们追求清晰、优雅和高效的代码。经常会使用以下这些广为流传的简便写法</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>语句</th>
+<th>示例</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>声明语句</td>
+<td>int i; <!-- raw HTML omitted -->double c;</td>
+<td>创建一个指定类型的变量并用标识符命名</td>
+</tr>
+<tr>
+<td>赋值语句</td>
+<td>a = b + 3; <!-- raw HTML omitted -->discriminant = b * b - 4.0 * c</td>
+<td>将某个数据类型的值赋予一个变量</td>
+</tr>
+<tr>
+<td>声明并初始化</td>
+<td>int i = 1;<!-- raw HTML omitted -->double c = 3.141592653;</td>
+<td>在声明时赋予变量的初始值</td>
+</tr>
+<tr>
+<td>隐式赋值</td>
+<td>++i;<!-- raw HTML omitted -->i += 1;</td>
+<td>i = i + 1</td>
+</tr>
+<tr>
+<td>条件语句（if)</td>
+<td>if(i &gt; 0) {}<!-- raw HTML omitted -->else if (i = 0){}<!-- raw HTML omitted -->else {}</td>
+<td>根据布尔表达式的值，控制执行的语句</td>
+</tr>
+<tr>
+<td>循环语句（while）</td>
+<td>while(true){}</td>
+<td>执行语句，知道布尔表达式的值变为false</td>
+</tr>
+<tr>
+<td>循环语句（for、foreach)</td>
+<td>for (i = 0; i &lt;= a.length; i++);<!-- raw HTML omitted -->for (Integer i : list);</td>
+<td>while语句的简化版</td>
+</tr>
+<tr>
+<td>选择语句（switch）</td>
+<td>switch-case-break</td>
+<td>根据某个表达式的结果，分别去执行不同的分支</td>
+</tr>
+<tr>
+<td>调用语句</td>
+<td>int key  = keys[0]</td>
+<td>调用另一个方法</td>
+</tr>
+<tr>
+<td>返回语句</td>
+<td>return false;</td>
+<td>从方法中返回</td>
+</tr>
+<tr>
+<td>break语句</td>
+<td>while语句中使用</td>
+<td>立即从循环中退出</td>
+</tr>
+<tr>
+<td>continue语句</td>
+<td>while语句中使用</td>
+<td>立即开始下一轮循环</td>
+</tr>
+</tbody>
+</table>
+<h3 id="115-数组">1.1.5 数组</h3>
+<blockquote>
+<p>数组能够顺序存储相同类型的多个数据。除了存储数据，我们也希望能够访问数据。访问数组中的某个元素的方法是将其编号然后索引。</p>
+</blockquote>
+<p>创建一个数组的三种方式：</p>
+<ul>
+<li>
+<p>完整模式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">double</span><span class="o">[]</span> <span class="n">a</span><span class="o">;</span>
+<span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="o">[</span><span class="n">N</span><span class="o">];</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">0</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>简化模式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">double</span><span class="o">[]</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="o">[</span><span class="n">N</span><span class="o">];</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>声明初始化：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span> <span class="o">=</span> <span class="o">{</span><span class="n">1</span><span class="o">,</span> <span class="n">1</span><span class="o">,</span> <span class="n">2</span><span class="o">,</span> <span class="n">3</span><span class="o">,</span> <span class="n">5</span><span class="o">,</span> <span class="n">8</span><span class="o">};</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p>典型的数组处理代码：</p>
+<ol>
+<li>
+<p>找出数组中最大的元素：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">double</span> <span class="n">max</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">0</span><span class="o">];</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">max</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">max</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>计算数组元素的平均值：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+<span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">0</span><span class="o">;</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="n">sum</span> <span class="o">+=</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+<span class="o">}</span>
+<span class="kt">double</span> <span class="n">average</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">/</span> <span class="n">N</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>复制数组：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">;;</span>
+<span class="kt">double</span><span class="o">[]</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="o">[</span><span class="n">N</span><span class="o">];</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="n">b</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+<span class="o">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>颠倒数组元素的顺序</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">/</span><span class="n">2</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="kt">double</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+    <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">N</span><span class="o">-</span><span class="n">1</span><span class="o">-</span><span class="n">i</span><span class="o">];</span>
+    <span class="n">a</span><span class="o">[</span><span class="n">N</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span> 
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>矩阵相乘（方阵）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+<span class="kt">double</span><span class="o">[][]</span> <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="o">[</span><span class="n">N</span><span class="o">][</span><span class="n">N</span><span class="o">];</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="n">i</span> <span class="o">++)</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="n">k</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">c</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">+</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">k</span><span class="o">]</span> <span class="o">*</span> <span class="n">b</span><span class="o">[</span><span class="n">k</span><span class="o">][</span><span class="n">j</span><span class="o">];</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h3 id="116-静态方法">1.1.6 静态方法</h3>
+<blockquote>
+<p>方法封装了有一系列语句所描述的运算。方法需要参数（某种数据类型的值）并根据参数计算出某种数据类型的返回值（例如数学函数的结果）或者产生某种副作用（例如打印出一个值）。</p>
+</blockquote>
+<p>典型的静态方法的实现：</p>
+<ol>
+<li>
+<p>计算一个整数的绝对值：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">abs</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="o">-</span><span class="n">x</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>计算一个浮点数的绝对值：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">abs</span><span class="o">(</span><span class="kt">double</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">0</span><span class="o">.</span><span class="na">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="o">-</span> <span class="n">x</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>判断一个数是否为素数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isPrime</span><span class="o">(</span><span class="kt">int</span> <span class="n">N</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">N</span> <span class="o">&lt;</span> <span class="n">2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+       
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">2</span><span class="o">;</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">N</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>计算平方根（牛顿迭代法）:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">sqrt</span><span class="o">(</span><span class="kt">double</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">&lt;</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">Double</span><span class="o">.</span><span class="na">NaN</span><span class="o">;</span>
+        <span class="kt">double</span> <span class="n">err</span> <span class="o">=</span> <span class="n">1e</span><span class="o">-</span><span class="n">15</span><span class="o">;</span>
+        <span class="kt">double</span> <span class="n">t</span> <span class="o">=</span> <span class="n">c</span><span class="o">;</span>
+           
+        <span class="k">while</span> <span class="o">(</span><span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">c</span><span class="o">/</span><span class="n">t</span><span class="o">)</span> <span class="o">&gt;</span> <span class="n">err</span> <span class="o">*</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="o">(</span><span class="n">c</span><span class="o">/</span><span class="n">t</span> <span class="o">+</span> <span class="n">t</span><span class="o">)</span> <span class="o">/</span> <span class="n">2</span><span class="o">.</span><span class="na">0</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">t</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>计算直角三角形的斜边：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">hypotenuse</span><span class="o">(</span><span class="kt">double</span> <span class="n">a</span><span class="o">,</span> <span class="kt">double</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">a</span><span class="o">*</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>计算调和级数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">H</span><span class="o">(</span><span class="kt">int</span> <span class="n">N</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">0</span><span class="o">;</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="n">sum</span> <span class="o">+=</span> <span class="n">1</span><span class="o">.</span><span class="na">0</span> <span class="o">/</span> <span class="n">i</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">sum</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>递归</p>
+<p>方法可以调用自己。</p>
+<blockquote>
+<p>递归的重要三点：</p>
+<ul>
+<li>递归总有一个最简单的情况——方法的第一条语句总是包含return的条件语句</li>
+<li>递归调用总是去尝试解决一个规模更小的子问题，这样递归才能收敛到最简单的情况。</li>
+<li>递归调用的父问题和尝试解决的子问题之间不应该有交集</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="117-api">1.1.7 API</h3>
+<h3 id="118-字符串">1.1.8 字符串</h3>
+<h3 id="119-输入输出">1.1.9 输入输出</h3>
+<h3 id="1110-二分查找">1.1.10 二分查找</h3>
+<h3 id="1111-展望">1.1.11 展望</h3>
+<h3 id="1112-答疑">1.1.12 答疑</h3>
+<blockquote>
+<p>什么是Java的字节码？</p>
+</blockquote>
+<ul>
+<li>在Java中，JVM可以理解的代码就叫 <code>字节码</code>（即扩展名为 <code>.class</code> 的文件），它不面向任何特定的处理器，只面向虚拟机。Java语言通过字节码的方法，在一定程度上解决了传统解释型语言执行效率低的问题，同事又保留了解释型语言可移植的特定。所以Java程序运行时比较高效，而且，由于字节码并不针对一种特定的及其。因此，Java程序无需重新编译便可以在多种不同操作系统的计算机上运行。</li>
+</ul>
+<blockquote>
+<p>Java允许整型溢出并返回错误值的做法是错误的。难道Java不应该 自动检查溢出吗？</p>
+</blockquote>
+<ul>
+<li>这个问题在程序员中一直是由争议的。简单的回答是它们之所以被称为原始数据类型就是因为缺乏此类检查。避免此类问题并不需要很高深的指数。我们会使用int类型表示较小的数（小于10个十进制位）而使用long表示10亿以上的数。</li>
+</ul>
+<blockquote>
+<p>Math.abs(-2147483648)的返回值是什么？</p>
+</blockquote>
+<ul>
+<li>-2147483648。这个奇怪的结果，就是整数溢出的典型例子。</li>
+</ul>
+<blockquote>
+<p>如何才能将一个double变量初始化为无穷大？</p>
+</blockquote>
+<ul>
+<li>可以使用Java内置的常数: Double.POSITIVE_INFINITY和 Double.NEGATIVE_INFINITY。</li>
+</ul>
+<blockquote>
+<p>能够将double类型的值和int类型的值相互比较吗？</p>
+</blockquote>
+<ul>
+<li>不通过类型转换是不行的，但Java一般会自动进行所需的类型转换。例如，如果x的类型是int且值为3，name表达式（x&lt; 3.1)的值为true——Java会比较前将x转换为double类型。</li>
+</ul>
+<blockquote>
+<p>如果使用一个变量前没有将它初始化。会发生什么？</p>
+</blockquote>
+<ul>
+<li>如果代码中存在任何可能导致使用未经初始化的变量的执行路径。Java都会抛出一个编译异常。</li>
+</ul>
+<blockquote>
+<p>Java表达式 1/0 和 1.0/0.0的值是什么？</p>
+</blockquote>
+<ul>
+<li>第一个表达式会阐释一个运行时除以零异常（它会终止程序。因为这个值是未定义的）；第二个表达式的值是Infinity（无穷大）。</li>
+</ul>
+<blockquote>
+<p>能够使用&lt; 和 &gt; 比较String变量吗？</p>
+</blockquote>
+<ul>
+<li>不行，只有原始数据类型定义了这些运算符。</li>
+</ul>
+<blockquote>
+<p>负数的除法和余数的结果是什么？</p>
+</blockquote>
+<ul>
+<li>表达式a/b的商会向0取整，a%b的余数的定义是（a/b)*b + a %b 恒等于a。例如-14/3 和14/ -3的商都是 -4，但-14 % 3是-2， 而14 % -3 是2。</li>
+</ul>
+<blockquote>
+<p>一个for循环和他的while 形式有什么区别?</p>
+</blockquote>
+<ul>
+<li>for 循环头部的代码和for循环的主体代码在同一代码段之中。在一个典型的for循环中，递增变量一般在循环结束之后都是不可用的；但在和它等价的while循环中，递增变量在循环结束之后仍然可以使用。这个区别常常是使用while而非for循环的主要原因。</li>
+</ul>
+<blockquote>
+<p>有些Java程序用int a[] 而非是 int[] a来声明一个数组。这两者有什么区别？</p>
+</blockquote>
+<ul>
+<li>在Java程序中两者是等价的。前一种是C语言中数组的声明方式。后再是Java提倡的方式。因为变量的类型int[] 能更清楚地说明这是一个整型的数组。</li>
+</ul>
+<blockquote>
+<p>为什么数组的起始索引是0 而非 1？</p>
+</blockquote>
+<ul>
+<li>这个习惯来源于机器语言，那时要计算一个数组元素的地址，需要将数组的起始地址，加上该元素索引。将起始索引设为1要么会浪费数组的第一个元素的空间，要么会花费额外的时间来讲索引减1.</li>
+</ul>
+<h2 id="12-数据抽象">1.2 数据抽象</h2>
+<blockquote>
+<p>抽象数据类型（ADT Abstract Data Type）是一种能够对使用者隐藏数据表示的数据类型。用Java类来实现抽象数据类和用一组静态方法实现一个函数库并没有什么不同。抽象数据类型的主要不同之处在于它将数据和函数的实现关联，并将数据的表示方式隐藏起来。在使用抽象数据类型时，我们的注意力集中在API描述的操作上而不会去关心数据的表示；在实现抽象数据类型时，我们的注意力集中在数据本身并将实现对数据的各种操作。</p>
+</blockquote>
+<h3 id="121-使用抽象数据类型">1.2.1 使用抽象数据类型</h3>
+<p>抽象数据类型的定义和静态方法库之间有许多共同之处：</p>
+<ul>
+<li>
+<p>两者的实现均为Java类；</p>
+</li>
+<li>
+<p>实例方法可能接受0个或多个指定类型的参数，由括号表示并由都好隔开；</p>
+</li>
+<li>
+<p>它们可能会返回一个指定类型的值，也可能不会（用void表示）；</p>
+</li>
+</ul>
+<p>不同之处：</p>
+<ul>
+<li>API中可能出现若干个名称和类名相同且没有返回值的函数。这些特俗的函数被称为构造函数。</li>
+<li>实例方法不需要static关键字。他们不是静态方法——他们的目的就是操作该数据类型中的值；</li>
+<li>某些实例方法的存在是为了尊重Java的习惯——我们将此类方法称为继承的方法而非API中将他们显示为灰色</li>
+</ul>
+<p>本书将要用到的数据类型，可以分为以下几类：</p>
+<ul>
+<li>java.lang.* 中的标准系统抽象数据类型， 可以被任意Java程序调用。</li>
+<li>Java标准库中的抽象数据类型，如java.swt、java.net、java.io，它们也是可以被任意Java程序调用，但需要import语句</li>
+<li>I/O处理类抽象数据类型，和StdIn和StdOut类似，允许我们处理多个输入输出流。</li>
+<li>面向数据类抽象数据类型，它们的主要作用是通过封装数据的表示简化数据的组织和处理。</li>
+<li>集合类抽象数据类型，它们的主要作用是简化对同一类型的一组数据的操作。我们将会在1.3中介绍几本的Bag，Stack和Queue类；依次介绍优先队列（PQ），符号表（ST）和集合（SET）</li>
+<li>面向操作的抽象数据类， 我们用它们分析各种算法</li>
+<li>图算法相关的抽象数据了，它们包括一些用来封装各种图的表示的面向数据的抽象数据类型，和一些提供图的处理算法的面向操作的抽象数据类型。</li>
+</ul>
+<h3 id="答疑">答疑</h3>
+<blockquote>
+<p>为什么要是使用数据抽象？</p>
+</blockquote>
+<ul>
+<li>它能够帮组我们编写可靠而正确的代码。</li>
+</ul>
+<blockquote>
+<p>为很么要区分原始数据类和引用类型？为什么不只用引用类型？</p>
+</blockquote>
+<ul>
+<li>因为性能。Java提供了Ineteger、Double等和原始数据类对应的引用类型，以供洗完忽略这些类型的区别的程序员使用。原始数据类型更接近计算机硬件所支持的数据类型。因此使用它们的程序回比使用引用类型的程序运行得更快。</li>
+</ul>
+<blockquote>
+<p>数据类型必须是抽象的吗？</p>
+</blockquote>
+<ul>
+<li>不。Java也支持public和protected来帮助用例直接访问实例变量。</li>
+</ul>
+<blockquote>
+<p>指针是什么？</p>
+</blockquote>
+<ul>
+<li>有个异常叫NullReferenceException。和Java的引用一样，可以把指针看做及其地址。在许多编程语言中，指针是一种原始数据类型，程序员可以使用各种方法操作它。</li>
+<li>但众所周知，指针的编程非常容易出错，因此需要精心设计指针类的操作可以帮组程序员避免错误。Java将这种观点发挥到了极致（很多主流编程语言的设计者都赞同）。在Java中，创建引用的方法只有一种（new），且改变引用的方法也只有一种（赋值语句）。也就是说，程序员能对引用进行的操作只有创建和赋值。在编程语言的行话里，Java的引用被称为安全指针。因为Java能够保证每个引用都会指向某种类型的对象（而且它能找打无用的对象并将其回收）。习惯于编写直接操作指针的程序员认为Java完全没有指针，但人们仍在为是否真的需要不安全的指针而争论。</li>
+</ul>
+<blockquote>
+<p>Java是如何实现引用和进行垃圾收集的细节？</p>
+</blockquote>
+<ul>
+<li>Java系统的实现各有不同。例如实现引用的一种自然方式是使用指针（机器地址）；而另一种使用的则可能是句柄（指针的指针）。前者访问数据的速度更快，后者则能够更好地实现垃圾回收。</li>
+</ul>
+<blockquote>
+<p>实现继承会有什么问题？</p>
+</blockquote>
+<ul>
+<li>子类继承阻碍模块化编程的两个原因：第一，父类的任何改动都会影响它的所有子类。子类的开发不可能和父类无关。事实上，子类是完全依赖父类的。这种问题成为脆弱的基类问题。第二，子类代码可以访问所有实例的变量，因此他们可能会扭曲父类代码的意图。</li>
+</ul>
+<blockquote>
+<p>什么是空（null）？</p>
+</blockquote>
+<ul>
+<li>它是一个不指向任何对象的字面量。引用null调用一个方法是没有意义的，并且会产生NullPointException。</li>
+</ul>
+<h2 id="13-背包队列和栈">1.3 背包、队列和栈</h2>
+<p>许多基础数据类都和对象的集合有关。具体来说，数据类型的值就是一组对象的集合，所有操作都是关于添加、删除或是访问集合中的对象。本节，主要讲解三种数据类型，背包（Bag）、队列（Queue）和栈（Stack）；</p>
+<h3 id="131-背包bag">1.3.1 背包（Bag）</h3>
+<p>背包是一种不支持从中删除元素的集合数据类型——它的目的就是帮助用例手机元素并迭代里边所有收集到的元素（用例也可以检查背包是否为空或者获取背包中元素的数量）。迭代的顺序不确定且与用例无关。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">cn.qqlin.basic</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">edu.princeton.cs.algs4.Bag</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">edu.princeton.cs.algs4.StdIn</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">edu.princeton.cs.algs4.StdOut</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * 用于计算标准输入中的所有Double值的平均值和样本标准差。
+</span><span class="cm"> * 如果标准输入中有N个数字，那么平均值为它们的和除以N，样本标准差为每个值和平均值的平方和除以N-1之后的平方根
+</span><span class="cm"> *
+</span><span class="cm"> * @author qqlin
+</span><span class="cm"> * @date 2020-7-9 10:56
+</span><span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Stats</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Bag</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bag</span><span class="o">&lt;&gt;();</span>
+
+        <span class="k">while</span> <span class="o">(!</span><span class="n">StdIn</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">numbers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">StdIn</span><span class="o">.</span><span class="na">readDouble</span><span class="o">());</span>
+        <span class="o">}</span>
+        <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">numbers</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+
+        <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">double</span> <span class="n">x</span> <span class="o">:</span> <span class="n">numbers</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">x</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="kt">double</span> <span class="n">mean</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">/</span> <span class="n">N</span><span class="o">;</span>
+
+        <span class="n">sum</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">double</span> <span class="n">x</span> <span class="o">:</span> <span class="n">numbers</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="o">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mean</span><span class="o">)</span> <span class="o">*</span> <span class="o">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mean</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="kt">double</span> <span class="n">std</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">sum</span> <span class="o">/</span> <span class="o">(</span><span class="n">N</span> <span class="o">-</span> <span class="n">1</span><span class="o">));</span>
+
+        <span class="n">StdOut</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&#34;Mean: %.2f\n&#34;</span><span class="o">,</span> <span class="n">mean</span><span class="o">);</span>
+        <span class="n">StdOut</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&#34;Std dev: %.2f\n&#34;</span><span class="o">,</span> <span class="n">std</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="132-先进先出队列queue">1.3.2 先进先出队列（Queue）</h3>
+<p>先进先出队列（或者简称队列）是一种基于先进先出（FIFO）策略的集合类型。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">readInts</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">In</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">In</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+    <span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">q</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="o">&lt;&gt;();</span>
+    <span class="k">while</span> <span class="o">(!</span><span class="n">in</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+        <span class="n">q</span><span class="o">.</span><span class="na">enqueue</span><span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readInt</span><span class="o">());</span>
+    <span class="o">}</span>
+    
+    <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+    <span class="kt">int</span><span class="o">[]</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Int</span><span class="o">[</span><span class="n">N</span><span class="o">];</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="na">dequeue</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="133-下压栈stack">1.3.3 下压栈(Stack)</h3>
+<p>下压栈（或简称栈）是一种基于后进先出（LIFO）策略的集合类型。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Reverse</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;&gt;();</span>
+        <span class="k">while</span> <span class="o">(!</span><span class="n">StdIn</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">StdIn</span><span class="o">.</span><span class="na">readInt</span><span class="o">());</span>
+        <span class="o">}</span>
+        
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">:</span> <span class="n">stack</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">StdOut</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>双栈算术表达式求值算法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">cn.qqlin.basic</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Iterator</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * @author qqlin
+</span><span class="cm"> * @date 2020-7-9 14:56
+</span><span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ResizingArrayStack</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Iterable</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 栈元素
+</span><span class="cm">     */</span>
+    <span class="kd">private</span> <span class="n">Item</span><span class="o">[]</span> <span class="n">a</span> <span class="o">=</span> <span class="o">(</span><span class="n">Item</span><span class="o">[])</span> <span class="k">new</span> <span class="n">Object</span><span class="o">[</span><span class="n">1</span><span class="o">];</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 元素数量
+</span><span class="cm">     */</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">N</span> <span class="o">==</span> <span class="n">0</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">size</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">N</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 将栈移动到一个大小为max的新数组
+</span><span class="cm">     *
+</span><span class="cm">     * @param max
+</span><span class="cm">     */</span>
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">resize</span><span class="o">(</span><span class="kt">int</span> <span class="n">max</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Item</span><span class="o">[]</span> <span class="n">temp</span> <span class="o">=</span> <span class="o">(</span><span class="n">Item</span><span class="o">[])</span> <span class="k">new</span> <span class="n">Object</span><span class="o">[</span><span class="n">max</span><span class="o">];</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">temp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+        <span class="o">}</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 将元素添加到栈顶
+</span><span class="cm">     *
+</span><span class="cm">     * @param item
+</span><span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">push</span><span class="o">(</span><span class="n">Item</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">N</span> <span class="o">==</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">resize</span><span class="o">(</span><span class="n">2</span> <span class="o">*</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">a</span><span class="o">[</span><span class="n">N</span><span class="o">++]</span> <span class="o">=</span> <span class="n">item</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">Item</span> <span class="nf">pop</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// 从栈顶删除元素
+</span><span class="c1"></span>        <span class="n">Item</span> <span class="n">item</span> <span class="o">=</span> <span class="n">a</span><span class="o">[--</span><span class="n">N</span><span class="o">];</span>
+        <span class="n">a</span><span class="o">[</span><span class="n">N</span><span class="o">]</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span> <span class="c1">// 避免对象游离
+</span><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="n">N</span> <span class="o">&gt;</span> <span class="n">0</span> <span class="o">&amp;&amp;</span> <span class="n">N</span> <span class="o">==</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span> <span class="o">/</span> <span class="n">4</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">resize</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">length</span> <span class="o">/</span> <span class="n">2</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">item</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">ReverseArrayIterator</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">ReverseArrayIterator</span> <span class="kd">implements</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span> <span class="o">{</span>
+        <span class="c1">// 支持后进先出的迭代
+</span><span class="c1"></span>        <span class="kd">private</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">N</span><span class="o">;</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasNext</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">0</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">Item</span> <span class="nf">next</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">a</span><span class="o">[--</span><span class="n">i</span><span class="o">];</span>
+        <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">remove</span><span class="o">()</span> <span class="o">{</span>
+
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="134-链表linked-list">1.3.4 链表（Linked list）</h3>
+<blockquote>
+<p>定义：链表是一种递归的数据结构，它或者为空（null），或者是指向一个结点（node）的引用，该结点含有一个泛型的元素和一个指向另一个链表的引用。</p>
+</blockquote>
+<h4 id="1341-结点记录node">1.3.4.1 结点记录（Node）</h4>
+<p>首先需要一个嵌套类来定义结点的抽象数据类型；</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
+    <span class="n">Item</span> <span class="n">item</span><span class="o">;</span>
+    <span class="n">Node</span> <span class="n">next</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>一个Node对象含有两个实例变量，类型分别是Item（参数类型）和Node。</p>
+<p>通过new Node（）触发（无参数的）构造函数来创建一个Node类型的对象。调用结果是一个指向某个Node对象的引用，它的实例变量均被初始化为null。Item是一个占位符，表示我们希望用链表处理的任意数据类型。</p>
+<p>Node类型的实例变量显示了这种数据结构的链式本质。为了强调我们在组织数据时只使用了Node类，我们没有定义任何方法且会在代码中直接引用实例变量：如果first是一个指向某个Node对象的变量，我们可以使用first.item和first.next访问它的实例变量。这种类型有时候也称为记录。</p>
+<h4 id="1342-构造链表">1.3.4.2 构造链表</h4>
+<p>根据递归定义，我们只需要一个Node类型的变量就能表示一条链表，只要保证它的值是null或者指向另一个Node对象且该对象的next域指向另一个链表即可。例如，我们要构造一条含有元素to、be和or的链表，我们首先为每一个元素创造一个结点：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Node</span> <span class="n">first</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="o">();</span>
+<span class="n">Node</span> <span class="n">second</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="o">();</span>
+<span class="n">Node</span> <span class="n">third</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="o">();</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>并将每个结点的item域设为所需的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">first</span><span class="o">.</span><span class="na">item</span> <span class="o">=</span> <span class="s">&#34;to&#34;</span><span class="o">;</span>
+<span class="n">second</span><span class="o">.</span><span class="na">item</span> <span class="o">=</span> <span class="s">&#34;be&#34;</span><span class="o">;</span>
+<span class="n">third</span><span class="o">.</span><span class="na">item</span> <span class="o">=</span> <span class="s">&#34;or&#34;</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>然后设置next域来构造链表：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">first</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">second</span><span class="o">;</span>
+<span class="n">second</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">third</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>注意：third.next仍然为null，即对象创建时它被初始化的值。</p>
+<h4 id="1343-在表头插入结点">1.3.4.3 在表头插入结点</h4>
+<p>在首结点为first的给定链表开头插入字符串not，我们先将first保存在oldfirst中，然后将一个新结点赋予first，并将它的item域设为not，next域设为oldfirst。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// 保存指向链表的链接
+</span><span class="c1"></span><span class="n">Node</span> <span class="n">oldFirt</span> <span class="o">=</span> <span class="n">first</span><span class="o">;</span>
+
+<span class="c1">// 创建新的首结点
+</span><span class="c1"></span><span class="n">first</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="o">();</span>
+
+<span class="c1">// 设置新结点中的实例变量
+</span><span class="c1"></span><span class="n">first</span><span class="o">.</span><span class="na">item</span> <span class="o">=</span> <span class="s">&#34;not&#34;</span><span class="o">;</span>
+<span class="n">first</span><span class="o">.</span><span class="na">item</span> <span class="o">=</span> <span class="n">oldFirst</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="1344-从表头删除结点">1.3.4.4 从表头删除结点</h4>
+<p>只需要将first指向first.next即可。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">first</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="1345-在表尾插入结点">1.3.4.5 在表尾插入结点</h4>
+<p>需要一个指向链表最后一个结点的链接，因为该结点的链接必须被修改并指向一个含有新元素的新结点。我们不能再链表代码中草率地决定维护一个额外的链接，因为每个修改链表的操作都需要添加检查是否需要修改该变量（以及作出相应修改）的代码。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// 保存指向尾结点的链接
+</span><span class="c1"></span><span class="n">Node</span> <span class="n">oldlast</span> <span class="o">=</span> <span class="n">last</span><span class="o">;</span>
+
+<span class="c1">// 创建新的尾结点
+</span><span class="c1"></span><span class="n">last</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="o">();</span>
+<span class="n">last</span><span class="o">.</span><span class="na">item</span> <span class="o">=</span> <span class="s">&#34;not&#34;</span><span class="o">;</span>
+
+<span class="c1">// 将尾链接指向新结点
+</span><span class="c1"></span><span class="n">oldelast</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">last</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="1346-其他位置的插入和删除操作">1.3.4.6 其他位置的插入和删除操作</h4>
+<ul>
+<li>
+<p>删除指定的结点；</p>
+</li>
+<li>
+<p>在指定结点前插入一个新的结点</p>
+</li>
+</ul>
+<p>实现任意插入和删除操作的标准解决方案是使用双向链表，其中每个结点都含有两个链接，分别指向不同的方向。</p>
+<h4 id="1347-遍历">1.3.4.7 遍历</h4>
+<p>访问一个数组中的所有元素，我们可以使用以下代码实现遍历a[] 中的所有元素：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="c1">// 处理
+</span><span class="c1"></span>    <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>访问一个链表中的所有元素，我们可以使用以下代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">for</span> <span class="o">(</span><span class="n">Node</span> <span class="n">x</span> <span class="o">=</span> <span class="n">first</span><span class="o">;</span> <span class="n">x</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="na">next</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// 处理
+</span><span class="c1"></span>    <span class="n">x</span><span class="o">.</span><span class="na">item</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="1348-栈的实现">1.3.4.8 栈的实现</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">cn.qqlin.algs</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">edu.princeton.cs.algs4.StdIn</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">edu.princeton.cs.algs4.StdOut</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Iterator</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * 下压堆栈（链表实现）
+</span><span class="cm"> *
+</span><span class="cm"> * @author qqlin
+</span><span class="cm"> * @date 2020-7-9 19:33
+</span><span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Stack</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Iterable</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 栈顶（最近添加的元素）
+</span><span class="cm">     */</span>
+    <span class="kd">private</span> <span class="n">Node</span> <span class="n">first</span><span class="o">;</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 元素数量
+</span><span class="cm">     */</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">N</span><span class="o">;</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 定义Node结点
+</span><span class="cm">     */</span>
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
+        <span class="n">Item</span> <span class="n">item</span><span class="o">;</span>
+        <span class="n">Node</span> <span class="n">next</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">first</span> <span class="o">==</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">size</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">N</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">push</span><span class="o">(</span><span class="n">Item</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Node</span> <span class="n">oldFirst</span> <span class="o">=</span> <span class="n">first</span><span class="o">;</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="o">();</span>
+        <span class="n">first</span><span class="o">.</span><span class="na">item</span> <span class="o">=</span> <span class="n">item</span><span class="o">;</span>
+        <span class="n">first</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">oldFirst</span><span class="o">;</span>
+        <span class="n">N</span><span class="o">++;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">Item</span> <span class="nf">pop</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">Item</span> <span class="n">item</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="na">item</span><span class="o">;</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="n">N</span><span class="o">--;</span>
+        <span class="k">return</span> <span class="n">item</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">ListIterator</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">ListIterator</span> <span class="kd">implements</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span> <span class="o">{</span>
+
+        <span class="kd">private</span> <span class="n">Node</span> <span class="n">current</span> <span class="o">=</span> <span class="n">first</span><span class="o">;</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasNext</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">current</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">Item</span> <span class="nf">next</span><span class="o">()</span> <span class="o">{</span>
+            <span class="n">Item</span> <span class="n">item</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="na">item</span><span class="o">;</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+            <span class="k">return</span> <span class="n">item</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">remove</span><span class="o">()</span> <span class="o">{</span>
+
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 创建一个栈并根据StdIn中的指示压入或弹出字符串
+</span><span class="cm">     *
+</span><span class="cm">     * @param args
+</span><span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Stack</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;&gt;();</span>
+
+        <span class="k">while</span> <span class="o">(!</span><span class="n">StdIn</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">String</span> <span class="n">item</span> <span class="o">=</span> <span class="n">StdIn</span><span class="o">.</span><span class="na">readString</span><span class="o">();</span>
+            <span class="k">if</span> <span class="o">(!</span><span class="n">item</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&#34;-&#34;</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(!</span><span class="n">s</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">StdOut</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">pop</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34; &#34;</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="n">StdOut</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;(&#34;</span> <span class="o">+</span> <span class="n">s</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34; left on stack)&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="1339-队列的实现">1.3.3.9 队列的实现</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">cn.qqlin.algs</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">edu.princeton.cs.algs4.StdIn</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">edu.princeton.cs.algs4.StdOut</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Iterator</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * 先进先出队列
+</span><span class="cm"> *
+</span><span class="cm"> * @author qqlin
+</span><span class="cm"> * @date 2020-7-9 20:00
+</span><span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Queue</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Iterable</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 指向最早添加的结点的链接
+</span><span class="cm">     */</span>
+    <span class="kd">private</span> <span class="n">Node</span> <span class="n">first</span><span class="o">;</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 指向最近添加的结点的链接
+</span><span class="cm">     */</span>
+    <span class="kd">private</span> <span class="n">Node</span> <span class="n">last</span><span class="o">;</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 对列中的元素数量
+</span><span class="cm">     */</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">N</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
+        <span class="n">Item</span> <span class="n">item</span><span class="o">;</span>
+        <span class="n">Node</span> <span class="n">next</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">first</span> <span class="o">==</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">size</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">N</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 向表尾添加元素
+</span><span class="cm">     *
+</span><span class="cm">     * @param item
+</span><span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">enqueue</span><span class="o">(</span><span class="n">Item</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Node</span> <span class="n">oldLast</span> <span class="o">=</span> <span class="n">last</span><span class="o">;</span>
+        <span class="n">last</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="o">();</span>
+        <span class="n">last</span><span class="o">.</span><span class="na">item</span> <span class="o">=</span> <span class="n">item</span><span class="o">;</span>
+        <span class="n">last</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">first</span> <span class="o">=</span> <span class="n">last</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">oldLast</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">last</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="n">N</span><span class="o">++;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 从表头删除元素
+</span><span class="cm">     *
+</span><span class="cm">     * @return
+</span><span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">Item</span> <span class="nf">dequeue</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">Item</span> <span class="n">item</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="na">item</span><span class="o">;</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">last</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="n">N</span><span class="o">--;</span>
+        <span class="k">return</span> <span class="n">item</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">ListIterator</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">ListIterator</span> <span class="kd">implements</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span> <span class="o">{</span>
+
+        <span class="kd">private</span> <span class="n">Node</span> <span class="n">current</span> <span class="o">=</span> <span class="n">first</span><span class="o">;</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasNext</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">current</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">Item</span> <span class="nf">next</span><span class="o">()</span> <span class="o">{</span>
+            <span class="n">Item</span> <span class="n">item</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="na">item</span><span class="o">;</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+            <span class="k">return</span> <span class="n">item</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">remove</span><span class="o">()</span> <span class="o">{</span>
+
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 创建一个对列并操作字符串入列或出列
+</span><span class="cm">     *
+</span><span class="cm">     * @param args
+</span><span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Queue</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">q</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="o">&lt;&gt;();</span>
+
+        <span class="k">while</span> <span class="o">(!</span><span class="n">StdIn</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">String</span> <span class="n">item</span> <span class="o">=</span> <span class="n">StdIn</span><span class="o">.</span><span class="na">readString</span><span class="o">();</span>
+            <span class="k">if</span> <span class="o">(!</span><span class="n">item</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&#34;-&#34;</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">q</span><span class="o">.</span><span class="na">enqueue</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(!</span><span class="n">q</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">StdOut</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">q</span><span class="o">.</span><span class="na">dequeue</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34; &#34;</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="n">StdOut</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;(&#34;</span> <span class="o">+</span> <span class="n">q</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34; left on queue)&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="14-算法分析">1.4 算法分析</h2>
+<p>随着使用计算机的经验的增长，人民在使用计算机解决困难问题或是处理大量数据时不可避免的将会产生这样的疑问：</p>
+<ul>
+<li>我的程序会运行多长时间</li>
+<li>我的程序运行占据多大内存</li>
+</ul>
+<h3 id="142-时间复杂度">1.4.2 时间复杂度</h3>
+<p>算法的时间复杂度是指算法需要消耗的时间资源。</p>
+<p>一般来说，计算机算法是问题规模n 的函数f(n)，算法的时间复杂度也因此记做：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">T(n) = O(f(n))
+</code></pre></td></tr></table>
+</div>
+</div><p>算法执行时间的增长率与f(n) 的增长率正相关，称作渐近时间复杂度（Asymptotic Time Complexity），简称时间复杂度。</p>
+<h3 id="143--空间复杂度">1.4.3  空间复杂度</h3>
+<p>算法的空间复杂度是指算法需要消耗的空间资源。</p>
+<p>其计算和表示方法与时间复杂度类似，一般都用复杂度的渐近性来表示。</p>
+<p>同时间复杂度相比，空间复杂度的分析要简单得多。</p>
+<h3 id="144--大-o-表示法">1.4.4  大 O 表示法</h3>
+<ul>
+<li>什么是大 O 表示法？
+我们常常会听到有人说，“这个算法在最糟情况下的运行时间是 O(n^2) 而且占用了 O(n) 大小的空间”，他的意思是这个算法有点慢，不过没占多大空间。
+这里的 <code>O(n^2)</code> 和 <code>O(n)</code> 就是我们通常用来描述算法复杂度的大 O 表示法。
+大 O 表示法能让你对一个算法的<strong>运行时间</strong>和<strong>占用空间</strong>有个大概概念。</li>
+<li>大 O 表示法怎么看？怎么用？
+假设一个算法的时间复杂度是 O(n)，n 在这里代表的意思就是数据的个数。举个例子，如果你的代码用一个循环遍历 100 个元素，那么这个算法就是 O(n)，n 为 100，所以这里的算法在执行时就要做 100 次工作。</li>
+<li>大O符号是关于一个算法的最坏情况的。比如说，你要从一个大小为 100 的数组（数组中存的都是数字）中找出一个数值等于 10 的元素，我们可以从头到尾扫描一遍，这个复杂度就是 O(n)，这里 n 等于 100，实际上呢，有可能第 1 次就找到了，也有可能是第 100 次才找到，但是大 O 表示法考虑的是最坏的情况，也就是一个算法理论上要执行多久才能覆盖所有的情况。</li>
+<li>常见的时间复杂度有：
+常数阶O(1)，对数阶O(log2n)，线性阶O(n)，线性对数阶O(nlog2n)，平方阶O(n2)，立方阶O(n3)，&hellip;， k次方阶O(nk)，指数阶O(2n)。随着问题规模n的不断增大，上述时间复杂度不断增大，算法的执行效率越低。</li>
+<li>说明：
+<ul>
+<li>大部分情况下你用直觉就可以知道一个算法的大 O 表示法</li>
+<li>大 O 表示法只是一种估算，当数据量大的时候才有用</li>
+<li>这种东西仅仅在比较两种算法哪种更好的时候才有点用。但归根结底，你还是要实际测试之后才能得出结论。而且如果数据量相对较小，哪怕算法比较慢，在实际使用也不会造成太大的问题。</li>
+</ul>
+</li>
+</ul>
+<p>要知道一个算法的大 O 表示法通常要通过数学分析。在这里我们不会涉及具体的数学，不过知道不同的值意味着什么会很有用。所以这里有一张方便的表。<strong>n</strong> 在这里代表的意思是数据的个数。举个例子，当对一个有 100 个元素的数组进行排序时，<strong>n = 100</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>Big-O</th>
+<th>名字</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>O(1)</strong></td>
+<td>常数级</td>
+<td><strong>最好的</strong>。不论输入数据量有多大，这个算法的运行时间总是一样的。例子: 基于索引取出数组中对应的元素。</td>
+</tr>
+<tr>
+<td><strong>O(log n)</strong></td>
+<td>对数级</td>
+<td><strong>相当好</strong>。这种算法每次循环时会把需要处理的数据量减半。如果你有 100 个元素，则只需要七步就可以找到答案。1000 个元素只要十步。100,0000 元素只要二十步。即便数据量很大这种算法也非常快。例子：二分查找。</td>
+</tr>
+<tr>
+<td><strong>O(n)</strong></td>
+<td>线性级</td>
+<td><strong>还不错</strong>。如果你有 100 个元素，这种算法就要做 100 次工作。数据量翻倍那么运行时间也翻倍。例子：线性查找。</td>
+</tr>
+<tr>
+<td><strong>O(n log n)</strong></td>
+<td>线性对数级</td>
+<td><strong>还可以</strong>。比线性级差了一些，不过也没那么差劲。例子：最快的通用排序算法。</td>
+</tr>
+<tr>
+<td><strong>O(n^2)</strong></td>
+<td>二次方级</td>
+<td><strong>有点慢</strong>。如果你有 100 个元素，这种算法需要做 100^2 = 10000 次工作。数据量 x 2 会导致运行时间 x 4 (因为 2 的 2 次方等于 4)。例子：循环套循环的算法，比如插入排序。</td>
+</tr>
+<tr>
+<td><strong>O(n^3)</strong></td>
+<td>三次方级</td>
+<td><strong>特别慢</strong>。如果你有 100 个元素，那么这种算法就要做 100^3 = 100,0000 次工作。数据量 x 2 会导致运行时间 x 8。例子：矩阵乘法。</td>
+</tr>
+<tr>
+<td><strong>O(2^n)</strong></td>
+<td>指数级</td>
+<td><strong>超级慢</strong>。这种算法你要想方设法避免，但有时候你就是没得选。加一点点数据就会把运行时间成倍的加长。例子：旅行商问题。</td>
+</tr>
+<tr>
+<td><strong>O(n!)</strong></td>
+<td>阶乘级</td>
+<td><strong>比蜗牛还慢</strong>！不管干什么都要跑个 N 年才能得到结果。</td>
+</tr>
+</tbody>
+</table>
+<p>大部分情况下你用直觉就可以知道一个算法的大 O 表示法。比如说，如果你的代码用一个循环遍历你输入的每个元素，那么这个算法就是 <strong>O(n)</strong>。如果是循环套循环，那就是 <strong>O(n^2)</strong>。如果 3 个循环套在一起就是 <strong>O(n^3)</strong>，以此类推。</p>
+<p>注意，大 O 表示法只是一种估算，当数据量大的时候才有用。举个例子，[插入排序](Insertion Sort/)的最糟情况运行时间是 <strong>O(n^2)</strong>。 理论上来说它的运行时间比[归并排序](Merge Sort/)要慢一些。归并排序是 <strong>O(n log n)</strong>。但对于小数据量，插入排序实际上更快一些，特别是那些已经有一部分数据是排序好的数组。</p>
+<h2 id="15-案例研究union-find算法">1.5 案例研究：union-find算法</h2>
+<p>研究目的：</p>
+<ul>
+<li>优秀的算法因为能够解决实际问题而变得更为重要；</li>
+<li>高效算法的代码也可以很简单；</li>
+<li>理解某个实现的性能特点是一项有趣而令人满足的挑战；</li>
+<li>在解决同一个问题的多种算法之间进行选择时，科学方法是一种重要的工具；</li>
+<li>迭代式改进能够让算法的效率越来越高</li>
+</ul>
+<h3 id="151-动态连通性">1.5.1 动态连通性</h3>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E9%87%91%E8%9E%8D%E5%B8%82%E5%9C%BA%E7%9F%A5%E8%AF%86/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">金融市场知识</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/17.springcloud/">
+            <span class="next-text nav-default">基于springcloud框架的项目</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:492332435@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/daniel1n" class="iconfont icon-github" title="github"></a>
+  <a href="https://daniel1n.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Daniel1n</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

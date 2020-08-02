@@ -6,10 +6,28 @@
     <description>Recent content in Posts on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 16 Jun 2020 22:33:59 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jul 2020 13:49:44 +0800</lastBuildDate>
     
 	<atom:link href="https://daniel1n.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>金融市场知识</title>
+      <link>https://daniel1n.github.io/post/%E9%87%91%E8%9E%8D%E5%B8%82%E5%9C%BA%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Thu, 30 Jul 2020 13:49:44 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/%E9%87%91%E8%9E%8D%E5%B8%82%E5%9C%BA%E7%9F%A5%E8%AF%86/</guid>
+      <description>本文介绍金融市场的基本知识，涵盖《证券从业资格考试》的部分内容 第一章 金融市场体系 1.1 金融市场概述 1.1.1 金融市场概念 与产品市场不同，金融市场是要素市</description>
+    </item>
+    
+    <item>
+      <title>算法（第四版）</title>
+      <link>https://daniel1n.github.io/post/algs4/</link>
+      <pubDate>Mon, 22 Jun 2020 14:18:52 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/algs4/</guid>
+      <description>编写一段计算机程序一般都是事先一种已有的方法来解决某个问题。这种方法大多和使用的编程语言无关——它适用于各种计算机以及编程语言。是这种方法而</description>
+    </item>
     
     <item>
       <title>基于springcloud框架的项目</title>
@@ -148,10 +166,10 @@
     
     <item>
       <title>Java 的核心技术</title>
-      <link>https://daniel1n.github.io/post/0.java/</link>
+      <link>https://daniel1n.github.io/post/java/</link>
       <pubDate>Mon, 04 May 2020 22:32:33 +0800</pubDate>
       
-      <guid>https://daniel1n.github.io/post/0.java/</guid>
+      <guid>https://daniel1n.github.io/post/java/</guid>
       <description>第一章 Java程序设计概述 1.1 Java “白皮书”的关键术语 简答性 面向对象 分布式 健壮性 安全性 体系结构中立 可移植性 解释性 高性能 多线程 动态性 1.2 Java applet 与 Internet 用户</description>
     </item>
     

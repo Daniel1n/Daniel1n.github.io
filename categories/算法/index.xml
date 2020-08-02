@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>算法 on Daniel1n - Welcome to My Blog</title>
+    <link>https://daniel1n.github.io/categories/%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 算法 on Daniel1n - Welcome to My Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 22 Jun 2020 14:18:52 +0800</lastBuildDate>
+    
+	<atom:link href="https://daniel1n.github.io/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>算法（第四版）</title>
+      <link>https://daniel1n.github.io/post/algs4/</link>
+      <pubDate>Mon, 22 Jun 2020 14:18:52 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/algs4/</guid>
+      <description>编写一段计算机程序一般都是事先一种已有的方法来解决某个问题。这种方法大多和使用的编程语言无关——它适用于各种计算机以及编程语言。是这种方法而</description>
+    </item>
+    
+  </channel>
+</rss>
