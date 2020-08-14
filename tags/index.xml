@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 03 Aug 2020 15:58:41 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2020 14:25:48 +0800</lastBuildDate>
     
 	<atom:link href="https://daniel1n.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java</title>
+      <link>https://daniel1n.github.io/tags/java/</link>
+      <pubDate>Fri, 14 Aug 2020 14:25:48 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>枚举</title>
+      <link>https://daniel1n.github.io/tags/%E6%9E%9A%E4%B8%BE/</link>
+      <pubDate>Fri, 14 Aug 2020 14:25:48 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/tags/%E6%9E%9A%E4%B8%BE/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>证券从业</title>
@@ -197,15 +215,6 @@
       <pubDate>Tue, 05 May 2020 20:21:05 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/tags/xml/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Java</title>
-      <link>https://daniel1n.github.io/tags/java/</link>
-      <pubDate>Mon, 04 May 2020 22:32:33 +0800</pubDate>
-      
-      <guid>https://daniel1n.github.io/tags/java/</guid>
       <description></description>
     </item>
     

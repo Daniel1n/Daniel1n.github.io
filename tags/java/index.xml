@@ -6,10 +6,19 @@
     <description>Recent content in Java on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 04 May 2020 22:32:33 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2020 14:25:48 +0800</lastBuildDate>
     
 	<atom:link href="https://daniel1n.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>枚举Enum的基本使用</title>
+      <link>https://daniel1n.github.io/post/20.enum/</link>
+      <pubDate>Fri, 14 Aug 2020 14:25:48 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/20.enum/</guid>
+      <description>什么是 Java 枚举，它们解决了哪些问题以及如何在实践中使用 Java 枚举实现一些设计模式 这篇文章由 JavaGuide 翻译，公众号: JavaGuide,原文地址：https</description>
+    </item>
     
     <item>
       <title>Java 的核心技术</title>

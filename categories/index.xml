@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 03 Aug 2020 15:58:41 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2020 14:25:48 +0800</lastBuildDate>
     
 	<atom:link href="https://daniel1n.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JAVA</title>
+      <link>https://daniel1n.github.io/categories/java/</link>
+      <pubDate>Fri, 14 Aug 2020 14:25:48 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/categories/java/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>金融市场知识</title>

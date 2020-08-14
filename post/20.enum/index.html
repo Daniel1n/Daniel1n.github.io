@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>枚举Enum的基本使用 - Daniel1n - Welcome to My Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Daniel1n" /><meta name="description" content="什么是 Java 枚举，它们解决了哪些问题以及如何在实践中使用 Java 枚举实现一些设计模式 这篇文章由 JavaGuide 翻译，公众号: JavaGuide,原文地址：https" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.2 with theme even" />
+
+
+<link rel="canonical" href="https://daniel1n.github.io/post/20.enum/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="枚举Enum的基本使用" />
+<meta property="og:description" content="什么是 Java 枚举，它们解决了哪些问题以及如何在实践中使用 Java 枚举实现一些设计模式 这篇文章由 JavaGuide 翻译，公众号: JavaGuide,原文地址：https" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://daniel1n.github.io/post/20.enum/" />
+<meta property="article:published_time" content="2020-08-14T14:25:48+08:00" />
+<meta property="article:modified_time" content="2020-08-14T14:25:48+08:00" />
+<meta itemprop="name" content="枚举Enum的基本使用">
+<meta itemprop="description" content="什么是 Java 枚举，它们解决了哪些问题以及如何在实践中使用 Java 枚举实现一些设计模式 这篇文章由 JavaGuide 翻译，公众号: JavaGuide,原文地址：https">
+<meta itemprop="datePublished" content="2020-08-14T14:25:48&#43;08:00" />
+<meta itemprop="dateModified" content="2020-08-14T14:25:48&#43;08:00" />
+<meta itemprop="wordCount" content="3678">
+
+
+
+<meta itemprop="keywords" content="java,枚举," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="枚举Enum的基本使用"/>
+<meta name="twitter:description" content="什么是 Java 枚举，它们解决了哪些问题以及如何在实践中使用 Java 枚举实现一些设计模式 这篇文章由 JavaGuide 翻译，公众号: JavaGuide,原文地址：https"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Daniel1n</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Daniel1n</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">枚举Enum的基本使用</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-08-14 </span>
+        <div class="post-category">
+            <a href="/categories/java/"> JAVA </a>
+            </div>
+          <span class="more-meta"> 3678 words </span>
+          <span class="more-meta"> 8 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#61-enumset">6.1 EnumSet</a></li>
+    <li><a href="#62-enummap">6.2. EnumMap</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#71-单例模式">7.1 单例模式</a></li>
+    <li><a href="#72-策略模式">7.2 策略模式</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>什么是 Java 枚举，它们解决了哪些问题以及如何在实践中使用 Java 枚举实现一些设计模式</p>
+<p>这篇文章由 JavaGuide 翻译，公众号: JavaGuide,原文地址：https://www.baeldung.com/a-guide-to-java-enums 。</p>
+</blockquote>
+<h1 id="1-概述">1 概述</h1>
+<p>什么是 Java 枚举，它们解决了哪些问题以及如何在实践中使用 Java 枚举实现一些设计模式</p>
+<p>enum关键字在 java5 中引入，表示一种特殊类型的类，其总是继承java.lang.Enum类，更多内容可以自行查看其<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Enum.html">官方文档</a>。</p>
+<p>枚举在很多时候会和常量拿来对比，可能因为本身我们大量实际使用枚举的地方就是为了替代常量。那么这种方式由什么优势呢？</p>
+<p><strong>以这种方式定义的常量使代码更具可读性，允许进行编译时检查，预先记录可接受值的列表，并避免由于传入无效值而引起的意外行为。</strong></p>
+<p>下面示例定义一个简单的枚举类型 pizza 订单的状态，共有三种 ORDERED, READY, DELIVERED状态:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">enumDemo</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * @author qqlin
+</span><span class="cm"> * @date 2020-8-14 13:39
+</span><span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">enum</span> <span class="n">PizzaStatus</span> <span class="o">{</span>
+    <span class="n">ORDERED</span><span class="o">,</span>
+    <span class="n">READY</span><span class="o">,</span>
+    <span class="n">DELIVERED</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>简单来说，我们通过上面的代码避免了定义常量，我们将所有和 pizza 订单的状态的常量都统一放到了一个枚举类型里面。</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">enumDemo</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * @author qqlin
+</span><span class="cm"> * @date 2020-8-14 13:40
+</span><span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EnumDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">PizzaStatus</span><span class="o">.</span><span class="na">ORDERED</span><span class="o">.</span><span class="na">name</span><span class="o">());</span><span class="c1">//ORDERED
+</span><span class="c1"></span>		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">PizzaStatus</span><span class="o">.</span><span class="na">ORDERED</span><span class="o">);</span><span class="c1">//ORDERED
+</span><span class="c1"></span>		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">PizzaStatus</span><span class="o">.</span><span class="na">ORDERED</span><span class="o">.</span><span class="na">name</span><span class="o">().</span><span class="na">getClass</span><span class="o">());</span>
+        <span class="c1">//class java.lang.String
+</span><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">PizzaStatus</span><span class="o">.</span><span class="na">ORDERED</span><span class="o">.</span><span class="na">getClass</span><span class="o">());</span>
+        <span class="c1">//class enumDemo.PizzaStatus
+</span><span class="c1"></span>    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="2-自定义枚举方法">2 自定义枚举方法</h1>
+<p>现在我们对枚举是什么以及如何使用它们有了基本的了解，让我们通过在枚举上定义一些额外的API方法，将上一个示例提升到一个新的水平：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">enumDemo</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * @author qqlin
+</span><span class="cm"> * @date 2020-8-14 13:43
+</span><span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Pizza</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">PizzaStatus</span> <span class="n">status</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="n">PizzaStatus</span> <span class="nf">getStatus</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">status</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">enum</span> <span class="n">PizzaStatus</span> <span class="o">{</span>
+        <span class="n">ORDERED</span><span class="o">,</span>
+        <span class="n">READY</span><span class="o">,</span>
+        <span class="n">DELIVERED</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isDeliverable</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">getStatus</span><span class="o">()</span> <span class="o">==</span> <span class="n">PizzaStatus</span><span class="o">.</span><span class="na">READY</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="3-使用--比较枚举类型">3 使用 == 比较枚举类型</h1>
+<p>由于枚举类型确保JVM中仅存在一个常量实例，因此我们可以安全地使用“ ==”运算符比较两个变量，如上例所示；此外，“ ==”运算符可提供编译时和运行时的安全性。</p>
+<p>首先，让我们看一下以下代码段中的运行时安全性，其中“ ==”运算符用于比较状态，并且如果两个值均为null 都不会引发 NullPointerException。相反，如果使用equals方法，将抛出 NullPointerException：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">if</span><span class="o">(</span><span class="n">testPz</span><span class="o">.</span><span class="na">getStatus</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">Pizza</span><span class="o">.</span><span class="na">PizzaStatus</span><span class="o">.</span><span class="na">DELIVERED</span><span class="o">));</span> 
+<span class="k">if</span><span class="o">(</span><span class="n">testPz</span><span class="o">.</span><span class="na">getStatus</span><span class="o">()</span> <span class="o">==</span> <span class="n">Pizza</span><span class="o">.</span><span class="na">PizzaStatus</span><span class="o">.</span><span class="na">DELIVERED</span><span class="o">);</span> 
+</code></pre></td></tr></table>
+</div>
+</div><p>对于编译时安全性，我们看另一个示例，两个不同枚举类型进行比较，使用equal方法比较结果确定为true，因为getStatus方法的枚举值与另一个类型枚举值一致，但逻辑上应该为false。这个问题可以使用==操作符避免。因为编译器会表示类型不兼容错误：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">if</span><span class="o">(</span><span class="n">testPz</span><span class="o">.</span><span class="na">getStatus</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">TestColor</span><span class="o">.</span><span class="na">GREEN</span><span class="o">));</span>
+<span class="k">if</span><span class="o">(</span><span class="n">testPz</span><span class="o">.</span><span class="na">getStatus</span><span class="o">()</span> <span class="o">==</span> <span class="n">TestColor</span><span class="o">.</span><span class="na">GREEN</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="4-在switch语句中使用枚举类型">4 在switch语句中使用枚举类型</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">getDeliveryTimeInDays</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">switch</span> <span class="o">(</span><span class="n">status</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">case</span> <span class="n">ORDERED</span><span class="o">:</span> <span class="k">return</span> <span class="n">5</span><span class="o">;</span>
+        <span class="k">case</span> <span class="n">READY</span><span class="o">:</span> <span class="k">return</span> <span class="n">2</span><span class="o">;</span>
+        <span class="k">case</span> <span class="n">DELIVERED</span><span class="o">:</span> <span class="k">return</span> <span class="n">0</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">0</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="5-枚举类型的属性方法和构造函数">5 枚举类型的属性，方法和构造函数</h1>
+<p>你可以通过在枚举类型中定义属性,方法和构造函数让它变得更加强大。</p>
+<p>下面，让我们扩展上面的示例，实现从比萨的一个阶段到另一个阶段的过渡，并了解如何摆脱之前使用的if语句和switch语句：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Pizza</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="n">PizzaStatus</span> <span class="n">status</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">enum</span> <span class="n">PizzaStatus</span> <span class="o">{</span>
+        <span class="n">ORDERED</span> <span class="o">(</span><span class="n">5</span><span class="o">){</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isOrdered</span><span class="o">()</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">},</span>
+        <span class="n">READY</span> <span class="o">(</span><span class="n">2</span><span class="o">){</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isReady</span><span class="o">()</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">},</span>
+        <span class="n">DELIVERED</span> <span class="o">(</span><span class="n">0</span><span class="o">){</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isDelivered</span><span class="o">()</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">};</span>
+
+        <span class="kd">private</span> <span class="kt">int</span> <span class="n">timeToDelivery</span><span class="o">;</span>
+
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isOrdered</span><span class="o">()</span> <span class="o">{</span><span class="k">return</span> <span class="kc">false</span><span class="o">;}</span>
+
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isReady</span><span class="o">()</span> <span class="o">{</span><span class="k">return</span> <span class="kc">false</span><span class="o">;}</span>
+
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isDelivered</span><span class="o">(){</span><span class="k">return</span> <span class="kc">false</span><span class="o">;}</span>
+
+        <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getTimeToDelivery</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">timeToDelivery</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="n">PizzaStatus</span> <span class="o">(</span><span class="kt">int</span> <span class="n">timeToDelivery</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">timeToDelivery</span> <span class="o">=</span> <span class="n">timeToDelivery</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isDeliverable</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">status</span><span class="o">.</span><span class="na">isReady</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printTimeToDeliver</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Time to delivery is &#34;</span> <span class="o">+</span> 
+          <span class="k">this</span><span class="o">.</span><span class="na">getStatus</span><span class="o">().</span><span class="na">getTimeToDelivery</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Methods that set and get the status variable.
+</span><span class="c1"></span><span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>下面这段代码展示它是如何 work 的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">givenPizaOrder_whenReady_thenDeliverable</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">Pizza</span> <span class="n">testPz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pizza</span><span class="o">();</span>
+    <span class="n">testPz</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">Pizza</span><span class="o">.</span><span class="na">PizzaStatus</span><span class="o">.</span><span class="na">READY</span><span class="o">);</span>
+    <span class="n">assertTrue</span><span class="o">(</span><span class="n">testPz</span><span class="o">.</span><span class="na">isDeliverable</span><span class="o">());</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="6-enumset-and-enummap">6 EnumSet and EnumMap</h1>
+<h2 id="61-enumset">6.1 EnumSet</h2>
+<p><code>EnumSet</code> 是一种专门为枚举类型所设计的 <code>Set</code> 类型。</p>
+<p>与<code>HashSet</code>相比，由于使用了内部位向量表示，因此它是特定 <code>Enum</code> 常量集的非常有效且紧凑的表示形式。</p>
+<p>它提供了类型安全的替代方法，以替代传统的基于int的“位标志”，使我们能够编写更易读和易于维护的简洁代码。</p>
+<p><code>EnumSet</code> 是抽象类，其有两个实现：<code>RegularEnumSet</code> 、<code>JumboEnumSet</code>，选择哪一个取决于实例化时枚举中常量的数量。</p>
+<p>在很多场景中的枚举常量集合操作（如：取子集、增加、删除、<code>containsAll</code>和<code>removeAll</code>批操作）使用<code>EnumSet</code>非常合适；如果需要迭代所有可能的常量则使用<code>Enum.values()</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Pizza</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">EnumSet</span><span class="o">&lt;</span><span class="n">PizzaStatus</span><span class="o">&gt;</span> <span class="n">undeliveredPizzaStatuses</span> <span class="o">=</span>
+      <span class="n">EnumSet</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">PizzaStatus</span><span class="o">.</span><span class="na">ORDERED</span><span class="o">,</span> <span class="n">PizzaStatus</span><span class="o">.</span><span class="na">READY</span><span class="o">);</span>
+
+    <span class="kd">private</span> <span class="n">PizzaStatus</span> <span class="n">status</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kd">enum</span> <span class="n">PizzaStatus</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isDeliverable</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">status</span><span class="o">.</span><span class="na">isReady</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printTimeToDeliver</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Time to delivery is &#34;</span> <span class="o">+</span> 
+          <span class="k">this</span><span class="o">.</span><span class="na">getStatus</span><span class="o">().</span><span class="na">getTimeToDelivery</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34; days&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Pizza</span><span class="o">&gt;</span> <span class="nf">getAllUndeliveredPizzas</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Pizza</span><span class="o">&gt;</span> <span class="n">input</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">input</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">filter</span><span class="o">(</span>
+          <span class="o">(</span><span class="n">s</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">undeliveredPizzaStatuses</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">getStatus</span><span class="o">()))</span>
+            <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">deliver</span><span class="o">()</span> <span class="o">{</span> 
+        <span class="k">if</span> <span class="o">(</span><span class="n">isDeliverable</span><span class="o">())</span> <span class="o">{</span> 
+            <span class="n">PizzaDeliverySystemConfiguration</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getDeliveryStrategy</span><span class="o">()</span>
+              <span class="o">.</span><span class="na">deliver</span><span class="o">(</span><span class="k">this</span><span class="o">);</span> 
+            <span class="k">this</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">PizzaStatus</span><span class="o">.</span><span class="na">DELIVERED</span><span class="o">);</span> 
+        <span class="o">}</span> 
+    <span class="o">}</span>
+
+    <span class="c1">// Methods that set and get the status variable.
+</span><span class="c1"></span><span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>下面的测试演示了展示了 <code>EnumSet</code> 在某些场景下的强大功能：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">givenPizaOrders_whenRetrievingUnDeliveredPzs_thenCorrectlyRetrieved</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Pizza</span><span class="o">&gt;</span> <span class="n">pzList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+    <span class="n">Pizza</span> <span class="n">pz1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pizza</span><span class="o">();</span>
+    <span class="n">pz1</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">Pizza</span><span class="o">.</span><span class="na">PizzaStatus</span><span class="o">.</span><span class="na">DELIVERED</span><span class="o">);</span>
+
+    <span class="n">Pizza</span> <span class="n">pz2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pizza</span><span class="o">();</span>
+    <span class="n">pz2</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">Pizza</span><span class="o">.</span><span class="na">PizzaStatus</span><span class="o">.</span><span class="na">ORDERED</span><span class="o">);</span>
+
+    <span class="n">Pizza</span> <span class="n">pz3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pizza</span><span class="o">();</span>
+    <span class="n">pz3</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">Pizza</span><span class="o">.</span><span class="na">PizzaStatus</span><span class="o">.</span><span class="na">ORDERED</span><span class="o">);</span>
+
+    <span class="n">Pizza</span> <span class="n">pz4</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pizza</span><span class="o">();</span>
+    <span class="n">pz4</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">Pizza</span><span class="o">.</span><span class="na">PizzaStatus</span><span class="o">.</span><span class="na">READY</span><span class="o">);</span>
+
+    <span class="n">pzList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">pz1</span><span class="o">);</span>
+    <span class="n">pzList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">pz2</span><span class="o">);</span>
+    <span class="n">pzList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">pz3</span><span class="o">);</span>
+    <span class="n">pzList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">pz4</span><span class="o">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Pizza</span><span class="o">&gt;</span> <span class="n">undeliveredPzs</span> <span class="o">=</span> <span class="n">Pizza</span><span class="o">.</span><span class="na">getAllUndeliveredPizzas</span><span class="o">(</span><span class="n">pzList</span><span class="o">);</span> 
+    <span class="n">assertTrue</span><span class="o">(</span><span class="n">undeliveredPzs</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="n">3</span><span class="o">);</span> 
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="62-enummap">6.2. EnumMap</h2>
+<p><code>EnumMap</code>是一个专门化的映射实现，用于将枚举常量用作键。与对应的 <code>HashMap</code> 相比，它是一个高效紧凑的实现，并且在内部表示为一个数组:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">EnumMap</span><span class="o">&lt;</span><span class="n">Pizza</span><span class="o">.</span><span class="na">PizzaStatus</span><span class="o">,</span> <span class="n">Pizza</span><span class="o">&gt;</span> <span class="n">map</span><span class="o">;</span><span class="n">Copy</span> <span class="n">to</span> <span class="n">clipboardErrorCopied</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>让我们快速看一个真实的示例，该示例演示如何在实践中使用它：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="n">EnumMap</span><span class="o">&lt;</span><span class="n">PizzaStatus</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Pizza</span><span class="o">&gt;&gt;</span> 
+  <span class="nf">groupPizzaByStatus</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Pizza</span><span class="o">&gt;</span> <span class="n">pizzaList</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">EnumMap</span><span class="o">&lt;</span><span class="n">PizzaStatus</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Pizza</span><span class="o">&gt;&gt;</span> <span class="n">pzByStatus</span> <span class="o">=</span> 
+      <span class="k">new</span> <span class="n">EnumMap</span><span class="o">&lt;</span><span class="n">PizzaStatus</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Pizza</span><span class="o">&gt;&gt;(</span><span class="n">PizzaStatus</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+    <span class="k">for</span> <span class="o">(</span><span class="n">Pizza</span> <span class="n">pz</span> <span class="o">:</span> <span class="n">pizzaList</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">PizzaStatus</span> <span class="n">status</span> <span class="o">=</span> <span class="n">pz</span><span class="o">.</span><span class="na">getStatus</span><span class="o">();</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">pzByStatus</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">status</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">pzByStatus</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">status</span><span class="o">).</span><span class="na">add</span><span class="o">(</span><span class="n">pz</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">List</span><span class="o">&lt;</span><span class="n">Pizza</span><span class="o">&gt;</span> <span class="n">newPzList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Pizza</span><span class="o">&gt;();</span>
+            <span class="n">newPzList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">pz</span><span class="o">);</span>
+            <span class="n">pzByStatus</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">status</span><span class="o">,</span> <span class="n">newPzList</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">pzByStatus</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>下面的测试演示了展示了 <code>EnumMap</code> 在某些场景下的强大功能：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">givenPizaOrders_whenGroupByStatusCalled_thenCorrectlyGrouped</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Pizza</span><span class="o">&gt;</span> <span class="n">pzList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+    <span class="n">Pizza</span> <span class="n">pz1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pizza</span><span class="o">();</span>
+    <span class="n">pz1</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">Pizza</span><span class="o">.</span><span class="na">PizzaStatus</span><span class="o">.</span><span class="na">DELIVERED</span><span class="o">);</span>
+
+    <span class="n">Pizza</span> <span class="n">pz2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pizza</span><span class="o">();</span>
+    <span class="n">pz2</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">Pizza</span><span class="o">.</span><span class="na">PizzaStatus</span><span class="o">.</span><span class="na">ORDERED</span><span class="o">);</span>
+
+    <span class="n">Pizza</span> <span class="n">pz3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pizza</span><span class="o">();</span>
+    <span class="n">pz3</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">Pizza</span><span class="o">.</span><span class="na">PizzaStatus</span><span class="o">.</span><span class="na">ORDERED</span><span class="o">);</span>
+
+    <span class="n">Pizza</span> <span class="n">pz4</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pizza</span><span class="o">();</span>
+    <span class="n">pz4</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">Pizza</span><span class="o">.</span><span class="na">PizzaStatus</span><span class="o">.</span><span class="na">READY</span><span class="o">);</span>
+
+    <span class="n">pzList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">pz1</span><span class="o">);</span>
+    <span class="n">pzList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">pz2</span><span class="o">);</span>
+    <span class="n">pzList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">pz3</span><span class="o">);</span>
+    <span class="n">pzList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">pz4</span><span class="o">);</span>
+
+    <span class="n">EnumMap</span><span class="o">&lt;</span><span class="n">Pizza</span><span class="o">.</span><span class="na">PizzaStatus</span><span class="o">,</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Pizza</span><span class="o">&gt;&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">Pizza</span><span class="o">.</span><span class="na">groupPizzaByStatus</span><span class="o">(</span><span class="n">pzList</span><span class="o">);</span>
+    <span class="n">assertTrue</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">Pizza</span><span class="o">.</span><span class="na">PizzaStatus</span><span class="o">.</span><span class="na">DELIVERED</span><span class="o">).</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="n">1</span><span class="o">);</span>
+    <span class="n">assertTrue</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">Pizza</span><span class="o">.</span><span class="na">PizzaStatus</span><span class="o">.</span><span class="na">ORDERED</span><span class="o">).</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="n">2</span><span class="o">);</span>
+    <span class="n">assertTrue</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">Pizza</span><span class="o">.</span><span class="na">PizzaStatus</span><span class="o">.</span><span class="na">READY</span><span class="o">).</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="n">1</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="7-通过枚举实现一些设计模式">7 通过枚举实现一些设计模式</h1>
+<h2 id="71-单例模式">7.1 单例模式</h2>
+<p>通常，使用类实现 Singleton 模式并非易事，枚举提供了一种实现单例的简便方法。</p>
+<p>《Effective Java 》和《Java与模式》都非常推荐这种方式，使用这种方式方式实现枚举可以有什么好处呢？</p>
+<p>《Effective Java》</p>
+<blockquote>
+<p>这种方法在功能上与公有域方法相近，但是它更加简洁，无偿提供了序列化机制，绝对防止多次实例化，即使是在面对复杂序列化或者反射攻击的时候。虽然这种方法还没有广泛采用，但是单元素的枚举类型已经成为实现 Singleton的最佳方法。 —-《Effective Java 中文版 第二版》</p>
+</blockquote>
+<p>《Java与模式》</p>
+<blockquote>
+<p>《Java与模式》中，作者这样写道，使用枚举来实现单实例控制会更加简洁，而且无偿地提供了序列化机制，并由JVM从根本上提供保障，绝对防止多次实例化，是更简洁、高效、安全的实现单例的方式。</p>
+</blockquote>
+<p>下面的代码段显示了如何使用枚举实现单例模式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">enum</span> <span class="n">PizzaDeliverySystemConfiguration</span> <span class="o">{</span>
+    <span class="n">INSTANCE</span><span class="o">;</span>
+    <span class="n">PizzaDeliverySystemConfiguration</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// Initialization configuration which involves
+</span><span class="c1"></span>        <span class="c1">// overriding defaults like delivery strategy
+</span><span class="c1"></span>    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="n">PizzaDeliveryStrategy</span> <span class="n">deliveryStrategy</span> <span class="o">=</span> <span class="n">PizzaDeliveryStrategy</span><span class="o">.</span><span class="na">NORMAL</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">PizzaDeliverySystemConfiguration</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">INSTANCE</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">PizzaDeliveryStrategy</span> <span class="nf">getDeliveryStrategy</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">deliveryStrategy</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span><span class="n">Copy</span> <span class="n">to</span> <span class="n">clipboardErrorCopied</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如何使用呢？请看下面的代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">PizzaDeliveryStrategy</span> <span class="n">deliveryStrategy</span> <span class="o">=</span> <span class="n">PizzaDeliverySystemConfiguration</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getDeliveryStrategy</span><span class="o">();</span><span class="n">Copy</span> <span class="n">to</span> <span class="n">clipboardErrorCopied</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>通过 <code>PizzaDeliverySystemConfiguration.getInstance()</code> 获取的就是单例的 <code>PizzaDeliverySystemConfiguration</code></p>
+<h2 id="72-策略模式">7.2 策略模式</h2>
+<p>通常，策略模式由不同类实现同一个接口来实现的。</p>
+<p>这也就意味着添加新策略意味着添加新的实现类。使用枚举，可以轻松完成此任务，添加新的实现意味着只定义具有某个实现的另一个实例。</p>
+<p>下面的代码段显示了如何使用枚举实现策略模式：</p>
+<p>下面的代码段显示了如何使用枚举实现策略模式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">enum</span> <span class="n">PizzaDeliveryStrategy</span> <span class="o">{</span>
+    <span class="n">EXPRESS</span> <span class="o">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">deliver</span><span class="o">(</span><span class="n">Pizza</span> <span class="n">pz</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Pizza will be delivered in express mode&#34;</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">},</span>
+    <span class="n">NORMAL</span> <span class="o">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">deliver</span><span class="o">(</span><span class="n">Pizza</span> <span class="n">pz</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Pizza will be delivered in normal mode&#34;</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">};</span>
+
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">deliver</span><span class="o">(</span><span class="n">Pizza</span> <span class="n">pz</span><span class="o">);</span>
+<span class="o">}</span><span class="n">Copy</span> <span class="n">to</span> <span class="n">clipboardErrorCopied</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>给 <code>Pizza</code>增加下面的方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">deliver</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">isDeliverable</span><span class="o">())</span> <span class="o">{</span>
+        <span class="n">PizzaDeliverySystemConfiguration</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getDeliveryStrategy</span><span class="o">()</span>
+          <span class="o">.</span><span class="na">deliver</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">PizzaStatus</span><span class="o">.</span><span class="na">DELIVERED</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span><span class="n">Copy</span> <span class="n">to</span> <span class="n">clipboardErrorCopied</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如何使用呢？请看下面的代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">givenPizaOrder_whenDelivered_thenPizzaGetsDeliveredAndStatusChanges</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">Pizza</span> <span class="n">pz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pizza</span><span class="o">();</span>
+    <span class="n">pz</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">Pizza</span><span class="o">.</span><span class="na">PizzaStatus</span><span class="o">.</span><span class="na">READY</span><span class="o">);</span>
+    <span class="n">pz</span><span class="o">.</span><span class="na">deliver</span><span class="o">();</span>
+    <span class="n">assertTrue</span><span class="o">(</span><span class="n">pz</span><span class="o">.</span><span class="na">getStatus</span><span class="o">()</span> <span class="o">==</span> <span class="n">Pizza</span><span class="o">.</span><span class="na">PizzaStatus</span><span class="o">.</span><span class="na">DELIVERED</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="8-java-8-与枚举">8 Java 8 与枚举</h1>
+<p>Pizza 类可以用Java 8重写，您可以看到方法 lambda 和Stream API如何使 <code>getAllUndeliveredPizzas（）</code>和<code>groupPizzaByStatus（）</code>方法变得如此简洁：</p>
+<p><code>getAllUndeliveredPizzas（）</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Pizza</span><span class="o">&gt;</span> <span class="nf">getAllUndeliveredPizzas</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Pizza</span><span class="o">&gt;</span> <span class="n">input</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">input</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">filter</span><span class="o">(</span>
+      <span class="o">(</span><span class="n">s</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">!</span><span class="n">deliveredPizzaStatuses</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">getStatus</span><span class="o">()))</span>
+        <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+<span class="o">}</span><span class="n">Copy</span> <span class="n">to</span> <span class="n">clipboardErrorCopied</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>groupPizzaByStatus（）</code> :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="n">EnumMap</span><span class="o">&lt;</span><span class="n">PizzaStatus</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Pizza</span><span class="o">&gt;&gt;</span> 
+  <span class="nf">groupPizzaByStatus</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Pizza</span><span class="o">&gt;</span> <span class="n">pzList</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">EnumMap</span><span class="o">&lt;</span><span class="n">PizzaStatus</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Pizza</span><span class="o">&gt;&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">pzList</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">collect</span><span class="o">(</span>
+      <span class="n">Collectors</span><span class="o">.</span><span class="na">groupingBy</span><span class="o">(</span><span class="n">Pizza</span><span class="o">::</span><span class="n">getStatus</span><span class="o">,</span>
+      <span class="o">()</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="n">EnumMap</span><span class="o">&lt;&gt;(</span><span class="n">PizzaStatus</span><span class="o">.</span><span class="na">class</span><span class="o">),</span> <span class="n">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">()));</span>
+    <span class="k">return</span> <span class="n">map</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="9-enum类型的json表现形式">9 Enum类型的JSON表现形式</h1>
+<p>使用Jackson库，可以将枚举类型的JSON表示为POJO。下面的代码段显示了可以用于同一目的的Jackson批注：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@JsonFormat</span><span class="o">(</span><span class="n">shape</span> <span class="o">=</span> <span class="n">JsonFormat</span><span class="o">.</span><span class="na">Shape</span><span class="o">.</span><span class="na">OBJECT</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">enum</span> <span class="n">PizzaStatus</span> <span class="o">{</span>
+    <span class="n">ORDERED</span> <span class="o">(</span><span class="n">5</span><span class="o">){</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isOrdered</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">},</span>
+    <span class="n">READY</span> <span class="o">(</span><span class="n">2</span><span class="o">){</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isReady</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">},</span>
+    <span class="n">DELIVERED</span> <span class="o">(</span><span class="n">0</span><span class="o">){</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isDelivered</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">};</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">timeToDelivery</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isOrdered</span><span class="o">()</span> <span class="o">{</span><span class="k">return</span> <span class="kc">false</span><span class="o">;}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isReady</span><span class="o">()</span> <span class="o">{</span><span class="k">return</span> <span class="kc">false</span><span class="o">;}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isDelivered</span><span class="o">(){</span><span class="k">return</span> <span class="kc">false</span><span class="o">;}</span>
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&#34;timeToDelivery&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getTimeToDelivery</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">timeToDelivery</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="nf">PizzaStatus</span> <span class="o">(</span><span class="kt">int</span> <span class="n">timeToDelivery</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">timeToDelivery</span> <span class="o">=</span> <span class="n">timeToDelivery</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span><span class="n">Copy</span> <span class="n">to</span> <span class="n">clipboardErrorCopied</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>我们可以按如下方式使用 <code>Pizza</code> 和 <code>PizzaStatus</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Pizza</span> <span class="n">pz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pizza</span><span class="o">();</span>
+<span class="n">pz</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="n">Pizza</span><span class="o">.</span><span class="na">PizzaStatus</span><span class="o">.</span><span class="na">READY</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Pizza</span><span class="o">.</span><span class="na">getJsonString</span><span class="o">(</span><span class="n">pz</span><span class="o">));</span><span class="n">Copy</span> <span class="n">to</span> <span class="n">clipboardErrorCopied</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>生成 Pizza 状态以以下JSON展示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;status&#34;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;timeToDelivery&#34;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nt">&#34;ready&#34;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&#34;ordered&#34;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&#34;delivered&#34;</span> <span class="p">:</span> <span class="kc">false</span>
+  <span class="p">},</span>
+  <span class="nt">&#34;deliverable&#34;</span> <span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span><span class="err">Copy</span> <span class="err">to</span> <span class="err">clipboardErrorCopied</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>有关枚举类型的JSON序列化/反序列化（包括自定义）的更多信息，请参阅<a href="https://www.baeldung.com/jackson-serialize-enums">Jackson-将枚举序列化为JSON对象。</a></p>
+<h1 id="10-实例查看">10 实例查看</h1>
+<p>我们在上面讲到了，我们可以通过在枚举类型中定义属性,方法和构造函数让它变得更加强大。</p>
+<p>下面我通过一个实际的例子展示一下，当我们调用短信验证码的时候可能有几种不同的用途，我们在下面这样定义：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">enumDemo</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * @author qqlin
+</span><span class="cm"> * @date 2020-8-14 15:00
+</span><span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">enum</span> <span class="n">PinType</span> <span class="o">{</span>
+
+    <span class="n">REGISTER</span><span class="o">(</span><span class="n">100000</span><span class="o">,</span> <span class="s">&#34;注册使用&#34;</span><span class="o">),</span>
+    <span class="n">FORGET_PASSWORD</span><span class="o">(</span><span class="n">100001</span><span class="o">,</span> <span class="s">&#34;忘记密码使用&#34;</span><span class="o">),</span>
+    <span class="n">UPDATE_PHOME_NUMBER</span><span class="o">(</span><span class="n">100002</span><span class="o">,</span> <span class="s">&#34;更新手机号码使用&#34;</span><span class="o">);</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">code</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">message</span><span class="o">;</span>
+
+    <span class="n">PinType</span><span class="o">(</span><span class="kt">int</span> <span class="n">code</span><span class="o">,</span> <span class="n">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">code</span> <span class="o">=</span> <span class="n">code</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getCode</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">code</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getMessage</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">message</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">&#34;PinType{&#34;</span> <span class="o">+</span>
+                <span class="s">&#34;code=&#34;</span> <span class="o">+</span> <span class="n">code</span> <span class="o">+</span>
+                <span class="s">&#34;, message=&#39;&#34;</span> <span class="o">+</span> <span class="n">message</span> <span class="o">+</span> <span class="sc">&#39;\&#39;&#39;</span> <span class="o">+</span>
+                <span class="sc">&#39;}&#39;</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>实际使用：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">PinType</span><span class="o">.</span><span class="na">FORGET_PASSWORD</span><span class="o">.</span><span class="na">getCode</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">PinType</span><span class="o">.</span><span class="na">FORGET_PASSWORD</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">PinType</span><span class="o">.</span><span class="na">FORGET_PASSWORD</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Output:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">100001</span>
+<span class="n">忘记密码使用</span>
+<span class="n">PinType</span><span class="o">{</span><span class="n">code</span><span class="o">=</span><span class="n">100001</span><span class="o">,</span> <span class="n">message</span><span class="o">=</span><span class="err">&#39;</span><span class="n">忘记密码使用</span><span class="err">&#39;</span><span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这样的话，在实际使用起来就会非常灵活方便！</p>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/java/">java</a>
+          <a href="/tags/%E6%9E%9A%E4%B8%BE/">枚举</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/18.%E9%87%91%E8%9E%8D%E6%B3%95%E5%BE%8B%E6%B3%95%E8%A7%84/">
+            <span class="next-text nav-default">金融法律法规</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:492332435@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/daniel1n" class="iconfont icon-github" title="github"></a>
+  <a href="https://daniel1n.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Daniel1n</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
