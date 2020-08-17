@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JVM on Daniel1n - Welcome to My Blog</title>
+    <link>https://daniel1n.github.io/tags/jvm/</link>
+    <description>Recent content in JVM on Daniel1n - Welcome to My Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 16 Aug 2020 12:45:41 +0800</lastBuildDate>
+    
+	<atom:link href="https://daniel1n.github.io/tags/jvm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Java内存区域详情解</title>
+      <link>https://daniel1n.github.io/post/25.java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E8%AF%A6%E6%83%85%E8%A7%A3/</link>
+      <pubDate>Sun, 16 Aug 2020 12:45:41 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/25.java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E8%AF%A6%E6%83%85%E8%A7%A3/</guid>
+      <description>本文转载自：《可能是把 Java 内存区域讲的最清楚的一篇文章》 写在前面（常见面试题） 基本问题： 介绍下 Java 内存区域（运行时数据区） Java 对象的创建过程（五步</description>
+    </item>
+    
+  </channel>
+</rss>

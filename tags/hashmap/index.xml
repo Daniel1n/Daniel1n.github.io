@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HashMap on Daniel1n - Welcome to My Blog</title>
+    <link>https://daniel1n.github.io/tags/hashmap/</link>
+    <description>Recent content in HashMap on Daniel1n - Welcome to My Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 15 Aug 2020 11:29:33 +0800</lastBuildDate>
+    
+	<atom:link href="https://daniel1n.github.io/tags/hashmap/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>HashMap 的 7 种遍历方式与性能分析</title>
+      <link>https://daniel1n.github.io/post/23.hashmap%E7%9A%84%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Sat, 15 Aug 2020 11:29:33 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/23.hashmap%E7%9A%84%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F/</guid>
+      <description>随着 JDK 1.8 Streams API 的发布，使得 HashMap 拥有了更多的遍历的方式，但应该选择那种遍历方式？反而成了一个问题。 转载自：HashMap 的 7 种遍历方式与性能分析 本</description>
+    </item>
+    
+  </channel>
+</rss>
