@@ -6,7 +6,7 @@
     <description>Recent content in Categories on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 17 Aug 2020 15:51:24 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2020 15:56:13 +0800</lastBuildDate>
     
 	<atom:link href="https://daniel1n.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>JAVA</title>
       <link>https://daniel1n.github.io/categories/java/</link>
-      <pubDate>Mon, 17 Aug 2020 15:51:24 +0800</pubDate>
+      <pubDate>Tue, 18 Aug 2020 15:56:13 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/categories/java/</guid>
       <description></description>
@@ -57,9 +57,9 @@
     </item>
     
     <item>
-      <title>springboot</title>
+      <title>SpringBoot</title>
       <link>https://daniel1n.github.io/categories/springboot/</link>
-      <pubDate>Fri, 29 May 2020 00:25:13 +0800</pubDate>
+      <pubDate>Fri, 29 May 2020 16:58:55 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/categories/springboot/</guid>
       <description></description>
@@ -71,15 +71,6 @@
       <pubDate>Sat, 23 May 2020 09:41:40 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/categories/ssm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Spring Boot</title>
-      <link>https://daniel1n.github.io/categories/spring-boot/</link>
-      <pubDate>Fri, 15 May 2020 12:57:51 +0800</pubDate>
-      
-      <guid>https://daniel1n.github.io/categories/spring-boot/</guid>
       <description></description>
     </item>
     

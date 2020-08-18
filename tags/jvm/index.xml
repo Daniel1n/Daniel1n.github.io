@@ -6,15 +6,42 @@
     <description>Recent content in JVM on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 16 Aug 2020 12:45:41 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2020 15:56:13 +0800</lastBuildDate>
     
 	<atom:link href="https://daniel1n.github.io/tags/jvm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>类加载的具体过程</title>
+      <link>https://daniel1n.github.io/post/28.%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%85%B7%E4%BD%93%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Tue, 18 Aug 2020 15:56:13 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/28.%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%85%B7%E4%BD%93%E8%BF%87%E7%A8%8B/</guid>
+      <description>知道类加载的过程吗？ 一个类的完整生命周期如下： Class 文件需要加载到虚拟机中之后才能运行和使用，那么虚拟机是如何加载这些 Class 文件呢？ 系统加载 Class 类型的</description>
+    </item>
+    
+    <item>
+      <title>类文件结构</title>
+      <link>https://daniel1n.github.io/post/27.%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Tue, 18 Aug 2020 15:29:51 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/27.%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/</guid>
+      <description>概述 在 Java 中，JVM 可以理解的代码就叫做字节码（即扩展名为 .class 的文件），它不面向任何特定的处理器，只面向虚拟机。Java 语言通过字节码的方式，在</description>
+    </item>
+    
+    <item>
+      <title>JVM 垃圾回收</title>
+      <link>https://daniel1n.github.io/post/26.jvm-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6-/</link>
+      <pubDate>Mon, 17 Aug 2020 23:29:27 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/26.jvm-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6-/</guid>
+      <description>本文主要介绍JVM的内存分配以及垃圾回收的相关内容，包括JVM的分代收集算法、判断对象是否死亡、垃圾回收的算法、垃圾回收算法的实现（垃圾收集</description>
+    </item>
+    
+    <item>
       <title>Java内存区域详情解</title>
       <link>https://daniel1n.github.io/post/25.java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E8%AF%A6%E6%83%85%E8%A7%A3/</link>
-      <pubDate>Sun, 16 Aug 2020 12:45:41 +0800</pubDate>
+      <pubDate>Mon, 17 Aug 2020 12:45:41 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/post/25.java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E8%AF%A6%E6%83%85%E8%A7%A3/</guid>
       <description>本文转载自：《可能是把 Java 内存区域讲的最清楚的一篇文章》 写在前面（常见面试题） 基本问题： 介绍下 Java 内存区域（运行时数据区） Java 对象的创建过程（五步</description>
