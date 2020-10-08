@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Daniel1n" /><meta name="description" content="SSM框架整合的基础：Spring，SpringMVC，Mybatis 一、开发流程 1.1 技术选型 前端：HTML、CSS、JavaScript、J" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="Daniel1n" /><meta name="description" content="SSM框架整合的基础：Spring，SpringMVC，Mybatis GitHub：https://github.com/daniel1n/" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.69.2 with theme even" />
+<meta name="generator" content="Hugo 0.75.1 with theme even" />
 
 
 <link rel="canonical" href="https://daniel1n.github.io/post/13.ssm%E6%A1%86%E6%9E%B6/" />
@@ -35,27 +35,28 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="基于SSM框架的电商系统" />
-<meta property="og:description" content="SSM框架整合的基础：Spring，SpringMVC，Mybatis 一、开发流程 1.1 技术选型 前端：HTML、CSS、JavaScript、J" />
+<meta property="og:description" content="SSM框架整合的基础：Spring，SpringMVC，Mybatis GitHub：https://github.com/daniel1n/" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://daniel1n.github.io/post/13.ssm%E6%A1%86%E6%9E%B6/" />
 <meta property="article:published_time" content="2020-05-23T09:41:40+08:00" />
 <meta property="article:modified_time" content="2020-05-23T09:41:40+08:00" />
 <meta itemprop="name" content="基于SSM框架的电商系统">
-<meta itemprop="description" content="SSM框架整合的基础：Spring，SpringMVC，Mybatis 一、开发流程 1.1 技术选型 前端：HTML、CSS、JavaScript、J">
-<meta itemprop="datePublished" content="2020-05-23T09:41:40&#43;08:00" />
-<meta itemprop="dateModified" content="2020-05-23T09:41:40&#43;08:00" />
-<meta itemprop="wordCount" content="60294">
+<meta itemprop="description" content="SSM框架整合的基础：Spring，SpringMVC，Mybatis GitHub：https://github.com/daniel1n/">
+<meta itemprop="datePublished" content="2020-05-23T09:41:40+08:00" />
+<meta itemprop="dateModified" content="2020-05-23T09:41:40+08:00" />
+<meta itemprop="wordCount" content="60338">
 
 
 
-<meta itemprop="keywords" content="Spring Framework,SpringMVC,Mybatis," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Spring Framework,SpringMVC,Mybatis," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="基于SSM框架的电商系统"/>
-<meta name="twitter:description" content="SSM框架整合的基础：Spring，SpringMVC，Mybatis 一、开发流程 1.1 技术选型 前端：HTML、CSS、JavaScript、J"/>
+<meta name="twitter:description" content="SSM框架整合的基础：Spring，SpringMVC，Mybatis GitHub：https://github.com/daniel1n/"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -125,7 +126,7 @@
         <div class="post-category">
             <a href="/categories/ssm/"> SSM </a>
             </div>
-          <span class="more-meta"> 60294 words </span>
+          <span class="more-meta"> 60338 words </span>
           <span class="more-meta"> 121 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -225,6 +226,7 @@
     <div class="post-content">
       <blockquote>
 <p>SSM框架整合的基础：Spring，SpringMVC，Mybatis</p>
+<p>GitHub：https://github.com/daniel1n/SSM_tmall</p>
 </blockquote>
 <h1 id="一开发流程">一、开发流程</h1>
 <h2 id="11-技术选型">1.1 技术选型</h2>
@@ -20604,7 +20606,7 @@ b. 需要登录才能够访问的
  
     <span class="nd">@Override</span>
     <span class="nd">@Transactional</span><span class="o">(</span><span class="n">propagation</span><span class="o">=</span> <span class="n">Propagation</span><span class="o">.</span><span class="na">REQUIRED</span><span class="o">,</span><span class="n">rollbackForClassName</span><span class="o">=</span><span class="s">&#34;Exception&#34;</span><span class="o">)</span>
- 
+
     <span class="kd">public</span> <span class="kt">float</span> <span class="nf">add</span><span class="o">(</span><span class="n">Order</span> <span class="n">o</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">OrderItem</span><span class="o">&gt;</span> <span class="n">ois</span><span class="o">)</span> <span class="o">{</span>
         <span class="kt">float</span> <span class="n">total</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
         <span class="n">add</span><span class="o">(</span><span class="n">o</span><span class="o">);</span>

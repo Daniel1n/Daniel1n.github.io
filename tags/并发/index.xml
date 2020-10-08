@@ -6,11 +6,7 @@
     <description>Recent content in 并发 on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 16 Aug 2020 15:51:24 +0800</lastBuildDate>
-    
-	<atom:link href="https://daniel1n.github.io/tags/%E5%B9%B6%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 16 Aug 2020 15:51:24 +0800</lastBuildDate><atom:link href="https://daniel1n.github.io/tags/%E5%B9%B6%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>深入浅出 Java 多线程</title>
       <link>https://daniel1n.github.io/post/24.%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>

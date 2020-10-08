@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Java on Daniel1n - Welcome to My Blog</title>
+    <title>JAVA on Daniel1n - Welcome to My Blog</title>
     <link>https://daniel1n.github.io/tags/java/</link>
-    <description>Recent content in Java on Daniel1n - Welcome to My Blog</description>
+    <description>Recent content in JAVA on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 18 Aug 2020 15:56:13 +0800</lastBuildDate>
-    
-	<atom:link href="https://daniel1n.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Wed, 19 Aug 2020 16:06:29 +0800</lastBuildDate><atom:link href="https://daniel1n.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JVM 配置常用参数和常用 GC 调优策略</title>
+      <link>https://daniel1n.github.io/post/29.jvm-%E9%85%8D%E7%BD%AE%E5%B8%B8%E7%94%A8%E5%8F%82%E6%95%B0%E5%92%8C%E5%B8%B8%E7%94%A8-gc-%E8%B0%83%E4%BC%98%E7%AD%96%E7%95%A5/</link>
+      <pubDate>Wed, 19 Aug 2020 16:06:29 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/29.jvm-%E9%85%8D%E7%BD%AE%E5%B8%B8%E7%94%A8%E5%8F%82%E6%95%B0%E5%92%8C%E5%B8%B8%E7%94%A8-gc-%E8%B0%83%E4%BC%98%E7%AD%96%E7%95%A5/</guid>
+      <description>JVM 配置常用参数 Java内存区域常见配置参数概览 堆参数； 回收器参数； 项目中常用配置； 常用组合； Java内存区域常见配置参数概览 堆参数 回收器参数</description>
+    </item>
     
     <item>
       <title>类加载的具体过程</title>
@@ -89,7 +94,7 @@
       <pubDate>Mon, 04 May 2020 22:32:33 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/post/java/</guid>
-      <description>第一章 Java程序设计概述 1.1 Java “白皮书”的关键术语 简答性 面向对象 分布式 健壮性 安全性 体系结构中立 可移植性 解释性 高性能 多线程 动态性 1.2 Java applet 与 Internet 用户</description>
+      <description>第1章 Java程序设计概述 1.1 Java “白皮书”的关键术语 简答性 面向对象 分布式 健壮性 安全性 体系结构中立 可移植性 解释性 高性能 多线程 动态性 1.2 Java applet 与 Internet 用户</description>
     </item>
     
     <item>

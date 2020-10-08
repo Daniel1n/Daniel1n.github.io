@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>虚拟机的安装Centos - Daniel1n - Welcome to My Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Daniel1n" /><meta name="description" content="什么是虚拟机？ 所谓的虚拟机，其本质其实也是一个程序。 但是这个程序，模仿了一台完整的主机，一旦进入了这个程序，就放佛进入了另一台独立的电脑似的" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.75.1 with theme even" />
+
+
+<link rel="canonical" href="https://daniel1n.github.io/post/33-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="虚拟机的安装Centos" />
+<meta property="og:description" content="什么是虚拟机？ 所谓的虚拟机，其本质其实也是一个程序。 但是这个程序，模仿了一台完整的主机，一旦进入了这个程序，就放佛进入了另一台独立的电脑似的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://daniel1n.github.io/post/33-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/" />
+<meta property="article:published_time" content="2020-09-14T12:53:38+08:00" />
+<meta property="article:modified_time" content="2020-09-14T12:53:38+08:00" />
+<meta itemprop="name" content="虚拟机的安装Centos">
+<meta itemprop="description" content="什么是虚拟机？ 所谓的虚拟机，其本质其实也是一个程序。 但是这个程序，模仿了一台完整的主机，一旦进入了这个程序，就放佛进入了另一台独立的电脑似的">
+<meta itemprop="datePublished" content="2020-09-14T12:53:38+08:00" />
+<meta itemprop="dateModified" content="2020-09-14T12:53:38+08:00" />
+<meta itemprop="wordCount" content="1452">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="虚拟机的安装Centos"/>
+<meta name="twitter:description" content="什么是虚拟机？ 所谓的虚拟机，其本质其实也是一个程序。 但是这个程序，模仿了一台完整的主机，一旦进入了这个程序，就放佛进入了另一台独立的电脑似的"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Daniel1n</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Daniel1n</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">虚拟机的安装Centos</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-09-14 </span>
+        
+          <span class="more-meta"> 1452 words </span>
+          <span class="more-meta"> 3 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#虚拟机的安装">虚拟机的安装</a>
+      <ul>
+        <li><a href="#1-虚拟机软件">1 虚拟机软件</a></li>
+        <li><a href="#2-关闭hiper-v">2 关闭Hiper-V</a></li>
+        <li><a href="#3-安装centos">3 安装Centos</a></li>
+      </ul>
+    </li>
+    <li><a href="#安装完成后的设置">安装完成后的设置</a>
+      <ul>
+        <li><a href="#1-shh客户端的软件">1 SHH客户端的软件</a></li>
+        <li><a href="#2-端口开放设置">2 端口开放设置</a></li>
+        <li><a href="#3--mysql的安装">3  MYSQL的安装</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>什么是虚拟机？ 所谓的虚拟机，其本质其实也是一个程序。  但是这个程序，模仿了一台完整的主机，一旦进入了这个程序，就放佛进入了另一台独立的电脑似的。 这个“独立的电脑”  有其CPU,内存，硬盘，网络，ip地址等等 独立的资源。 这个所谓的 “独立的电脑” 就是虚拟机啦。</p>
+<p>在这个虚拟机里安装一个Linux 操作系统，与我们花钱在 阿里云上买的 Linux 操作系统的使用，是一样一样的，所以通过在 虚拟机里的Linux ，我们就可以很好地锻炼自己的 Linux 操作技巧。</p>
+</blockquote>
+<h2 id="虚拟机的安装">虚拟机的安装</h2>
+<h3 id="1-虚拟机软件">1 虚拟机软件</h3>
+<p>Windows上的虚拟机软件有好几种，诸如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">VMware 
+VirtualBox
+Microsoft Virtual PC
+</code></pre></td></tr></table>
+</div>
+</div><p>我们选择 VMware ，vmware 官网地址：https://www.vmware.com/</p>
+<h3 id="2-关闭hiper-v">2 关闭Hiper-V</h3>
+<p>如果你是 win10, 那么自带了个虚拟机叫做 Hiper-V. 在安装 VMWare前要把他关闭了，否则会和VMWare有冲突。</p>
+<p>键盘快捷键 <code>win+i</code> ，打开控制面板，点击程序 ，启动或关闭 Windows 功能 。</p>
+<p>找到 Hyper-V, 如果其处于选中状态，把勾选去掉，然后点确认。</p>
+<h3 id="3-安装centos">3 安装Centos</h3>
+<h4 id="31-linux-版本">3.1 Linux 版本</h4>
+<p>Linux 有收费的  红帽： Red Hat</p>
+<p>免费的常见的有： Ubuntu，CentOS，Debian 。</p>
+<p>他们区别大概是：</p>
+<p>Ubuntu 界面好看</p>
+<p>CentOS 文档丰富</p>
+<p>Debian  稳定性强</p>
+<p>我们使用 CentOS 7，作为服务器的系统。</p>
+<h4 id="32--下载-centos-镜像">3.2  下载 CentOS 镜像</h4>
+<p>在 VMWare 中安装操作系统，用的是安装镜像的办法。 CentOS的镜像地址有多个，大家选择一个自己快的安装吧：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">http://mirrors.cn99.com/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso
+http://ftp.sjtu.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso
+http://mirrors.nwsuaf.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso
+http://mirrors.cqu.edu.cn/CentOS/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso
+http://mirrors.163.com/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso
+http://mirrors.aliyun.com/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso
+http://mirrors.neusoft.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso
+http://mirrors.shu.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso
+http://mirrors.tuna.tsinghua.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso
+http://mirror.lzu.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso
+http://mirrors.nju.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso
+http://mirror.jdcloud.com/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso
+http://mirrors.huaweicloud.com/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso
+http://mirrors.zju.edu.cn/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="33-创建虚拟机">3.3 创建虚拟机</h4>
+<ol>
+<li>启动 VMWare， 点击创建新的虚拟机</li>
+<li>选择典型，然后下一步</li>
+<li>选： 稍后安装操作系统， 下一步</li>
+<li>客户机操作系统选择: Linux(L)；
+版本选择： CentOS 7 64 位；
+下一步</li>
+<li>虚拟机名称： CentOS 7 64 位 (2)，位置随机</li>
+<li>使用默认的20G；.
+默认的 将虚拟磁盘拆分成多个文件；
+下一步</li>
+<li>点击自定义硬件
+<ol>
+<li>内存：2G</li>
+<li>使用默认的1个处理器，1核就行了。
+不过： 虚拟化 Intel VT-x/EPT 或者 AMD-V/RVI(V)  必须勾上</li>
+<li>新 CD/DVD （IDE ) ：选择IOS镜像文件</li>
+<li>网络适配器 ：桥接模式</li>
+<li>完成</li>
+</ol>
+</li>
+<li>点击 开启此虚拟机</li>
+<li>鼠标点击进去，然后用键盘选中 Install CentOS 7后回车</li>
+<li>等了好一会儿后，出现安装界面：选择中文和简体中文</li>
+<li>安装信息摘要 ：
+<ol>
+<li>安装位置：什么都别动。。。 点击完成</li>
+<li>网络和主机名：右上角，点成打开，然后点击完成</li>
+<li>点击 开始安装</li>
+</ol>
+</li>
+<li>配置：设置root的密码（个人习惯）</li>
+<li>重启 ，等待</li>
+<li>重启后，就出现重启界面：
+<ol>
+<li>登录账号为：root</li>
+<li>密码为个人设置的密码</li>
+</ol>
+</li>
+<li>查看ip地址，输入 ifconfig</li>
+</ol>
+<h2 id="安装完成后的设置">安装完成后的设置</h2>
+<h3 id="1-shh客户端的软件">1 SHH客户端的软件</h3>
+<p>终端链接有Xshell和SecureCRT</p>
+<p>远程文件传输WinSCP</p>
+<h3 id="2-端口开放设置">2 端口开放设置</h3>
+<p>可以设置常用的：3360到8888的端口，其他主机就可以访问了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@Centos ~<span class="o">]</span><span class="c1"># iptables -I INPUT -p tcp --dport 3360:8888 -j ACCEPT</span>
+<span class="o">[</span>root@Centos ~<span class="o">]</span><span class="c1"># service iptables save</span>
+<span class="o">[</span>root@Centos ~<span class="o">]</span><span class="c1"># service iptables restart</span>
+<span class="o">[</span>root@Centos ~<span class="o">]</span><span class="c1"># iptables -nL #查看规则表，看下添加成功否</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="3--mysql的安装">3  MYSQL的安装</h3>
+<p>可以使用dockers安装mysql 5.7</p>
+<p>也可以直接用yum wget 直接安装</p>
+<ol>
+<li>
+<p>安装wget: <code>yum -y install wget</code></p>
+</li>
+<li>
+<p>安装vim：<code>yum -y install vim</code></p>
+</li>
+<li>
+<p>获取mysql社区版</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">cd</span> /tmp
+wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm  
+rpm -ivh mysql-community-release-el7-5.noarch.rpm  
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://stepimagewm.how2j.cn/6990.png" alt="下载"></p>
+</li>
+<li>
+<p>通过yum进行安装</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">yum install mysql mysql-server mysql-devel -y
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>启动 :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">systemctl start mysql.service
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>验证 :</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">netstat -anp<span class="p">|</span>grep <span class="m">3306</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="7">
+<li>
+<p>设置mysql密码</p>
+<p>通过Yum安装的mysql的管理员账户是没有密码的，这里通过命令设置其密码为 <code>admin</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">mysqladmin -u root password admin
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>登陆验证 : <code>mysql -u root -p admin</code></p>
+</li>
+<li>
+<p>通过本地mysql可视化软件，访问远程mysql</p>
+<ol>
+<li>
+<p>第一步，开放端口，添加3360端口iptables访问规则：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@Centos ~<span class="o">]</span><span class="c1"># iptables -I INPUT -p tcp --dport 3360 -j ACCEPT</span>
+<span class="o">[</span>root@Centos ~<span class="o">]</span><span class="c1"># service iptables save</span>
+<span class="o">[</span>root@Centos ~<span class="o">]</span><span class="c1"># service iptables restart</span>
+<span class="o">[</span>root@Centos ~<span class="o">]</span><span class="c1"># iptables -nL #查看规则表，看下添加成功否</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>第二步，允许mysql被其他主机访问：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">mysql -u root -p admin
+mysql&gt; GRANT ALL PRIVILEGES ON *.* TO <span class="s1">&#39;root&#39;</span>@<span class="s1">&#39;%&#39;</span> IDENTIFIED BY <span class="s1">&#39;youpassword&#39;</span> WITH GRANT OPTION<span class="p">;</span>
+mysql&gt; FLUSH PRIVILEGES<span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>最后，就可以通过 <code>ifconfig</code>，查看ip地址，输入ip、端口号（3360）、用户名、密码，连接mysql</p>
+</li>
+</ol>
+</li>
+</ol>
+
+    </div>
+
+    
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/32.jeecg-boot/">
+            <span class="next-text nav-default">JEECG BOOT 低代码开发平台（前后端分离版本）</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:492332435@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/daniel1n" class="iconfont icon-github" title="github"></a>
+  <a href="https://daniel1n.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Daniel1n</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

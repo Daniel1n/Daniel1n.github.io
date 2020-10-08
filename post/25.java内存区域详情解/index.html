@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.2 with theme even" />
+<meta name="generator" content="Hugo 0.75.1 with theme even" />
 
 
 <link rel="canonical" href="https://daniel1n.github.io/post/25.java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E8%AF%A6%E6%83%85%E8%A7%A3/" />
@@ -35,7 +35,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -47,13 +47,14 @@
 <meta property="article:modified_time" content="2020-08-17T12:45:41+08:00" />
 <meta itemprop="name" content="Java内存区域详情解">
 <meta itemprop="description" content="本文转载自：《可能是把 Java 内存区域讲的最清楚的一篇文章》 写在前面（常见面试题） 基本问题： 介绍下 Java 内存区域（运行时数据区） Java 对象的创建过程（五步">
-<meta itemprop="datePublished" content="2020-08-17T12:45:41&#43;08:00" />
-<meta itemprop="dateModified" content="2020-08-17T12:45:41&#43;08:00" />
-<meta itemprop="wordCount" content="6661">
+<meta itemprop="datePublished" content="2020-08-17T12:45:41+08:00" />
+<meta itemprop="dateModified" content="2020-08-17T12:45:41+08:00" />
+<meta itemprop="wordCount" content="6655">
 
 
 
-<meta itemprop="keywords" content="JVM,java," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="JVM,java," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Java内存区域详情解"/>
 <meta name="twitter:description" content="本文转载自：《可能是把 Java 内存区域讲的最清楚的一篇文章》 写在前面（常见面试题） 基本问题： 介绍下 Java 内存区域（运行时数据区） Java 对象的创建过程（五步"/>
 
@@ -125,7 +126,7 @@
         <div class="post-category">
             <a href="/categories/java/"> JAVA </a>
             </div>
-          <span class="more-meta"> 6661 words </span>
+          <span class="more-meta"> 6655 words </span>
           <span class="more-meta"> 14 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -245,7 +246,7 @@
 <p>运行时常量池是方法区的一部分。Class 文件中除了有类的版本、字段、方法、接口等描述信息外，还有常量池信息（用于存放编译期生成的各种字面量和符号引用）</p>
 <p>既然运行时常量池时方法区的一部分，自然受到方法区内存的限制，当常量池无法再申请到内存时会抛出 OutOfMemoryError 异常。</p>
 <p>既然运行时常量池是方法区的一部分，自然受到方法区内存的限制，当常量池无法再申请到内存时会抛出 OutOfMemoryError 错误。</p>
-<p><del>**JDK1.7 及之后版本的 JVM 已经将运行时常量池从方法区中移了出来，在 Java 堆（Heap）中开辟了一块区域存放运行时常量池。**</del></p>
+<p><del><strong>JDK1.7 及之后版本的 JVM 已经将运行时常量池从方法区中移了出来，在 Java 堆（Heap）中开辟了一块区域存放运行时常量池。</strong></del></p>
 <blockquote>
 <p>修正(<a href="https://github.com/Snailclimb/JavaGuide/issues/747">issue747</a>，<a href="https://blog.csdn.net/q5706503/article/details/84640762">reference</a>)：</p>
 <ol>
@@ -270,7 +271,7 @@
 <p><strong>①类加载检查：</strong> 虚拟机遇到一条 new 指令时，首先将去检查这个指令的参数是否能在常量池中定位到这个类的符号引用，并且检查这个符号引用代表的类是否已被加载过、解析和初始化过。如果没有，那必须先执行相应的类加载过程。</p>
 <p><strong>②分配内存：</strong> 在<strong>类加载检查</strong>通过后，接下来虚拟机将为新生对象<strong>分配内存</strong>。对象所需的内存大小在类加载完成后便可确定，为对象分配空间的任务等同于把一块确定大小的内存从 Java 堆中划分出来。<strong>分配方式</strong>有 <strong>“指针碰撞”</strong> 和 <strong>“空闲列表”</strong> 两种，<strong>选择那种分配方式由 Java 堆是否规整决定，而Java堆是否规整又由所采用的垃圾收集器是否带有压缩整理功能决定</strong>。</p>
 <p><strong>内存分配的两种方式：（补充内容，需要掌握）</strong></p>
-<p>选择以上两种方式中的哪一种，取决于 Java 堆内存是否规整。而 Java 堆内存是否规整，取决于 GC 收集器的算法是&quot;标记-清除&rdquo;，还是&quot;标记-整理&rdquo;（也称作&quot;标记-压缩&rdquo;），值得注意的是，复制算法内存也是规整的</p>
+<p>选择以上两种方式中的哪一种，取决于 Java 堆内存是否规整。而 Java 堆内存是否规整，取决于 GC 收集器的算法是&quot;标记-清除&quot;，还是&quot;标记-整理&quot;（也称作&quot;标记-压缩&quot;），值得注意的是，复制算法内存也是规整的</p>
 <p><a href="https://camo.githubusercontent.com/65fc0c035f1f70081f4dcdd113c3b2c7aa931a2a/68747470733a2f2f757365722d676f6c642d63646e2e786974752e696f2f323031382f382f32322f313635363165353961343061326333643f773d3134323626683d33333326663d706e6726733d3236333436"><img src="https://camo.githubusercontent.com/65fc0c035f1f70081f4dcdd113c3b2c7aa931a2a/68747470733a2f2f757365722d676f6c642d63646e2e786974752e696f2f323031382f382f32322f313635363165353961343061326333643f773d3134323626683d33333326663d706e6726733d3236333436" alt="img"></a></p>
 <p><strong>内存分配并发问题（补充内容，需要掌握）</strong></p>
 <p>在创建对象的时候有一个很重要的问题，就是线程安全，因为在实际开发过程中，创建对象是很频繁的事情，作为虚拟机来说，必须要保证线程是安全的，通常来讲，虚拟机采用两种方式来保证线程安全：</p>
@@ -389,7 +390,7 @@ true
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>解释：</strong></p>
-<p>先有字符串&quot;abc&quot;放入常量池，然后 new 了一份字符串&quot;abc&quot;放入Java堆(字符串常量&quot;abc&quot;在编译期就已经确定放入常量池，而 Java 堆上的&quot;abc&quot;是在运行期初始化阶段才确定)，然后 Java 栈的 str1 指向Java堆上的&quot;abc&rdquo;。</p>
+<p>先有字符串&quot;abc&quot;放入常量池，然后 new 了一份字符串&quot;abc&quot;放入Java堆(字符串常量&quot;abc&quot;在编译期就已经确定放入常量池，而 Java 堆上的&quot;abc&quot;是在运行期初始化阶段才确定)，然后 Java 栈的 str1 指向Java堆上的&quot;abc&quot;。</p>
 <h3 id="8种基本类型的包装类和常量池">8种基本类型的包装类和常量池</h3>
 <ul>
 <li><strong>Java 基本类型的包装类的大部分都实现了常量池技术，即Byte,Short,Integer,Long,Character,Boolean；这5种包装类默认创建了数值[-128，127]的相应类型的缓存数据，但是超出此范围仍然会去创建新的对象。</strong></li>

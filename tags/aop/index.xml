@@ -6,11 +6,7 @@
     <description>Recent content in AOP on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 07 May 2020 17:29:57 +0800</lastBuildDate>
-    
-	<atom:link href="https://daniel1n.github.io/tags/aop/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 07 May 2020 17:29:57 +0800</lastBuildDate><atom:link href="https://daniel1n.github.io/tags/aop/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Spring Framework的AOP编程</title>
       <link>https://daniel1n.github.io/post/5.springblog3/</link>

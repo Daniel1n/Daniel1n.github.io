@@ -6,10 +6,51 @@
     <description>Recent content in Posts on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 18 Aug 2020 15:56:13 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2020 12:53:38 +0800</lastBuildDate><atom:link href="https://daniel1n.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>虚拟机的安装Centos</title>
+      <link>https://daniel1n.github.io/post/33-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</link>
+      <pubDate>Mon, 14 Sep 2020 12:53:38 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/33-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</guid>
+      <description>什么是虚拟机？ 所谓的虚拟机，其本质其实也是一个程序。 但是这个程序，模仿了一台完整的主机，一旦进入了这个程序，就放佛进入了另一台独立的电脑似的</description>
+    </item>
     
-	<atom:link href="https://daniel1n.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JEECG BOOT 低代码开发平台（前后端分离版本）</title>
+      <link>https://daniel1n.github.io/post/32.jeecg-boot/</link>
+      <pubDate>Wed, 02 Sep 2020 09:46:15 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/32.jeecg-boot/</guid>
+      <description>GitHub：https://github.com/zhangdaiscott/jeecg-boot 项目下载和运行 拉取项目代码 1 2 git clone https://github.com/zhangdaiscott/jeecg-boot.git cd jeecg-boot/ant-design-jeecg-vue</description>
+    </item>
     
+    <item>
+      <title>后端程序员必备的 Linux 基础知识</title>
+      <link>https://daniel1n.github.io/post/31.linux%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Wed, 19 Aug 2020 20:18:08 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/31.linux%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <description>初探 Linux 1.1. Linux 简介 类 Unix 系统 ： Linux 是一种自由、开放源码的类似 Unix 的操作系统 Linux 本质是指 Linux 内核 ： 严格来讲，Linux 这个词本身只表示 Linux 内核，单独的 Linux 内核并</description>
+    </item>
+    
+    <item>
+      <title>操作系统</title>
+      <link>https://daniel1n.github.io/post/30.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Wed, 19 Aug 2020 19:22:27 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/30.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</guid>
+      <description>操作系统中的很多思想、很多经典的算法，都可以在我们日常开发使用的各种工具或者框架中找到它们的影子。 高速缓存一般会按照局部性原理（2-8原则）</description>
+    </item>
+    
+    <item>
+      <title>JVM 配置常用参数和常用 GC 调优策略</title>
+      <link>https://daniel1n.github.io/post/29.jvm-%E9%85%8D%E7%BD%AE%E5%B8%B8%E7%94%A8%E5%8F%82%E6%95%B0%E5%92%8C%E5%B8%B8%E7%94%A8-gc-%E8%B0%83%E4%BC%98%E7%AD%96%E7%95%A5/</link>
+      <pubDate>Wed, 19 Aug 2020 16:06:29 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/29.jvm-%E9%85%8D%E7%BD%AE%E5%B8%B8%E7%94%A8%E5%8F%82%E6%95%B0%E5%92%8C%E5%B8%B8%E7%94%A8-gc-%E8%B0%83%E4%BC%98%E7%AD%96%E7%95%A5/</guid>
+      <description>JVM 配置常用参数 Java内存区域常见配置参数概览 堆参数； 回收器参数； 项目中常用配置； 常用组合； Java内存区域常见配置参数概览 堆参数 回收器参数</description>
+    </item>
     
     <item>
       <title>类加载的具体过程</title>
@@ -152,7 +193,7 @@
       <pubDate>Fri, 29 May 2020 00:25:13 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/post/14.springboot%E9%A1%B9%E7%9B%AE/</guid>
-      <description>一、开发流程 1.1 技术选型 前端：HTML、CSS、JavaScript、JSON、Jquery、Ajax、Bootstrap、Vue.js 后端：</description>
+      <description>GitHub: https://github.com/daniel1n/tmall_springboot 一、开发流程 1.1 技术选型 前端：HTML、CSS、JavaScript、JSON、Jquery、Ajax、Bootstrap、Vue.js 后</description>
     </item>
     
     <item>
@@ -161,7 +202,7 @@
       <pubDate>Sat, 23 May 2020 09:41:40 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/post/13.ssm%E6%A1%86%E6%9E%B6/</guid>
-      <description>SSM框架整合的基础：Spring，SpringMVC，Mybatis 一、开发流程 1.1 技术选型 前端：HTML、CSS、JavaScript、J</description>
+      <description>SSM框架整合的基础：Spring，SpringMVC，Mybatis GitHub：https://github.com/daniel1n/</description>
     </item>
     
     <item>
@@ -260,7 +301,7 @@
       <pubDate>Mon, 04 May 2020 22:32:33 +0800</pubDate>
       
       <guid>https://daniel1n.github.io/post/java/</guid>
-      <description>第一章 Java程序设计概述 1.1 Java “白皮书”的关键术语 简答性 面向对象 分布式 健壮性 安全性 体系结构中立 可移植性 解释性 高性能 多线程 动态性 1.2 Java applet 与 Internet 用户</description>
+      <description>第1章 Java程序设计概述 1.1 Java “白皮书”的关键术语 简答性 面向对象 分布式 健壮性 安全性 体系结构中立 可移植性 解释性 高性能 多线程 动态性 1.2 Java applet 与 Internet 用户</description>
     </item>
     
     <item>

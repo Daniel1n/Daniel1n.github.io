@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.2 with theme even" />
+<meta name="generator" content="Hugo 0.75.1 with theme even" />
 
 
 <link rel="canonical" href="https://daniel1n.github.io/post/17.springcloud/" />
@@ -35,7 +35,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -47,13 +47,14 @@
 <meta property="article:modified_time" content="2020-06-16T22:33:59+08:00" />
 <meta itemprop="name" content="基于springcloud框架的项目">
 <meta itemprop="description" content="一、关于分布式和集群 1.1 项目结构 单体结构 一个系统业务量很小的时候所有的代码都放在一个项目中，然后部署在一台服务器上。整个项目所有的服务都由这台">
-<meta itemprop="datePublished" content="2020-06-16T22:33:59&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-16T22:33:59&#43;08:00" />
-<meta itemprop="wordCount" content="22371">
+<meta itemprop="datePublished" content="2020-06-16T22:33:59+08:00" />
+<meta itemprop="dateModified" content="2020-06-16T22:33:59+08:00" />
+<meta itemprop="wordCount" content="22282">
 
 
 
-<meta itemprop="keywords" content="Spring Framework,SpringMVC,springboot,springcloud," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Spring Framework,SpringMVC,springboot,springcloud," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="基于springcloud框架的项目"/>
 <meta name="twitter:description" content="一、关于分布式和集群 1.1 项目结构 单体结构 一个系统业务量很小的时候所有的代码都放在一个项目中，然后部署在一台服务器上。整个项目所有的服务都由这台"/>
 
@@ -125,7 +126,7 @@
         <div class="post-category">
             <a href="/categories/springcloud/"> springcloud </a>
             </div>
-          <span class="more-meta"> 22371 words </span>
+          <span class="more-meta"> 22282 words </span>
           <span class="more-meta"> 45 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -362,6 +363,9 @@
 <li>如何不暴露微服务名称，并提供服务？ <code>Zuul</code> 网关</li>
 </ol>
 <h1 id="二-趋势投资项目">二 、趋势投资项目</h1>
+<blockquote>
+<p>GitHub:https://github.com/daniel1n/trendParentProject</p>
+</blockquote>
 <p><img src="https://stepimagewm.how2j.cn/9883.png" alt="拓扑图点亮    "></p>
 <p><img src="/media/20200616232738.png" alt="20200616232738"></p>
 <h2 id="21-项目的功能介绍">2.1 项目的功能介绍</h2>
@@ -712,24 +716,24 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">spring</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">application</span><span class="p">:</span><span class="w">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">spring</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">application</span><span class="p">:</span><span class="w">
 </span><span class="w">    </span><span class="c"># 表示这个微服务本身的名称</span><span class="w">
-</span><span class="w">    </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>eureka-server<span class="w">
+</span><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">eureka-server</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span><span class="k">eureka</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">instance</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="nt">eureka</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">instance</span><span class="p">:</span><span class="w">
 </span><span class="w">    </span><span class="c"># 表示主机名称。</span><span class="w">
-</span><span class="w">    </span><span class="k">hostname</span><span class="p">:</span><span class="w"> </span>localhost<span class="w">
-</span><span class="w">  </span><span class="k">client</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l">localhost</span><span class="w">
+</span><span class="w">  </span><span class="nt">client</span><span class="p">:</span><span class="w">
 </span><span class="w">    </span><span class="c"># 表示是否注册到服务器。 因为它本身就是服务器，所以就无需把自己注册到服务器了。</span><span class="w">
-</span><span class="w">    </span><span class="k">register-with-eureka</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w">    </span><span class="nt">register-with-eureka</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="w">    </span><span class="c"># 表示是否获取服务器的注册信息，和上面同理，这里也设置为 false。</span><span class="w">
-</span><span class="w">    </span><span class="k">fetch-registry</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w">    </span><span class="nt">fetch-registry</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="w">    </span><span class="c"># 自己作为服务器，公布出来的地址。</span><span class="w">
 </span><span class="w">    </span><span class="c"># 比如后续某个微服务要把自己注册到 eureka server, 那么就要使用这个地址： http://localhost:8761/eureka/</span><span class="w">
-</span><span class="w">    </span><span class="k">service-url</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">defaultZone</span><span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//${eureka.instance.hostname}<span class="p">:</span>${server.port}/eureka/<span class="w">
+</span><span class="w">    </span><span class="nt">service-url</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">defaultZone</span><span class="p">:</span><span class="w"> </span><span class="l">http://${eureka.instance.hostname}:${server.port}/eureka/</span><span class="w">
 </span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
@@ -927,14 +931,14 @@ http://127.0.0.1:8761/</p>
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">spring</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">application</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>third-part-index-data-project<span class="w">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">spring</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">application</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">third-part-index-data-project</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span><span class="k">eureka</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">client</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">service-url</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">defaultZone</span><span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//localhost<span class="p">:</span><span class="m">8761</span>/eureka/<span class="w">
+</span><span class="w"></span><span class="nt">eureka</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">client</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">service-url</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">defaultZone</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8761/eureka/</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><h3 id="staticindexes">static.indexes</h3>
@@ -1214,14 +1218,14 @@ http://127.0.0.1:8761/</p>
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">spring</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">application</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>index-gather-store-service<span class="w">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">spring</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">application</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">index-gather-store-service</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span><span class="k">eureka</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">client</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">service-url</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">defaultZone</span><span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//localhost<span class="p">:</span><span class="m">8761</span>/eureka/<span class="w">
+</span><span class="w"></span><span class="nt">eureka</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">client</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">service-url</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">defaultZone</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8761/eureka/</span><span class="w">
 </span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
@@ -2984,16 +2988,16 @@ http://127.0.0.1:8761/</p>
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">spring</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">application</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>index-codes-service<span class="w">
-</span><span class="w">  </span><span class="k">zipkin</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">base-url</span><span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//localhost<span class="p">:</span><span class="m">9411</span><span class="w">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">spring</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">application</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">index-codes-service</span><span class="w">
+</span><span class="w">  </span><span class="nt">zipkin</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">base-url</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:9411</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span><span class="k">eureka</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">client</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">service-url</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">defaultZone</span><span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//localhost<span class="p">:</span><span class="m">8761</span>/eureka/<span class="w">
+</span><span class="w"></span><span class="nt">eureka</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">client</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">service-url</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">defaultZone</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8761/eureka/</span><span class="w">
 </span><span class="w">      
 </span></code></pre></td></tr></table>
 </div>
@@ -3784,16 +3788,16 @@ http://127.0.0.1:8761/</p>
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">spring</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">application</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>index-data-service<span class="w">
-</span><span class="w">  </span><span class="k">zipkin</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">base-url</span><span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//localhost<span class="p">:</span><span class="m">9411</span><span class="w">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">spring</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">application</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">index-data-service</span><span class="w">
+</span><span class="w">  </span><span class="nt">zipkin</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">base-url</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:9411</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span><span class="k">eureka</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">client</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">service-url</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">defaultZone</span><span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//localhost<span class="p">:</span><span class="m">8761</span>/eureka/<span class="w">
+</span><span class="w"></span><span class="nt">eureka</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">client</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">service-url</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">defaultZone</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8761/eureka/</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><h3 id="config-2">config</h3>
@@ -4451,28 +4455,28 @@ http://127.0.0.1:8761/</p>
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">spring</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">application</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>index-zuul-service<span class="w">
-</span><span class="w">  </span><span class="k">zipkin</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">base-url</span><span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//localhost<span class="p">:</span><span class="m">9411</span><span class="w">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">spring</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">application</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">index-zuul-service</span><span class="w">
+</span><span class="w">  </span><span class="nt">zipkin</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">base-url</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:9411</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span><span class="k">eureka</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">client</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">service-url</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">defaultZone</span><span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//localhost<span class="p">:</span><span class="m">8761</span>/eureka/<span class="w">
+</span><span class="w"></span><span class="nt">eureka</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">client</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">service-url</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">defaultZone</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8761/eureka/</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span><span class="k">zuul</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">routes</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">api-a</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">path</span><span class="p">:</span><span class="w"> </span>/api-codes/<span class="cp">**</span><span class="w">
-</span><span class="w">      </span><span class="k">serviceId</span><span class="p">:</span><span class="w"> </span>INDEX-CODES-SERVICE<span class="w">
-</span><span class="w">    </span><span class="k">api-b</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">path</span><span class="p">:</span><span class="w"> </span>/api-backtest/<span class="cp">**</span><span class="w">
-</span><span class="w">      </span><span class="k">serviceId</span><span class="p">:</span><span class="w"> </span>TREND-TRADING-BACKTEST-SERVICE<span class="w">
-</span><span class="w">    </span><span class="k">api-c</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">path</span><span class="p">:</span><span class="w"> </span>/api-view/<span class="cp">**</span><span class="w">
-</span><span class="w">      </span><span class="k">serviceId</span><span class="p">:</span><span class="w"> </span>TREND-TRADING-BACKTEST-VIEW<span class="w">
+</span><span class="w"></span><span class="nt">zuul</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">routes</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">api-a</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/api-codes/**</span><span class="w">
+</span><span class="w">      </span><span class="nt">serviceId</span><span class="p">:</span><span class="w"> </span><span class="l">INDEX-CODES-SERVICE</span><span class="w">
+</span><span class="w">    </span><span class="nt">api-b</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/api-backtest/**</span><span class="w">
+</span><span class="w">      </span><span class="nt">serviceId</span><span class="p">:</span><span class="w"> </span><span class="l">TREND-TRADING-BACKTEST-SERVICE</span><span class="w">
+</span><span class="w">    </span><span class="nt">api-c</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/api-view/**</span><span class="w">
+</span><span class="w">      </span><span class="nt">serviceId</span><span class="p">:</span><span class="w"> </span><span class="l">TREND-TRADING-BACKTEST-VIEW</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><h2 id="29-模拟回测微服务">2.9 模拟回测微服务</h2>
@@ -4804,27 +4808,27 @@ http://127.0.0.1:8761/</p>
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">spring</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">application</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>trend-trading-backtest-service<span class="w">
-</span><span class="w">  </span><span class="k">zipkin</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">base-url</span><span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//localhost<span class="p">:</span><span class="m">9411</span><span class="w">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">spring</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">application</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">trend-trading-backtest-service</span><span class="w">
+</span><span class="w">  </span><span class="nt">zipkin</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">base-url</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:9411</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span><span class="k">eureka</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">client</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">service-url</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">defaultZone</span><span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//localhost<span class="p">:</span><span class="m">8761</span>/eureka/<span class="w">
+</span><span class="w"></span><span class="nt">eureka</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">client</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">service-url</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">defaultZone</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8761/eureka/</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span><span class="k">feign.hystrix.enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w"></span><span class="nt">feign.hystrix.enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span><span class="k">management</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">endpoints</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">web</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">exposure</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">include</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;*&#34;</span><span class="w">
-</span><span class="w">      </span><span class="k">cors</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">allowed-methods</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;*&#34;</span><span class="w">
-</span><span class="w">        </span><span class="k">allowed-origins</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;*&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">management</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">endpoints</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">web</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">exposure</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">include</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;*&#34;</span><span class="w">
+</span><span class="w">      </span><span class="nt">cors</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">allowed-methods</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;*&#34;</span><span class="w">
+</span><span class="w">        </span><span class="nt">allowed-origins</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;*&#34;</span><span class="w">
 </span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
@@ -6903,29 +6907,29 @@ http://127.0.0.1:8761/</p>
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">spring</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">cloud</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">config</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">label</span><span class="p">:</span><span class="w"> </span>master<span class="w">
-</span><span class="w">      </span><span class="k">profile</span><span class="p">:</span><span class="w"> </span>dev<span class="w">
-</span><span class="w">      </span><span class="k">discovery</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">enabled</span><span class="p">:</span><span class="w">  </span><span class="kc">true</span><span class="w">
-</span><span class="w">        </span><span class="k">serviceId</span><span class="p">:</span><span class="w">  </span>index-config-server<span class="w">
-</span><span class="w">    </span><span class="k">bus</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">      </span><span class="k">trace</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">spring</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">cloud</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">config</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l">master</span><span class="w">
+</span><span class="w">      </span><span class="nt">profile</span><span class="p">:</span><span class="w"> </span><span class="l">dev</span><span class="w">
+</span><span class="w">      </span><span class="nt">discovery</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">enabled</span><span class="p">:</span><span class="w">  </span><span class="kc">true</span><span class="w">
+</span><span class="w">        </span><span class="nt">serviceId</span><span class="p">:</span><span class="w">  </span><span class="l">index-config-server</span><span class="w">
+</span><span class="w">    </span><span class="nt">bus</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span><span class="nt">trace</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="w">        
-</span><span class="w"></span><span class="k">rabbitmq</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">host</span><span class="p">:</span><span class="w"> </span>localhost<span class="w">
-</span><span class="w">  </span><span class="k">port</span><span class="p">:</span><span class="w"> </span><span class="m">5672</span><span class="w">
-</span><span class="w">  </span><span class="k">username</span><span class="p">:</span><span class="w"> </span>guest<span class="w">
-</span><span class="w">  </span><span class="k">password</span><span class="p">:</span><span class="w"> </span>guest<span class="w">
+</span><span class="w"></span><span class="nt">rabbitmq</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l">localhost</span><span class="w">
+</span><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">5672</span><span class="w">
+</span><span class="w">  </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">guest</span><span class="w">
+</span><span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">guest</span><span class="w">
 </span><span class="w">  
-</span><span class="w"></span><span class="k">eureka</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">client</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">serviceUrl</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">defaultZone</span><span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//localhost<span class="p">:</span><span class="m">8761</span>/eureka/<span class="w">
+</span><span class="w"></span><span class="nt">eureka</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">client</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">serviceUrl</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">defaultZone</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8761/eureka/</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><h3 id="applicationyml-7">application.yml</h3>
@@ -6955,28 +6959,28 @@ http://127.0.0.1:8761/</p>
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">spring</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">application</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>trend-trading-backtest-view<span class="w">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">spring</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">application</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">trend-trading-backtest-view</span><span class="w">
 </span><span class="w">    
-</span><span class="w">  </span><span class="k">thymeleaf</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">mode</span><span class="p">:</span><span class="w"> </span>LEGACYHTML5<span class="w">
-</span><span class="w">    </span><span class="k">encoding</span><span class="p">:</span><span class="w"> </span>UTF<span class="m">-8</span><span class="w">
-</span><span class="w">    </span><span class="k">cache</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="w">    </span><span class="k">servlet</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">content-type</span><span class="p">:</span><span class="w"> </span>text/html<span class="w">
+</span><span class="w">  </span><span class="nt">thymeleaf</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l">LEGACYHTML5</span><span class="w">
+</span><span class="w">    </span><span class="nt">encoding</span><span class="p">:</span><span class="w"> </span><span class="l">UTF-8</span><span class="w">
+</span><span class="w">    </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w">    </span><span class="nt">servlet</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">content-type</span><span class="p">:</span><span class="w"> </span><span class="l">text/html</span><span class="w">
 </span><span class="w">      
-</span><span class="w">  </span><span class="k">zipkin</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">base-url</span><span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//localhost<span class="p">:</span><span class="m">9411</span><span class="w">
+</span><span class="w">  </span><span class="nt">zipkin</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">base-url</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:9411</span><span class="w">
 </span><span class="w">    
-</span><span class="w"></span><span class="k">management</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">endpoints</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">web</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">exposure</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">include</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;*&#34;</span><span class="w">
-</span><span class="w">      </span><span class="k">cors</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">allowed-origins</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;*&#34;</span><span class="w">
-</span><span class="w">        </span><span class="k">allowed-methods</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;*&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">management</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">endpoints</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">web</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">exposure</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">include</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;*&#34;</span><span class="w">
+</span><span class="w">      </span><span class="nt">cors</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">allowed-origins</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;*&#34;</span><span class="w">
+</span><span class="w">        </span><span class="nt">allowed-methods</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;*&#34;</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><h3 id="static">static</h3>
@@ -8802,20 +8806,20 @@ http://127.0.0.1:8761/</p>
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">spring</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">application</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>index-config-server<span class="w">
-</span><span class="w">  </span><span class="k">cloud</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">config</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">label</span><span class="p">:</span><span class="w"> </span>master<span class="w">
-</span><span class="w">      </span><span class="k">server</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">git</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="k">uri</span><span class="p">:</span><span class="w"> </span>https<span class="p">:</span>//github.com/daniel1n/trendConfig/<span class="w">
-</span><span class="w">          </span><span class="k">search-paths</span><span class="p">:</span><span class="w"> </span>respo<span class="w">
-</span><span class="w"></span><span class="k">eureka</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">client</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">service-url</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">defaultZone</span><span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//localhost<span class="p">:</span><span class="m">8761</span>/eureka/<span class="w">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">spring</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">application</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">index-config-server</span><span class="w">
+</span><span class="w">  </span><span class="nt">cloud</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">config</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l">master</span><span class="w">
+</span><span class="w">      </span><span class="nt">server</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">git</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l">https://github.com/daniel1n/trendConfig/</span><span class="w">
+</span><span class="w">          </span><span class="nt">search-paths</span><span class="p">:</span><span class="w"> </span><span class="l">respo</span><span class="w">
+</span><span class="w"></span><span class="nt">eureka</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">client</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">service-url</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">defaultZone</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8761/eureka/</span><span class="w">
 </span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
@@ -8993,9 +8997,9 @@ http://127.0.0.1:8761/</p>
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">spring</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">application</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>index-hystrix-dashboard<span class="w">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">spring</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">application</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">index-hystrix-dashboard</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><h2 id="213-断路器聚合监控">2.13 断路器聚合监控</h2>
@@ -9190,20 +9194,20 @@ http://127.0.0.1:8761/</p>
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">spring</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">application</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>index-turbine<span class="w">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">spring</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">application</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">index-turbine</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span><span class="k">turbine</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">aggregator</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">cluster-config</span><span class="p">:</span><span class="w"> </span>default<span class="w">
-</span><span class="w">  </span><span class="k">app-config</span><span class="p">:</span><span class="w"> </span>trend-trading-backtest-service<span class="w"> </span><span class="c"># 配置eureka中的serviceId列表，表明监控哪些服务</span><span class="w">
-</span><span class="w">  </span><span class="k">cluster-name-expression</span><span class="p">:</span><span class="w"> </span>new<span class="w"> </span>String(<span class="s2">&#34;default&#34;</span>)<span class="w">
+</span><span class="w"></span><span class="nt">turbine</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">aggregator</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">cluster-config</span><span class="p">:</span><span class="w"> </span><span class="l">default</span><span class="w">
+</span><span class="w">  </span><span class="nt">app-config</span><span class="p">:</span><span class="w"> </span><span class="l">trend-trading-backtest-service # 配置eureka中的serviceId列表，表明监控哪些服务</span><span class="w">
+</span><span class="w">  </span><span class="nt">cluster-name-expression</span><span class="p">:</span><span class="w"> </span><span class="l">new String(&#34;default&#34;)</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span><span class="k">eureka</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">client</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">service-url</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">defaultZone</span><span class="p">:</span><span class="w"> </span>http<span class="p">:</span>//localhost<span class="p">:</span><span class="m">8761</span>/eureka/<span class="w">
+</span><span class="w"></span><span class="nt">eureka</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">client</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">service-url</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">defaultZone</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8761/eureka/</span><span class="w">
 </span><span class="w">
 </span></code></pre></td></tr></table>
 </div>

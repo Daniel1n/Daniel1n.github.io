@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>操作系统 on Daniel1n - Welcome to My Blog</title>
+    <link>https://daniel1n.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
+    <description>Recent content in 操作系统 on Daniel1n - Welcome to My Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 19 Aug 2020 20:18:08 +0800</lastBuildDate><atom:link href="https://daniel1n.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>后端程序员必备的 Linux 基础知识</title>
+      <link>https://daniel1n.github.io/post/31.linux%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Wed, 19 Aug 2020 20:18:08 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/31.linux%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <description>初探 Linux 1.1. Linux 简介 类 Unix 系统 ： Linux 是一种自由、开放源码的类似 Unix 的操作系统 Linux 本质是指 Linux 内核 ： 严格来讲，Linux 这个词本身只表示 Linux 内核，单独的 Linux 内核并</description>
+    </item>
+    
+    <item>
+      <title>操作系统</title>
+      <link>https://daniel1n.github.io/post/30.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Wed, 19 Aug 2020 19:22:27 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/30.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</guid>
+      <description>操作系统中的很多思想、很多经典的算法，都可以在我们日常开发使用的各种工具或者框架中找到它们的影子。 高速缓存一般会按照局部性原理（2-8原则）</description>
+    </item>
+    
+  </channel>
+</rss>
