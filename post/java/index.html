@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.75.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.2 with theme even" />
 
 
 <link rel="canonical" href="https://daniel1n.github.io/post/java/" />
@@ -35,7 +35,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -47,14 +47,13 @@
 <meta property="article:modified_time" content="2020-05-04T22:32:33+08:00" />
 <meta itemprop="name" content="Java 的核心技术">
 <meta itemprop="description" content="第1章 Java程序设计概述 1.1 Java “白皮书”的关键术语 简答性 面向对象 分布式 健壮性 安全性 体系结构中立 可移植性 解释性 高性能 多线程 动态性 1.2 Java applet 与 Internet 用户">
-<meta itemprop="datePublished" content="2020-05-04T22:32:33+08:00" />
-<meta itemprop="dateModified" content="2020-05-04T22:32:33+08:00" />
-<meta itemprop="wordCount" content="130312">
+<meta itemprop="datePublished" content="2020-05-04T22:32:33&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-04T22:32:33&#43;08:00" />
+<meta itemprop="wordCount" content="130329">
 
 
 
-<meta itemprop="keywords" content="JAVA," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="JAVA," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Java 的核心技术"/>
 <meta name="twitter:description" content="第1章 Java程序设计概述 1.1 Java “白皮书”的关键术语 简答性 面向对象 分布式 健壮性 安全性 体系结构中立 可移植性 解释性 高性能 多线程 动态性 1.2 Java applet 与 Internet 用户"/>
 
@@ -126,7 +125,7 @@
         <div class="post-category">
             <a href="/categories/java/"> Java </a>
             </div>
-          <span class="more-meta"> 130312 words </span>
+          <span class="more-meta"> 130329 words </span>
           <span class="more-meta"> 261 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -14670,7 +14669,7 @@ Content-Length: <span class="m">18391</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>上述代码主要目的是通过RMI提供的相关类，将我们自己的WorldClock实例注册到RMI服务上。RMI的默认端口是1099，最后一步注册服务时通过rebind()指定服务名称为&quot;WorldClock&quot;。</p>
+</div><p>上述代码主要目的是通过RMI提供的相关类，将我们自己的WorldClock实例注册到RMI服务上。RMI的默认端口是1099，最后一步注册服务时通过rebind()指定服务名称为&quot;WorldClock&rdquo;。</p>
 <p>下一步我们就可以编写客户端代码。RMI要求服务器和客户端共享同一个接口，因此我们要把WorldClock.java这个接口文件复制到客户端，然后在客户端实现RMI调用：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -15134,14 +15133,14 @@ Content-Length: <span class="m">18391</span>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">方法名</th>
-<th style="text-align:left">说明</th>
+<th align="left">方法名</th>
+<th align="left">说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">public boolean delete()</td>
-<td style="text-align:left">删除由此抽象路径名表示的文件或目录</td>
+<td align="left">public boolean delete()</td>
+<td align="left">删除由此抽象路径名表示的文件或目录</td>
 </tr>
 </tbody>
 </table>
@@ -15726,26 +15725,26 @@ Content-Length: <span class="m">18391</span>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">方法名</th>
-<th style="text-align:left">说明</th>
-<th style="text-align:left">写入</th>
+<th align="left">方法名</th>
+<th align="left">说明</th>
+<th align="left">写入</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">void write(int b)</td>
-<td style="text-align:left">将指定的字节写入此文件输出</td>
-<td style="text-align:left">一次写一个字节数据</td>
+<td align="left">void write(int b)</td>
+<td align="left">将指定的字节写入此文件输出</td>
+<td align="left">一次写一个字节数据</td>
 </tr>
 <tr>
-<td style="text-align:left">void write(byte[] b)</td>
-<td style="text-align:left">将b.length字节从指定的字节数组写入此文件输出流</td>
-<td style="text-align:left">一次写一个字节数组数据</td>
+<td align="left">void write(byte[] b)</td>
+<td align="left">将b.length字节从指定的字节数组写入此文件输出流</td>
+<td align="left">一次写一个字节数组数据</td>
 </tr>
 <tr>
-<td style="text-align:left">void write(byte[] b, int off, int len)</td>
-<td style="text-align:left">将len字节从指定的字节数组开始，从偏移量off开始写入此文件输出流</td>
-<td style="text-align:left">一次写一个字节数组的部分数据</td>
+<td align="left">void write(byte[] b, int off, int len)</td>
+<td align="left">将len字节从指定的字节数组开始，从偏移量off开始写入此文件输出流</td>
+<td align="left">一次写一个字节数组的部分数据</td>
 </tr>
 </tbody>
 </table>
@@ -17925,29 +17924,12 @@ ISO-8859-1 包含 ASCII</p>
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>Properties作为集合的特有方法：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">方法名</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Object.setProperty(String key, String value)</td>
-<td style="text-align:left">设置集合的键和值，都是String类型，底层调用Hashtable方法put</td>
-</tr>
-<tr>
-<td style="text-align:left">String getProperty(String key)</td>
-<td style="text-align:left">使用此属性列表中指定的键搜索属性</td>
-</tr>
-<tr>
-<td style="text-align:left">Set<!-- raw HTML omitted --> StringPropertyNamees()</td>
-<td style="text-align:left">从该属性列表中返回一个不可修改的键集，其中键及其对应的值是字符串</td>
-</tr>
-</tbody>
-</table>
+</div><p>Properties作为集合的特有方法：
+| 方法名                                       | 说明                                                             |
+| :&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- | :&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; |
+| Object.setProperty(String key, String value) | 设置集合的键和值，都是String类型，底层调用Hashtable方法put       |
+| String getProperty(String key)               | 使用此属性列表中指定的键搜索属性                                 |
+| Set<!-- raw HTML omitted --> StringPropertyNamees()           | 从该属性列表中返回一个不可修改的键集，其中键及其对应的值是字符串 |</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -18004,26 +17986,26 @@ ISO-8859-1 包含 ASCII</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">方法名</th>
-<th style="text-align:left">说明</th>
+<th align="left">方法名</th>
+<th align="left">说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">void load(InputStream inStream)</td>
-<td style="text-align:left">从输入字节流读取属性列表（键和元素对）</td>
+<td align="left">void load(InputStream inStream)</td>
+<td align="left">从输入字节流读取属性列表（键和元素对）</td>
 </tr>
 <tr>
-<td style="text-align:left">void load(Reader reader)</td>
-<td style="text-align:left">从输入字符流读取属性列表（键和元素读对）</td>
+<td align="left">void load(Reader reader)</td>
+<td align="left">从输入字符流读取属性列表（键和元素读对）</td>
 </tr>
 <tr>
-<td style="text-align:left">void store(OutputStream out, String comments)</td>
-<td style="text-align:left">将此属性列表（键和元素对）写入此Properties表中，以适应于使用load(InputStream)方法的格式写入输出字节流</td>
+<td align="left">void store(OutputStream out, String comments)</td>
+<td align="left">将此属性列表（键和元素对）写入此Properties表中，以适应于使用load(InputStream)方法的格式写入输出字节流</td>
 </tr>
 <tr>
-<td style="text-align:left">void store(Writer writer, String comments)</td>
-<td style="text-align:left">将此属性列表（键和元素对）写入此Properties表中，以适合使用load（Reader）方法的格式写入输出字符流</td>
+<td align="left">void store(Writer writer, String comments)</td>
+<td align="left">将此属性列表（键和元素对）写入此Properties表中，以适合使用load（Reader）方法的格式写入输出字符流</td>
 </tr>
 </tbody>
 </table>
@@ -19213,7 +19195,7 @@ if (rs.next()) {
 </div>
 </div><p>XML有几个特点：一是纯文本，默认使用UTF-8编码，二是可嵌套，适合表示结构化数据。如果把XML内容存为文件，那么它就是一个XML文件，例如book.xml。此外，XML内容经常通过网络作为消息传输。</p>
 <h4 id="xml的结构">XML的结构</h4>
-<p>XML有固定的结构，首行必定是<!-- raw HTML omitted -->，可以加上可选的编码。紧接着，如果以类似<!-- raw HTML omitted -->声明的是文档定义类型（DTD：Document Type Definition），DTD是可选的。接下来是XML的文档内容，一个XML文档有且仅有一个根元素，根元素可以包含任意个子元素，元素可以包含属性，例如，<!-- raw HTML omitted -->1234567<!-- raw HTML omitted -->包含一个属性lang=&ldquo;CN&rdquo;，且元素必须正确嵌套。如果是空元素，可以用<!-- raw HTML omitted -->表示。</p>
+<p>XML有固定的结构，首行必定是<!-- raw HTML omitted -->，可以加上可选的编码。紧接着，如果以类似<!-- raw HTML omitted -->声明的是文档定义类型（DTD：Document Type Definition），DTD是可选的。接下来是XML的文档内容，一个XML文档有且仅有一个根元素，根元素可以包含任意个子元素，元素可以包含属性，例如，<!-- raw HTML omitted -->1234567<!-- raw HTML omitted -->包含一个属性lang=&quot;CN&rdquo;，且元素必须正确嵌套。如果是空元素，可以用<!-- raw HTML omitted -->表示。</p>
 <p>由于使用了&lt;、&gt;以及引号等标识符，如果内容出现了特殊符号，需要使用&amp;???;表示转义。例如，Java<!-- raw HTML omitted -->必须写成：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -19447,15 +19429,15 @@ if (rs.next()) {
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">Document: <span class="c1">#document</span>
  Element: book
-  Text: <span class="c1">#text = </span>
+  Text: <span class="c1">#text =</span> 
     
   Element: name
    Text: <span class="c1">#text = Java核心技术</span>
-  Text: <span class="c1">#text = </span>
+  Text: <span class="c1">#text =</span> 
     
   Element: author
    Text: <span class="c1">#text = Cay S. Horstmann</span>
-  Text: <span class="c1">#text = </span>
+  Text: <span class="c1">#text =</span> 
   ...
 </code></pre></td></tr></table>
 </div>
@@ -21406,7 +21388,8 @@ findbugs-maven-plugin：对Java源码进行静态分析以找出潜在问题。
 
   <span class="copyright-year">
     &copy; 
-    2020
+    2020 - 
+    2021
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

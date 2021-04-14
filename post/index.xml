@@ -6,7 +6,20 @@
     <description>Recent content in Posts on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 14 Sep 2020 12:53:38 +0800</lastBuildDate><atom:link href="https://daniel1n.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Apr 2021 16:21:13 +0800</lastBuildDate>
+    
+	<atom:link href="https://daniel1n.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>hadoop集群搭建</title>
+      <link>https://daniel1n.github.io/post/34-hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Wed, 14 Apr 2021 16:21:13 +0800</pubDate>
+      
+      <guid>https://daniel1n.github.io/post/34-hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
+      <description>一、部署hadoop集群 1.1 集群准备 克隆2台虚拟机完成后：新的2台虚拟机，请务必依次修改3台虚拟机的ip地址和主机名称【建议三台主机名称依次叫</description>
+    </item>
+    
     <item>
       <title>虚拟机的安装Centos</title>
       <link>https://daniel1n.github.io/post/33-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</link>

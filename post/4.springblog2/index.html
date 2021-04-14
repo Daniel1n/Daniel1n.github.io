@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.75.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.2 with theme even" />
 
 
 <link rel="canonical" href="https://daniel1n.github.io/post/4.springblog2/" />
@@ -35,7 +35,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -47,14 +47,13 @@
 <meta property="article:modified_time" content="2020-05-06T16:48:48+08:00" />
 <meta itemprop="name" content="Spring Framework 基于注解的IOC配置">
 <meta itemprop="description" content="第一章 常用注解 1.1 用于创建对象的 相当于：&lt;bean id=&quot;&quot; class=&quot;&quot;&gt; 1.1.1 @Component 作用： 把资源让 spring 来管理。相当于在 xml 中配置一个 bean。 属性： value：指定 bean">
-<meta itemprop="datePublished" content="2020-05-06T16:48:48+08:00" />
-<meta itemprop="dateModified" content="2020-05-06T16:48:48+08:00" />
+<meta itemprop="datePublished" content="2020-05-06T16:48:48&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-06T16:48:48&#43;08:00" />
 <meta itemprop="wordCount" content="2598">
 
 
 
-<meta itemprop="keywords" content="Spring Framework,注解,IOC," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Spring Framework,注解,IOC," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spring Framework 基于注解的IOC配置"/>
 <meta name="twitter:description" content="第一章 常用注解 1.1 用于创建对象的 相当于：&lt;bean id=&quot;&quot; class=&quot;&quot;&gt; 1.1.1 @Component 作用： 把资源让 spring 来管理。相当于在 xml 中配置一个 bean。 属性： value：指定 bean"/>
 
@@ -274,41 +273,41 @@ XML 的优势：
 <table>
 <thead>
 <tr>
-<th style="text-align:left"></th>
-<th style="text-align:left">基于XML配置</th>
-<th style="text-align:left">基于注解配置</th>
+<th align="left"></th>
+<th align="left">基于XML配置</th>
+<th align="left">基于注解配置</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">Bean定义</td>
-<td style="text-align:left">&lt;bean id=&quot;&hellip;&quot; class=&quot;&hellip;&gt;</td>
-<td style="text-align:left">@Component 衍生类@Repository <!-- raw HTML omitted --> @Service @Controller</td>
+<td align="left">Bean定义</td>
+<td align="left">&lt;bean id=&rdquo;&hellip;&rdquo; class=&rdquo;&hellip;&gt;</td>
+<td align="left">@Component 衍生类@Repository <!-- raw HTML omitted --> @Service @Controller</td>
 </tr>
 <tr>
-<td style="text-align:left">Bean名称</td>
-<td style="text-align:left">通过id或name指定</td>
-<td style="text-align:left">@Component(&ldquo;person&rdquo;)</td>
+<td align="left">Bean名称</td>
+<td align="left">通过id或name指定</td>
+<td align="left">@Component(&ldquo;person&rdquo;)</td>
 </tr>
 <tr>
-<td style="text-align:left">Bean注入</td>
-<td style="text-align:left">&lt; property &gt;或者通过p命名空间</td>
-<td style="text-align:left">@Autowired按类型注入<!-- raw HTML omitted --> @Qualifier按名称注入</td>
+<td align="left">Bean注入</td>
+<td align="left">&lt; property &gt;或者通过p命名空间</td>
+<td align="left">@Autowired按类型注入<!-- raw HTML omitted --> @Qualifier按名称注入</td>
 </tr>
 <tr>
-<td style="text-align:left">生命过程</td>
-<td style="text-align:left">init-method<!-- raw HTML omitted --> destroy-method</td>
-<td style="text-align:left">@PostConstruct初始化<!-- raw HTML omitted -->@PerDestroy 销毁</td>
+<td align="left">生命过程</td>
+<td align="left">init-method<!-- raw HTML omitted --> destroy-method</td>
+<td align="left">@PostConstruct初始化<!-- raw HTML omitted -->@PerDestroy 销毁</td>
 </tr>
 <tr>
-<td style="text-align:left">Bean作用范围</td>
-<td style="text-align:left">范围scpoe属性</td>
-<td style="text-align:left">@Scope设置作用范围</td>
+<td align="left">Bean作用范围</td>
+<td align="left">范围scpoe属性</td>
+<td align="left">@Scope设置作用范围</td>
 </tr>
 <tr>
-<td style="text-align:left">适用场景</td>
-<td style="text-align:left">Bean来自第三方，使用其他</td>
-<td style="text-align:left">Bean的实现类由用户自己开发</td>
+<td align="left">适用场景</td>
+<td align="left">Bean来自第三方，使用其他</td>
+<td align="left">Bean的实现类由用户自己开发</td>
 </tr>
 </tbody>
 </table>
@@ -733,7 +732,8 @@ spring-aop-5.0.2.RELEASE.JAR
 
   <span class="copyright-year">
     &copy; 
-    2020
+    2020 - 
+    2021
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

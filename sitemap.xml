@@ -3,14 +3,21 @@
   
   <url>
     <loc>https://daniel1n.github.io/</loc>
-    <lastmod>2020-09-14T12:53:38+08:00</lastmod>
+    <lastmod>2021-04-14T16:21:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://daniel1n.github.io/post/34-hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2021-04-14T16:21:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://daniel1n.github.io/post/</loc>
-    <lastmod>2020-09-14T12:53:38+08:00</lastmod>
+    <lastmod>2021-04-14T16:21:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -275,6 +282,13 @@
   </url>
   
   <url>
+    <loc>https://daniel1n.github.io/categories/spring/</loc>
+    <lastmod>2020-06-16T22:33:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://daniel1n.github.io/tags/spring-framework/</loc>
     <lastmod>2020-06-16T22:33:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -381,13 +395,6 @@
   
   <url>
     <loc>https://daniel1n.github.io/post/12.spring%E4%B8%ADautowired%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2020-05-16T22:54:59+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://daniel1n.github.io/categories/spring/</loc>
     <lastmod>2020-05-16T22:54:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

@@ -6,7 +6,11 @@
     <description>Recent content in 枚举 on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 14 Aug 2020 14:25:48 +0800</lastBuildDate><atom:link href="https://daniel1n.github.io/tags/%E6%9E%9A%E4%B8%BE/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Aug 2020 14:25:48 +0800</lastBuildDate>
+    
+	<atom:link href="https://daniel1n.github.io/tags/%E6%9E%9A%E4%B8%BE/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>枚举Enum的基本使用</title>
       <link>https://daniel1n.github.io/post/20.enum/</link>

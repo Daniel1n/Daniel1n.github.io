@@ -6,7 +6,11 @@
     <description>Recent content in 计算机基础 on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 19 Aug 2020 20:18:08 +0800</lastBuildDate><atom:link href="https://daniel1n.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Aug 2020 20:18:08 +0800</lastBuildDate>
+    
+	<atom:link href="https://daniel1n.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>后端程序员必备的 Linux 基础知识</title>
       <link>https://daniel1n.github.io/post/31.linux%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>

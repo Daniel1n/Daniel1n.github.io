@@ -6,7 +6,11 @@
     <description>Recent content in JAD on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 14 Aug 2020 16:09:57 +0800</lastBuildDate><atom:link href="https://daniel1n.github.io/tags/jad/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Aug 2020 16:09:57 +0800</lastBuildDate>
+    
+	<atom:link href="https://daniel1n.github.io/tags/jad/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>JAD反编译</title>
       <link>https://daniel1n.github.io/post/22.%E5%8F%8D%E7%BC%96%E8%AF%91/</link>

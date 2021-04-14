@@ -6,7 +6,11 @@
     <description>Recent content in Tags on Daniel1n - Welcome to My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 19 Aug 2020 20:18:08 +0800</lastBuildDate><atom:link href="https://daniel1n.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Aug 2020 20:18:08 +0800</lastBuildDate>
+    
+	<atom:link href="https://daniel1n.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>linux</title>
       <link>https://daniel1n.github.io/tags/linux/</link>
